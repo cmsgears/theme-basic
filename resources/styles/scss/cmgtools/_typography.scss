@@ -1,0 +1,79 @@
+/**********************************************************************
+Description: The default text elements styles for CMGTools.
+Dependencies: variables, mixins
+***********************************************************************/
+
+// Base Font Size
+body {
+    font-family: $font-default;
+    font-size: 12px;
+
+    @include responsive-min( screen-mobile-large ) {
+        font-size: 14px;
+    }
+
+    @include responsive-min( screen-desktop-small ) {
+        font-size: 16px;
+    }
+
+    @include responsive-min( screen-desktop-large ) {
+        font-size: 18px;
+    }
+}
+
+// Headers Font Size
+
+h1 {
+    @include font-size( $font-size-1 );
+}
+
+h2 {
+    @include font-size( $font-size-2 );
+}
+
+h3 {
+    @include font-size( $font-size-3 );
+}
+
+h4 {
+    @include font-size( $font-size-4 );
+}
+
+h5 {
+    @include font-size( $font-size-5 );
+}
+
+h6 {
+    @include font-size( $font-size-6 );
+}
+
+%default-header {
+    font-weight: bold;
+    verticle-align: middle;
+    padding: 0.25em 0;  
+}
+
+h1, h2, h3, h4, h5, h6, .default-header {
+    @extend %default-header;
+}
+
+// Text Elements
+
+p, span, em, div, a {
+    @include font-size( $font-size-7 );  
+}
+
+// Anchor Fix
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:focus {
+    outline: none;
+}
+
+a:active, a:hover {
+    outline: 0;
+}

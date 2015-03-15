@@ -1,0 +1,19 @@
+/**********************************************************************
+Description: It defines the default table styles available in CMGTools.
+Dependencies: variables, mixins
+***********************************************************************/
+
+table {
+    border-collapse: collapse; 
+    border-spacing: 0;
+}
+
+th {
+    font-weight: bold; 
+    vertical-align: middle;
+}
+
+td {
+    font-weight: normal; 
+    vertical-align: middle;
+}

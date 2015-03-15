@@ -1,0 +1,21 @@
+// Colors
+$color-primary: #FFFFFF;
+$color-primary-l: lighten( $color-primary, $color-factor );
+$color-primary-d: darken( $color-primary, $color-factor );
+$color-primary-text: #d6d6d6;
+$color-primary-text-l: lighten( $color-primary-text, $color-factor );
+$color-primary-text-d: darken( $color-primary-text, $color-factor );
+$color-secondary: #d6d6d6;
+$color-secondary-l: lighten( $color-secondary, $color-factor );
+$color-secondary-d: darken( $color-secondary, $color-factor );
+$color-secondary-text: #FFFFFF;
+$color-secondary-text-l: lighten( $color-secondary-text, $color-factor );
+$color-secondary-text-d: darken( $color-secondary-text, $color-factor );
+
+$color-header: #231f20;
+
+$color-quote-bkg: #f2f2f2;
+$color-quote-heading: #454545;
+
+$color-transparent-black: rgba(0, 0, 0, 0.6);
+$color-transparent-gray: rgba(72, 72, 72, 0.6);

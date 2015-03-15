@@ -1,0 +1,114 @@
+.header-public {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 10;
+    @include transit-all( $transit-eio, $transit-time-small, $delay: 0s );
+
+    .row {
+        width: 80%;
+    }
+
+    .logo {
+        height: 60px;
+    }
+    
+    &.header-small {
+        background-color: rgba( 128, 128, 128, 0.85 );
+
+        .logo {
+            height: 35px;
+        }
+        
+        .nav-main, .btn {
+            margin-top: 0px;
+        }
+    }
+
+    .nav-main {
+        float: right;
+        margin-top: 14px;
+
+        li {
+            display: inline-block;
+            float: left;
+            padding: 4px 20px;
+            background-color: $color-primary;
+            @include transit-all( $transit-eio, $transit-time-small, $delay: 0s );
+
+            a {
+                color: $color-secondary-d;
+                font-family: roboto-light;
+            }
+        }
+
+        li:hover {
+            background-color: $color-secondary-d;
+
+            a {
+                color: $color-primary;
+            }
+        }
+    }
+
+    .btn {
+        font-family: roboto-black;
+        padding: 4px 0px;
+        margin-top: 14px;
+    }
+    
+    .row-desktop {
+        display: none;
+    }
+
+    @include responsive-max( screen-tablet-large ) {
+
+        .wrap-logo {
+            text-align: center;
+        }
+        
+        .logo {
+            height: 35px;
+            margin-top: 5px;
+        }
+        
+        .fa-list {
+            cursor: pointer;
+        }
+
+        .wrap-login-btn {
+            float: right;
+            width: 100px;
+        }
+
+        .btn {
+            margin-top: 0px;
+        }
+        
+        .nav-main {
+            background-color: $color-primary;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .nav-main li {
+            float: none;
+        }
+        
+        .nav-main {
+            display: none;
+        }
+    }
+
+    @include responsive-min( screen-tablet-large ) {
+
+        .row-mobile {
+            display: none;
+        }
+        
+        .row-desktop {
+            display: block;
+        }
+    }
+}

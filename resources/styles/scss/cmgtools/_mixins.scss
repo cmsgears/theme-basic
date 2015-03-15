@@ -1,0 +1,461 @@
+/**********************************************************************
+Description: The mixins used by CMGTools. It define the default classes for mixins available within CMGTools.
+Dependencies: variables, variables-ext
+***********************************************************************/
+
+// Clearfix
+%clearfix {
+    zoom: 1;
+
+    &:before, &:after {
+        content: "\0020"; 
+        display: block; 
+        height: 0; 
+        overflow: hidden;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+// Font Size
+@mixin font-size( $size ) {
+    font-size: $size;
+    -ms-text-size-adjust: $size;
+    -webkit-text-size-adjust: $size;
+}
+
+// Opacity
+@mixin opaque( $value ) {
+    zoom: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha( Opacity = " + $value*100 + " )";
+    -moz-opacity: $value;
+    -khtml-opacity: $value;
+    filter: alpha( opacity = $value*100 );
+    opacity: $value;
+}
+
+// Round Corners
+@mixin rounded( $radius ) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+    -khtml-border-radius: $radius;
+}
+
+@mixin rounded-top( $radius ) {
+    -moz-border-radius-top-left: $radius;       -moz-border-radius-top-right: $radius;
+    -webkit-border-radius-top-left: $radius;    -webkit-border-radius-top-right: $radius;
+    border-radius: $radius $radius 0 0;
+    -khtml-border-radius-top-left: $radius;     -khtml-border-radius-top-right: $radius;
+}
+
+@mixin rounded-right( $radius ) {
+    -moz-border-radius-top-right: $radius;      -moz-border-radius-bottom-right: $radius;
+    -webkit-border-radius-top-right: $radius;   -webkit-border-radius-bottom-right: $radius;
+    border-radius: 0 $radius $radius 0;
+    -khtml-border-radius-top-right: $radius;    -khtml-border-radius-bottom-right: $radius;
+}
+
+@mixin rounded-bottom( $radius ) {
+    -moz-border-radius-bottom-left: $radius;      -moz-border-radius-bottom-right: $radius;
+    -webkit-border-radius-bottom-left: $radius;   -webkit-border-radius-bottom-right: $radius;
+    border-radius: 0 0 $radius $radius;
+    -khtml-border-radius-bottom-left: $radius;    -khtml-border-radius-bottom-right: $radius;
+}
+
+@mixin rounded-left( $radius ) {
+    -moz-border-radius-top-left: $radius;      -moz-border-radius-bottom-left: $radius;
+    -webkit-border-radius-top-left: $radius;   -webkit-border-radius-bottom-left: $radius;
+    border-radius: $radius $radius 0 0;
+    -khtml-border-radius-top-left: $radius;    -khtml-border-radius-bottom-left: $radius;
+}
+
+// Circled - Style having border radius 100% and child elements aligned at center position
+@mixin circled1( $bkg-color ) {
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    background-color: $bkg-color;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+    -khtml-border-radius: 100%;
+}
+
+// Circled - Style having border radius 50% with fixed height and width without child consideration
+@mixin circled2( $width, $height, $bkg-color ) {
+    width: $width;
+    height: $height;
+    background: $bkg-color;
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%; 
+    border-radius: 50%;
+}
+
+// Circled - Style having border radius 50% and responsive without child consideration
+@mixin circled3( $bkg-color, $pad: 50% ) {
+    width: 50%;
+    height:0;
+    background-color: $bkg-color;
+    padding-bottom: $pad;
+    -moz-border-radius: 50%; 
+    -webkit-border-radius: 50%; 
+    border-radius: 50%;
+}
+
+// Circled - Style having border radius 50% and responsive considering a child div positioned at center of circle
+@mixin circled-text( $bkg-color, $txt-color, $pad1: 100%, $pad2: 50% ) {
+    width: 50%;
+
+    &:after {
+        width: 100%;
+        height: 0;
+        background-color: $bkg-color;
+        content: "";
+        display: block;
+        padding-bottom: $pad1;
+        -moz-border-radius: 50%; 
+        -webkit-border-radius: 50%; 
+        border-radius: 50%;
+    }
+
+    div {
+        float: left;
+        width: 100%;
+        padding-top: $pad2;
+        line-height: 1em;
+        margin-top: -0.5em;
+        text-align: center;
+        color: $txt-color;
+    }
+}
+
+// Box Shadow with x and y distance having blur ratio and color of shadow
+@mixin shadow( $x, $y, $blur, $color ) {
+    -webkit-box-shadow: $x $y $blur $color;
+    -moz-box-shadow: $x $y $blur $color;
+    box-shadow: $x $y $blur $color;
+}
+
+// Linear Gradient
+@mixin linear-gradient( $from, $to ) {
+    background-color: $to;
+    background-image: -moz-linear-gradient( $from, $to );
+    background-image: -o-linear-gradient( $from, $to );
+    background-image: -webkit-gradient( linear, left top, left bottom, color-stop( 0, $from ), color-stop( 1, $to ) );
+    background-image: -webkit-linear-gradient( $from, $to );
+    background-image: -ms-linear-gradient( $from, $to );
+    background-image: linear-gradient( $from, $to );
+}
+
+// Vertically Align Center
+@mixin valign-center {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY( -50% );
+      -ms-transform: translateY( -50% );
+        transform: translateY( -50% );
+}
+
+// Max area box
+%max-area {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+}
+
+@mixin max-area() {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+}
+
+@mixin max-area-transparent( $r: 0, $g: 0, $b: 0, $a: 0.6 ) {
+      @include max-area;
+      background-color: rgba( $r, $g, $b, $a );
+}
+
+// Backgrounds
+@mixin bkg-with-tile {
+    background-repeat: repeat;
+}
+
+@mixin bkg-with-image {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position: 50% 50%9 !important;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+
+// Mixins Default implementation ***********************
+
+.font-size-100 {
+    @include font-size( 100% );
+}
+
+// Opacity
+
+.opaque-25 {
+    @include opaque( 0.25 );
+}
+
+.opaque-50 {
+    @include opaque( 0.50 );
+}
+
+.opaque-75 {
+    @include opaque( 0.75 );
+}
+
+// Round Corners
+.rounded-top {
+    @include rounded-top( $radius-default );  
+}
+
+.rounded-right {
+    @include rounded-right( $radius-default );  
+}
+
+.rounded-bottom {
+    @include rounded-bottom( $radius-default );  
+}
+
+.rounded-left {
+    @include rounded-left( $radius-default );  
+}
+
+// Circled
+.circled1 {
+    @include circled1( $color-secondary );
+}
+
+.circled2 {
+    @include circled2( 250px, 250px, $color-secondary );
+}
+
+.circled3 {
+    @include circled3( $color-secondary );
+}
+
+.circled-text {
+    @include circled-text( $color-secondary, $color-secondary-text );
+}
+
+// Shadow
+.shadow {
+    @include shadow( 0, 0, 0.5, $color-secondary );
+}
+
+// Gradients
+.linear-gradient {
+    @include linear-gradient( $color-primary, $color-secondary );
+}
+
+// Vertically center alignment
+.valign-center {
+    @include valign-center;
+}
+
+// Max Area
+.max-area {
+    @include max-area;  
+}
+
+.max-area-transparent {
+    @include max-area-transparent;
+}
+
+.bkg-with-tile {
+    @include bkg-with-tile;  
+}
+
+.bkg-with-image {
+    @include bkg-with-image;
+}
+
+// Medial Queries **************************************
+
+@mixin responsive( $width ) {
+  
+    @if $width == screen-mobile-small {
+  
+        @media only screen and ( min-width: $screen-mobile-small ) {
+            @content;
+        }
+    }
+  
+    @else if $width == screen-mobile-large {
+  
+        @media only screen and ( min-width: $screen-mobile-small + 1 ) and ( max-width: $screen-mobile-large ) {
+            @content;
+        }
+    }
+    
+    @else if $width == screen-tablet-small {
+  
+        @media only screen and ( min-width: $screen-mobile-large + 1 ) and ( max-width: $screen-tablet-small ) {
+            @content;
+        }
+    }
+    
+    @else if $width == screen-tablet-large {
+  
+        @media only screen and ( min-width: $screen-tablet-small + 1 ) and ( max-width: $screen-tablet-large ) {
+            @content;
+        }
+    }
+    
+    @else if $width == screen-desktop-small {
+  
+        @media only screen and ( min-width: $screen-tablet-large + 1 ) and ( max-width: $screen-desktop-small ) {
+            @content;
+        }
+    }
+    
+    @else if $width == screen-desktop-medium {
+  
+        @media only screen and ( min-width: $screen-desktop-small + 1 ) and ( max-width: $screen-desktop-medium ) {
+            @content;
+        }
+    }
+    
+    @else if $width == screen-desktop-large {
+  
+        @media only screen and ( min-width: $screen-desktop-medium + 1 ) and ( max-width: $screen-desktop-large ) {
+            @content;
+        }
+    }
+    
+    @else if $width == screen-desktop-xlarge {
+  
+        @media only screen and ( min-width: $screen-desktop-large + 1 ) and ( max-width: $screen-desktop-xlarge ) {
+            @content;
+        }
+    }
+ }
+
+@mixin responsive-max( $width ) {
+  
+    @if $width == screen-mobile-small {
+  
+        @media only screen and ( max-width: $screen-mobile-small ) {
+            @content;
+        }
+    }
+  
+    @else if $width == screen-mobile-large {
+  
+        @media only screen and ( max-width: $screen-mobile-large ) {
+            @content;
+        }
+    }
+    
+    @else if $width == screen-tablet-small {
+  
+        @media only screen and ( max-width: $screen-tablet-small ) {
+            @content;
+        }
+    }
+    
+    @else if $width == screen-tablet-large {
+  
+        @media only screen and ( max-width: $screen-tablet-large ) {
+            @content;
+        }
+    }
+    
+    @else if $width == screen-desktop-small {
+  
+        @media only screen and ( max-width: $screen-desktop-small ) {
+            @content;
+        }
+    }
+    
+    @else if $width == screen-desktop-medium {
+  
+        @media only screen and ( max-width: $screen-desktop-medium ) {
+            @content;
+        }
+    }
+    
+    @else if $width == screen-desktop-large {
+  
+        @media only screen and ( max-width: $screen-desktop-large ) {
+            @content;
+        }
+    }
+    
+    @else if $width == screen-desktop-xlarge {
+  
+        @media only screen and ( max-width: $screen-desktop-xlarge ) {
+            @content;
+        }
+    }
+}
+
+@mixin responsive-min( $width ) {
+  
+    @if $width == screen-mobile-small {
+  
+        @media only screen and ( min-width: $screen-mobile-small + 1 ) {
+            @content;
+        }
+    }
+  
+    @else if $width == screen-mobile-large {
+  
+        @media only screen and ( min-width: $screen-mobile-large + 1 ) {
+            @content;
+        }
+    }
+    
+    @else if $width == screen-tablet-small {
+  
+        @media only screen and ( min-width: $screen-tablet-small + 1 ) {
+            @content;
+        }
+    }
+    
+    @else if $width == screen-tablet-large {
+  
+        @media only screen and ( min-width: $screen-tablet-large + 1 ) {
+            @content;
+        }
+    }
+    
+    @else if $width == screen-desktop-small {
+  
+        @media only screen and ( min-width: $screen-desktop-small + 1 ) {
+           @content;
+        }
+    }
+    
+    @else if $width == screen-desktop-medium {
+  
+        @media only screen and ( min-width: $screen-desktop-medium + 1 ) {
+            @content;
+        }
+    }
+    
+    @else if $width == screen-desktop-large {
+  
+        @media only screen and ( min-width: $screen-desktop-large + 1 ) {
+            @content;
+        }
+    }
+    
+    @else if $width == screen-desktop-xlarge {
+  
+        @media only screen and ( min-width: $screen-desktop-xlarge + 1 ) {
+            @content;
+        }
+    }
+ }

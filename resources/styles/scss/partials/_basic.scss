@@ -1,0 +1,42 @@
+// Textures
+%textures {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.texture-default {
+    @extend %textures;
+    background-image: url( ../images/texture-default.png );
+}
+
+.texture-wall {
+    @extend %textures;
+    background-image: url( ../images/texture-wall.png );
+}
+
+// Custom Icons
+.icon-room {
+    width: 60px;
+    height: 50px;
+    background-image: url("../images/room-icons.png");
+    background-repeat: none;
+    background-position: 0px 0px;
+    display: inline-block;
+}
+
+.icon-room-movie {
+  background-position: -60px 0px;
+}
+
+.icon-room-game {
+  background-position: -120px 0px;
+}
+
+.help-block {
+    display: inline-block;
+    width: 100%;
+    font-size: $font-size-8;
+    color: $color-error;
+    margin-bottom: 5px;
+}

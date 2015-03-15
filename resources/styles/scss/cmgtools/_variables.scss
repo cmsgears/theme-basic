@@ -1,0 +1,89 @@
+// Description: The variables used by CMGTools.
+// Dependency: none
+
+$version: '1.0.0';
+
+$images-path: '../images/';
+
+// Default Fonts
+$font-default: 'sans serif';
+$font-headings: 'sans serif';
+$font-code: 'courier new', monospace;
+
+// Various font sizes
+$font-size-1: 2.5em;
+$font-size-2: 2.25em;
+$font-size-3: 2.00em;
+$font-size-4: 1.75em;
+$font-size-5: 1.50em;
+$font-size-6: 1.25em;
+$font-size-7: 1em;
+$font-size-8: 0.75em;
+$font-size-9: 0.65em;
+
+// Standard screen sizes
+$screen-mobile-small: 320px;
+$screen-mobile-large: 480px;
+$screen-tablet-small: 768px;
+$screen-tablet-large: 1024px;
+$screen-desktop-small: 1280px;
+$screen-desktop-medium: 1360px;
+$screen-desktop-large: 1600px;
+$screen-desktop-xlarge: 1920px;
+
+// Colors - The color factor darken or lighten the color having -d and -l suffixes. The colors can be used as background color and text for colors having text.
+$color-factor: 30%;
+$color-primary: #1b2c46;
+$color-primary-l: lighten( $color-primary, $color-factor );
+$color-primary-d: darken( $color-primary, $color-factor );
+$color-primary-text: #FFFFFF;
+$color-primary-text-l: lighten( $color-primary-text, $color-factor );
+$color-primary-text-d: darken( $color-primary-text, $color-factor );
+$color-secondary: #CCC;
+$color-secondary-l: lighten( $color-secondary, $color-factor );
+$color-secondary-d: darken( $color-secondary, $color-factor );
+$color-secondary-text: #FFFFFF;
+$color-secondary-text-l: lighten( $color-secondary-text, $color-factor );
+$color-secondary-text-d: darken( $color-secondary-text, $color-factor );
+$color-tertiary: #F55856;
+$color-tertiary-l: lighten( $color-tertiary, $color-factor );
+$color-tertiary-d: darken( $color-tertiary, $color-factor );
+$color-tertiary-text: #FFFFFF;
+$color-tertiary-text-l: lighten( $color-tertiary-text, $color-factor );
+$color-tertiary-text-d: darken( $color-tertiary-text, $color-factor );
+
+$color-error: red;
+$color-warning: #800020;
+$color-success: green;
+
+$color-transparent-black: rgba(0, 0, 0, 0.6);
+$color-transparent-gray: rgba(72, 72, 72, 0.6);
+
+/*
+Color Palatte:
+1. primary: #{$color-primary}
+2. primary text: #{$color-primary-text}
+3. primary light: #{$color-primary-l}
+4. primary text light: #{$color-primary-text-l}
+5. primary dark: #{$color-primary-d}
+6. primary text dark: #{$color-primary-text-d}
+7. secondary: #{$color-secondary}
+8. secondary text: #{$color-secondary-text}
+9. secondary light: #{$color-secondary-l}
+10. secondary text light: #{$color-secondary-text-l}
+11. secondary dark: #{$color-secondary-d}
+12. secondary text dark: #{$color-secondary-text-d}
+13. tertiary: #{$color-tertiary}
+14. tertiary text: #{$color-tertiary-text}
+15. tertiary light: #{$color-tertiary-l}
+16. tertiary text light: #{$color-tertiary-text-l}
+17. tertiary dark: #{$color-tertiary-d}
+18. tertiary text dark: #{$color-tertiary-text-d}
+ */
+
+// Shadow Colors
+$shadow-color-default: rgba( 0, 0, 0, 0.2 );
+$shadow-color-error: rgba( 255, 0, 0, 0.2 );
+
+// Others
+$radius-default: 5px;
