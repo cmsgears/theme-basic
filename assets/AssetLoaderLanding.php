@@ -20,7 +20,6 @@ class AssetLoaderLanding extends AssetBundle {
 		// Load CSS
  
 	    $this->css     = [
-	    		"styles/vendor/jquery.mCustomScrollbar.css",
 	            "styles/landing.css"
 	    ];
 
@@ -29,7 +28,6 @@ class AssetLoaderLanding extends AssetBundle {
 	    $this->js      = [
             "scripts/vendor/condi-jqui-jqeasing.js",
             "conditionizr/detects/ie6-ie7-ie8-ie9.js",
-            "scripts/vendor/jquery.mCustomScrollbar.js",
             "scripts/vendor/imagesloaded.pkgd.min.js",
             "scripts/cmgtools/cmg-ajax-processor.js",
             "scripts/cmgtools/cmg-modules.js",

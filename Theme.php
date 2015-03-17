@@ -1,13 +1,13 @@
 <?php
-namespace cmsgears\themes\basic\frontend;
+namespace themes\basic;
 
 use \Yii;
 
 class Theme extends \yii\base\Theme {
 
     public $pathMap = [
-        '@frontend/views' => '@cmsgears/themes/basic/frontend/views',
-        '@cmsgears/modules' => '@cmsgears/themes/basic/frontend/modules/cmg'
+        '@frontend/views' => '@themes/basic/views',
+        '@frontend/modules' => '@themes/basic/modules'
     ];
 
     public function init() {
@@ -15,6 +15,6 @@ class Theme extends \yii\base\Theme {
         parent::init();
 
 		// The path for images directly accessed using the img tag 
-		Yii::setAlias( "@images", "@web/assets/images" );
+		Yii::setAlias( "@images", "@web/images" );
     }
 }
