@@ -14,7 +14,7 @@ class Theme extends \yii\base\Theme {
 
         parent::init();
 
-		// The path for images directly accessed using the img tag 
+		// The path for pre-defined images (logo etc) directly accessed using the img tag and placed within the frontend/web/images directory.
 		Yii::setAlias( "@images", "@web/images" );
     }
 }

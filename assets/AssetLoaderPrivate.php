@@ -5,7 +5,7 @@ namespace themes\basic\assets;
 use yii\web\AssetBundle;
 use yii\web\View;
 
-class AssetLoaderLanding extends AssetBundle {
+class AssetLoaderPrivate extends AssetBundle {
 
 	// Constructor and Initialisation ------------------------------
 
@@ -19,7 +19,7 @@ class AssetLoaderLanding extends AssetBundle {
 
 		// Load CSS
 	    $this->css     = [
-	            "styles/landing.css"
+	            "styles/private.css"
 	    ];
 
 		// Load Javascript
@@ -31,7 +31,7 @@ class AssetLoaderLanding extends AssetBundle {
             "scripts/cmgtools/cmg-modules.js",
             "scripts/cmgtools/cmg-utilities.js",
             "scripts/main.js",
-            "scripts/landing.js"
+            "scripts/private.js"
 	    ];
 
 		// Define the Position to load Assets
