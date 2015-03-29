@@ -12,30 +12,24 @@
 @import "vendor/font-awesome/stacked";
 @import "vendor/font-awesome/icons";
 
-// CMG Tools
-@import "cmgtools/variables";
+// CMG Tools with Theme Variables
+@import "cmg-partials/core/variables";
 // Override default variables
-@import "partials/fonts";
-@import "partials/variables";
-@import "cmgtools/variables-ext";
-@import "partials/variables-ext";
-@import "cmgtools/mixins";
-@import "cmgtools/transitions";
-@import "cmgtools/reset";
-@import "cmgtools/basic";
-@import "cmgtools/typography";
-@import "cmgtools/containers";
-@import "cmgtools/forms";
-@import "cmgtools/modules";
-@import "cmgtools/fa-extension";
+@import "partials/core/fonts";
+@import "partials/core/variables";
+@import "cmg-partials/core/variables-ext";
+@import "partials/core/variables-ext";
+@import "cmg-partials/core/mixins";
+@import "cmg-partials/core/transitions";
+@import "cmg-partials/core/reset";
+@import "cmg-partials/core/basic";
+@import "cmg-partials/core/typography";
+@import "cmg-partials/core/containers";
+@import "cmg-partials/elements/forms";
 
-// Chateroid
-@import "partials/mixins";
-@import "partials/basic";
-@import "partials/typography";
-@import "partials/forms";
-@import "partials/containers";
-@import "partials/components";
-@import "partials/header";
-@import "partials/footers";
-@import "partials/modules";
+// Theme - Basic
+@import "partials/core/basic";
+@import "partials/core/containers";
+@import "partials/elements/forms";
+@import "partials/components/headers";
+@import "partials/components/footers";

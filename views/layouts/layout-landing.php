@@ -1,5 +1,5 @@
 <?php
-use cmsgears\themes\basic\frontend\assets\AssetLoaderLanding;
+use themes\basic\assets\AssetLoaderLanding;
 
 AssetLoaderLanding::register( $this );
 
@@ -13,9 +13,9 @@ $coreProperties = $this->context->getCoreProperties();
     </head>
     <body>
         <?php $this->beginBody(); ?>
-		<div id='pre-loader' class="max-area-spinner"><div class="valign-center fa fa-5x fa-spinner fa-spin"></div></div>
+		<div id='pre-loader-page' class="max-area-cover"><div class="valign-center fa fa-5x fa-spinner fa-spin"></div></div>
+		<?php include dirname( __FILE__ ) . "/header-landing.php"; ?>
         <div class="container-main">
-	        <?php include dirname( __FILE__ ) . "/header-landing.php"; ?>
 	        <div class="wrap-content">
 	        	<?= $content ?>
 	        </div>

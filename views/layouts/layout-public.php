@@ -1,9 +1,8 @@
 <?php
-use cmsgears\themes\basic\frontend\assets\AssetLoaderPublic;
+use themes\basic\assets\AssetLoaderPublic;
 
 AssetLoaderPublic::register( $this );
 
-// for CMS Purpose
 $coreProperties = $this->context->getCoreProperties();
 ?>
 <?php $this->beginPage(); ?>
@@ -14,9 +13,9 @@ $coreProperties = $this->context->getCoreProperties();
     </head>
     <body>
         <?php $this->beginBody(); ?>
-		<div id='pre-loader' class="max-area-spinner"><div class="valign-center fa fa-5x fa-spinner fa-spin"></div></div>
+		<div id='pre-loader-page' class="max-area-cover"><div class="valign-center fa fa-5x fa-spinner fa-spin"></div></div>
+		<?php include dirname( __FILE__ ) . "/header-public.php"; ?>
         <div class="container-main">
-	        <?php include dirname( __FILE__ ) . "/header-public.php"; ?>
 	        <div class="wrap-content">
 	        	<?= $content ?>
 	        </div>

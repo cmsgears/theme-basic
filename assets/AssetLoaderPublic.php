@@ -2,6 +2,7 @@
 namespace themes\basic\assets;
 
 // Yii Imports
+use \Yii;
 use yii\web\AssetBundle;
 use yii\web\View;
 
@@ -19,15 +20,16 @@ class AssetLoaderPublic extends AssetBundle {
 
 		// Load CSS
 	    $this->css     = [
-	            "styles/public.css"
+			"styles/public.css"
 	    ];
 
 		// Load Javascript
 	    $this->js      = [
-            "scripts/vendor/conditionizr.min.js",
+            "scripts/vendor/conditionizr-4.4.0.min.js",
             "conditionizr/detects/ie6-ie7-ie8-ie9.js",
-            "scripts/vendor/imagesloaded.pkgd.min.js",
+            "scripts/vendor/imagesloaded.pkgd-3.1.8.min.js",
             "scripts/cmgtools/cmg-modules.js",
+            "scripts/cmgtools/cmg-utilities.js",
             "scripts/main.js"
 	    ];
 
@@ -40,6 +42,30 @@ class AssetLoaderPublic extends AssetBundle {
 	    $this->depends = [
 			'yii\web\JqueryAsset'
 	    ];
+	}
+
+	public function registerAssetFiles( $view ) {
+
+		parent::registerAssetFiles( $view );
+
+		$inlineScript	= "conditionizr.config({
+			assets: 'conditionizr/resources/',
+		        tests: {
+		        ie6: [ 'script', 'style', 'class' ],
+		        ie7: [ 'script', 'style', 'class' ],
+		        ie8: [ 'script', 'style', 'class' ]
+		        }
+		    });
+
+    		conditionizr.polyfill( 'scripts/vendor/html5shiv.min.js', [ 'ie6', 'ie7', 'ie8' ] );
+    		conditionizr.polyfill( 'scripts/vendor/respond.min.js', [ 'ie6', 'ie7', 'ie8' ] );";
+    
+    	//$siteUrl = "var siteUrl = '" . Yii::$app->homeUrl . "';
+					//var fileUploadUrl = '" . Yii::$app->homeUrl . "apix/file/file-handler';";
+
+		$view->registerJs( $inlineScript, View::POS_READY );
+		
+		//$view->registerJs( $siteUrl, View::POS_END );
 	}
 }
 

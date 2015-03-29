@@ -1,0 +1,104 @@
+.header-public {
+    background-color: $color-secondary;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+
+    .nav-main {
+        text-align: right;
+
+        li {
+            list-style: none;
+            display: inline-block;
+            width: 100px;
+            height: 45px;
+            margin-top: 35px;
+            text-align: center;
+            line-height: 45px;
+            @include transit-bkg-color( $transit-eio, $transit-time-small );
+            
+            a {
+                display: inline-block;
+                width: 100px;
+                color: white;
+            }
+
+            &:hover {
+                background-color: $color-secondary-l;
+            } 
+        }
+    }
+
+    .header-desktop {
+        width: 80%;
+        margin: 0 auto;
+
+        .logo {
+            height: 60px;
+            margin: 10px;       
+        }
+
+        #btn-login {
+            height: 26px;
+            line-height: 26px;
+            margin: 0;
+            margin-top: 35px;
+            width: 120px;
+            float: right;
+            cursor: pointer;
+        }
+    }
+
+    .header-mobile {
+        display: none;
+        text-align: center;
+
+        #btn-mobile-menu {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            cursor: pointer;
+            display: inline-block;
+            color: $color-secondary-text;
+        }
+
+        .logo {
+            height: 40px;
+            margin: 5px;
+        }
+
+        #btn-login-mobile {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            cursor: pointer;
+            color: $color-secondary-text;
+        }
+    }
+
+    @include responsive-max( screen-tablet-large ) {
+
+        .nav-main {
+            display: none;
+
+            li {
+                width: 100%;
+                height: 35px;
+                margin: 0;
+                line-height: 35px;
+
+                a {
+                    width: 100%;
+                }
+            }
+        }
+
+        .header-desktop {
+            display: none;
+        }
+
+        .header-mobile {
+            display: block;
+        }
+    }
+}

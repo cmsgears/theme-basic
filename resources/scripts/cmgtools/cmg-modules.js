@@ -10,6 +10,7 @@
 		var settings 		= cmg.extend( {}, cmg.fn.cmgPageModules.defaults, options );
 		var modules			= this;
 		var screenHeight	= cmg( window ).height();
+		var screenWidth		= cmg( window ).width();
 		var modulesArr		= settings.modules;
 		var modulesKeys		= Object.keys( modulesArr );
 
@@ -40,24 +41,63 @@
 				module.css( { 'height': screenHeight + "px" } );
 			}
 
+			// Process in case module specific extra settings are provided
 			if( cmg.inArray( module.attr( "id" ), modulesKeys ) >= 0 ) {
 
-				var moduleSettings	= modulesArr[ module.attr( "id" ) ];
-				var fullHeight 		= moduleSettings[ "fullHeight" ];
-				var css 			= moduleSettings[ "css" ];
+				var moduleSettings		= modulesArr[ module.attr( "id" ) ];
+				var seperator			= moduleSettings[ "seperator" ];
+				var seperatorHeight		= 0;
+				var fullHeight 			= moduleSettings[ "fullHeight" ];
+				var height				= moduleSettings[ "height" ];
+				var heightAutoMobile	= moduleSettings[ "heightAutoMobile" ];
+				var heightAutoWidth		= moduleSettings[ "heightAutoWidth" ];
+				var css 				= moduleSettings[ "css" ];
 
-				if( fullHeight ) {
+				// Check whether module seperator is required
+				if( null != seperator && seperator ) {
 
-					module.css( { 'min-height': screenHeight + "px" } );
+					seperatorHeight = module.children( ".seperator" ).height();
 				}
 
-				module.css( css );
+				// Check whether full height is required
+				if( null != fullHeight && fullHeight ) {
+
+					module.css( { 'min-height': ( screenHeight - seperatorHeight ) + "px" } );
+				}
+
+				// Check whether pre-defined height is required
+				if( null != height && height ) {
+
+					module.css( { 'height': ( height - seperatorHeight ) + "px" } );
+				}
+
+				// Check whether min height and height auto is required for mobile to handle overlapped content
+				if( null != heightAutoMobile && heightAutoMobile ) {
+
+					if( screenWidth <= heightAutoWidth ) {
+
+						module.css( { 'height': 'auto', 'min-height': screenHeight + "px" } );
+
+						var contentWrap = module.children( ".module-wrap-content" );
+
+						if( contentWrap.hasClass( "valign-center" ) ) {
+
+							contentWrap.removeClass( "valign-center" );
+						}
+					}
+				}
+
+				// Check whether additional css is required
+				if( null != css && css ) {
+
+					module.css( css );
+				}
 			}
 		}
 
 		// Initialise parallax
 		function scrollBackground() {
-			
+
 			var winHeight 	= cmg( window ).height();
 		    var winTop 		= cmg( window ).scrollTop();
 		    var winBottom 	= winTop + winHeight;
@@ -93,7 +133,16 @@
 		// Controls
 		fullHeight: true,
 		backgroundParallax: true,
-		modules: {}
+		modules: {
+			/* An array of Modules which need extra configuration. Ex:
+			defaultModule: {
+				seperator: true
+				fullHeight: true, // Set either full height or height
+				height: 250,
+				css: { color: 'white' }
+			}
+			*/
+		}
 	};
 
 }( jQuery ) );
