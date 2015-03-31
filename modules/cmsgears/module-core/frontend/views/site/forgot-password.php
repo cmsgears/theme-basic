@@ -5,12 +5,12 @@ use yii\widgets\ActiveForm;
 $coreProperties = $this->context->getCoreProperties();
 $this->title 	= $coreProperties->getSiteTitle() . " | Forgot Password";
 ?>
-<section class="module module-public">
+<section class="module module-basic" id="module-public">
 	<div class="module-bkg"></div>
-	<div class="texture-default"></div>
-	<div class="module-wrap-content">
+	<div class="texture texture1"></div>
+	<div class="module-wrap-content valign-center">
 		<div class="module-header">
-			<h1 class="align-middle">Forgot Password</h1>
+			<h1 class="align-middle">FORGOT PASSWORD</h1>
 		</div>
 		<div class="module-content">
 	    	<?php if( Yii::$app->session->hasFlash( "success" ) ) { ?>
@@ -18,11 +18,11 @@ $this->title 	= $coreProperties->getSiteTitle() . " | Forgot Password";
 			<?php
 				}
 				else {
-	
-	        		$form = ActiveForm::begin( [ 'id' => 'frm-forgot-password', 'options' => [ 'class' => 'frm-medium' ] ] ); 
+
+	        		$form = ActiveForm::begin( [ 'id' => 'frm-forgot-password' ] ); 
 	        ?>
 		        	<?= $form->field( $model, 'email' )->textInput( [ 'placeholder' => 'Email*' ] )->label( false ) ?>
-	
+
 					<input type="submit" value="Submit" />
 	        <?php 
 	        		ActiveForm::end();

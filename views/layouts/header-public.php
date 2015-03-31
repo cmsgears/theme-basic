@@ -9,7 +9,6 @@ use yii\helpers\Html;
 		<div class="colf12x8">
 			<ul class="nav-main">
 	            <li><?=Html::a( "Home", [ '/' ], null )?></li>
-	            <li><?=Html::a( "About", [ '/about' ], null )?></li>
 	            <li><?=Html::a( "Contact", [ '/contact' ], null )?></li>
 	            <li><?=Html::a( "Login", [ '/login' ], null )?></li>
 	            <li><?=Html::a( "Register", [ '/register' ], null )?></li>
@@ -21,9 +20,8 @@ use yii\helpers\Html;
 			<span class="fa fa-3x fa-list"></span>
 		</div>
 		<?=Html::a( "<img class='logo' src='" . Yii::getAlias( '@images' ) . "/logo.png'>", [ '/' ], null )?>
-		<ul class="nav-main">
+		<ul class="nav-main" id='nav-mobile'>
 	        <li><?=Html::a( "Home", [ '/' ], null )?></li>
-	        <li><?=Html::a( "About", [ '/about' ], null )?></li>
 	        <li><?=Html::a( "Contact", [ '/contact' ], null )?></li>
 	        <li><?=Html::a( "Login", [ '/login' ], null )?></li>
 	        <li><?=Html::a( "Register", [ '/register' ], null )?></li>

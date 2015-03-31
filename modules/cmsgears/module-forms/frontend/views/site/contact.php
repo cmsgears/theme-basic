@@ -1,16 +1,17 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\captcha\Captcha;
 
 $coreProperties = $this->context->getCoreProperties();
-$this->title 	= $coreProperties->getSiteTitle() . " | Contact";
+$this->title 	= $coreProperties->getSiteTitle() . " | Login";
 ?>
-<section class="module module-public">
+<section class="module module-basic" id="module-public">
 	<div class="module-bkg"></div>
-	<div class="texture-default"></div>
-	<div class="module-wrap-content">
+	<div class="texture texture1"></div>
+	<div class="module-wrap-content valign-center">
 		<div class="module-header">
-			<h1 class="align-middle">Contact</h1>
+			<h1 class="align-middle">CONTACT US</h1>
 		</div>
 		<div class="module-content">
 	    	<?php if( Yii::$app->session->hasFlash( "success" ) ) { ?>
@@ -19,14 +20,16 @@ $this->title 	= $coreProperties->getSiteTitle() . " | Contact";
 				}
 				else {
 	
-	        		$form = ActiveForm::begin( [ 'id' => 'frm-contact', 'options' => [ 'class' => 'frm-medium' ] ] ); 
+	        		$form = ActiveForm::begin( [ 'id' => 'frm-contact' ] ); 
 	        ?>
-	
+
 	            	<?= $form->field( $model, 'name' )->textInput( [ 'placeholder' => 'Name*' ] )->label( false ) ?>
 	            	<?= $form->field( $model, 'email' )->textInput( [ 'placeholder' => 'Email*' ] )->label( false ) ?>
 	            	<?= $form->field( $model, 'subject' )->textInput( [ 'placeholder' => 'Subject*' ] )->label( false ) ?>
 	            	<?= $form->field( $model, 'message' )->textArea( [ 'placeholder' => 'Message*', 'rows' => 6 ] )->label( false ) ?>
-	
+
+					<?= $form->field( $model, 'captcha' )->label( false )->widget( Captcha::classname(), [ 'options' => [ 'placeholder' => 'Captcha*' ] ] ) ?>
+
 	            	<input type="submit" value="Send" />
 			<?php
 	        		ActiveForm::end();

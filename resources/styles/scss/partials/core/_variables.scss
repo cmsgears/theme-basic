@@ -1,21 +1,25 @@
-$color-primary: #f2f1f0;
+$color-primary: #f2f2f2;
 $color-primary-l: white;
 $color-primary-d: #td;
 $color-primary-text: #363636;
 $color-primary-text-l: #363636;
 $color-primary-text-d: #td;
-$color-secondary: #1d2228;
-$color-secondary-l: #td;
+$color-secondary: #1e2328;
+$color-secondary-l: #46535f;
 $color-secondary-d: #td;
 $color-secondary-text: #98a2ad;
 $color-secondary-text-l: #td;
 $color-secondary-text-d: #td;
-$color-tertiary: #3e4756;
+$color-tertiary: #3c4655;
 $color-tertiary-l: #td;
 $color-tertiary-d: #td;
 $color-tertiary-text: #e6e6e6;
 $color-tertiary-text-l: #td;
 $color-tertiary-text-d: #td;
+
+$color-transparent-primary: rgba(242, 242, 242, 0.6);
+$color-transparent-secondary: rgba(30, 35, 40, 0.6);
+$color-transparent-tertiary: rgba(60, 70, 85, 0.6);
 
 // Form Fields Color
 // 1. forms - fields

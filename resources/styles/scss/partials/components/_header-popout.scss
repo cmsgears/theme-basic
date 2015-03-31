@@ -1,11 +1,11 @@
-#box-login {
+.popout-header {
     position: absolute;
     width: 98%;
     background-color: $color-tertiary;
-    padding: 2%;
-    
-    .warning {
-        color: $color-tertiary-text;      
+    padding: 1%;
+
+    a, .warning {
+        color: $color-tertiary-text;
     }
 
     @include responsive-min( screen-mobile-large ) {
@@ -16,4 +16,8 @@
     @include responsive-min( screen-tablet-large ) {
         right: 10%;
     }
+}
+
+#wrap-login-register, #box-signup, #box-settings {
+    display: none;
 }

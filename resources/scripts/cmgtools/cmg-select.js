@@ -92,24 +92,34 @@
 			
 			// Hide List by default
 			customList.hide();
-
-			// Add listener to selected val
-			customSelected.click( function() {
-
-				customList.show();
-			});
-
-			// Update selected value
-			customList.children( "li" ).click( function() {
-
-				var selected	= jQuery( this );
-				var parent		= selected.parents().eq(1);
+			
+			// Detect whether disabled
+			var disabled = dropDown.attr( "disabled" );
+			
+			if( disabled == "disabled" || disabled ) {
 				
-				parent.children( ".cmg-selected" ).children( ".s-text" ).html( selected.html() );
-				parent.parent().children( "select" ).val( selected.attr( "data-value" ) );
+				customSelected.addClass( "disabled" );
+			}
+			else {
 
-				selected.parent().hide();
-			});
+				// Add listener to selected val
+				customSelected.click( function() {
+	
+					customList.show();
+				});
+	
+				// Update selected value
+				customList.children( "li" ).click( function() {
+	
+					var selected	= jQuery( this );
+					var parent		= selected.parents().eq(1);
+					
+					parent.children( ".cmg-selected" ).children( ".s-text" ).html( selected.html() );
+					parent.parent().children( "select" ).val( selected.attr( "data-value" ) );
+	
+					selected.parent().hide();
+				});
+			}	
 		}
 	};
 

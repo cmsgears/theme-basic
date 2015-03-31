@@ -93,7 +93,7 @@
     @include responsive-max( screen-tablet-large ) {
 
         .module-wrap-content {
-            background-color: $color-transparent-gray;
+            background-color: $color-transparent-tertiary;
             color: $color-tertiary-text;
             height: auto;
             margin: 0 auto;
@@ -122,20 +122,25 @@
     }
 
     .module-wrap-content {
+        background-color: $color-tertiary;
         margin: 0 auto;
         color: $color-tertiary-text;
-        background-color: $color-transparent-gray;
         padding: 1em;
         width: 400px;
         
         a {
             color: $color-tertiary-text;
         }
+        
+        .help-block {
+            color: $color-error;
+        }
     }
 
     @include responsive-max( screen-mobile-large ) {
 
         .module-wrap-content {
+            background-color: $color-transparent-tertiary;
             width: 80%;
         }
     }

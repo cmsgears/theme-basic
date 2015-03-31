@@ -5,6 +5,13 @@ jQuery(document).ready( function() {
 
 function initAjaxListeners() {
 
+	jQuery( "#btn-logout" ).click( function( e ) {
+	
+		e.preventDefault();
+		
+		logout( this.href );
+	});
+
 	// Listen for Ajax Forms
 	jQuery( ".frm-ajax" ).processAjax();
 }

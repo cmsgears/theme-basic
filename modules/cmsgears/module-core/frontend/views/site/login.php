@@ -19,9 +19,9 @@ $this->title 	= $coreProperties->getSiteTitle() . " | Login";
 	    	<?= $form->field( $model, 'password' )->passwordInput( array( 'placeholder' => 'Password*' ) )->label( false ) ?>
 	    	<?= $form->field( $model, 'rememberMe' )->checkbox() ?>
 
-			<?= Html::a( "Forgot your Password ?", [ '/site/forgot-password' ] ) ?>
+			<?= Html::a( "Forgot your Password ?", [ '/forgot-password' ] ) ?>
 			
-			<div class='align-middle'><input type="submit" value="Login" /></div>
+			<div><input type="submit" value="Login" /></div>
 
 			<?php ActiveForm::end(); ?>
 		</div>

@@ -30,7 +30,8 @@ class AssetLoaderPrivate extends AssetBundle {
             "scripts/vendor/imagesloaded.pkgd-3.1.8.min.js",
             "scripts/cmgtools/cmg-ajax-processor.js",
             "scripts/cmgtools/cmg-utilities.js",
-            "scripts/main.js"
+            "scripts/main.js",
+            "scripts/ajax-processor.js"
 	    ];
 
 		// Define the Position to load Assets
