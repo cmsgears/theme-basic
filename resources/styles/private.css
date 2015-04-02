@@ -3616,6 +3616,12 @@ html, body {
   min-height: 100%;
 }
 
+.wrap-content-private {
+  width: 80%;
+  padding-top: 85px;
+  margin: 0 auto;
+}
+
 input[type="text"], input[type="email"], input[type="password"], textarea {
   border: none;
 }

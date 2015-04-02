@@ -5,15 +5,21 @@ use yii\widgets\ActiveForm;
 $coreProperties = $this->context->getCoreProperties();
 $this->title 	= $coreProperties->getSiteTitle() . " | Error";
 ?>
-<section class="module module-public">
-	<div class="module-bkg"></div>
-	<div class="texture-default"></div>
-	<div class="module-wrap-content">
-		<div class="module-header">
-			<h1 class="align-middle">Error</h1>
+<?php if ( Yii::$app->user->isGuest ) { ?>
+	<section class="module module-basic" id="module-public">
+		<div class="module-bkg"></div>
+		<div class="texture texture1"></div>
+		<div class="module-wrap-content valign-center">
+			<div class="module-header">
+				<h1 class="align-middle">ERROR</h1>
+			</div>
+			<div class="module-content">
+				<p> <?= nl2br(Html::encode($message)) ?> </p>
+			</div>
 		</div>
-		<div class="module-content">
-	    	<div class='frm-message'><p> <?= nl2br(Html::encode($message)) ?> </p></div>
-		</div>
-	</div>
-</section>
+	</section>
+<?php } else { ?>
+	<h1 class="align-middle">ERROR</h1>
+
+	<p> <?= nl2br(Html::encode($message)) ?> </p>
+<?php } ?>

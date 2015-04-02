@@ -5,7 +5,7 @@ jQuery(document).ready( function() {
 
 function initAjaxListeners() {
 
-	jQuery( "#btn-logout" ).click( function( e ) {
+	jQuery( "#btn-logout a" ).click( function( e ) {
 	
 		e.preventDefault();
 		

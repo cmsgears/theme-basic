@@ -14,7 +14,7 @@ $coreProperties = $this->context->getCoreProperties();
     <body>
         <?php $this->beginBody(); ?>
 		<div id='pre-loader-page' class="max-area-cover"><div class="valign-center fa fa-5x fa-spinner fa-spin"></div></div>
-		<?php include dirname( __FILE__ ) . "/header-public.php"; ?>
+		<?php include dirname( __FILE__ ) . "/header-common.php"; ?>
         <div class="container-main">
 	        <div class="wrap-content">
 	        	<?= $content ?>
