@@ -8,8 +8,27 @@ html, body {
     min-height: 100%;
 }
 
+.container-private {
+
+    .wrap-content {
+        padding-top: 75px;
+    }
+
+    @include responsive-min( screen-tablet-large ) {
+      
+        .wrap-content {
+            padding-top: 95px;
+        }    
+    }
+}
+
 .wrap-content-private {
-    width: 80%;
-    padding-top: 85px;
+    width: 90%;
     margin: 0 auto;
+    border: $border-default-l;
+    background-color: $color-primary-l;
+
+    @include responsive-min( screen-tablet-large ) {
+        width: 1000px;
+    }
 }

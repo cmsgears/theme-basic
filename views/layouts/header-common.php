@@ -28,7 +28,7 @@ $settingsMenuItems = [
 ?>
 <?php if ( Yii::$app->user->isGuest ) { ?>
 	<!-- Public Header -->
-	<header id="header" class="header-public">
+	<header id="header" class="header-main">
 		<div class="header-desktop clearfix">
 			<div class="colf12x4">
 				<?=Html::a( "<img class='logo' src='" . Yii::getAlias( '@images' ) . "/logo.png'>", [ '/' ], null )?>
@@ -57,7 +57,7 @@ $settingsMenuItems = [
 	</header>
 <?php } else { ?>
 	<!-- Private Header -->
-	<header id="header" class="header-public">
+	<header id="header" class="header-main">
 		<div class="header-desktop clearfix">
 			<div class="colf12x4">
 				<?=Html::a( "<img class='logo' src='" . Yii::getAlias( '@images' ) . "/logo.png'>", [ '/user/home' ], null )?>
@@ -78,7 +78,7 @@ $settingsMenuItems = [
 			<?=Html::a( "<img class='logo' src='" . Yii::getAlias( '@images' ) . "/logo.png'>", [ '/user/home' ], null )?>
 			<?php	
 	            echo Nav::widget([
-	                'options' => [ 'class' => 'nav-main' ],
+	                'options' => [ 'class' => 'nav-main', 'id' => 'nav-mobile' ],
 	                'items' => $privateMenuItemsMobile
 	            ]);
 			?>

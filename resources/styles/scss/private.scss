@@ -12,6 +12,10 @@
 @import "vendor/font-awesome/stacked";
 @import "vendor/font-awesome/icons";
 
+// CMG Fonts
+@import "cmg-partials/fonts/icons-core";
+@import "cmg-partials/fonts/icons-sizing";
+
 // CMG Tools with Theme Variables
 @import "cmg-partials/core/variables";
 // Override default variables
@@ -26,6 +30,7 @@
 @import "cmg-partials/core/typography";
 @import "cmg-partials/core/containers";
 @import "cmg-partials/elements/forms";
+@import "cmg-partials/components/file-uploaders";
 
 // Theme - Basic
 @import "partials/core/basic";
@@ -34,4 +39,4 @@
 @import "partials/components/headers";
 @import "partials/components/footers";
 @import "partials/components/navs";
-@import "partials/components/header-popout";
+@import "partials/components/popouts";

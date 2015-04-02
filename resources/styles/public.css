@@ -2184,8 +2184,8 @@ Color Palatte:
 10. secondary text light: #td
 11. secondary dark: #515151
 12. secondary text dark: #td
-13. tertiary: #363636
-14. tertiary text: #98a2ad
+13. tertiary: #td
+14. tertiary text: #td
 15. tertiary light: #td
 16. tertiary text light: #td
 17. tertiary dark: #td
@@ -2339,7 +2339,7 @@ Dependencies: variables, variables-ext
   line-height: 1em;
   margin-top: -0.5em;
   text-align: center;
-  color: #98a2ad;
+  color: #e6e6e6;
 }
 
 .shadow {
@@ -3441,7 +3441,7 @@ input[type="text"], input[type="email"], input[type="password"], textarea, input
   padding: 0.5em 0.5%;
   margin: 0.5em 0.5%;
   outline: none;
-  border: 1px solid #td;
+  border: 1px solid #475461;
   box-shadow: none;
   font-size: 1em;
   line-height: 1em;
@@ -3479,6 +3479,7 @@ input[type="submit"], input[type="button"], button, select, .btn {
   color: white;
   text-align: center;
   margin: 1em 0;
+  cursor: pointer;
 }
 
 input[type="submit"]:hover, input[type="button"]:hover, button:hover, .btn:hover {
@@ -3674,10 +3675,25 @@ html, body {
   min-height: 100%;
 }
 
+.container-private .wrap-content {
+  padding-top: 75px;
+}
+@media only screen and (min-width: 1025px) {
+  .container-private .wrap-content {
+    padding-top: 95px;
+  }
+}
+
 .wrap-content-private {
-  width: 80%;
-  padding-top: 85px;
+  width: 90%;
   margin: 0 auto;
+  border: 1px solid #cfe1f4;
+  background-color: white;
+}
+@media only screen and (min-width: 1025px) {
+  .wrap-content-private {
+    width: 1000px;
+  }
 }
 
 input[type="text"], input[type="email"], input[type="password"], textarea {
@@ -3707,21 +3723,22 @@ input[type="submit"], input[type="button"], button, select, .btn {
   -khtml-border-radius-bottom-right: 0;
 }
 
-.header-public {
+.header-main {
   background-color: #1e2328;
   position: fixed;
+  top: 0;
   z-index: 100;
   width: 100%;
 }
-.header-public .header-desktop {
+.header-main .header-desktop {
   width: 80%;
   margin: 0 auto;
 }
-.header-public .header-desktop .logo {
+.header-main .header-desktop .logo {
   height: 60px;
   margin: 10px;
 }
-.header-public .header-desktop #btn-login {
+.header-main .header-desktop #btn-login {
   height: 26px;
   line-height: 26px;
   margin: 0;
@@ -3730,34 +3747,34 @@ input[type="submit"], input[type="button"], button, select, .btn {
   float: right;
   cursor: pointer;
 }
-.header-public .header-mobile {
+.header-main .header-mobile {
   display: none;
   text-align: center;
 }
-.header-public .header-mobile #btn-mobile-menu {
+.header-main .header-mobile #btn-mobile-menu {
   position: absolute;
   top: 8px;
   left: 8px;
   cursor: pointer;
   display: inline-block;
-  color: #98a2ad;
+  color: #e6e6e6;
 }
-.header-public .header-mobile .logo {
+.header-main .header-mobile .logo {
   height: 40px;
   margin: 5px;
 }
-.header-public .header-mobile #btn-login-mobile {
+.header-main .header-mobile #btn-login-mobile {
   position: absolute;
   top: 8px;
   right: 8px;
   cursor: pointer;
-  color: #98a2ad;
+  color: #e6e6e6;
 }
 @media only screen and (max-width: 1024px) {
-  .header-public .header-desktop {
+  .header-main .header-desktop {
     display: none;
   }
-  .header-public .header-mobile {
+  .header-main .header-mobile {
     display: block;
   }
 }
@@ -3892,7 +3909,7 @@ input[type="submit"], input[type="button"], button, select, .btn {
   color: white;
 }
 .nav-main li:hover {
-  background-color: #46535f;
+  background-color: #cfe1f4;
 }
 @media only screen and (max-width: 1024px) {
   .nav-main {
@@ -3932,7 +3949,7 @@ input[type="submit"], input[type="button"], button, select, .btn {
   color: white;
 }
 .nav-settings li:hover {
-  background-color: #46535f;
+  background-color: #cfe1f4;
 }
 @media only screen and (max-width: 1024px) {
   .nav-settings li {

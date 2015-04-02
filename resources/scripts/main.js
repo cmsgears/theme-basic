@@ -41,7 +41,7 @@ function initListeners() {
 	});
 
 	// Initialise the mobile button
-	jQuery("#btn-mobile-menu").click( function() {
+	jQuery( "#btn-mobile-menu" ).click( function() {
 
 		jQuery( "#nav-mobile" ).slideToggle( "slow" );
 	});
