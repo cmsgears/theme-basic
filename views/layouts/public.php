@@ -9,17 +9,17 @@ $coreProperties = $this->context->getCoreProperties();
 <!DOCTYPE html>
 <html lang="<?= $coreProperties->getLanguage() ?>">
     <head>
-		<?php include dirname( __FILE__ ) . "/header-main.php"; ?>
+		<?php include dirname( __DIR__ ) . "/headers/main.php"; ?>
     </head>
     <body>
         <?php $this->beginBody(); ?>
 		<div id='pre-loader-page' class="max-area-cover"><div class="valign-center fa fa-5x fa-spinner fa-spin"></div></div>
-		<?php include dirname( __FILE__ ) . "/header-common.php"; ?>
+		<?php include dirname( __DIR__ ) . "/headers/common.php"; ?>
         <div class="container-main">
 	        <div class="wrap-content">
 	        	<?= $content ?>
 	        </div>
-	        <?php include dirname( __FILE__ ) . "/footer.php"; ?>
+	        <?php include dirname( __DIR__ ) . "/footers/common.php"; ?>
         </div>
         <?php $this->endBody(); ?>
     </body>

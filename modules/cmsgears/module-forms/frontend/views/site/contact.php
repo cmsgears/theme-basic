@@ -1,5 +1,4 @@
 <?php
-use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\captcha\Captcha;
 
@@ -19,7 +18,7 @@ $this->title 	= $coreProperties->getSiteTitle() . " | Login";
 			<?php
 				}
 				else {
-	
+
 	        		$form = ActiveForm::begin( [ 'id' => 'frm-contact' ] ); 
 	        ?>
 

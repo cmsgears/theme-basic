@@ -1,4 +1,6 @@
 <?php
+use yii\captcha\Captcha;
+
 $coreProperties 		= $this->context->getCoreProperties();
 $this->title 			= $coreProperties->getSiteTitle();
 $this->params['desc']	= "The basic template with basic theme for CMSGears.";
@@ -75,13 +77,13 @@ $this->params['meta']	= "cmsgears, template, basic, theme";
 				<form class="frm-ajax" id="frm-contact" action="<?php echo Yii::$app->urlManager->createAbsoluteUrl("apix/contact"); ?>" method="post">
 					<div class="max-area-cover frm-spinner"><div class="valign-center fa fa-3x fa-spinner fa-spin"></div></div>
 					<div class="row clearfix">
-						<div class="colf2">
+						<div class="col2">
 							<div class="frm-icon-field">
 								<span class="wrap-icon fa fa-user"></span><input type="text" name="Contact[name]" placeholder="Name *">
 							</div>
 							<span class="error" formError="name"></span>
 						</div>
-						<div class="colf2">
+						<div class="col2">
 							<div class="frm-icon-field">
 								<span class="wrap-icon fa fa-at"></span><input class="fa-field-email" type="text" name="Contact[email]" placeholder="Email *">
 							</div>
@@ -99,6 +101,10 @@ $this->params['meta']	= "cmsgears, template, basic, theme";
 							<span class="wrap-icon fa fa-folder icon-textarea"></span><textarea name="Contact[message]" placeholder="Message *"></textarea>
 						</div>	
 						<span class="error" formError="message"></span>
+					</div>
+					<div class="row clearfix">
+						<?= Captcha::widget( [ 'name' => 'Contact[captcha]', 'captchaAction' =>  '/cmgforms/site/captcha' ] ); ?>	
+						<span class="error" formError="captcha"></span>
 					</div>
 					<div class="row clearfix">
 						<input type="submit" name="submit" value="Submit">

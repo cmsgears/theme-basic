@@ -2679,41 +2679,53 @@ a {
 Description: The basic styles for CMGTools.
 Dependencies: variables, variables-ext, mixins
 ***********************************************************************/
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
 body {
   background-color: #f2f2f2;
 }
 
 .clear {
-  clear: both;
+  clear: both !important;
 }
 
 .left {
-  float: left;
+  float: left !important;
 }
 
 .right {
-  float: right;
+  float: right !important;
 }
 
 .no-float {
-  float: none;
+  float: none !important;
 }
 
 .no-float-center {
-  float: none;
+  float: none !important;
   margin: 0 auto;
 }
 
 .align-left {
-  text-align: left;
+  text-align: left !important;
 }
 
 .align-middle {
-  text-align: center;
+  text-align: center !important;
 }
 
 .align-right {
-  text-align: right;
+  text-align: right !important;
 }
 
 .max-area-cover {
@@ -3406,14 +3418,14 @@ form .warning, form .error, form .success {
 }
 
 .frm-small {
-  width: 220px;
-  padding: 15px;
+  width: 230px;
+  padding: 10px;
   position: relative;
 }
 
 .frm-medium {
-  width: 410px;
-  padding: 20px;
+  width: 430px;
+  padding: 10px;
   position: relative;
 }
 
@@ -3428,8 +3440,9 @@ label {
   border: none;
   box-shadow: none;
   font-size: 1em;
-  width: 99%;
-  margin: 0.5em 0.5%;
+  margin: 0;
+  width: 100%;
+  padding: 10px;
   display: inline-block;
   text-align: left;
 }
@@ -3438,8 +3451,9 @@ input[type="text"], input[type="email"], input[type="password"], textarea, input
   vertical-align: middle;
   font-size: normal;
   line-height: normal;
-  padding: 0.5em 0.5%;
-  margin: 0.5em 0.5%;
+  margin: 0;
+  width: 100%;
+  padding: 10px;
   outline: none;
   border: 1px solid #475461;
   box-shadow: none;
@@ -3456,7 +3470,6 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
   background-color: #e1e1e1;
   color: #363636;
   text-align: left;
-  width: 97%;
 }
 
 input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
@@ -3474,11 +3487,10 @@ input[type="submit"], input[type="button"], button, select, .btn {
   -o-transition: all 250ms ease-in-out 0s;
   -webkit-transition: all 250ms ease-in-out 0s;
   transition: all 250ms ease-in-out 0s;
-  width: 99%;
   background-color: #e74343;
   color: white;
   text-align: center;
-  margin: 1em 0;
+  margin: 10px 0;
   cursor: pointer;
 }
 
@@ -3505,14 +3517,18 @@ input[type="submit"].btn-xlarge, input[type="button"].btn-xlarge, button.btn-xla
   width: 250px;
 }
 
+input[type="text"].half, input[type="email"].half, input[type="password"].half, textarea.half, select.half {
+  width: 50%;
+}
+
 .frm-split-40-60 label {
-  width: 38%;
+  width: 40%;
   float: left;
 }
 
 .frm-split-40-60 input[type="text"], .frm-split-40-60 input[type="email"], .frm-split-40-60 input[type="password"],
 .frm-split-40-60 textarea, .frm-split-40-60 select {
-  width: 56%;
+  width: 60%;
   float: left;
 }
 
@@ -3573,7 +3589,26 @@ input[type="submit"].btn-xlarge, input[type="button"].btn-xlarge, button.btn-xla
   -khtml-border-radius-bottom-left: 5px;
 }
 
+.frm-icon-field {
+  display: inline-block;
+  width: 100%;
+}
 .frm-icon-field .wrap-icon {
+  display: inline-block;
+  border: none;
+  margin: 0;
+  padding: 10px 0;
+  width: 10%;
+  background-color: #e1e1e1;
+}
+.frm-icon-field input[type="text"], .frm-icon-field input[type="email"], .frm-icon-field input[type="password"], .frm-icon-field textarea, .frm-icon-field input[type="submit"], .frm-icon-field input[type="button"], .frm-icon-field button, .frm-icon-field .btn {
+  display: inline-block;
+  border: none;
+  margin: 0;
+  width: 90%;
+  padding: 10px;
+}
+.frm-icon-field.rounded .wrap-icon {
   -moz-border-radius-top-left: 5px;
   -moz-border-radius-bottom-left: 5px;
   -webkit-border-radius-top-left: 5px;
@@ -3581,14 +3616,8 @@ input[type="submit"].btn-xlarge, input[type="button"].btn-xlarge, button.btn-xla
   border-radius: 5px 0 0 5px;
   -khtml-border-radius-top-left: 5px;
   -khtml-border-radius-bottom-left: 5px;
-  display: inline-block;
-  border: none;
-  margin: 0.5em 0;
-  padding: 0.5em 0.5%;
-  width: 9%;
-  background-color: #e1e1e1;
 }
-.frm-icon-field input[type="text"], .frm-icon-field input[type="email"], .frm-icon-field input[type="password"], .frm-icon-field textarea, .frm-icon-field input[type="submit"], .frm-icon-field input[type="button"], .frm-icon-field button, .frm-icon-field .btn {
+.frm-icon-field.rounded input[type="text"], .frm-icon-field.rounded input[type="email"], .frm-icon-field.rounded input[type="password"], .frm-icon-field.rounded textarea, .frm-icon-field.rounded input[type="submit"], .frm-icon-field.rounded input[type="button"], .frm-icon-field.rounded button, .frm-icon-field.rounded .btn {
   -moz-border-radius-top-right: 5px;
   -moz-border-radius-bottom-right: 5px;
   -webkit-border-radius-top-right: 5px;
@@ -3596,11 +3625,6 @@ input[type="submit"].btn-xlarge, input[type="button"].btn-xlarge, button.btn-xla
   border-radius: 0 5px 5px 0;
   -khtml-border-radius-top-right: 5px;
   -khtml-border-radius-bottom-right: 5px;
-  display: inline-block;
-  border: none;
-  margin: 0.5em 0;
-  padding: 0.5em 0.5%;
-  width: 88%;
 }
 
 /**********************************************************************
@@ -3698,6 +3722,7 @@ html, body {
 
 input[type="text"], input[type="email"], input[type="password"], textarea {
   border: none;
+  margin: 10px 0;
 }
 
 input[type="submit"], input[type="button"], button, select, .btn {
@@ -3721,6 +3746,7 @@ input[type="submit"], input[type="button"], button, select, .btn {
   border-radius: 0 0 0 0;
   -khtml-border-radius-top-right: 0;
   -khtml-border-radius-bottom-right: 0;
+  margin: 10px 0;
 }
 
 .header-main {
@@ -3739,7 +3765,6 @@ input[type="submit"], input[type="button"], button, select, .btn {
   margin: 10px;
 }
 .header-main .header-desktop #btn-login {
-  height: 26px;
   line-height: 26px;
   margin: 0;
   margin-top: 35px;
