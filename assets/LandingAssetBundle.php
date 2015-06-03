@@ -6,7 +6,7 @@ use \Yii;
 use yii\web\AssetBundle;
 use yii\web\View;
 
-class AssetLoaderPrivate extends AssetBundle {
+class LandingAssetBundle extends AssetBundle {
 
 	// Constructor and Initialisation ------------------------------
 
@@ -20,7 +20,7 @@ class AssetLoaderPrivate extends AssetBundle {
 
 		// Load CSS
 	    $this->css     = [
-			"styles/private.css"
+			"styles/landing.css"
 	    ];
 
 		// Load Javascript
@@ -28,8 +28,8 @@ class AssetLoaderPrivate extends AssetBundle {
             "scripts/vendor/conditionizr-4.4.0.min.js",
             "conditionizr/detects/ie6-ie7-ie8-ie9.js",
             "scripts/vendor/imagesloaded.pkgd-3.1.8.min.js",
-            "scripts/cmgtools/cmg-browser-features.js",
             "scripts/cmgtools/cmg-ajax-processor.js",
+            "scripts/cmgtools/cmg-modules.js",
             "scripts/cmgtools/cmg-utilities.js",
             "scripts/main.js",
             "scripts/ajax-processor.js"
