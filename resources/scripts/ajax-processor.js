@@ -1,16 +1,11 @@
+var FORM_KEY_AVATAR		=  100000;
+
 jQuery(document).ready( function() {
 
 	initAjaxListeners();
 });
 
 function initAjaxListeners() {
-
-	jQuery( "#btn-logout a" ).click( function( e ) {
-	
-		e.preventDefault();
-		
-		logout( this.href );
-	});
 
 	// Listen for Ajax Forms
 	jQuery( ".frm-ajax" ).processAjax();
@@ -33,6 +28,12 @@ function postBTProcessorSuccess( formId, formGroup, formKey, data ) {
 
 					break;
 				}
+				case FORM_KEY_AVATAR:
+				{
+					jQuery( "#" + formId ).parent().hide();
+
+					break;
+				}
 			}
 
 			break;
@@ -41,22 +42,3 @@ function postBTProcessorSuccess( formId, formGroup, formKey, data ) {
 }
 
 postAjaxProcessor.addSuccessListener( postBTProcessorSuccess );
-
-// Logout -------------------------------------------------------------------
-
-function logout( logoutUrl ) {
-
-	var csrfToken 	= jQuery( 'meta[name=csrf-token]' ).attr( 'content' );
-	var formData	= { _csrf: csrfToken };
-
-    jQuery.ajax({
-        type: 'POST',
-        url: logoutUrl,
-        data: formData,
-        dataType: "JSON",
-        success: function( data, textStatus, XMLHttpRequest ) {
-
-        	window.location.href = siteUrl;
-        }
-	});
-}

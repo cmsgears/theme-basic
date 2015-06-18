@@ -1,10 +1,17 @@
 <?php
-use yii\helpers\html;
 use yii\widgets\ActiveForm;
+
+$coreProperties = $this->context->getCoreProperties();
+$this->title 	= $coreProperties->getSiteTitle() . " | Activate Account";
 ?>
-<section class="row container clearfix">
-    <h1>Account Activation</h1>
-    <div class="col col2 no-float-center">
+<section class="module module-basic" id="module-public">
+	<div class="bkg"></div>
+	<div class="texture texture1"></div>
+	<div class="wrap-content valign-center">
+		<div class="header">
+			<h1 class="align-middle">ACCOUNT ACTIVATION</h1>
+		</div>
+		<div class="content">
     	<?php if( Yii::$app->session->hasFlash( "message" ) ) { ?>
 			<p> <?php echo Yii::$app->session->getFlash( "message" ); ?> </p>
 		<?php		
@@ -21,5 +28,6 @@ use yii\widgets\ActiveForm;
         		ActiveForm::end();
 			}
 		?>
+		</div>
 	</div>
 </section>

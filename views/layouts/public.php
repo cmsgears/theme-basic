@@ -3,6 +3,7 @@ use themes\basic\assets\PublicAssetBundle;
 
 PublicAssetBundle::register( $this );
 
+// Variables available for headers, sidebars and footers included within this layout
 $coreProperties = $this->context->getCoreProperties();
 ?>
 <?php $this->beginPage(); ?>

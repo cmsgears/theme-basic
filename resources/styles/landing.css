@@ -2318,21 +2318,22 @@ Dependencies: variables, variables-ext
   border-radius: 50%;
 }
 
-.circled-text {
+.shape-text {
   width: 50%;
 }
-.circled-text:after {
+.shape-text:after {
   width: 100%;
   height: 0;
   background-color: #1e2328;
   content: "";
   display: block;
   padding-bottom: 100%;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
 }
-.circled-text div {
+.shape-text span {
+  display: inline-block;
   float: left;
   width: 100%;
   padding-top: 50%;
@@ -2343,19 +2344,25 @@ Dependencies: variables, variables-ext
 }
 
 .shadow {
-  -webkit-box-shadow: 1px 1px 5px #1e2328;
-  -moz-box-shadow: 1px 1px 5px #1e2328;
-  box-shadow: 1px 1px 5px #1e2328;
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.text-shadow {
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
 .linear-gradient {
   background-color: #1e2328;
-  background-image: -moz-linear-gradient(#f2f2f2, #1e2328);
-  background-image: -o-linear-gradient(#f2f2f2, #1e2328);
+  background-image: -moz-linear-gradient("bottom", #f2f2f2, #1e2328);
+  background-image: -o-linear-gradient("bottom", #f2f2f2, #1e2328);
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f2f2f2), color-stop(1, #1e2328));
-  background-image: -webkit-linear-gradient(#f2f2f2, #1e2328);
-  background-image: -ms-linear-gradient(#f2f2f2, #1e2328);
-  background-image: linear-gradient(#f2f2f2, #1e2328);
+  background-image: -webkit-linear-gradient("bottom", #f2f2f2, #1e2328);
+  background-image: -ms-linear-gradient("bottom", #f2f2f2, #1e2328);
+  background-image: linear-gradient(to "bottom", #f2f2f2, #1e2328);
 }
 
 .valign-center {
@@ -2364,6 +2371,12 @@ Dependencies: variables, variables-ext
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+
+.child-center {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .max-area {
@@ -2383,17 +2396,39 @@ Dependencies: variables, variables-ext
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.bkg-with-tile {
+.max-area-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  color: #363636;
+  z-index: 1000000;
+  display: none;
+}
+
+.bkg-tile {
   background-repeat: repeat;
 }
 
-.bkg-with-image {
+.bkg-image {
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   background-position: 50% 50% 9 !important;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
+}
+
+.bkg-image-fill {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-position: 50% 50% 9 !important;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  background-size: 100% 100%;
 }
 
 /**********************************************************************
@@ -2410,6 +2445,22 @@ Dependencies: none
   -o-transition: all 250ms linear 0s;
   -webkit-transition: all 250ms linear 0s;
   transition: all 250ms linear 0s;
+}
+
+.transit-visibility {
+  -moz-transition: opacity 250ms linear 0s;
+  -ms-transition: opacity 250ms linear 0s;
+  -o-transition: opacity 250ms linear 0s;
+  -webkit-transition: opacity 250ms linear 0s;
+  transition: opacity 250ms linear 0s;
+}
+
+.transit-opacity {
+  -moz-transition: opacity 250ms linear 0s;
+  -ms-transition: opacity 250ms linear 0s;
+  -o-transition: opacity 250ms linear 0s;
+  -webkit-transition: opacity 250ms linear 0s;
+  transition: opacity 250ms linear 0s;
 }
 
 .transit-visibility-opacity {
@@ -2476,6 +2527,12 @@ Dependencies: none
   transition: width 250ms linear 0s, height 250ms linear 0s;
 }
 
+.transform-rotate {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
 /**********************************************************************
 Description: The reset CSS Inspired by Eric Meyer(http://meyerweb.com) 
 and HTML5 Doctor(http://html5doctor.com) aims to make a custom reset css 
@@ -2485,7 +2542,7 @@ Dependencies: variables, mixins
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr,
 address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i,
 dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr,
-th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+th, td, article, aside, figure, figcaption, footer, header, hgroup, menu, nav, section, time, mark, audio, video, details, summary {
   margin: 0;
   padding: 0;
   border: 0;
@@ -2493,6 +2550,7 @@ th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, 
   font-size: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  font: inherit;
   vertical-align: middle;
   background: transparent;
 }
@@ -2716,6 +2774,46 @@ body {
   margin: 0 auto;
 }
 
+.width-auto {
+  width: auto;
+}
+
+.width-25 {
+  width: 25%;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+.width-75 {
+  width: 75%;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.height-auto {
+  height: auto;
+}
+
+.height-25 {
+  height: 25%;
+}
+
+.height-50 {
+  height: 50%;
+}
+
+.height-75 {
+  height: 75%;
+}
+
+.height-100 {
+  height: 100%;
+}
+
 .align-left {
   text-align: left !important;
 }
@@ -2728,17 +2826,17 @@ body {
   text-align: right !important;
 }
 
-.max-area-cover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  text-align: center;
-  color: #363636;
-  z-index: 1000000;
-  display: none;
+.filler-space {
+  height: 1em;
+}
+.filler-space.small {
+  height: 1.5em;
+}
+.filler-space.large {
+  height: 2em;
+}
+.filler-space.medium {
+  height: 2.5em;
 }
 
 .visible {
@@ -2762,10 +2860,6 @@ body {
   height: auto;
 }
 
-.width-auto {
-  width: auto;
-}
-
 .warning, .error, .success {
   display: inline-block;
   width: 100%;
@@ -2776,12 +2870,17 @@ body {
   color: #e74343;
 }
 
+.error-field {
+  border: 1px solid #e74343;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
+}
+
 .warning {
   color: #800020;
 }
 
 .success {
-  color: #a3d759;
+  color: #a5d75a;
 }
 
 .header-error {
@@ -2795,11 +2894,31 @@ body {
 }
 
 .header-success {
-  background-color: #a3d759;
+  background-color: #a5d75a;
   color: #363636;
 }
 
-.texture-default {
+.bkg-transparent-black {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.bkg-transparent-gray {
+  background-color: rgba(72, 72, 72, 0.6);
+}
+
+.bkg-transparent-primary {
+  background-color: rgba(242, 242, 242, 0.6);
+}
+
+.bkg-transparent-secondary {
+  background-color: rgba(30, 35, 40, 0.6);
+}
+
+.bkg-transparent-tertiary {
+  background-color: rgba(60, 70, 85, 0.6);
+}
+
+.texture {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -2810,6 +2929,10 @@ body {
 
 .texture-default {
   background-image: url("../images/texture-default.png");
+}
+
+.texture1 {
+  background-image: url(../images/texture1.png);
 }
 
 /**********************************************************************
@@ -2872,9 +2995,7 @@ h1, h2, h3, h4, h5, h6, .default-header {
   font-weight: bold;
   verticle-align: middle;
   padding: 0.25em 0;
-}
-
-h1, h2, h3, h4, h5, h6, .default-header {
+  margin: 0.5em 0;
   font-family: Verdana, Geneva, sans-serif;
 }
 
@@ -2909,6 +3030,15 @@ Dependencies: variables, mixins
 .row {
   margin: 0 auto;
   width: 100%;
+}
+.row.small {
+  width: 30%;
+}
+.row.medium {
+  width: 60%;
+}
+.row.large {
+  width: 80%;
 }
 
 .col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11, .col12, .col3x2, .col4x2, .col4x3, .col5x2, .col5x3, .col5x4, .col6x2, .col6x3, .col6x4, .col6x5, .col12x2, .col12x3, .col12x4, .col12x5, .col12x6, .col12x7, .col12x8, .col12x9, .col12x10, .col12x11 {
@@ -2984,6 +3114,31 @@ Dependencies: variables, mixins
 }
 
 @media only screen and (max-width: 1024px) {
+  .row.small {
+    width: 50%;
+  }
+  .row.medium {
+    width: 50%;
+  }
+  .row.large {
+    width: 50%;
+  }
+
+  .col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11, .col12, .col13, .col14, .col15 {
+    width: 48%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .row.small {
+    width: 100%;
+  }
+  .row.medium {
+    width: 100%;
+  }
+  .row.large {
+    width: 100%;
+  }
+
   .col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11, .col12, .col13, .col14, .col15 {
     width: 98%;
   }
@@ -3125,6 +3280,13 @@ Dependencies: variables, mixins
   .col3x2, .col4x2, .col4x3, .col5x2, .col5x3, .col5x4, .col6x2, .col6x3, .col6x4, .col6x5,
   .col12x2, .col12x3, .col12x4, .col12x5, .col12x6, .col12x7, .col12x8, .col12x9, .col12x10, .col12x11,
   .col15x2, .col15x3, .col15x4, .col15x5, .col15x6, .col15x7, .col15x8, .col15x9, .col15x10, .col15x11, .col15x12, .col15x13, .col15x14 {
+    width: 48%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .col3x2, .col4x2, .col4x3, .col5x2, .col5x3, .col5x4, .col6x2, .col6x3, .col6x4, .col6x5,
+  .col12x2, .col12x3, .col12x4, .col12x5, .col12x6, .col12x7, .col12x8, .col12x9, .col12x10, .col12x11,
+  .col15x2, .col15x3, .col15x4, .col15x5, .col15x6, .col15x7, .col15x8, .col15x9, .col15x10, .col15x11, .col15x12, .col15x13, .col15x14 {
     width: 98%;
   }
 }
@@ -3195,6 +3357,11 @@ Dependencies: variables, mixins
 }
 
 @media only screen and (max-width: 1024px) {
+  .colf1, .colf2, .colf3, .colf4, .colf5, .colf6, .colf7, .colf8, .colf9, .colf10, .colf11, .colf12, .colf13, .colf14, .colf15 {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 480px) {
   .colf1, .colf2, .colf3, .colf4, .colf5, .colf6, .colf7, .colf8, .colf9, .colf10, .colf11, .colf12, .colf13, .colf14, .colf15 {
     width: 100%;
   }
@@ -3335,6 +3502,13 @@ Dependencies: variables, mixins
   .colf3x2, .colf4x2, .colf4x3, .colf5x2, .colf5x3, .colf5x4, .colf6x2, .colf6x3, .colf6x4, .colf6x5,
   .colf12x2, .colf12x3, .colf12x4, .colf12x5, .colf12x6, .colf12x7, .colf12x8, .colf12x9, .colf12x10, .colf12x11,
   .colf15x2, .colf15x3, .colf15x4, .colf15x5, .colf15x6, .colf15x7, .colf15x8, .colf15x9, .colf15x10, .colf15x11, .colf15x12, .colf15x13, .colf15x14 {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .colf3x2, .colf4x2, .colf4x3, .colf5x2, .colf5x3, .colf5x4, .colf6x2, .colf6x3, .colf6x4, .colf6x5,
+  .colf12x2, .colf12x3, .colf12x4, .colf12x5, .colf12x6, .colf12x7, .colf12x8, .colf12x9, .colf12x10, .colf12x11,
+  .colf15x2, .colf15x3, .colf15x4, .colf15x5, .colf15x6, .colf15x7, .colf15x8, .colf15x9, .colf15x10, .colf15x11, .colf15x12, .colf15x13, .colf15x14 {
     width: 100%;
   }
 }
@@ -3364,7 +3538,7 @@ Dependencies: variables, mixins
   z-index: 1;
 }
 
-.container h1, .container h2, .container h3, .container h4, .container h5, .container h6, .content {
+.container h1, .container h2, .container h3, .container h4, .container h5, .container h6, .container .content {
   padding: 2.5%;
 }
 
@@ -3398,10 +3572,53 @@ Dependencies: variables, mixins
   width: 100%;
 }
 
+.content-left-50 {
+  position: relative;
+  padding-right: 50%;
+  width: 100%;
+}
+
 .content-right-25 {
   position: relative;
   padding-left: 75%;
   width: 100%;
+}
+
+.content-right-50 {
+  position: relative;
+  padding-left: 50%;
+  width: 100%;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+.container-main {
+  width: 100%;
+  min-height: 100%;
+}
+
+.container-private .wrap-content {
+  padding-top: 75px;
+}
+@media only screen and (min-width: 1025px) {
+  .container-private .wrap-content {
+    padding-top: 95px;
+  }
+}
+
+.wrap-content-private {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid #cfe1f4;
+  background-color: white;
+}
+@media only screen and (min-width: 1025px) {
+  .wrap-content-private {
+    width: 1000px;
+  }
 }
 
 /**********************************************************************
@@ -3413,24 +3630,23 @@ form {
   margin-top: 1em;
   margin-bottom: 1em;
 }
-form .warning, form .error, form .success {
-  display: none;
-}
-
-.frm-small {
+form.small {
   width: 230px;
   padding: 10px;
   position: relative;
 }
-
-.frm-medium {
+form.medium {
   width: 430px;
   padding: 10px;
   position: relative;
 }
-
+form.large {
+  width: 630px;
+  padding: 10px;
+  position: relative;
+}
 @media only screen and (max-width: 1024px) {
-  .frm-small, .frm-medium {
+  form.small, form.medium, form.large {
     width: 80%;
     padding: 5%;
   }
@@ -3476,11 +3692,6 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-input[type="text"].error-field, input[type="email"].error-field, input[type="password"].error-field, textarea.error-field, select.error-field {
-  border: 1px solid #e74343;
-  box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
-}
-
 input[type="submit"], input[type="button"], button, select, .btn {
   -moz-transition: all 250ms ease-in-out 0s;
   -ms-transition: all 250ms ease-in-out 0s;
@@ -3504,21 +3715,20 @@ input[type="submit"]:hover, input[type="button"]:hover, button:hover, .btn:hover
   display: inline-block;
 }
 
-input[type="submit"].btn-small, input[type="button"].btn-small, button.btn-small, .btn.btn-small {
+input[type="text"].half, input[type="email"].half, input[type="password"].half, textarea.half, input[type="submit"].half, input[type="button"].half, button.half, select.half, .btn.half {
+  width: 50%;
+}
+input[type="text"].small, input[type="email"].small, input[type="password"].small, textarea.small, input[type="submit"].small, input[type="button"].small, button.small, select.small, .btn.small {
+  width: 80px;
+}
+input[type="text"].medium, input[type="email"].medium, input[type="password"].medium, textarea.medium, input[type="submit"].medium, input[type="button"].medium, button.medium, select.medium, .btn.medium {
   width: 120px;
 }
-input[type="submit"].btn-medium, input[type="button"].btn-medium, button.btn-medium, .btn.btn-medium {
-  width: 150px;
+input[type="text"].large, input[type="email"].large, input[type="password"].large, textarea.large, input[type="submit"].large, input[type="button"].large, button.large, select.large, .btn.large {
+  width: 180px;
 }
-input[type="submit"].btn-large, input[type="button"].btn-large, button.btn-large, .btn.btn-large {
-  width: 200px;
-}
-input[type="submit"].btn-xlarge, input[type="button"].btn-xlarge, button.btn-xlarge, .btn.btn-xlarge {
+input[type="text"].xlarge, input[type="email"].xlarge, input[type="password"].xlarge, textarea.xlarge, input[type="submit"].xlarge, input[type="button"].xlarge, button.xlarge, select.xlarge, .btn.xlarge {
   width: 250px;
-}
-
-input[type="text"].half, input[type="email"].half, input[type="password"].half, textarea.half, select.half {
-  width: 50%;
 }
 
 .frm-split-40-60 label {
@@ -3597,9 +3807,10 @@ input[type="text"].half, input[type="email"].half, input[type="password"].half, 
   display: inline-block;
   border: none;
   margin: 0;
-  padding: 10px 0;
+  padding: 10px 1%;
   width: 10%;
   background-color: #e1e1e1;
+  color: #363636;
 }
 .frm-icon-field input[type="text"], .frm-icon-field input[type="email"], .frm-icon-field input[type="password"], .frm-icon-field textarea, .frm-icon-field input[type="submit"], .frm-icon-field input[type="button"], .frm-icon-field button, .frm-icon-field .btn {
   display: inline-block;
@@ -3625,99 +3836,6 @@ input[type="text"].half, input[type="email"].half, input[type="password"].half, 
   border-radius: 0 5px 5px 0;
   -khtml-border-radius-top-right: 5px;
   -khtml-border-radius-bottom-right: 5px;
-}
-
-/**********************************************************************
-Description: It defines the styles for the module components forming the page. We can devide the entire page in one or more modules. 
-Each module can have background image with or without parallax effect, a content wrapper which wraps module header and content.
-Dependencies: variables, variables-ext, mixins
-Javascript: jquery, cmg-module
-***********************************************************************/
-.module {
-  position: relative;
-}
-
-.module-basic {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-.module-basic .module-bkg {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-position: 50% 50% 9 !important;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-.module-basic .module-bkg-parallax {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-position: 50% 50% 9 !important;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  width: 100%;
-  height: 120%;
-  position: absolute;
-  top: -5%;
-  left: 0;
-  z-index: 1;
-}
-.module-basic .texture {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-repeat: repeat;
-  z-index: 5;
-}
-.module-basic .module-wrap-content {
-  position: relative;
-  z-index: 10;
-}
-
-.texture1 {
-  background-image: url(../images/texture1.png);
-}
-
-html, body {
-  width: 100%;
-  height: 100%;
-}
-
-.container-main {
-  width: 100%;
-  min-height: 100%;
-}
-
-.container-private .wrap-content {
-  padding-top: 75px;
-}
-@media only screen and (min-width: 1025px) {
-  .container-private .wrap-content {
-    padding-top: 95px;
-  }
-}
-
-.wrap-content-private {
-  width: 90%;
-  margin: 0 auto;
-  border: 1px solid #cfe1f4;
-  background-color: white;
-}
-@media only screen and (min-width: 1025px) {
-  .wrap-content-private {
-    width: 1000px;
-  }
 }
 
 input[type="text"], input[type="email"], input[type="password"], textarea {
@@ -3801,113 +3919,6 @@ input[type="submit"], input[type="button"], button, select, .btn {
   }
   .header-main .header-mobile {
     display: block;
-  }
-}
-
-.module .module-wrap-content {
-  margin-top: 75px;
-}
-.module .module-wrap-content .module-header {
-  text-align: center;
-}
-@media only screen and (min-width: 1025px) {
-  .module .module-wrap-content {
-    margin-top: 110px;
-  }
-}
-
-#module-banner .module-bkg-parallax {
-  background-image: url(../images/pad.jpg);
-}
-#module-banner .module-wrap-content {
-  background-color: rgba(72, 72, 72, 0.6);
-  width: 80%;
-  height: 200px;
-  margin: 0 auto;
-}
-#module-banner .module-wrap-content .module-content {
-  padding: 3%;
-  font-size: 2.5em;
-  text-align: center;
-  color: #e6e6e6;
-}
-@media only screen and (min-width: 1025px) {
-  #module-banner .module-content {
-    font-size: 3.5em;
-  }
-}
-
-#module-about .row {
-  width: 80%;
-}
-#module-about .container {
-  background-color: white;
-  margin: 1em 1%;
-}
-#module-about .container .content {
-  margin: 1em 0;
-}
-
-#module-contact .module-bkg {
-  background-image: url(../images/keyboard.jpg);
-}
-#module-contact .module-wrap-content {
-  background-color: white;
-  width: 90%;
-  height: auto;
-  margin: 0 auto;
-  padding-top: 1em;
-}
-#module-contact .module-wrap-content .module-content {
-  padding: 3%;
-  text-align: center;
-  color: #363636;
-}
-#module-contact .module-wrap-content .module-content textarea, #module-contact .module-wrap-content .module-content .icon-textarea {
-  height: 80px;
-}
-#module-contact .module-wrap-content .module-content input[type="submit"] {
-  background-color: #3c4655;
-}
-@media only screen and (max-width: 1024px) {
-  #module-contact .module-wrap-content {
-    background-color: rgba(60, 70, 85, 0.6);
-    color: #e6e6e6;
-    height: auto;
-    margin: 0 auto;
-    margin-top: 75px;
-    margin-bottom: 75px;
-  }
-  #module-contact .module-content h6, #module-contact .module-content p {
-    color: #e6e6e6;
-  }
-}
-@media only screen and (min-width: 1025px) {
-  #module-contact .module-wrap-content {
-    width: 820px;
-  }
-}
-
-#module-public .module-bkg {
-  background-image: url(../images/pad.jpg);
-}
-#module-public .module-wrap-content {
-  background-color: #3c4655;
-  margin: 0 auto;
-  color: #e6e6e6;
-  padding: 1em;
-  width: 400px;
-}
-#module-public .module-wrap-content a {
-  color: #e6e6e6;
-}
-#module-public .module-wrap-content .help-block {
-  color: #e74343;
-}
-@media only screen and (max-width: 480px) {
-  #module-public .module-wrap-content {
-    background-color: rgba(60, 70, 85, 0.6);
-    width: 80%;
   }
 }
 
@@ -4011,6 +4022,185 @@ input[type="submit"], input[type="button"], button, select, .btn {
 
 #wrap-login-register, #box-signup, #box-settings {
   display: none;
+}
+
+/**********************************************************************
+Description: It defines the styles for the module components forming the page. We can devide the entire page in one or more modules. 
+Each module can have background image with or without parallax effect, a content wrapper which wraps module header and content.
+Dependencies: variables, variables-ext, mixins
+Javascript: jquery, cmg-module
+***********************************************************************/
+.module {
+  position: relative;
+}
+.module .splitter {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  z-index: 10000;
+}
+.module .splitter.top {
+  top: 0;
+  margin-top: -50px;
+}
+.module .splitter.bottom {
+  bottom: 0;
+  margin-bottom: -50px;
+}
+.module .splitter .icon {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}
+
+.module-basic {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.module-basic .bkg {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-position: 50% 50% 9 !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.module-basic .bkg-parallax {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-position: 50% 50% 9 !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 110%;
+  position: absolute;
+  top: -5%;
+  left: 0;
+  z-index: 5;
+}
+.module-basic .texture {
+  z-index: 10;
+}
+.module-basic .wrap-content {
+  position: relative;
+  z-index: 15;
+}
+
+.module .wrap-content {
+  margin-top: 75px;
+}
+.module .wrap-content .header {
+  text-align: center;
+}
+@media only screen and (min-width: 1025px) {
+  .module .wrap-content {
+    margin-top: 110px;
+  }
+}
+
+#module-banner .bkg-parallax {
+  background-image: url(../images/pad.jpg);
+}
+#module-banner .wrap-content {
+  background-color: rgba(72, 72, 72, 0.6);
+  width: 80%;
+  height: 200px;
+  margin: 0 auto;
+}
+#module-banner .wrap-content .content {
+  padding: 3%;
+  font-size: 2.5em;
+  text-align: center;
+  color: #e6e6e6;
+}
+@media only screen and (min-width: 1025px) {
+  #module-banner .content {
+    font-size: 3.5em;
+  }
+}
+
+#module-about .row {
+  width: 80%;
+}
+#module-about .container {
+  background-color: white;
+  margin: 1em 1%;
+}
+#module-about .container .content {
+  margin: 1em 0;
+}
+
+#module-contact .bkg {
+  background-image: url(../images/keyboard.jpg);
+}
+#module-contact .wrap-content {
+  background-color: white;
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+  padding-top: 1em;
+}
+#module-contact .wrap-content .content {
+  padding: 3%;
+  text-align: center;
+  color: #363636;
+}
+#module-contact .wrap-content .content textarea, #module-contact .wrap-content .content .icon-textarea {
+  height: 80px;
+}
+#module-contact .wrap-content .content input[type="submit"] {
+  background-color: #3c4655;
+}
+@media only screen and (max-width: 1024px) {
+  #module-contact .wrap-content {
+    background-color: rgba(60, 70, 85, 0.6);
+    color: #e6e6e6;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 75px;
+    margin-bottom: 75px;
+  }
+  #module-contact .content h6, #module-contact .content p {
+    color: #e6e6e6;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  #module-contact .wrap-content {
+    width: 820px;
+  }
+}
+
+#module-public .bkg {
+  background-image: url(../images/pad.jpg);
+}
+#module-public .wrap-content {
+  background-color: #3c4655;
+  margin: 0 auto;
+  color: #e6e6e6;
+  padding: 1em;
+  width: 400px;
+}
+#module-public .wrap-content a {
+  color: #e6e6e6;
+}
+#module-public .wrap-content .help-block {
+  color: #e74343;
+}
+@media only screen and (max-width: 480px) {
+  #module-public .wrap-content {
+    background-color: rgba(60, 70, 85, 0.6);
+    width: 80%;
+  }
 }
 
 /*# sourceMappingURL=landing.css.map */

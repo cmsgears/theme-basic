@@ -1,9 +1,13 @@
 <?php
+use \Yii;
+
 use themes\basic\assets\PrivateAssetBundle;
 
 PrivateAssetBundle::register( $this );
 
+// Variables available for headers, sidebars and footers included within this layout
 $coreProperties = $this->context->getCoreProperties();
+$user			= Yii::$app->user->getIdentity();
 ?>
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>

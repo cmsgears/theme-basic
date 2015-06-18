@@ -1,16 +1,16 @@
 .module {
 
-    .module-wrap-content {
+    .wrap-content {
         margin-top: 75px;
 
-        .module-header {
+        .header {
             text-align: center;
         }
     }
 
     @include responsive-min( screen-tablet-large ) {
 
-      .module-wrap-content {
+      .wrap-content {
           margin-top: 110px;
       }
     }
@@ -20,17 +20,17 @@
 
 #module-banner {
 
-    .module-bkg-parallax {
+    .bkg-parallax {
         background-image: url(../images/pad.jpg);     
     }
 
-    .module-wrap-content {
+    .wrap-content {
         background-color: $color-transparent-gray;
         width: 80%;
         height: 200px;
         margin: 0 auto;
 
-        .module-content {
+        .content {
             padding: 3%;
             font-size: 2.5em;
             text-align: center;
@@ -40,7 +40,7 @@
 
     @include responsive-min( screen-tablet-large ) {
 
-        .module-content {
+        .content {
             font-size: 3.5em;
         }
     }
@@ -64,18 +64,18 @@
 
 #module-contact {
 
-    .module-bkg {
+    .bkg {
         background-image: url(../images/keyboard.jpg);
     }
 
-    .module-wrap-content {
+    .wrap-content {
         background-color: $color-primary-l;
         width: 90%;
         height: auto;
         margin: 0 auto;
         padding-top: 1em;
 
-        .module-content {
+        .content {
             padding: 3%;
             text-align: center;
             color: $color-primary-text;
@@ -92,7 +92,7 @@
 
     @include responsive-max( screen-tablet-large ) {
 
-        .module-wrap-content {
+        .wrap-content {
             background-color: $color-transparent-tertiary;
             color: $color-tertiary-text;
             height: auto;
@@ -101,14 +101,14 @@
             margin-bottom: 75px;
         }
 
-        .module-content h6, .module-content p {
+        .content h6, .content p {
             color: $color-tertiary-text;
         }
     }
 
     @include responsive-min( screen-tablet-large ) {
 
-        .module-wrap-content {
+        .wrap-content {
             width: 820px;
         }
     }
@@ -117,11 +117,11 @@
 // Other Modules
 #module-public {
 
-    .module-bkg {
+    .bkg {
         background-image: url(../images/pad.jpg);     
     }
 
-    .module-wrap-content {
+    .wrap-content {
         background-color: $color-tertiary;
         margin: 0 auto;
         color: $color-tertiary-text;
@@ -139,7 +139,7 @@
 
     @include responsive-max( screen-mobile-large ) {
 
-        .module-wrap-content {
+        .wrap-content {
             background-color: $color-transparent-tertiary;
             width: 80%;
         }

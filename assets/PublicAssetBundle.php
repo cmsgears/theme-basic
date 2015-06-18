@@ -28,8 +28,8 @@ class PublicAssetBundle extends AssetBundle {
             "scripts/vendor/conditionizr-4.4.0.min.js",
             "conditionizr/detects/ie6-ie7-ie8-ie9.js",
             "scripts/vendor/imagesloaded.pkgd-3.1.8.min.js",
-            "scripts/cmgtools/cmg-modules.js",
-            "scripts/cmgtools/cmg-utilities.js",
+			"scripts/cmgtools/cmt-utils.js",
+            "scripts/cmgtools/cmt-page-module.js",
             "scripts/main.js"
 	    ];
 

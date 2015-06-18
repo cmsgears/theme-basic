@@ -7,19 +7,19 @@ $this->params['desc']	= "The basic template with basic theme for CMSGears.";
 $this->params['meta']	= "cmsgears, template, basic, theme";
 ?>
 <section class="module module-basic" id="module-banner">
-	<div class="module-bkg-parallax"> </div>
+	<div class="bkg-parallax"> </div>
 	<div class="texture texture1"></div>
-	<div class="module-wrap-content valign-center">
-		<div class="module-content">
+	<div class="wrap-content valign-center">
+		<div class="content">
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do....
 		</div>	
 	</div>
 </section>
 
 <section class="module module-basic" id="module-about">
-	<div class="module-wrap-content">
-		<h2 class="module-header">About Us</h2>
-		<div class="module-content clearfix">
+	<div class="wrap-content">
+		<h2 class="header">About Us</h2>
+		<div class="content clearfix">
 			<div class="row">
 				<div class="col2 container shadow">
 					<h4 class="title">Title 1</h4>
@@ -69,10 +69,10 @@ $this->params['meta']	= "cmsgears, template, basic, theme";
 </section>
 
 <section class="module module-basic" id="module-contact">
-	<div class="module-bkg"> </div>
-	<div class="module-wrap-content valign-center">
-		<h2 class="module-header">Write To Us</h2>
-		<div class="module-content clearfix">
+	<div class="bkg"> </div>
+	<div class="wrap-content valign-center">
+		<h2 class="header">Write To Us</h2>
+		<div class="content clearfix">
 			<div class="col3x2 clearfix">
 				<form class="frm-ajax" id="frm-contact" action="<?php echo Yii::$app->urlManager->createAbsoluteUrl("apix/contact"); ?>" method="post">
 					<div class="max-area-cover frm-spinner"><div class="valign-center fa fa-3x fa-spinner fa-spin"></div></div>

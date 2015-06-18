@@ -9,24 +9,32 @@ jQuery(document).ready( function() {
 
 function initLanding() {
 
-	registerHeaderChange();
+	// perspective header
+	if( jQuery().cmtHeader ) {
 
-	initSmoothScroll( ".smooth-scroll" );	
+		jQuery( "#header" ).cmtHeader( { scrollDistance: 500 } );
+	}
+
+	// smooth scroll
+	if( jQuery().cmtSmoothScroll ) {
+
+		jQuery( ".smooth-scroll" ).cmtSmoothScroll();
+	}
 }
 
 function initModules() {
 
-	// Initialise the Page Modules
-	if( jQuery().cmgPageModules ) {
+	// Page Modules
+	if( jQuery().cmtPageModule ) {
 
-		jQuery( ".module" ).cmgPageModules( {
+		jQuery( ".module" ).cmtPageModule( {
 			fullHeight: true,
 			modules: {
-				'module-about': { fullHeight: true, css: { 'height': 'auto' } },
+				'module-about': { heightAutoMobile: true, heightAutoWidth: 1024 },
 				'module-contact': { heightAutoMobile: true, heightAutoWidth: 1024 }
 			}
 		});
-	}	
+	}
 }
 
 function initListeners() {
@@ -45,18 +53,24 @@ function initListeners() {
 
 		jQuery( "#nav-mobile" ).slideToggle( "slow" );
 	});
-	
+
 	// Show/ Hide login box
 	jQuery("#btn-login, #btn-login-mobile").click( function() {
 
 		jQuery( "#wrap-login-register" ).toggle( "slow" );
 	});
-	
+
 	// Show/ Hide settings box
 	jQuery("#btn-settings, #btn-settings-mobile").click( function( e ) {
-		
+
 		e.preventDefault();
 
 		jQuery( "#box-settings" ).toggle( "slow" );
 	});
+	
+	// File Uploader
+	if( jQuery().cmtFileUploader ) {
+
+		jQuery( '.file-uploader' ).cmtFileUploader();
+	}
 }

@@ -23,7 +23,7 @@ $privateMenuItemsMobile = [
 
 $settingsMenuItems = [
 	    [ 'label' => 'Profile', 'url' => ['/user/profile'] ],
-	    [ 'label' => 'Logout', 'url' => ['/apix/logout'], 'options' => [ 'id' => 'btn-logout' ] ]
+	    [ 'label' => 'Logout', 'url' => ['/logout'] ]
 	];
 ?>
 <?php if ( Yii::$app->user->isGuest ) { ?>
