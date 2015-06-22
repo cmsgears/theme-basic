@@ -1,6 +1,6 @@
 <?php
 use yii\helpers\Html;
-use cmsgears\core\widgets\AjaxLogin;
+use cmsgears\widgets\login\AjaxLogin;
 ?>
 <header id="header" class="header-main">
 	<div class="header-desktop clearfix">

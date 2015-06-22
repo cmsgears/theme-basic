@@ -2,7 +2,7 @@
 use \Yii;
 use yii\helpers\Html;
 
-use cmsgears\core\widgets\Nav;
+use cmsgears\widgets\nav\BasicNav;
 
 $publicMenuItems = [
 	    [ 'label' => 'Home', 'url' => ['/'] ],
@@ -35,7 +35,7 @@ $settingsMenuItems = [
 			</div>
 			<div class="colf12x8">
 			<?php	
-	            echo Nav::widget([
+	            echo BasicNav::widget([
 	                'options' => [ 'class' => 'nav-main' ],
 	                'items' => $publicMenuItems
 	            ]);
@@ -48,7 +48,7 @@ $settingsMenuItems = [
 			</div>
 			<?=Html::a( "<img class='logo' src='" . Yii::getAlias( '@images' ) . "/logo.png'>", [ '/' ], null )?>
 			<?php	
-	            echo Nav::widget([
+	            echo BasicNav::widget([
 	                'options' => [ 'class' => 'nav-main', 'id' => 'nav-mobile' ],
 	                'items' => $publicMenuItems
 	            ]);
@@ -64,7 +64,7 @@ $settingsMenuItems = [
 			</div>
 			<div class="colf12x8">
 			<?php	
-	            echo Nav::widget([
+	            echo BasicNav::widget([
 	                'options' => [ 'class' => 'nav-main' ],
 	                'items' => $privateMenuItems
 	            ]);
@@ -77,7 +77,7 @@ $settingsMenuItems = [
 			</div>
 			<?=Html::a( "<img class='logo' src='" . Yii::getAlias( '@images' ) . "/logo.png'>", [ '/user/home' ], null )?>
 			<?php	
-	            echo Nav::widget([
+	            echo BasicNav::widget([
 	                'options' => [ 'class' => 'nav-main', 'id' => 'nav-mobile' ],
 	                'items' => $privateMenuItemsMobile
 	            ]);
@@ -85,7 +85,7 @@ $settingsMenuItems = [
 		</div>
 		<div id="box-settings" class='popout-header'>
 			<?php	
-	            echo Nav::widget([
+	            echo BasicNav::widget([
 	                'options' => [ 'class' => 'nav-settings' ],
 	                'items' => $settingsMenuItems
 	            ]);
