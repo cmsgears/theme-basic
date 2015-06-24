@@ -1,5 +1,9 @@
 <?php
+// Yii Imports
 use yii\captcha\Captcha;
+
+// Gallery
+use cmsgears\widgets\gallery\Gallery;
 
 $coreProperties 		= $this->context->getCoreProperties();
 $this->title 			= $coreProperties->getSiteTitle();
@@ -12,60 +16,18 @@ $this->params['meta']	= "cmsgears, template, basic, theme";
 	<div class="wrap-content valign-center">
 		<div class="content">
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do....
-		</div>	
+		</div>
 	</div>
 </section>
 
 <section class="module module-basic" id="module-about">
-	<div class="wrap-content">
-		<h2 class="header">About Us</h2>
-		<div class="content clearfix">
-			<div class="row">
-				<div class="col2 container shadow">
-					<h4 class="title">Title 1</h4>
-					<div class="content">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-						dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</div>
-				</div>
-				<div class="col2 container shadow">
-					<h4 class="title">Title 2</h4>
-					<div class="content">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-						dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col3 container shadow">
-					<h4 class="title">Title 3</h4>
-					<div class="content">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-						dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</div>
-				</div>
-				<div class="col3 container shadow">
-					<h4 class="title">Title 4</h4>
-					<div class="content">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-						dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</div>
-				</div>
-				<div class="col3 container shadow">
-					<h4 class="title">Title 5</h4>
-					<div class="content">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-						dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</div>
-				</div>
-			</div>
-		</div>	
-	</div>
+<?php
+    echo Gallery::widget([
+        'options' => [ 'id' => 'portfolio-main', 'class' => 'gallery-basic portfolio clearfix' ],
+        'galleryName' => 'main',
+        'view' => 'portfolio'
+    ]);
+?>
 </section>
 
 <section class="module module-basic" id="module-contact">

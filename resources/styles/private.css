@@ -4496,6 +4496,7 @@ input[type="submit"], input[type="button"], button, select, .btn {
 .file-uploader .chooser {
   overflow: hidden;
   position: relative;
+  text-align: center;
 }
 .file-uploader .chooser input[type="file"] {
   opacity: 0;
@@ -4551,6 +4552,7 @@ input[type="submit"], input[type="button"], button, select, .btn {
 }
 .file-uploader .post-action {
   display: none;
+  text-align: center;
 }
 .file-uploader .fields {
   position: relative;

@@ -4203,4 +4203,223 @@ Javascript: jquery, cmg-module
   }
 }
 
+/* The basic gallery to be used for the default gallery widget from CMSGears core module. We can also use it for any other platform. 
+ * The preferred image size for gallery item is 360 x 270. We can maintain the same aspect ratio for larger images for expected results. */
+.gallery-basic {
+  padding: 0 10%;
+}
+.gallery-basic .header {
+  background-color: #1e2328;
+  color: #e6e6e6;
+  min-height: 150px;
+  height: auto;
+  padding: 1em;
+  line-height: 1.4em;
+}
+.gallery-basic .header h2 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+.gallery-basic .items {
+  padding: 1em;
+}
+.gallery-basic .items li {
+  display: inline-block;
+  width: 49%;
+  padding: 1%;
+}
+.gallery-basic .items .wrap-item {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  cursor: pointer;
+}
+.gallery-basic .items .wrap-item:hover .flip2 {
+  opacity: 1;
+  -webkit-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+.gallery-basic .items .wrap-item .flip1 {
+  width: 100%;
+  height: 100%;
+}
+.gallery-basic .items .wrap-item .flip2 {
+  background-color: #f2f2f2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  opacity: 0;
+  -moz-transition: all 350ms linear 0s;
+  -ms-transition: all 350ms linear 0s;
+  -o-transition: all 350ms linear 0s;
+  -webkit-transition: all 350ms linear 0s;
+  transition: all 350ms linear 0s;
+}
+.gallery-basic .items .wrap-item .flip2 .info {
+  display: inline-block;
+  width: 100%;
+  height: 60%;
+  padding: 5% 0;
+}
+@media only screen and (min-width: 481px) {
+  .gallery-basic .items .wrap-item {
+    height: 200px;
+  }
+}
+@media only screen and (min-width: 769px) {
+  .gallery-basic .items li {
+    width: 33%;
+  }
+  .gallery-basic .items .wrap-item {
+    height: 220px;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  .gallery-basic .header {
+    height: 400px;
+    width: 30%;
+    padding: 2em;
+    float: left;
+  }
+  .gallery-basic .items {
+    width: 70%;
+    float: left;
+    padding: 0;
+  }
+  .gallery-basic .items li {
+    width: 32%;
+    padding-top: 0;
+  }
+  .gallery-basic .items .wrap-item {
+    height: 175px;
+  }
+}
+@media only screen and (min-width: 1281px) {
+  .gallery-basic .header {
+    height: 450px;
+  }
+  .gallery-basic .items .wrap-item {
+    height: 200px;
+  }
+}
+@media only screen and (min-width: 1601px) {
+  .gallery-basic {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  .gallery-basic .header {
+    height: 500px;
+  }
+  .gallery-basic .items .wrap-item {
+    height: 250px;
+  }
+}
+
+.portfolio .flip-container {
+  width: 100%;
+  height: 150px;
+}
+.portfolio .flip-container .front, .portfolio .flip-container .back {
+  width: 100%;
+  height: 150px;
+}
+.portfolio .link {
+  display: inline-block;
+  width: 100%;
+  margin-top: 15px;
+  text-align: center;
+}
+@media only screen and (min-width: 321px) {
+  .portfolio .flip-container {
+    height: 180px;
+  }
+  .portfolio .flip-container .front, .portfolio .flip-container .back {
+    height: 180px;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .portfolio .flip-container {
+    height: 200px;
+  }
+  .portfolio .flip-container .front, .portfolio .flip-container .back {
+    height: 200px;
+  }
+}
+@media only screen and (min-width: 769px) {
+  .portfolio .flip-container {
+    height: 220px;
+  }
+  .portfolio .flip-container .front, .portfolio .flip-container .back {
+    height: 220px;
+  }
+}
+@media only screen and (min-width: 1025px) {
+  .portfolio .flip-container {
+    height: 175px;
+  }
+  .portfolio .flip-container .front, .portfolio .flip-container .back {
+    height: 175px;
+  }
+}
+@media only screen and (min-width: 1281px) {
+  .portfolio .flip-container {
+    height: 200px;
+  }
+  .portfolio .flip-container .front, .portfolio .flip-container .back {
+    height: 200px;
+  }
+}
+@media only screen and (min-width: 1601px) {
+  .portfolio .flip-container {
+    height: 250px;
+  }
+  .portfolio .flip-container .front, .portfolio .flip-container .back {
+    height: 250px;
+  }
+}
+
+/* Flipper - Reference - http://davidwalsh.name/css-flip. It need little js to toggle the hover class by listening for touchstart. */
+/* entire container, keeps perspective */
+.flip-container {
+  perspective: 1000;
+  width: 320px;
+  height: 270px;
+  /* flip speed goes here */
+  /* flip the pane when hovered */
+  /* hide back of pane during swap */
+  /* front pane, placed above back */
+  /* back, initially hidden pane */
+}
+.flip-container .flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+  transform: rotateY(180deg);
+}
+.flip-container .front, .flip-container .back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 270px;
+}
+.flip-container .front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+}
+.flip-container .back {
+  transform: rotateY(180deg);
+}
+
 /*# sourceMappingURL=landing.css.map */
