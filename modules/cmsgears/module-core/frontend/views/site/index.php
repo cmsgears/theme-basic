@@ -37,42 +37,42 @@ $this->params['meta']	= "cmsgears, template, basic, theme";
 		<div class="content clearfix">
 			<div class="col3x2 clearfix">
 				<form class="frm-ajax" id="frm-contact" action="<?php echo Yii::$app->urlManager->createAbsoluteUrl("apix/contact"); ?>" method="post">
-					<div class="max-area-cover frm-spinner"><div class="valign-center fa fa-3x fa-spinner fa-spin"></div></div>
+					<div class="max-area-cover spinner"><div class="valign-center fa fa-3x fa-spinner fa-spin"></div></div>
 					<div class="row clearfix">
 						<div class="col2">
 							<div class="frm-icon-field">
 								<span class="wrap-icon fa fa-user"></span><input type="text" name="Contact[name]" placeholder="Name *">
 							</div>
-							<span class="error" formError="name"></span>
+							<span class="error" cmt-error="name"></span>
 						</div>
 						<div class="col2">
 							<div class="frm-icon-field">
 								<span class="wrap-icon fa fa-at"></span><input class="fa-field-email" type="text" name="Contact[email]" placeholder="Email *">
 							</div>
-							<span class="error" formError="email"></span>
+							<span class="error" cmt-error="email"></span>
 						</div>
 					</div>
 					<div class="row clearfix">
 						<div class="frm-icon-field">
 							<span class="wrap-icon fa fa-briefcase"></span><input type="text" name="Contact[subject]" placeholder="Subject *">
 						</div>
-						<span class="error" formError="subject"></span>
+						<span class="error" cmt-error="subject"></span>
 					</div>
 					<div class="row clearfix">
 						<div class="frm-icon-field">
 							<span class="wrap-icon fa fa-folder icon-textarea"></span><textarea name="Contact[message]" placeholder="Message *"></textarea>
 						</div>	
-						<span class="error" formError="message"></span>
+						<span class="error" cmt-error="message"></span>
 					</div>
 					<div class="row clearfix">
 						<?= Captcha::widget( [ 'name' => 'Contact[captcha]', 'captchaAction' =>  '/cmgforms/site/captcha' ] ); ?>	
-						<span class="error" formError="captcha"></span>
+						<span class="error" cmt-error="captcha"></span>
 					</div>
 					<div class="row clearfix">
 						<input type="submit" name="submit" value="Submit">
 					</div>
 					<div class="row clearfix">
-						<div class="frm-message warning"></div>
+						<div class="message warning"></div>
 					</div>	
 				</form>
 			</div>

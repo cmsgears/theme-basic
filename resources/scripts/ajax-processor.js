@@ -1,5 +1,3 @@
-var FORM_KEY_AVATAR		=  100000;
-
 jQuery(document).ready( function() {
 
 	initAjaxListeners();
@@ -22,13 +20,13 @@ function postBTProcessorSuccess( formId, formGroup, formKey, data ) {
 
 			switch( formKey ) {
 
-				case FORM_KEY_LOGIN:
+				case ACTION_LOGIN:
 				{
 					window.location.replace( siteUrl + "user/home" );
 
 					break;
 				}
-				case FORM_KEY_AVATAR:
+				case ACTION_AVATAR:
 				{
 					jQuery( "#" + formId ).parent().hide();
 
