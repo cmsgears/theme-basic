@@ -15,7 +15,7 @@ function postBTProcessorSuccess( formId, formGroup, formKey, data ) {
 
 	switch( formGroup ) {
 
-		case FORM_GROUP_DEFAULT:
+		case CONTROLLER_DEFAULT:
 		{
 
 			switch( formKey ) {
