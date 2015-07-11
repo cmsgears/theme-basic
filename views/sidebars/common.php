@@ -10,6 +10,6 @@ use cmsgears\files\widgets\FileUploader;
 <?=FileUploader::widget([
 	'options' => [ 'id' => 'avatar-user', 'class' => 'file-uploader' ], 
 	'model' => $user->avatar, 
-	'postaction' => true, 'postactiongroup' => 0, 'postactionkey' => 100000,
+	'postaction' => true, 'cmtcontroller' => 'default', 'cmtaction' => 'avatar',
 	'postactionurl' => Url::toRoute( [ 'apix/user/avatar'], true )
 ]);?>

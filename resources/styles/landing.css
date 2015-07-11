@@ -2350,9 +2350,9 @@ Dependencies: variables, variables-ext
 }
 
 .text-shadow {
-  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  -webkit-text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  -moz-text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
 .linear-gradient {
@@ -2999,6 +2999,19 @@ h1, h2, h3, h4, h5, h6, .default-header {
   font-family: Verdana, Geneva, sans-serif;
 }
 
+.margin-none {
+  margin: 0;
+}
+
+.padding-none {
+  padding: 0;
+}
+
+.mp-none {
+  margin: 0;
+  padding: 0;
+}
+
 p, span, em, div, a {
   font-size: 1em;
   -ms-text-size-adjust: 1em;
@@ -3007,6 +3020,14 @@ p, span, em, div, a {
 
 pre {
   font-family: "Courier New", Courier, monospace;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.normal {
+  font-weight: normal;
 }
 
 a {

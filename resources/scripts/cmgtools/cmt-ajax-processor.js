@@ -13,7 +13,6 @@ var CONTROLLER_DEFAULT	= 'default';
 
 // Default Controller Actions
 var ACTION_DEFAULT		=  'default';
-var ACTION_REGISTER		=  'register';
 var ACTION_LOGIN		=  'login';
 var ACTION_AVATAR		=  'avatar';
 
@@ -204,8 +203,8 @@ Cmt.remote = {
 	handleAjaxRequest: function( elementId, controllerId, actionId ) {
 
 		var element		= jQuery( "#" + elementId );
-		var httpMethod	= form.attr( "method" );
-		var actionUrl	= form.attr( "action" );
+		var httpMethod	= element.attr( "method" );
+		var actionUrl	= element.attr( "action" );
 		var message		= jQuery( "#" + elementId + " ." + this.messageClass );
 
 		if( null == httpMethod ) {

@@ -21,11 +21,10 @@ $this->params['meta']	= "cmsgears, template, basic, theme";
 </section>
 
 <section class="module module-basic" id="module-about">
-<?php
-    echo Gallery::widget([
+<?= Gallery::widget([
         'options' => [ 'id' => 'portfolio-main', 'class' => 'gallery-basic portfolio clearfix' ],
         'galleryName' => 'main',
-        'view' => 'portfolio'
+        'viewFile' => 'portfolio'
     ]);
 ?>
 </section>
