@@ -7,13 +7,13 @@ $this->title 	= $coreProperties->getSiteTitle() . " | Error";
 ?>
 <?php if ( Yii::$app->user->isGuest ) { ?>
 	<section class="module module-basic" id="module-public">
-		<div class="bkg"></div>
+		<div class="module-bkg"></div>
 		<div class="texture texture1"></div>
-		<div class="wrap-content valign-center">
-			<div class="header">
+		<div class="module-wrap-content valign-center">
+			<div class="module-header">
 				<h1 class="align-middle">ERROR</h1>
 			</div>
-			<div class="content">
+			<div class="module-content">
 				<p> <?= nl2br(Html::encode($message)) ?> </p>
 			</div>
 		</div>

@@ -29,7 +29,7 @@ class PrivateAssetBundle extends AssetBundle {
             "conditionizr/detects/ie6-ie7-ie8-ie9.js",
             "scripts/vendor/imagesloaded.pkgd-3.1.8.min.js",
 			"scripts/cmgtools/cmt-core.js",
-            "scripts/cmgtools/cmt-ajax-processor.js",
+            "scripts/cmgtools/cmt-api-processor.js",
             "scripts/cmgtools/cmt-file-uploader.js",
             "scripts/main.js",
             "scripts/ajax-processor.js"

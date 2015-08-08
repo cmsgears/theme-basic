@@ -20,7 +20,7 @@ use cmsgears\widgets\login\AjaxLogin;
 	</div>
 	<div class="header-mobile clearfix">
 		<div id="btn-mobile-menu"> 
-			<span class="fa fa-3x fa-list"></span>
+			<span class="fa fa-3x fa-bars"></span>
 		</div>
 		<?=Html::a( "<img class='logo' src='" . Yii::getAlias( '@images' ) . "/logo.png'>", [ '/' ], null )?>
 		<span class="fa fa-3x fa-user" id="btn-login-mobile"></span>

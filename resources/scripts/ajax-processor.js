@@ -7,6 +7,8 @@ function initAjaxListeners() {
 
 	// Listen for Ajax Forms
 	jQuery( ".frm-ajax" ).processAjax();
+	
+	jQuery( ".request-ajax" ).processAjax( { form: false } );
 }
 
 // Forms --------------------------------------------------------------------
@@ -15,19 +17,18 @@ function postBTProcessorSuccess( formId, formGroup, formKey, data ) {
 
 	switch( formGroup ) {
 
-		case CONTROLLER_DEFAULT:
-		{
+		case CONTROLLER_DEFAULT: {
 
 			switch( formKey ) {
 
-				case ACTION_LOGIN:
-				{
+				case ACTION_LOGIN: {
+
 					window.location.replace( siteUrl + "user/home" );
 
 					break;
 				}
-				case ACTION_AVATAR:
-				{
+				case ACTION_AVATAR: {
+
 					jQuery( "#" + formId ).parent().hide();
 
 					break;
@@ -39,4 +40,4 @@ function postBTProcessorSuccess( formId, formGroup, formKey, data ) {
 	}
 }
 
-postAjaxProcessor.addSuccessListener( postBTProcessorSuccess );
+postCmtApiProcessor.addSuccessListener( postBTProcessorSuccess );

@@ -1,4 +1,6 @@
 jQuery(document).ready( function() {
+	
+	initPreloaders();
 
 	initLanding();
 
@@ -6,6 +8,15 @@ jQuery(document).ready( function() {
 
 	initListeners();
 });
+
+function initPreloaders() {
+
+	// Hide global pre-loader spinner
+	jQuery('.module').imagesLoaded( function() {
+
+		jQuery( '#pre-loader-main' ).fadeOut( "slow" );
+	});
+}
 
 function initLanding() {
 
@@ -30,8 +41,8 @@ function initModules() {
 		jQuery( ".module" ).cmtPageModule( {
 			fullHeight: true,
 			modules: {
-				'module-about': { heightAutoMobile: true, heightAutoWidth: 1024 },
-				'module-contact': { heightAutoMobile: true, heightAutoWidth: 1024 }
+				'module-about': { fullHeight: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
+				'module-contact': { fullHeight: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 }
 			}
 		});
 	}
@@ -39,17 +50,8 @@ function initModules() {
 
 function initListeners() {
 
-	// Show pre-loader spinner
-	jQuery( '#pre-loader-page' ).fadeIn();
-
-	// Hide pre-loader spinner
-	jQuery( 'body' ).imagesLoaded( function() {
-
-		jQuery( '#pre-loader-page' ).fadeOut( "slow" );
-	});
-
 	// Initialise the mobile button
-	jQuery( "#btn-mobile-menu" ).click( function() {
+	jQuery( "#btn-mobile-menu, #nav-mobile li" ).click( function() {
 
 		jQuery( "#nav-mobile" ).slideToggle( "slow" );
 	});
@@ -67,7 +69,7 @@ function initListeners() {
 
 		jQuery( "#box-settings" ).toggle( "slow" );
 	});
-	
+
 	// File Uploader
 	if( jQuery().cmtFileUploader ) {
 

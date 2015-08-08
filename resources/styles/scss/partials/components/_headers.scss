@@ -35,10 +35,14 @@
             cursor: pointer;
             display: inline-block;
             color: $color-secondary-text;
+            
+            &:hover .fa-bars {
+                color:$color-secondary-text-d;
+            }
         }
 
         .logo {
-            height: 40px;
+            height: 46px;
             margin: 5px;
         }
 
@@ -59,6 +63,21 @@
 
         .header-mobile {
             display: block;
+            
+            .logo {
+              
+            }
+        }
+    }
+    
+    @include responsive-max( screen-mobile-large ) {
+
+        .header-mobile {
+                   
+            .logo {
+                  height:40px;
+                  margin:5px;
+            }
         }
     }
 }

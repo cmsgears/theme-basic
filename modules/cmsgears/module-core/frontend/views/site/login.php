@@ -6,13 +6,13 @@ $coreProperties = $this->context->getCoreProperties();
 $this->title 	= $coreProperties->getSiteTitle() . " | Login";
 ?>
 <section class="module module-basic" id="module-public">
-	<div class="bkg"></div>
-	<div class="texture texture1"></div>
-	<div class="wrap-content valign-center">
-		<div class="header">
-			<h1 class="align-middle">LOGIN</h1>
+	<div class="module-bkg"></div>
+	<div class="module-texture texture1"></div>
+	<div class="module-wrap-content valign-center">
+		<div class="module-header">
+			<h2 class="align-middle">LOGIN</h2>
 		</div>
-		<div class="content">
+		<div class="module-content">
 			<?php $form = ActiveForm::begin( [ 'id' => 'frm-login' ] );?>
 	
 	    	<?= $form->field( $model, 'email' )->textInput( [ 'placeholder' => 'Email*' ] )->label( false ) ?>

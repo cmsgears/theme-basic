@@ -6,13 +6,13 @@ $coreProperties = $this->context->getCoreProperties();
 $this->title 	= $coreProperties->getSiteTitle() . " | Reset Password";
 ?>
 <section class="module module-basic" id="module-public">
-	<div class="bkg"></div>
+	<div class="module-bkg"></div>
 	<div class="texture texture1"></div>
-	<div class="wrap-content valign-center">
-		<div class="header">
-			<h1 class="align-middle">RESET PASSWORD</h1>
+	<div class="module-wrap-content valign-center">
+		<div class="module-header">
+			<h2 class="align-middle">RESET PASSWORD</h2>
 		</div>
-		<div class="content">
+		<div class="module-content">
 	    	<?php if( Yii::$app->session->hasFlash( "message" ) ) { ?>
 				<div class='frm-message'><p> <?php echo Yii::$app->session->getFlash( "message" ); ?> </p></div>
 			<?php		

@@ -1,36 +1,38 @@
+// Common Modules ------------------------------------------
+
 .module {
 
-    .wrap-content {
+    .module-wrap-content {
         margin-top: 75px;
 
-        .header {
+        .module-header {
             text-align: center;
         }
     }
 
     @include responsive-min( screen-tablet-large ) {
 
-      .wrap-content {
+      .module-wrap-content {
           margin-top: 110px;
       }
     }
 }
 
-// Landing Page modules
+// Landing Page modules ------------------------------------
 
 #module-banner {
 
-    .bkg-parallax {
+    .module-bkg-parallax {
         background-image: url(../images/pad.jpg);     
     }
 
-    .wrap-content {
+    .module-wrap-content {
         background-color: $color-transparent-gray;
         width: 80%;
         height: 200px;
         margin: 0 auto;
 
-        .content {
+        .module-content {
             padding: 3%;
             font-size: 2.5em;
             text-align: center;
@@ -40,7 +42,7 @@
 
     @include responsive-min( screen-tablet-large ) {
 
-        .content {
+        .module-content {
             font-size: 3.5em;
         }
     }
@@ -60,30 +62,60 @@
             margin: 1em 0;
         }
     }
+    
+    .portfolio {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        padding-top:80px;
+    }
+    
+    @include responsive-max( screen-tablet-large ) {
+      
+        height:auto;
+        overflow:visible;
+        
+        .portfolio {          
+               padding-top:80px;
+                transform:translateY(0%);          
+        }
+    }     
 }
 
 #module-contact {
+    height:auto;
+    overflow:visible;
+    padding:120px 0 40px;
 
-    .bkg {
+    .module-bkg {
         background-image: url(../images/keyboard.jpg);
     }
 
-    .wrap-content {
+    .module-wrap-content {
         background-color: $color-primary-l;
         width: 90%;
         height: auto;
-        margin: 0 auto;
+        margin: 0px auto;
         padding-top: 1em;
 
-        .content {
+        .module-content {
             padding: 3%;
             text-align: center;
             color: $color-primary-text;
-            
+
+            .col2 {
+                margin:0 2% 0 0;
+            }
+
+            .split-col {
+                margin:0;
+                width:50%;
+            }
+
             textarea, .icon-textarea {
                 height: 80px;
             }
-            
+
             input[type="submit"] {
                 background-color: $color-tertiary;
             }
@@ -92,54 +124,75 @@
 
     @include responsive-max( screen-tablet-large ) {
 
-        .wrap-content {
+        padding: 80px 0 30px;
+    
+        .module-wrap-content {
             background-color: $color-transparent-tertiary;
             color: $color-tertiary-text;
             height: auto;
             margin: 0 auto;
-            margin-top: 75px;
+           // margin-top: 75px;
             margin-bottom: 75px;
+            transform:translateY(0%);
+    
+            .module-content {
+    
+                .col2 {
+                    width:100%;
+                }
+    
+                .split-col {            
+                    width:100%;
+                }
+            }
         }
 
-        .content h6, .content p {
+        .module-content h6, .module-content p {
             color: $color-tertiary-text;
         }
-    }
-
+    }        
+    
     @include responsive-min( screen-tablet-large ) {
 
-        .wrap-content {
+        .module-wrap-content {
             width: 820px;
         }
     }
 }
 
-// Other Modules
-#module-public {
+// Other Modules -------------------------------------------
 
-    .bkg {
+#module-public {
+    padding:120px 0 40px;
+    height:auto;
+
+    .module-bkg {
         background-image: url(../images/pad.jpg);     
     }
 
-    .wrap-content {
+    .module-wrap-content {
         background-color: $color-tertiary;
         margin: 0 auto;
         color: $color-tertiary-text;
         padding: 1em;
         width: 400px;
-        
+
         a {
             color: $color-tertiary-text;
         }
-        
+
         .help-block {
             color: $color-error;
         }
     }
 
+    @include responsive-max( screen-tablet-large ) {
+        padding:80px 0 40px;
+    }
+
     @include responsive-max( screen-mobile-large ) {
 
-        .wrap-content {
+        .module-wrap-content {
             background-color: $color-transparent-tertiary;
             width: 80%;
         }

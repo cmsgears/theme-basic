@@ -6,15 +6,17 @@ use yii\captcha\Captcha;
 use cmsgears\widgets\gallery\Gallery;
 
 $coreProperties 		= $this->context->getCoreProperties();
+
+// Configure Page Title, Description and Meta
 $this->title 			= $coreProperties->getSiteTitle();
 $this->params['desc']	= "The basic template with basic theme for CMSGears.";
 $this->params['meta']	= "cmsgears, template, basic, theme";
 ?>
 <section class="module module-basic" id="module-banner">
-	<div class="bkg-parallax"> </div>
+	<div class="module-bkg-parallax"> </div>
 	<div class="texture texture1"></div>
-	<div class="wrap-content valign-center">
-		<div class="content">
+	<div class="module-wrap-content valign-center">
+		<div class="module-content">
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do....
 		</div>
 	</div>
@@ -30,9 +32,9 @@ $this->params['meta']	= "cmsgears, template, basic, theme";
 </section>
 
 <section class="module module-basic" id="module-contact">
-	<div class="bkg"> </div>
-	<div class="wrap-content valign-center">
-		<h2 class="header">Write To Us</h2>
+	<div class="module-bkg"> </div>
+	<div class="module-wrap-content">
+		<h2 class="module-header">Write To Us</h2>
 		<div class="content clearfix">
 			<div class="col3x2 clearfix">
 				<form class="frm-ajax" id="frm-contact" action="<?php echo Yii::$app->urlManager->createAbsoluteUrl("apix/contact"); ?>" method="post">
@@ -44,7 +46,7 @@ $this->params['meta']	= "cmsgears, template, basic, theme";
 							</div>
 							<span class="error" cmt-error="name"></span>
 						</div>
-						<div class="col2">
+						<div class="col2 split-col">
 							<div class="frm-icon-field">
 								<span class="wrap-icon fa fa-at"></span><input class="fa-field-email" type="text" name="Contact[email]" placeholder="Email *">
 							</div>
@@ -68,7 +70,7 @@ $this->params['meta']	= "cmsgears, template, basic, theme";
 						<span class="error" cmt-error="captcha"></span>
 					</div>
 					<div class="row clearfix">
-						<input type="submit" name="submit" value="Submit">
+						<input type="submit" name="submit" placeholder="Message" value="Submit">
 					</div>
 					<div class="row clearfix">
 						<div class="message warning"></div>

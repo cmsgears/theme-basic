@@ -1,8 +1,8 @@
 .popout-header {
     position: absolute;
-    width: 98%;
+    width: 100%;
     background-color: $color-tertiary;
-    padding: 1%;
+    padding: 2% 4%;
 
     a, .warning {
         color: $color-tertiary-text;
@@ -10,14 +10,16 @@
 
     @include responsive-min( screen-mobile-large ) {
         right: 0;
-        width: 250px;
+        width: 280px;
+        padding:5px 20px;
     }
 
     @include responsive-min( screen-tablet-large ) {
-        right: 10%;
+        right: 10%;        
     }
 }
 
 #wrap-login-register, #box-signup, #box-settings {
     display: none;
+    color: $color-secondary-text;
 }

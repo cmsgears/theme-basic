@@ -5,13 +5,13 @@ $coreProperties = $this->context->getCoreProperties();
 $this->title 	= $coreProperties->getSiteTitle() . " | Activate Account";
 ?>
 <section class="module module-basic" id="module-public">
-	<div class="bkg"></div>
+	<div class="module-bkg"></div>
 	<div class="texture texture1"></div>
-	<div class="wrap-content valign-center">
-		<div class="header">
-			<h1 class="align-middle">ACCOUNT ACTIVATION</h1>
+	<div class="module-wrap-content valign-center">
+		<div class="module-header">
+			<h2 class="align-middle">ACCOUNT ACTIVATION</h2>
 		</div>
-		<div class="content">
+		<div class="module-content">
     	<?php if( Yii::$app->session->hasFlash( "message" ) ) { ?>
 			<p> <?php echo Yii::$app->session->getFlash( "message" ); ?> </p>
 		<?php		

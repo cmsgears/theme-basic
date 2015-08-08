@@ -6,13 +6,13 @@ $coreProperties = $this->context->getCoreProperties();
 $this->title 	= $coreProperties->getSiteTitle() . " | Login";
 ?>
 <section class="module module-basic" id="module-public">
-	<div class="bkg"></div>
+	<div class="module-bkg"></div>
 	<div class="texture texture1"></div>
-	<div class="wrap-content valign-center">
-		<div class="header">
+	<div class="module-wrap-content valign-center">
+		<div class="module-header">
 			<h1 class="align-middle">CONTACT US</h1>
 		</div>
-		<div class="content">
+		<div class="module-content">
 	    	<?php if( Yii::$app->session->hasFlash( "success" ) ) { ?>
 				<div class='frm-message'><p> <?php echo Yii::$app->session->getFlash( "success" ); ?> </p></div>
 			<?php
@@ -36,4 +36,5 @@ $this->title 	= $coreProperties->getSiteTitle() . " | Login";
 	        ?>
 		</div>
 	</div>
+
 </section>
