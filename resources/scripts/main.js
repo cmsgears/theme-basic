@@ -7,6 +7,8 @@ jQuery(document).ready( function() {
 	initModules();
 
 	initListeners();
+	
+	initAutoHeight();
 });
 
 function initPreloaders() {
@@ -42,7 +44,9 @@ function initModules() {
 			fullHeight: true,
 			modules: {
 				'module-about': { fullHeight: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
-				'module-contact': { fullHeight: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 }
+				'module-contact': { fullHeight: false, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
+				'module-public': { fullHeight: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
+				'module-public-full': { fullHeight: false, heightAutoMobile: true, heightAutoMobileWidth: 1024 }
 			}
 		});
 	}
@@ -75,4 +79,14 @@ function initListeners() {
 
 		jQuery( '.file-uploader' ).cmtFileUploader();
 	}
+}
+
+function initAutoHeight () {
+		
+		jQuery( ".header" ).css( "height", jQuery(".items").height()-8 );
+		
+		if( window.innerWidth <= 1024  ) {
+		
+			jQuery( ".header" ).css( "height", "auto" );
+		}
 }

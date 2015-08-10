@@ -35,18 +35,18 @@ $this->params['meta']	= "cmsgears, template, basic, theme";
 	<div class="module-bkg"> </div>
 	<div class="module-wrap-content">
 		<h2 class="module-header">Write To Us</h2>
-		<div class="content clearfix">
+		<div class="module-content clearfix">
 			<div class="col3x2 clearfix">
 				<form class="frm-ajax" id="frm-contact" action="<?php echo Yii::$app->urlManager->createAbsoluteUrl("apix/contact"); ?>" method="post">
 					<div class="max-area-cover spinner"><div class="valign-center fa fa-3x fa-spinner fa-spin"></div></div>
 					<div class="row clearfix">
-						<div class="col2">
+						<div class="col2 split-col">
 							<div class="frm-icon-field">
 								<span class="wrap-icon fa fa-user"></span><input type="text" name="Contact[name]" placeholder="Name *">
 							</div>
 							<span class="error" cmt-error="name"></span>
 						</div>
-						<div class="col2 split-col">
+						<div class="col2 split-col right">
 							<div class="frm-icon-field">
 								<span class="wrap-icon fa fa-at"></span><input class="fa-field-email" type="text" name="Contact[email]" placeholder="Email *">
 							</div>
@@ -77,7 +77,7 @@ $this->params['meta']	= "cmsgears, template, basic, theme";
 					</div>	
 				</form>
 			</div>
-			<div class="col3">
+			<div class="col3 address">
 				<h6>Address</h6>
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

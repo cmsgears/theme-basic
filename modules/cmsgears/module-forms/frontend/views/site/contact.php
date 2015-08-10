@@ -5,10 +5,10 @@ use yii\captcha\Captcha;
 $coreProperties = $this->context->getCoreProperties();
 $this->title 	= $coreProperties->getSiteTitle() . " | Login";
 ?>
-<section class="module module-basic" id="module-public">
+<section class="module module-basic" id="module-public-full">
 	<div class="module-bkg"></div>
 	<div class="texture texture1"></div>
-	<div class="module-wrap-content valign-center">
+	<div class="module-wrap-content">
 		<div class="module-header">
 			<h1 class="align-middle">CONTACT US</h1>
 		</div>

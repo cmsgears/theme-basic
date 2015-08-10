@@ -4355,6 +4355,9 @@ label {
   padding: 10px 0;
 }
 
+.frm-icon-field {
+  display: table;
+}
 .frm-icon-field .wrap-icon {
   -moz-border-radius-top-left: 0;
   -moz-border-radius-bottom-left: 0;
@@ -4363,6 +4366,8 @@ label {
   border-radius: 0 0 0 0;
   -khtml-border-radius-top-left: 0;
   -khtml-border-radius-bottom-left: 0;
+  display: table-cell;
+  text-align: center;
 }
 .frm-icon-field input[type="text"], .frm-icon-field input[type="email"], .frm-icon-field input[type="password"], .frm-icon-field textarea, .frm-icon-field input[type="submit"], .frm-icon-field input[type="button"], .frm-icon-field button, .frm-icon-field .btn {
   -moz-border-radius-top-right: 0;
@@ -4372,6 +4377,7 @@ label {
   border-radius: 0 0 0 0;
   -khtml-border-radius-top-right: 0;
   -khtml-border-radius-bottom-right: 0;
+  width: 100%;
 }
 .frm-icon-field input[type="text"]:focus, .frm-icon-field input[type="email"]:focus, .frm-icon-field input[type="password"]:focus, .frm-icon-field textarea:focus, .frm-icon-field select:focus {
   box-shadow: none;

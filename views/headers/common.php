@@ -12,17 +12,17 @@ $publicMenuItems = [
 	];
 
 $privateMenuItems = [
-	    [ 'label' => 'Home', 'url' => ['/user/home'] ],
+	    [ 'label' => 'Home', 'url' => ['/cmgcore/user/home'] ],
 	    [ 'label' => 'Settings', 'url' => ['#'], 'options' => [ 'id' => 'btn-settings' ] ]
 	];
 
 $privateMenuItemsMobile = [
-	    [ 'label' => 'Home', 'url' => ['/user/home'] ],
+	    [ 'label' => 'Home', 'url' => ['/cmgcore/user/home'] ],
 	    [ 'label' => 'Settings', 'url' => ['#'], 'options' => [ 'id' => 'btn-settings-mobile' ] ]
 	];
 
 $settingsMenuItems = [
-	    [ 'label' => 'Profile', 'url' => ['/user/profile'] ],
+	    [ 'label' => 'Profile', 'url' => ['/cmgcore/user/profile'] ],
 	    [ 'label' => 'Logout', 'url' => ['/logout'] ]
 	];
 ?>
@@ -60,7 +60,7 @@ $settingsMenuItems = [
 	<header id="header" class="header-main">
 		<div class="header-desktop clearfix">
 			<div class="colf12x4">
-				<?=Html::a( "<img class='logo' src='" . Yii::getAlias( '@images' ) . "/logo.png'>", [ '/user/home' ], null )?>
+				<?=Html::a( "<img class='logo' src='" . Yii::getAlias( '@images' ) . "/logo.png'>", [ '/cmgcore/user/home' ], null )?>
 			</div>
 			<div class="colf12x8">
 			<?php	
@@ -75,7 +75,7 @@ $settingsMenuItems = [
 			<div id="btn-mobile-menu"> 
 				<span class="fa fa-3x fa-bars"></span>
 			</div>
-			<?=Html::a( "<img class='logo' src='" . Yii::getAlias( '@images' ) . "/logo.png'>", [ '/user/home' ], null )?>
+			<?=Html::a( "<img class='logo' src='" . Yii::getAlias( '@images' ) . "/logo.png'>", [ '/cmgcore/user/home' ], null )?>
 			<?php	
 	            echo BasicNav::widget([
 	                'options' => [ 'class' => 'nav-main', 'id' => 'nav-mobile' ],

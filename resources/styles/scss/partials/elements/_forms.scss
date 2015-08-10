@@ -19,13 +19,21 @@ label {
 
 // Form Fields with Icons
 .frm-icon-field {
-
+    
+    // gc update
+    display:table;
+    
     .wrap-icon {
-        @include rounded-left( 0 );        
+        @include rounded-left( 0 );
+        // gc update
+        display:table-cell;
+        text-align:center;        
     }
 
     input[type="text"], input[type="email"], input[type="password"], textarea, input[type="submit"], input[type="button"], button, .btn {
-        @include rounded-right( 0 );               
+        @include rounded-right( 0 );
+        // gc update
+        width:100%;               
     }
     
     input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus, select:focus {

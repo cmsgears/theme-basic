@@ -4355,6 +4355,9 @@ label {
   padding: 10px 0;
 }
 
+.frm-icon-field {
+  display: table;
+}
 .frm-icon-field .wrap-icon {
   -moz-border-radius-top-left: 0;
   -moz-border-radius-bottom-left: 0;
@@ -4363,6 +4366,8 @@ label {
   border-radius: 0 0 0 0;
   -khtml-border-radius-top-left: 0;
   -khtml-border-radius-bottom-left: 0;
+  display: table-cell;
+  text-align: center;
 }
 .frm-icon-field input[type="text"], .frm-icon-field input[type="email"], .frm-icon-field input[type="password"], .frm-icon-field textarea, .frm-icon-field input[type="submit"], .frm-icon-field input[type="button"], .frm-icon-field button, .frm-icon-field .btn {
   -moz-border-radius-top-right: 0;
@@ -4372,6 +4377,7 @@ label {
   border-radius: 0 0 0 0;
   -khtml-border-radius-top-right: 0;
   -khtml-border-radius-bottom-right: 0;
+  width: 100%;
 }
 .frm-icon-field input[type="text"]:focus, .frm-icon-field input[type="email"]:focus, .frm-icon-field input[type="password"]:focus, .frm-icon-field textarea:focus, .frm-icon-field select:focus {
   box-shadow: none;
@@ -4698,12 +4704,9 @@ Javascript: jquery, cmg-module
   text-align: center;
   color: #363636;
 }
-#module-contact .module-wrap-content .module-content .col2 {
-  margin: 0 2% 0 0;
-}
 #module-contact .module-wrap-content .module-content .split-col {
   margin: 0;
-  width: 50%;
+  width: 49%;
 }
 #module-contact .module-wrap-content .module-content textarea, #module-contact .module-wrap-content .module-content .icon-textarea {
   height: 80px;
@@ -4720,7 +4723,7 @@ Javascript: jquery, cmg-module
     color: #e6e6e6;
     height: auto;
     margin: 0 auto;
-    margin-bottom: 75px;
+    margin-bottom: 20px;
     transform: translateY(0%);
   }
   #module-contact .module-wrap-content .module-content .col2 {
@@ -4733,39 +4736,44 @@ Javascript: jquery, cmg-module
     color: #e6e6e6;
   }
 }
+@media only screen and (max-width: 480px) {
+  #module-contact .module-wrap-content .module-content .col3x2, #module-contact .module-wrap-content .module-content .address {
+    width: 100%;
+  }
+}
 @media only screen and (min-width: 1025px) {
   #module-contact .module-wrap-content {
     width: 820px;
   }
 }
 
-#module-public {
+#module-public, #module-public-full {
   padding: 120px 0 40px;
   height: auto;
 }
-#module-public .module-bkg {
+#module-public .module-bkg, #module-public-full .module-bkg {
   background-image: url(../images/pad.jpg);
 }
-#module-public .module-wrap-content {
+#module-public .module-wrap-content, #module-public-full .module-wrap-content {
   background-color: #3c4655;
   margin: 0 auto;
   color: #e6e6e6;
   padding: 1em;
   width: 400px;
 }
-#module-public .module-wrap-content a {
+#module-public .module-wrap-content a, #module-public-full .module-wrap-content a {
   color: #e6e6e6;
 }
-#module-public .module-wrap-content .help-block {
+#module-public .module-wrap-content .help-block, #module-public-full .module-wrap-content .help-block {
   color: #e74343;
 }
 @media only screen and (max-width: 1024px) {
-  #module-public {
+  #module-public, #module-public-full {
     padding: 80px 0 40px;
   }
 }
 @media only screen and (max-width: 480px) {
-  #module-public .module-wrap-content {
+  #module-public .module-wrap-content, #module-public-full .module-wrap-content {
     background-color: rgba(54, 54, 54, 0.6);
     width: 80%;
   }

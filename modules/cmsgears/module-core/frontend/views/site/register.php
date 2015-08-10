@@ -5,10 +5,10 @@ use yii\widgets\ActiveForm;
 $coreProperties = $this->context->getCoreProperties();
 $this->title 	= $coreProperties->getSiteTitle() . " | Register";
 ?>
-<section class="module module-basic" id="module-public">
+<section class="module module-basic" id="module-public-full">
 	<div class="module-bkg"></div>
 	<div class="module-texture texture1"></div>
-	<div class="module-wrap-content valign-center">
+	<div class="module-wrap-content">
 		<div class="module-header">
 			<h2 class="align-middle">REGISTER</h2>
 		</div>

@@ -4355,6 +4355,9 @@ label {
   padding: 10px 0;
 }
 
+.frm-icon-field {
+  display: table;
+}
 .frm-icon-field .wrap-icon {
   -moz-border-radius-top-left: 0;
   -moz-border-radius-bottom-left: 0;
@@ -4363,6 +4366,8 @@ label {
   border-radius: 0 0 0 0;
   -khtml-border-radius-top-left: 0;
   -khtml-border-radius-bottom-left: 0;
+  display: table-cell;
+  text-align: center;
 }
 .frm-icon-field input[type="text"], .frm-icon-field input[type="email"], .frm-icon-field input[type="password"], .frm-icon-field textarea, .frm-icon-field input[type="submit"], .frm-icon-field input[type="button"], .frm-icon-field button, .frm-icon-field .btn {
   -moz-border-radius-top-right: 0;
@@ -4372,6 +4377,7 @@ label {
   border-radius: 0 0 0 0;
   -khtml-border-radius-top-right: 0;
   -khtml-border-radius-bottom-right: 0;
+  width: 100%;
 }
 .frm-icon-field input[type="text"]:focus, .frm-icon-field input[type="email"]:focus, .frm-icon-field input[type="password"]:focus, .frm-icon-field textarea:focus, .frm-icon-field select:focus {
   box-shadow: none;
@@ -4698,12 +4704,9 @@ Javascript: jquery, cmg-module
   text-align: center;
   color: #363636;
 }
-#module-contact .module-wrap-content .module-content .col2 {
-  margin: 0 2% 0 0;
-}
 #module-contact .module-wrap-content .module-content .split-col {
   margin: 0;
-  width: 50%;
+  width: 49%;
 }
 #module-contact .module-wrap-content .module-content textarea, #module-contact .module-wrap-content .module-content .icon-textarea {
   height: 80px;
@@ -4720,7 +4723,7 @@ Javascript: jquery, cmg-module
     color: #e6e6e6;
     height: auto;
     margin: 0 auto;
-    margin-bottom: 75px;
+    margin-bottom: 20px;
     transform: translateY(0%);
   }
   #module-contact .module-wrap-content .module-content .col2 {
@@ -4733,39 +4736,44 @@ Javascript: jquery, cmg-module
     color: #e6e6e6;
   }
 }
+@media only screen and (max-width: 480px) {
+  #module-contact .module-wrap-content .module-content .col3x2, #module-contact .module-wrap-content .module-content .address {
+    width: 100%;
+  }
+}
 @media only screen and (min-width: 1025px) {
   #module-contact .module-wrap-content {
     width: 820px;
   }
 }
 
-#module-public {
+#module-public, #module-public-full {
   padding: 120px 0 40px;
   height: auto;
 }
-#module-public .module-bkg {
+#module-public .module-bkg, #module-public-full .module-bkg {
   background-image: url(../images/pad.jpg);
 }
-#module-public .module-wrap-content {
+#module-public .module-wrap-content, #module-public-full .module-wrap-content {
   background-color: #3c4655;
   margin: 0 auto;
   color: #e6e6e6;
   padding: 1em;
   width: 400px;
 }
-#module-public .module-wrap-content a {
+#module-public .module-wrap-content a, #module-public-full .module-wrap-content a {
   color: #e6e6e6;
 }
-#module-public .module-wrap-content .help-block {
+#module-public .module-wrap-content .help-block, #module-public-full .module-wrap-content .help-block {
   color: #e74343;
 }
 @media only screen and (max-width: 1024px) {
-  #module-public {
+  #module-public, #module-public-full {
     padding: 80px 0 40px;
   }
 }
 @media only screen and (max-width: 480px) {
-  #module-public .module-wrap-content {
+  #module-public .module-wrap-content, #module-public-full .module-wrap-content {
     background-color: rgba(54, 54, 54, 0.6);
     width: 80%;
   }
@@ -4773,221 +4781,358 @@ Javascript: jquery, cmg-module
 
 /* The basic gallery to be used for the default gallery widget from CMSGears core module. We can also use it for any other platform. 
  * The preferred image size for gallery item is 360 x 270. We can maintain the same aspect ratio for larger images for expected results. */
+/*
 .gallery-basic {
-  padding: 0 10%;
-}
-.gallery-basic .header {
-  background-color: #1e2328;
-  color: #e6e6e6;
-  min-height: 150px;
-  height: auto;
-  padding: 1em;
-  line-height: 1.4em;
-}
-.gallery-basic .header h2 {
-  text-align: center;
-  margin-bottom: 1em;
-}
-.gallery-basic .items {
-  padding: 1em;
-}
-.gallery-basic .items li {
-  display: inline-block;
-  width: 49%;
-  padding: 1%;
-}
-.gallery-basic .items .wrap-item {
-  position: relative;
-  width: 100%;
-  height: 150px;
-  cursor: pointer;
-}
-.gallery-basic .items .wrap-item:hover .flip2 {
-  opacity: 1;
-  -webkit-transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
-  transform: rotate(360deg);
-}
-.gallery-basic .items .wrap-item .flip1 {
-  width: 100%;
-  height: 100%;
-}
-.gallery-basic .items .wrap-item .flip2 {
-  background-color: #f2f2f2;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  opacity: 0;
-  -moz-transition: all 350ms linear 0s;
-  -ms-transition: all 350ms linear 0s;
-  -o-transition: all 350ms linear 0s;
-  -webkit-transition: all 350ms linear 0s;
-  transition: all 350ms linear 0s;
-}
-.gallery-basic .items .wrap-item .flip2 .info {
-  display: inline-block;
-  width: 100%;
-  height: 60%;
-  padding: 5% 0;
-}
-@media only screen and (min-width: 481px) {
-  .gallery-basic .items .wrap-item {
-    height: 200px;
-  }
-}
-@media only screen and (min-width: 769px) {
-  .gallery-basic .items li {
-    width: 33%;
-  }
-  .gallery-basic .items .wrap-item {
-    height: 220px;
-  }
-}
-@media only screen and (min-width: 1025px) {
-  .gallery-basic .header {
-    height: 400px;
-    width: 30%;
-    padding: 2em;
-    float: left;
-  }
-  .gallery-basic .items {
-    width: 70%;
-    float: left;
-    padding: 0;
-  }
-  .gallery-basic .items li {
-    width: 32%;
-    padding-top: 0;
-  }
-  .gallery-basic .items .wrap-item {
-    height: 175px;
-  }
-}
-@media only screen and (min-width: 1281px) {
-  .gallery-basic .header {
-    height: 450px;
-  }
-  .gallery-basic .items .wrap-item {
-    height: 200px;
-  }
-}
-@media only screen and (min-width: 1601px) {
-  .gallery-basic {
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
-  .gallery-basic .header {
-    height: 500px;
-  }
-  .gallery-basic .items .wrap-item {
-    height: 250px;
-  }
+    padding: 0 10%;
+
+    .header {
+        background-color: $color-secondary;
+        color: $color-secondary-text;
+        min-height: 150px;
+        height: auto;
+        padding: 1em;
+        line-height: 1.4em;
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1em;
+        }
+    }
+
+    .items {
+        padding: 1em;
+
+        li {
+            display: inline-block;
+            width: 49%;
+            padding: 1%;
+        }
+
+        .wrap-item {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            cursor: pointer;
+
+            &:hover {
+
+                .flip2 {
+                    opacity: 1;
+                    @include transform-rotate( 360deg );
+                }
+            }
+
+            .flip1 {
+                width: 100%;
+                height: 100%;
+            }
+
+            .flip2 {
+                background-color: $color-primary;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                opacity: 0;
+                @include transit-all( $transit-linear, $transit-time-medium );
+
+                .info {
+                    display: inline-block;
+                    width: 100%;
+                    height: 60%;
+                    padding: 5% 0;
+                }
+            }
+        }
+    }
+
+    @include responsive-min( screen-mobile-large ) {
+
+        .items {
+
+            .wrap-item {
+                height: 200px;
+            }
+        }
+    }
+
+    @include responsive-min( screen-tablet-small ) {
+
+        .items {
+
+            li {
+                width: 33%;
+            }
+
+            .wrap-item {
+                height: 220px;
+            }
+        }
+    }
+
+    @include responsive-min( screen-tablet-large ) {
+
+        .header {
+            height: 400px;
+            width: 30%;
+            padding: 2em;
+            float: left;
+        }
+
+        .items {
+            width: 70%;
+            float: left;
+            padding: 0;
+
+            li {
+                width: 32%;
+                padding-top: 0;
+            }
+
+            .wrap-item {
+                height: 175px;
+            }
+        }
+    }
+
+    @include responsive-min( screen-desktop-small ) {
+
+        .header {
+            height: 450px;
+        }
+
+        .items {
+
+            .wrap-item {
+                height: 200px;
+            }
+        }
+    }
+
+    @include responsive-min( screen-desktop-large ) {
+        @include valign-center;
+
+        .header {
+            height: 500px;
+        }
+
+        .items {
+
+            .wrap-item {
+                height: 250px;
+            }
+        }
+    }
 }
 
-.portfolio .flip-container {
-  width: 100%;
-  height: 150px;
+.portfolio {
+
+    .flip-container {
+        width: 100%;
+        height: 150px;
+        
+        .front, .back {
+            width: 100%;
+            height: 150px;
+        }
+    }
+    
+    .link {
+        display: inline-block;
+        width: 100%;
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    @include responsive-min( screen-mobile-small ) {
+        
+        .flip-container {
+            height: 180px;
+            
+            .front, .back {
+                height: 180px;
+            }
+        }
+    }
+
+    @include responsive-min( screen-mobile-large ) {
+        
+        .flip-container {
+            height: 200px;
+            
+            .front, .back {
+                height: 200px;
+            }
+        }
+    }
+
+    @include responsive-min( screen-tablet-small ) {
+        
+        .flip-container {
+            height: 220px;
+            
+            .front, .back {
+                height: 220px;
+            }
+        }
+    }
+
+    @include responsive-min( screen-tablet-large ) {
+
+        .flip-container {
+            height: 175px;
+            
+            .front, .back {
+                height: 175px;
+            }
+        }
+    }
+
+    @include responsive-min( screen-desktop-small ) {
+
+        .flip-container {
+            height: 200px;
+            
+            .front, .back {
+                height: 200px;
+            }
+        }
+    }
+
+    @include responsive-min( screen-desktop-large ) {
+
+        .flip-container {
+            height: 250px;
+            
+            .front, .back {
+                height: 250px;
+            }
+        }
+    }
 }
-.portfolio .flip-container .front, .portfolio .flip-container .back {
-  width: 100%;
-  height: 150px;
+*/
+.gallery-basic {
+  width: 80%;
+  margin: 0 10%;
 }
-.portfolio .link {
-  display: inline-block;
+.gallery-basic .header {
+  background-color: #1E2328;
+  color: #E6E6E6;
+  float: left;
+  width: 30%;
+  padding: 2em;
+  overflow: hidden;
+}
+.gallery-basic .items {
+  float: left;
+  width: 70%;
+}
+.gallery-basic .items .flip-container {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  margin-top: 15px;
+  padding: 0 4px 8px;
+  perspective: 1000;
+}
+.gallery-basic .items .flipper {
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: all 0.5s linear;
+}
+.gallery-basic .items .flip-container:hover .flipper {
+  transform: rotateY(180deg);
+}
+.gallery-basic .items .face {
+  width: 100%;
+  backface-visibility: hidden;
+}
+.gallery-basic .items .face.back {
+  display: block;
+  transform: rotateY(180deg);
+  box-sizing: border-box;
+  padding: 10px;
+  color: white;
   text-align: center;
+  background-color: #1e2328;
 }
-@media only screen and (min-width: 321px) {
-  .portfolio .flip-container {
-    height: 180px;
-  }
-  .portfolio .flip-container .front, .portfolio .flip-container .back {
-    height: 180px;
-  }
+.gallery-basic .items .back {
+  position: absolute;
+  top: 0;
+  height: 100%;
 }
-@media only screen and (min-width: 481px) {
-  .portfolio .flip-container {
-    height: 200px;
+@media only screen and (max-width: 1024px) {
+  .gallery-basic {
+    width: 90%;
+    margin: 0 5%;
   }
-  .portfolio .flip-container .front, .portfolio .flip-container .back {
-    height: 200px;
+  .gallery-basic .header, .gallery-basic .items {
+    width: 100%;
+    margin-bottom: 1em;
   }
-}
-@media only screen and (min-width: 769px) {
-  .portfolio .flip-container {
-    height: 220px;
-  }
-  .portfolio .flip-container .front, .portfolio .flip-container .back {
-    height: 220px;
+  .gallery-basic .colf3 {
+    width: 33.3333%;
   }
 }
-@media only screen and (min-width: 1025px) {
-  .portfolio .flip-container {
-    height: 175px;
-  }
-  .portfolio .flip-container .front, .portfolio .flip-container .back {
-    height: 175px;
+@media only screen and (max-width: 768px) {
+  .gallery-basic .colf3 {
+    width: 50%;
   }
 }
-@media only screen and (min-width: 1281px) {
-  .portfolio .flip-container {
-    height: 200px;
+@media only screen and (max-width: 480px) {
+  .gallery-basic .colf3 {
+    width: 100%;
   }
-  .portfolio .flip-container .front, .portfolio .flip-container .back {
-    height: 200px;
-  }
-}
-@media only screen and (min-width: 1601px) {
-  .portfolio .flip-container {
-    height: 250px;
-  }
-  .portfolio .flip-container .front, .portfolio .flip-container .back {
-    height: 250px;
+  .gallery-basic .colf3 .flip-container {
+    padding: 0 0 8px;
   }
 }
 
 /* Flipper - Reference - http://davidwalsh.name/css-flip. It need little js to toggle the hover class by listening for touchstart. */
 /* entire container, keeps perspective */
+/*
 .flip-container {
-  perspective: 1000;
-  width: 320px;
-  height: 270px;
-  /* flip speed goes here */
-  /* flip the pane when hovered */
-  /* hide back of pane during swap */
-  /* front pane, placed above back */
-  /* back, initially hidden pane */
-}
-.flip-container .flipper {
-  transition: 0.6s;
-  transform-style: preserve-3d;
-  position: relative;
-}
-.flip-container:hover .flipper, .flip-container.hover .flipper {
-  transform: rotateY(180deg);
-}
-.flip-container .front, .flip-container .back {
-  backface-visibility: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 320px;
-  height: 270px;
-}
-.flip-container .front {
-  z-index: 2;
-  /* for firefox 31 */
-  transform: rotateY(0deg);
-}
-.flip-container .back {
-  transform: rotateY(180deg);
-}
+    perspective: 1000;
+    width: 320px;
+   // height: 270px;
+
+    /* flip speed goes here */
+/*    .flipper {
+        transition: 0.6s;
+        transform-style: preserve-3d;    
+        position: relative;
+    }
+
+    /* flip the pane when hovered */
+/*    &:hover, &.hover {
+      
+      .flipper {
+          transform: rotateY(180deg);
+      }
+    }
+
+    /* hide back of pane during swap */
+/*    .front, .back {
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 320px;
+        //height: 270px;
+    }
+
+    /* front pane, placed above back */
+/*   .front {
+     z-index: 2;
+     /* for firefox 31 */
+/*     transform: rotateY(0deg);
+   }
+   
+   /* back, initially hidden pane */
+/*    .back {
+      transform: rotateY(180deg);
+    }
+}*/
 
 /*# sourceMappingURL=landing.css.map */
