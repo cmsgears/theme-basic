@@ -14,7 +14,7 @@ jQuery(document).ready( function() {
 function initPreloaders() {
 
 	// Hide global pre-loader spinner
-	jQuery('.module').imagesLoaded( function() {
+	jQuery( '.module' ).imagesLoaded( function() {
 
 		jQuery( '#pre-loader-main' ).fadeOut( "slow" );
 	});
@@ -61,13 +61,13 @@ function initListeners() {
 	});
 
 	// Show/ Hide login box
-	jQuery("#btn-login, #btn-login-mobile").click( function() {
+	jQuery( "#btn-login, #btn-login-mobile" ).click( function() {
 
 		jQuery( "#wrap-login-register" ).toggle( "slow" );
 	});
 
 	// Show/ Hide settings box
-	jQuery("#btn-settings, #btn-settings-mobile").click( function( e ) {
+	jQuery( "#btn-settings, #btn-settings-mobile" ).click( function( e ) {
 
 		e.preventDefault();
 
