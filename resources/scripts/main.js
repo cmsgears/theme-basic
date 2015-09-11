@@ -44,7 +44,7 @@ function initModules() {
 			fullHeight: true,
 			modules: {
 				'module-about': { fullHeight: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
-				'module-contact': { fullHeight: false, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
+				'module-contact': { fullHeight: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
 				'module-public': { fullHeight: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
 				'module-public-full': { fullHeight: true, heightAutoMobile: true, heightAutoMobileWidth: 1600 }
 			}
