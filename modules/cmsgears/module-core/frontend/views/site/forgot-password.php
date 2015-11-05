@@ -1,32 +1,36 @@
 <?php
+// Yii Imports
+use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+
+// CMG Imports
+use cmsgears\widgets\block\BasicBlock;
 
 $coreProperties = $this->context->getCoreProperties();
 $this->title 	= $coreProperties->getSiteTitle() . " | Forgot Password";
 ?>
-<section class="module module-basic" id="module-public">
-	<div class="module-bkg"></div>
-	<div class="module-texture texture1"></div>
-	<div class="module-wrap-content valign-center">
-		<div class="module-header">
-			<h2 class="align-middle">FORGOT PASSWORD</h2>
-		</div>
-		<div class="module-content">
-	    	<?php if( Yii::$app->session->hasFlash( "success" ) ) { ?>
-				<div class='frm-message'><p> <?php echo Yii::$app->session->getFlash( "success" ); ?> </p></div>
-			<?php
-				}
-				else {
+<?php BasicBlock::begin([
+	'options' => [ 'id' => 'block-public', 'class' => 'block block-basic' ],
+	'bkg' => true,
+	'texture' => true, 'textureClass' => 'texture-default',
+	'header' => true, 'headerContent' => "<h2 class='align-middle'>FORGOT PASSWORD</h2>",
+	'contentWrapClass' => 'align align-center', 'content' => true
+]);?>
 
-	        		$form = ActiveForm::begin( [ 'id' => 'frm-forgot-password' ] ); 
-	        ?>
-		        	<?= $form->field( $model, 'email' )->textInput( [ 'placeholder' => 'Email*' ] )->label( false ) ?>
+	<?php if( Yii::$app->session->hasFlash( "message" ) ) { ?>
+		<div class='frm-message'><p> <?php echo Yii::$app->session->getFlash( "message" ); ?> </p></div>
+	<?php
+		}
+		else {
+	
+			$form = ActiveForm::begin( [ 'id' => 'frm-forgot-password' ] ); 
+	?>
+	    	<?= $form->field( $model, 'email' )->textInput( [ 'placeholder' => 'Email*' ] )->label( false ) ?>
+	
+			<input type="submit" value="Submit" />
+	<?php 
+			ActiveForm::end();
+		}
+	?>
 
-					<input type="submit" value="Submit" />
-	        <?php 
-	        		ActiveForm::end();
-				}
-			?>
-		</div>
-	</div>
-</section>
+<?php BasicBlock::end(); ?>

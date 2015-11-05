@@ -1,0 +1,138 @@
+// Common blocks ------------------------------------------
+
+.block {
+
+    .block-wrap-content {
+        margin-top: 75px;
+
+        .block-header {
+            text-align: center;
+        }
+    }
+
+    @include responsive-min( screen-tablet-large ) {
+
+        .block-wrap-content {
+            margin-top: 110px;
+        }
+    }
+}
+
+// Landing Page blocks ------------------------------------
+
+#block-banner {
+
+    .block-bkg-parallax {
+        background-image: url(../images/pad.jpg);     
+    }
+
+    .block-wrap-content {
+        background-color: $color-transparent-gray;
+        width: 80%;
+        height: 200px;
+        margin: 0 auto;
+
+        .block-content {
+            padding: 2em;
+            text-align: center;
+            color: $color-tertiary-text;
+        }
+    }
+}
+
+#block-about {
+
+    .block-wrap-content {
+        margin-top: 0;
+    }
+
+    .block-wrap-content, .block-content {
+        width: 100%;
+        height: 100%;
+    }
+
+    .portfolio {
+        position: relative;
+    }
+
+    @include responsive-min( screen-tablet-large ) {
+
+        .portfolio {
+            @include valign-center;
+        }
+    }     
+}
+
+#block-contact {
+    padding: 2em 1em;
+
+    .block-bkg {
+        background-image: url(../images/keyboard.jpg);
+    }
+
+    .block-wrap-content {
+        background-color: $color-primary-l;
+        padding: 1em;
+
+        .block-content {
+            text-align: center;
+            color: $color-primary-text;
+        }
+    }
+
+    @include responsive-max( screen-tablet-large ) {
+
+        .block-wrap-content {
+            background-color: $color-transparent-tertiary;
+            color: $color-tertiary-text;
+        }
+    }
+
+    @include responsive-min( screen-tablet-large ) {
+
+        .block-wrap-content {
+            width: 820px;
+        }
+    }
+}
+
+// Other blocks -------------------------------------------
+
+#block-public {
+    padding: 2em 0;
+
+    .block-bkg {
+        background-image: url(../images/pad.jpg);     
+    }
+
+    .block-wrap-content {
+        background-color: $color-tertiary;
+        color: $color-tertiary-text;
+        padding: 1em;
+        width: 400px;
+
+        a {
+            color: $color-tertiary-text;
+        }
+
+        .help-block {
+            color: $color-error;
+        }
+    }
+
+    @include responsive-max( screen-mobile-large ) {
+
+        .block-wrap-content {
+            background-color: $color-transparent-tertiary;
+            width: 90%;
+        }
+    }
+
+    @include responsive-min( screen-desktop-large ) {
+
+        .block-wrap-content {
+            margin-top: 0;
+            @include valign-center;
+        }
+    }
+}

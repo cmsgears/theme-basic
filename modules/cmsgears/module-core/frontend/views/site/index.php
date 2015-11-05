@@ -1,88 +1,44 @@
 <?php
-// Yii Imports
-use yii\captcha\Captcha;
-
-// Gallery
+// CMG Imports
+use cmsgears\widgets\block\BasicBlock;
 use cmsgears\widgets\gallery\Gallery;
+use cmsgears\widgets\aform\AjaxForm;
 
 $coreProperties 		= $this->context->getCoreProperties();
 
 // Configure Page Title, Description and Meta
 $this->title 			= $coreProperties->getSiteTitle();
-$this->params['desc']	= "The basic template with basic theme for CMSGears.";
-$this->params['meta']	= "cmsgears, template, basic, theme";
+$this->params[ 'desc' ]	= "The basic template with basic theme for CMSGears.";
+$this->params[ 'meta' ]	= "cmsgears, template, basic, theme";
 ?>
-<section class="module module-basic" id="module-banner">
-	<div class="module-bkg-parallax"> </div>
-	<div class="texture texture1"></div>
-	<div class="module-wrap-content valign-center">
-		<div class="module-content">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do....
-		</div>
-	</div>
-</section>
 
-<section class="module module-basic" id="module-about">
+<?= BasicBlock::widget([
+		'options' => [ 'id' => 'block-banner', 'class' => 'block block-basic' ],
+		'parallaxBkg' => true,
+		'texture' => true, 'textureClass' => 'texture texture-default',
+		'contentWrapClass' => 'valign-center', 'content' => true,
+		'contentData' => "<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do....</h3>"
+]);?>
+
+<?php BasicBlock::begin([
+		'options' => [ 'id' => 'block-about', 'class' => 'block block-basic' ]
+]);?>
+
 <?= Gallery::widget([
         'options' => [ 'id' => 'portfolio-main', 'class' => 'gallery-basic portfolio clearfix' ],
         'galleryName' => 'main',
         'viewFile' => 'portfolio'
-    ]);
-?>
-</section>
+    ]); ?>
 
-<section class="module module-basic" id="module-contact">
-	<div class="module-bkg"> </div>
-	<div class="module-wrap-content">
-		<h2 class="module-header">Write To Us</h2>
-		<div class="module-content clearfix">
-			<div class="col3x2 clearfix">
-				<form class="frm-ajax" id="frm-contact" action="<?php echo Yii::$app->urlManager->createAbsoluteUrl("apix/contact"); ?>" method="post">
-					<div class="max-area-cover spinner"><div class="valign-center fa fa-3x fa-spinner fa-spin"></div></div>
-					<div class="row clearfix">
-						<div class="col2 split-col">
-							<div class="frm-icon-field">
-								<span class="wrap-icon fa fa-user"></span><input type="text" name="Contact[name]" placeholder="Name *">
-							</div>
-							<span class="error" cmt-error="name"></span>
-						</div>
-						<div class="col2 split-col right">
-							<div class="frm-icon-field">
-								<span class="wrap-icon fa fa-at"></span><input class="fa-field-email" type="text" name="Contact[email]" placeholder="Email *">
-							</div>
-							<span class="error" cmt-error="email"></span>
-						</div>
-					</div>
-					<div class="row clearfix">
-						<div class="frm-icon-field">
-							<span class="wrap-icon fa fa-briefcase"></span><input type="text" name="Contact[subject]" placeholder="Subject *">
-						</div>
-						<span class="error" cmt-error="subject"></span>
-					</div>
-					<div class="row clearfix">
-						<div class="frm-icon-field">
-							<span class="wrap-icon fa fa-folder icon-textarea"></span><textarea name="Contact[message]" placeholder="Message *"></textarea>
-						</div>	
-						<span class="error" cmt-error="message"></span>
-					</div>
-					<div class="row clearfix">
-						<?= Captcha::widget( [ 'name' => 'Contact[captcha]', 'captchaAction' =>  '/cmgforms/site/captcha' ] ); ?>	
-						<span class="error" cmt-error="captcha"></span>
-					</div>
-					<div class="row clearfix">
-						<input type="submit" name="submit" placeholder="Message" value="Submit">
-					</div>
-					<div class="row clearfix">
-						<div class="message warning"></div>
-					</div>	
-				</form>
-			</div>
-			<div class="col3 address">
-				<h6>Address</h6>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				</p>
-			</div>
-		</div>
-	</div>
-</section>
+<?php BasicBlock::end(); ?>
+
+<?=BasicBlock::widget([
+	'options' => [ 'id' => 'block-contact', 'class' => 'block block-basic' ],
+	'bkg' => true,
+	'header' => true, 'headerContent' => '<h3>Write To Us</h3>',
+	'contentWrapClass' => 'align align-center','content' => true,
+	'contentData' => AjaxForm::widget([ 
+						'options' => [ 'class' => 'frm-ajax', 'id' => 'frm-contact' ],
+						'slug' => 'contact-us'
+					])
+]);?>

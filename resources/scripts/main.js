@@ -1,31 +1,29 @@
 jQuery(document).ready( function() {
-	
+
 	initPreloaders();
 
-	initLanding();
-
-	initModules();
+	initCmgTools();
 
 	initListeners();
-	
+
 	initAutoHeight();
 });
 
 function initPreloaders() {
 
 	// Hide global pre-loader spinner
-	jQuery( '.module' ).imagesLoaded( function() {
+	jQuery( '.block' ).imagesLoaded( { background: true }, function() {
 
-		jQuery( '#pre-loader-main' ).fadeOut( "slow" );
+		jQuery( '#pre-loader-main' ).fadeOut( 'slow' );
 	});
 }
 
-function initLanding() {
+function initCmgTools() {
 
 	// perspective header
 	if( jQuery().cmtHeader ) {
 
-		jQuery( "#header" ).cmtHeader( { scrollDistance: 500 } );
+		jQuery( "#header-main" ).cmtHeader( { scrollDistance: 350 } );
 	}
 
 	// smooth scroll
@@ -33,20 +31,16 @@ function initLanding() {
 
 		jQuery( ".smooth-scroll" ).cmtSmoothScroll();
 	}
-}
 
-function initModules() {
+	// Initialise the Blocks
+	if( jQuery().cmtBlock ) {
 
-	// Page Modules
-	if( jQuery().cmtPageModule ) {
-
-		jQuery( ".module" ).cmtPageModule( {
+		jQuery( ".block" ).cmtBlock({
 			fullHeight: true,
-			modules: {
-				'module-about': { fullHeight: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
-				'module-contact': { fullHeight: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
-				'module-public': { fullHeight: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
-				'module-public-full': { fullHeight: true, heightAutoMobile: true, heightAutoMobileWidth: 1600 }
+			blocks: {
+				'block-about': { 'fullHeight': true, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
+				'block-contact': { 'fullHeight': true, 'heightAuto': true },
+				'block-public': { 'fullHeight': true, heightAutoMobile: true, heightAutoMobileWidth: 1600 }
 			}
 		});
 	}
@@ -82,11 +76,11 @@ function initListeners() {
 }
 
 function initAutoHeight () {
-		
-		jQuery( ".header" ).css( "height", jQuery(".items").height()-8 );
-		
+
+		jQuery( ".header" ).css( "height", jQuery( ".items" ).height() - 8 );
+
 		if( window.innerWidth <= 1024  ) {
-		
+
 			jQuery( ".header" ).css( "height", "auto" );
 		}
 }
