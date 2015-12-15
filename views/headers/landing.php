@@ -2,7 +2,7 @@
 // Yii Imports
 use yii\helpers\Html;
 
-// CMG Login
+// CMG Imports
 use cmsgears\widgets\login\AjaxLogin;
 use cmsgears\widgets\nav\BasicNav;
 
@@ -19,10 +19,9 @@ $menuItems = [
 		</div>
 		<div class="colf12x6">
 			<?= BasicNav::widget([
-	                'options' => [ 'class' => 'nav-main' ],
-	                'items' => $menuItems
-	            ]);
-			?>
+	            'options' => [ 'class' => 'nav-main' ],
+	            'items' => $menuItems
+			]);?>
 		</div>
 		<div class="colf12x2">
 			<span class="btn" id="btn-login">My Account</span>
@@ -35,10 +34,9 @@ $menuItems = [
 		<?= Html::a( "<img class='logo' src='" . Yii::getAlias( '@images' ) . "/logo.png'>", [ '/' ], null )?>
 		<span class="cmti cmti-3x cmti-user" id="btn-login-mobile"></span>
 			<?= BasicNav::widget([
-	                'options' => [ 'class' => 'nav-main', 'id' => 'nav-mobile' ],
-	                'items' => $menuItems
-	            ]);
-			?>
+	            'options' => [ 'class' => 'nav-main', 'id' => 'nav-mobile' ],
+	            'items' => $menuItems
+			]);?>
 	</div>
 	<?=AjaxLogin::widget( [ 'options' => [ 'id' => 'wrap-login-register' ] ] )?>
 </header>

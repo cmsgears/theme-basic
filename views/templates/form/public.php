@@ -27,7 +27,7 @@ $this->title 	= $coreProperties->getSiteTitle() . " | " . $form->name;
 			$activeForm 	= ActiveForm::begin( [ 'id' => 'frm-dynamic' ] );
 	?>
 
-			<?=BasicForm::widget( [ 'form' => $form, 'model' => $model, 'activeForm' => $activeForm ] );?>
+			<?=BasicForm::widget( [ 'form' => $form, 'model' => $model, 'activeForm' => $activeForm, 'showLabel' => false ] );?>
 	<?php
 			ActiveForm::end();
 		}

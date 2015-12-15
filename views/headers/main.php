@@ -7,10 +7,10 @@ use yii\helpers\Html;
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <?php if( isset( $this->params['desc'] ) ) { ?>
-	<meta name="description" content="<?=$this->params['desc']?>">
+	<meta name="description" content="<?=$this->params[ 'desc' ]?>">
 <?php } ?>
 <?php if( isset( $this->params['meta'] ) ) { ?>
-	<meta name="keywords" content="<?=$this->params['meta']?>">
+	<meta name="keywords" content="<?=$this->params[ 'meta' ]?>">
 <?php } ?>
 
 <?= Html::csrfMetaTags() ?>

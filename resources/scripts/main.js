@@ -44,6 +44,12 @@ function initCmgTools() {
 			}
 		});
 	}
+
+	// File Uploader
+	if( jQuery().cmtFileUploader ) {
+
+		jQuery( '.file-uploader' ).cmtFileUploader();
+	}
 }
 
 function initListeners() {
@@ -67,20 +73,14 @@ function initListeners() {
 
 		jQuery( "#box-settings" ).toggle( "slow" );
 	});
-
-	// File Uploader
-	if( jQuery().cmtFileUploader ) {
-
-		jQuery( '.file-uploader' ).cmtFileUploader();
-	}
 }
 
 function initAutoHeight () {
 
-		jQuery( ".header" ).css( "height", jQuery( ".items" ).height() - 8 );
+	jQuery( ".header" ).css( "height", jQuery( ".items" ).height() - 8 );
 
-		if( window.innerWidth <= 1024  ) {
+	if( window.innerWidth <= 1024  ) {
 
-			jQuery( ".header" ).css( "height", "auto" );
-		}
+		jQuery( ".header" ).css( "height", "auto" );
+	}
 }

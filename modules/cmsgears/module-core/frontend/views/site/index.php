@@ -27,18 +27,18 @@ $this->params[ 'meta' ]	= "cmsgears, template, basic, theme";
 <?= Gallery::widget([
         'options' => [ 'id' => 'portfolio-main', 'class' => 'gallery-basic portfolio clearfix' ],
         'galleryName' => 'main',
-        'viewFile' => 'portfolio'
+        'template' => 'portfolio'
     ]); ?>
 
 <?php BasicBlock::end(); ?>
 
-<?=BasicBlock::widget([
+<?= BasicBlock::widget([
 	'options' => [ 'id' => 'block-contact', 'class' => 'block block-basic' ],
 	'bkg' => true,
 	'header' => true, 'headerContent' => '<h3>Write To Us</h3>',
 	'contentWrapClass' => 'align align-center','content' => true,
-	'contentData' => AjaxForm::widget([ 
-						'options' => [ 'class' => 'frm-ajax', 'id' => 'frm-contact' ],
-						'slug' => 'contact-us'
+	'contentData' => AjaxForm::widget([
+						'options' => [ 'class' => 'cmt-form', 'id' => 'frm-contact' ],
+						'slug' => 'contact-us', 'showLabel' => false
 					])
 ]);?>

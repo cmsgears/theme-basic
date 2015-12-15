@@ -14,21 +14,21 @@ html, body {
         padding-top: 75px;
     }
 
+    .content {
+        width: 90%;
+        margin: 0 auto;
+        background-color: $color-primary-l;
+        @include border( $size-default, solid, $color-secondary-l );
+    
+        @include responsive-min( screen-tablet-large ) {
+            width: 80%;
+        }
+    }
+
     @include responsive-min( screen-tablet-large ) {
-      
+
         .wrap-content {
             padding-top: 95px;
-        }    
-    }
-}
-
-.wrap-content-private {
-    width: 90%;
-    margin: 0 auto;
-    background-color: $color-primary-l;
-    @include border( $size-default, solid, $color-secondary-l );
-
-    @include responsive-min( screen-tablet-large ) {
-        width: 1000px;
+        }
     }
 }

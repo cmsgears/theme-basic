@@ -22,13 +22,11 @@ class LandingAssetBundle extends AssetBundle {
 
 	// Position to load css
     public $cssOptions = [
-        "position" => View::POS_HEAD
+        'position' => View::POS_HEAD
     ];
 
 	// Load Javascript
     public $js      = [
-        'scripts/vendor/conditionizr-4.4.0.min.js',
-        'conditionizr/detects/ie6-ie7-ie8-ie9.js',
         'scripts/vendor/imagesloaded.pkgd-3.2.0.min.js',
         'scripts/main.js',
         'scripts/api-processor.js'
@@ -42,7 +40,8 @@ class LandingAssetBundle extends AssetBundle {
 	// Define dependent Asset Loaders
     public $depends = [
 		'yii\web\JqueryAsset',
-		'cmsgears\core\common\assets\CMTAssetBundle'
+		'cmsgears\core\common\assets\CMTAssetBundle',
+		'cmsgears\widgets\aform\assets\FormAssetBundle'
     ];
 
 	// Constructor and Initialisation ------------------------------
@@ -58,24 +57,10 @@ class LandingAssetBundle extends AssetBundle {
 
 		parent::registerAssetFiles( $view );
 
-		$inlineScript	= "conditionizr.config({
-			assets: 'conditionizr/resources/',
-		        tests: {
-		        ie6: [ 'script', 'style', 'class' ],
-		        ie7: [ 'script', 'style', 'class' ],
-		        ie8: [ 'script', 'style', 'class' ]
-		        }
-		    });
-
-    		conditionizr.polyfill( 'scripts/vendor/html5shiv.min.js', [ 'ie6', 'ie7', 'ie8' ] );
-    		conditionizr.polyfill( 'scripts/vendor/respond.min.js', [ 'ie6', 'ie7', 'ie8' ] );";
-
     	$siteUrl = "var siteUrl 	= '" . Yii::$app->homeUrl . "';
-					var loginUrl 	= '" . Yii::$app->homeUrl . "login';
-					var ajaxUrl 	= '" . Yii::$app->homeUrl . "apix';";
+    				var ajaxUrl 	= '" . Yii::$app->homeUrl . "apix';
+					var loginUrl 	= '" . Yii::$app->homeUrl . "apix/login';";
 
-		$view->registerJs( $inlineScript, View::POS_READY );
-		
 		$view->registerJs( $siteUrl, View::POS_END );
 	}
 }

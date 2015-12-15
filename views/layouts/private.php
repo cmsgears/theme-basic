@@ -7,23 +7,24 @@ PrivateAssetBundle::register( $this );
 
 // Variables available for headers, sidebars and footers included within this layout
 $coreProperties = $this->context->getCoreProperties();
+$themePath		= Yii::getAlias( "@themes/basic" );
 $user			= Yii::$app->user->getIdentity();
 ?>
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
 <html lang="<?= $coreProperties->getLanguage() ?>">
     <head>
-		<?php include dirname( __DIR__ ) . "/headers/main.php"; ?>
+		<?php include "$themePath/views/headers/main.php"; ?>
     </head>
     <body>
         <?php $this->beginBody(); ?>
-		<div id='pre-loader-main' class="max-area-cover"><div class="valign-center cmti cmti-5x cmti-flexible-o spin"></div></div>
-		<?php include dirname( __DIR__ ) . "/headers/common.php"; ?>
+		<div id='pre-loader-main' class="max-area-cover"><div class="valign-center cmti cmti-5x cmti-spinner-1 spin"></div></div>
+		<?php include "$themePath/views/headers/private.php"; ?>
         <div class="container-main container-private">
 	        <div class="wrap-content">
-	        	<div class="wrap-content-private clearfix">
+	        	<div class="content clearfix">
 		        	<div class="box-sidebar col12x3">
-		        		<?php include dirname( __DIR__ ) . "/sidebars/common.php"; ?>
+		        		<?php include "$themePath/views/sidebars/private.php"; ?>
 		        	</div>
 		        	<div class="box-content col12x9">
 		        		<?= $content ?>
@@ -31,7 +32,7 @@ $user			= Yii::$app->user->getIdentity();
 		        </div>
 	        </div>
         </div>
-        <?php include dirname( __DIR__ ) . "/footers/private.php"; ?>
+        <?php include "$themePath/views/footers/private.php"; ?>
         <?php $this->endBody(); ?>
     </body>
 </html>

@@ -1,21 +1,29 @@
 <?php
-use yii\helpers\Html;
+// Yii Imports
+use yii\helpers\Url;
+
+// CMG Imports
+use cmsgears\widgets\nav\BasicNav;
+
+$menu1Items = [
+	    [ 'label' => 'Home', 'url' => Url::toRoute( [ '/' ], true ) ],
+	    [ 'label' => 'Contact Us', 'url' => Url::toRoute( [ '/form/contact-us' ], true ) ]
+	];
+
+$menu2Items = [
+	    [ 'label' => 'Login', 'url' => Url::toRoute( [ '/login' ], true ) ],
+	    [ 'label' => 'Register', 'url' => Url::toRoute( [ '/register' ], true ) ]
+	];
 ?>
 <footer class="footer-main">
-	<div class="row max-cols content-80 clearfix">
+	<div class="row max-cols-50 content-80 clearfix">
 		<div class="col12x2">
 			<h2 class="footer-title">Site</h2>
-			<ul>
-				<li><?= Html::a( 'Home', [ '/' ] ) ?></li>
-				<li><?= Html::a( 'Contact', [ '/contact-us' ] ) ?></li>
-			</ul>
+			<?= BasicNav::widget( [ 'items' => $menu1Items ] ); ?>
 		</div>
 		<div class="col12x2">
 			<h2 class="footer-title">Users</h2>
-			<ul>
-				<li><?= Html::a( 'Login', [ '/login' ] ) ?></li>
-				<li><?= Html::a( 'Register', [ '/register' ] ) ?></li>
-			</ul>
+			<?= BasicNav::widget( [ 'items' => $menu2Items ] ); ?>
 		</div>
 		<div class="col12x8">
 			<ul class="social-icon-footer">
