@@ -4057,24 +4057,24 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   color: #A5D75A;
 }
 
-.popout-header {
+.popout-header, #box-login, #box-signup {
   position: absolute;
   width: 100%;
   background-color: #3c4655;
-  padding: 2% 4%;
+  padding: 2rem;
 }
-.popout-header a, .popout-header .warning {
+.popout-header a, .popout-header .warning, #box-login a, #box-login .warning, #box-signup a, #box-signup .warning {
   color: #e6e6e6;
 }
 @media only screen and (min-width: 481px) {
-  .popout-header {
+  .popout-header, #box-login, #box-signup {
     right: 0;
     width: 280px;
     padding: 5px 20px;
   }
 }
 @media only screen and (min-width: 1025px) {
-  .popout-header {
+  .popout-header, #box-login, #box-signup {
     right: 10%;
   }
 }
@@ -4082,6 +4082,12 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 #wrap-login-register, #box-signup, #box-settings {
   display: none;
   color: #e6e6e6;
+}
+#wrap-login-register .btn-login, #wrap-login-register .btn-signup, #box-signup .btn-login, #box-signup .btn-signup, #box-settings .btn-login, #box-settings .btn-signup {
+  cursor: pointer;
+}
+#wrap-login-register .btn-login:hover, #wrap-login-register .btn-signup:hover, #box-signup .btn-login:hover, #box-signup .btn-signup:hover, #box-settings .btn-login:hover, #box-settings .btn-signup:hover {
+  color: #e74343;
 }
 
 .file-uploader {

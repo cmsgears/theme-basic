@@ -38,5 +38,5 @@ $menuItems = [
 	            'items' => $menuItems
 			]);?>
 	</div>
-	<?=AjaxLogin::widget( [ 'options' => [ 'id' => 'wrap-login-register' ] ] )?>
+	<?=AjaxLogin::widget( [ 'loadAssets' => true, 'optionalFields' => false, 'options' => [ 'id' => 'wrap-login-register' ] ] )?>
 </header>
