@@ -4083,12 +4083,6 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   display: none;
   color: #e6e6e6;
 }
-#wrap-login-register .btn-login, #wrap-login-register .btn-signup, #box-signup .btn-login, #box-signup .btn-signup, #box-settings .btn-login, #box-settings .btn-signup {
-  cursor: pointer;
-}
-#wrap-login-register .btn-login:hover, #wrap-login-register .btn-signup:hover, #box-signup .btn-login:hover, #box-signup .btn-signup:hover, #box-settings .btn-login:hover, #box-settings .btn-signup:hover {
-  color: #e74343;
-}
 
 .file-uploader {
   position: relative;

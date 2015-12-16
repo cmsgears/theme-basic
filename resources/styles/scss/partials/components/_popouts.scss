@@ -22,12 +22,4 @@
 #wrap-login-register, #box-signup, #box-settings {
     display: none;
     color: $color-secondary-text;
-    
-    .btn-login, .btn-signup {
-        cursor: pointer;
-        
-        &:hover {
-            color: $color-btn;
-        }
-    }
 }
