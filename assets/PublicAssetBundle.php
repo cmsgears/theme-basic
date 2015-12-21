@@ -8,64 +8,58 @@ use yii\web\View;
 
 class PublicAssetBundle extends AssetBundle {
 
+	// Variables ---------------------------------------------------
+
+	// Public ----
+
+	// Path Configuration
+	public $sourcePath	= '@themes/basic/resources';
+
+	// Load css
+    public $css     = [
+		'styles/public.css'
+    ];
+
+	// Position to load css
+    public $cssOptions = [
+        'position' => View::POS_HEAD
+    ];
+
+	// Load Javascript
+    public $js      = [
+        'scripts/vendor/imagesloaded.pkgd-3.2.0.min.js',
+        'scripts/main.js'
+    ];
+
+	// Position to load Javascript
+    public $jsOptions = [
+        'position' => View::POS_END
+    ];
+
+	// Define dependent Asset Loaders
+    public $depends = [
+		'yii\web\JqueryAsset',
+		'cmsgears\core\common\assets\CMTAssetBundle',
+		'cmsgears\widgets\aform\assets\FormAssetBundle'
+    ];
+
 	// Constructor and Initialisation ------------------------------
 
 	public function __construct()  {
 
 		parent::__construct();
-
-		// Path Configuration
-
-	    $this->sourcePath = dirname( __DIR__ ) . '/resources';
-
-		// Load CSS
-	    $this->css     = [
-			"styles/public.css"
-	    ];
-
-		// Load Javascript
-	    $this->js      = [
-            "scripts/vendor/conditionizr-4.4.0.min.js",
-            "conditionizr/detects/ie6-ie7-ie8-ie9.js",
-            "scripts/vendor/imagesloaded.pkgd-3.1.8.min.js",
-			"scripts/cmgtools/cmt-core.js",
-            "scripts/cmgtools/cmt-page-module.js",
-            "scripts/main.js"
-	    ];
-
-		// Define the Position to load Assets
-	    $this->jsOptions = [
-	        "position" => View::POS_END
-	    ];
-
-		// Define dependent Asset Loaders
-	    $this->depends = [
-			'yii\web\JqueryAsset'
-	    ];
 	}
+
+	// Additional Assets Registration ------------------------------
 
 	public function registerAssetFiles( $view ) {
 
 		parent::registerAssetFiles( $view );
 
-		$inlineScript	= "conditionizr.config({
-			assets: 'conditionizr/resources/',
-		        tests: {
-		        ie6: [ 'script', 'style', 'class' ],
-		        ie7: [ 'script', 'style', 'class' ],
-		        ie8: [ 'script', 'style', 'class' ]
-		        }
-		    });
+    	$siteUrl = "var siteUrl 	= '" . Yii::$app->homeUrl . "';
+    				var ajaxUrl 	= '" . Yii::$app->homeUrl . "apix';";
 
-    		conditionizr.polyfill( 'scripts/vendor/html5shiv.min.js', [ 'ie6', 'ie7', 'ie8' ] );
-    		conditionizr.polyfill( 'scripts/vendor/respond.min.js', [ 'ie6', 'ie7', 'ie8' ] );";
-    
-    	//$siteUrl = "var siteUrl = '" . Yii::$app->homeUrl . "';
-					//var fileUploadUrl = '" . Yii::$app->homeUrl . "apix/file/file-handler';";
-
-		$view->registerJs( $inlineScript, View::POS_READY );
-		
-		//$view->registerJs( $siteUrl, View::POS_END );
+		$view->registerJs( $siteUrl, View::POS_END );
 	}
 }
 

@@ -1,7 +1,7 @@
 <?php
-use themes\basic\assets\LandingAssetBundle;
+use themes\basic\assets\PublicAssetBundle;
 
-LandingAssetBundle::register( $this );
+PublicAssetBundle::register( $this );
 
 // Variables available for headers, sidebars and footers included within this layout
 $coreProperties = $this->context->getCoreProperties();
