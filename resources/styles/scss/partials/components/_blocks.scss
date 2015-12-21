@@ -27,15 +27,14 @@
     }
 
     .block-wrap-content {
-        background-color: $color-transparent-gray;
-        width: 80%;
-        height: 200px;
+        background-color: $color-transparent-white;
+        width: 80%;        
         margin: 0 auto;
 
         .block-content {
             padding: 2em;
             text-align: center;
-            color: $color-tertiary-text;
+            color: $color-secondary-text-l;
         }
     }
 }
@@ -53,14 +52,29 @@
 
     .portfolio {
         position: relative;
+        padding:3em 0;
+        margin: 0 10%;
+        width: 80%;   
     }
 
     @include responsive-min( screen-tablet-large ) {
 
         .portfolio {
             @include valign-center;
+            
+            span {
+                line-height:1em;
+            }
         }
     }     
+    
+    @include responsive-max( screen-desktop-small ) {
+
+        .portfolio {
+            margin: 0 4%;
+            width: 92%;
+        }
+    }
 }
 
 #block-contact {
@@ -73,25 +87,28 @@
     .block-wrap-content {
         background-color: $color-primary-l;
         padding: 1em;
+        width: 500px;
+        color: $color-secondary-text-l;
 
         .block-content {
-            text-align: center;
-            color: $color-primary-text;
+            text-align: center;            
         }
-    }
+    } 
+
 
     @include responsive-max( screen-tablet-large ) {
 
         .block-wrap-content {
-            background-color: $color-transparent-tertiary;
-            color: $color-tertiary-text;
+            //background-color: $color-transparent-tertiary;
+            //color: $color-tertiary-text;
+            width: 70%;
         }
     }
+   
+    @include responsive-max( screen-mobile-large ) {
 
-    @include responsive-min( screen-tablet-large ) {
-
-        .block-wrap-content {
-            width: 820px;
+        .block-wrap-content {            
+            width: 90%;
         }
     }
 }
@@ -106,13 +123,13 @@
     }
 
     .block-wrap-content {
-        background-color: $color-tertiary;
-        color: $color-tertiary-text;
+        background-color: $color-white;
+        color: $color-secondary-text-l;
         padding: 1em;
         width: 400px;
 
         a {
-            color: $color-tertiary-text;
+            color: $color-link;
         }
 
         .help-block {
@@ -123,8 +140,9 @@
     @include responsive-max( screen-mobile-large ) {
 
         .block-wrap-content {
-            background-color: $color-transparent-tertiary;
+            //background-color: $color-transparent-tertiary; 
             width: 90%;
+            //color: $color-secondary-text;            
         }
     }
 

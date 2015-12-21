@@ -34,7 +34,7 @@ $settingsMenuItems = [
 	</div>
 	<div class="header-mobile clearfix">
 		<div id="btn-mobile-menu"> 
-			<span class="cmti cmti-3x cmti-list"></span>
+			<span class="cmti cmti-2x cmti-menu"></span>
 		</div>
 		<?= Html::a( "<img class='logo' src='" . Yii::getAlias( '@images' ) . "/logo.png'>", [ '/home' ], null )?>
 		<?= BasicNav::widget([

@@ -22,6 +22,12 @@
             float: right;
             cursor: pointer;
         }
+        
+        @include responsive-max( screen-desktop-small ) {
+          
+            margin: 0 4%;
+            width: 92%;
+        }
     }
 
     .header-mobile {
@@ -30,8 +36,8 @@
 
         #btn-mobile-menu {
             position: absolute;
-            top: 8px;
-            left: 8px;
+            top: 15px;
+            left: 15px;
             cursor: pointer;
             display: inline-block;
             color: $color-secondary-text;
@@ -48,8 +54,8 @@
 
         #btn-login-mobile {
             position: absolute;
-            top: 8px;
-            right: 8px;
+            top: 15px;
+            right: 15px;
             cursor: pointer;
             color: $color-secondary-text;
         }

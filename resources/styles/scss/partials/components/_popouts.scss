@@ -1,17 +1,17 @@
-.popout-header, #box-login, #box-signup {
+.popout-header, #box-login, #box-signup, #box-forgot-password {
     position: absolute;
     width: 100%;
-    background-color: $color-tertiary;
+    background-color: $color-primary-l;
     padding: 2rem;
 
-    a, .warning {
-        color: $color-tertiary-text;
+    a {
+        color: $color-link;
     }
 
     @include responsive-min( screen-mobile-large ) {
         right: 0;
         width: 280px;
-        padding: 5px 20px;
+        padding: 20px;
     }
 
     @include responsive-min( screen-tablet-large ) {
@@ -19,7 +19,11 @@
     }
 }
 
-#wrap-login-register, #box-signup, #box-settings {
+#wrap-login-register, #box-signup, #box-settings, #box-forgot-password {
     display: none;
-    color: $color-secondary-text;
+    color: $color-secondary-text-l;    
+}
+
+#box-login, #box-signup, #box-settings, #box-forgot-password { 
+    @include shadow( 0px, 3px, 5px, $color-primary-d, 0px );
 }

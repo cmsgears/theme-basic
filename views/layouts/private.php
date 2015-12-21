@@ -22,13 +22,14 @@ $user			= Yii::$app->user->getIdentity();
 		<?php include "$themePath/views/headers/private.php"; ?>
         <div class="container-main container-private">
 	        <div class="wrap-content">
-	        	<div class="content clearfix">
+	        	<div class="content wrap-col-filler clearfix">	        		
+		        	<div class="col-filler box-sidebar col12x3"></div>
 		        	<div class="box-sidebar col12x3">
 		        		<?php include "$themePath/views/sidebars/private.php"; ?>
 		        	</div>
 		        	<div class="box-content col12x9">
 		        		<?= $content ?>
-		        	</div>
+		        	</div>			        	
 		        </div>
 	        </div>
         </div>

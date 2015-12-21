@@ -1,7 +1,7 @@
 .footer-main {
     padding: 30px;
     min-height: 175px;
-    background-color: $color-tertiary;
+    background-color: $color-secondary;
 
     .footer-title {
         font-family: $font-default;
@@ -16,7 +16,8 @@
 
     a {
         font-family: $font-default;
-        color: $color-success;
+        color: $color-success;  
+        line-height: 1;      
     }
 
     ul li:hover a {
@@ -28,15 +29,16 @@
     }
 
     ul.social-icon-footer li {
-        display: inline-block; 
-        color: $color-tertiary-text;
+        display: inline-block;
+        background-color: $color-secondary-d;
+        padding: 0.5em;
         width: auto;
         margin: 0px 5px;
         cursor: pointer;
         @include transit-color( $transit-eio, $transit-time-small );
 
         &:hover {
-            color: $color-secondary;
+            color: $color-secondary-text-l;;
         }
     }
 
@@ -55,7 +57,7 @@
 
 .footer-copyright {
     background-color: $color-black;
-    color: $color-secondary-text;
+    color: $color-secondary-text-d;
 
     a {
         font-family: $font-default;

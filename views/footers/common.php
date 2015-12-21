@@ -27,10 +27,10 @@ $menu2Items = [
 		</div>
 		<div class="col12x8">
 			<ul class="social-icon-footer">
-				<a href="https://www.facebook.com/" target="_blank"><li><i class="cmti cmti-3x cmti-social-facebook"> </i> </li></a>
-				<a href="https://twitter.com/" target="_blank"><li> <i class="cmti cmti-3x cmti-social-twitter"> </i></li></a>
-				<a href="https://plus.google.com" target="_blank"><li> <i class="cmti cmti-3x cmti-social-google-plus"> </i> </li></a>
-				<a href="https://in.linkedin.com/" target="_blank"><li><i class="cmti cmti-3x cmti-social-linkedin"> </i> </li></a>
+				<a href="https://www.facebook.com/" target="_blank"><li><i class="cmti cmti-social-facebook"> </i> </li></a>
+				<a href="https://twitter.com/" target="_blank"><li> <i class="cmti cmti-social-twitter"> </i></li></a>
+				<a href="https://plus.google.com" target="_blank"><li> <i class="cmti cmti-social-google-plus"> </i> </li></a>
+				<a href="https://in.linkedin.com/" target="_blank"><li><i class="cmti cmti-social-linkedin"> </i> </li></a>
 			</ul>
 		</div>
 	</div>
