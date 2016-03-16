@@ -4,6 +4,7 @@ namespace themes\basic\assets;
 // Yii Imports
 use \Yii;
 use yii\web\View;
+use yii\helpers\Url;
 
 class AssetBundle extends \yii\web\AssetBundle {
 
@@ -21,9 +22,8 @@ class AssetBundle extends \yii\web\AssetBundle {
 
 	// Load Javascript
     public $js      = [
-        'scripts/vendor/imagesloaded.pkgd-3.2.0.min.js',
         'scripts/main.js',
-        'scripts/api-processor.js'
+        'scripts/applications.js'
     ];
 
 	// Position to load Javascript
@@ -34,15 +34,21 @@ class AssetBundle extends \yii\web\AssetBundle {
 	// Define dependent Asset Loaders
     public $depends = [
 		'yii\web\JqueryAsset',
-		'cmsgears\core\common\assets\CMTAssetBundle',
-		'cmsgears\widgets\aform\assets\FormAssetBundle'
+		'cmsgears\core\common\assets\JqueryUi',
+		'cmsgears\core\common\assets\CmgToolsJs',
+		'cmsgears\core\common\assets\MCustomScrollbar',
+		'cmsgears\core\common\assets\ImagesLoaded',
+		'cmsgears\widgets\aform\assets\FormAssets',
+		'cmsgears\icons\assets\IconAssets'
     ];
 
 	// Constructor and Initialisation ------------------------------
 
-	public function __construct()  {
+	public function init()  {
 
-		parent::__construct();
+		parent::init();
+
+		// Do init tasks
 	}
 
 	// Additional Assets Registration ------------------------------
@@ -51,9 +57,10 @@ class AssetBundle extends \yii\web\AssetBundle {
 
 		parent::registerAssetFiles( $view );
 
-    	$siteUrl = "var siteUrl 	= '" . Yii::$app->homeUrl . "';
-    				var ajaxUrl 	= '" . Yii::$app->homeUrl . "apix';
-					var loginUrl 	= '" . Yii::$app->homeUrl . "apix/login';";
+		$rootUrl = Url::toRoute( '/', true );
+
+    	$siteUrl = "var siteUrl 	= '$rootUrl';
+					var ajaxUrl 	= '" . $rootUrl ."apix/';";
 
 		$view->registerJs( $siteUrl, View::POS_END );
 	}

@@ -3,11 +3,27 @@
 SET FOREIGN_KEY_CHECKS=0;
 
 --
--- Dumping data for table `cmg_core_template`
+-- Theme
 --
 
-INSERT INTO `cmg_core_template` (`createdBy`,`modifiedBy`,`name`,`slug`,`description`,`type`,`layout`,`viewPath`,`adminView`,`frontendView`,`createdAt`,`modifiedAt`,`content`) VALUES 
-	(1,1,'Form Public','form-public','It can be used to display public forms.','form','form/public','@themes/basic/views/templates/form',null,'public','2015-08-16 16:48:32','2015-08-16 16:48:32',null),
-	(1,1,'Form Private','form-private','It can be used to display private forms.','form','form/private','@themes/basic/views/templates/form',null,'private','2015-08-16 16:48:32','2015-08-16 16:48:32',null);
+INSERT INTO `cmg_core_theme` (`createdBy`,`modifiedBy`,`name`,`slug`,`description`,`renderer`,`basePath`,`createdAt`,`modifiedAt`,`data`) VALUES  
+	(1,1,'Basic','basic','Basic Theme.',NULL,'@themes/basic','2016-01-01 17:04:54','2016-01-01 17:06:22',NULL);
+
+--
+-- Map Theme with main site
+--
+
+SELECT @site := `id` FROM cmg_core_site WHERE slug = 'main';
+SELECT @theme := `id` FROM cmg_core_theme WHERE slug = 'basic';
+
+UPDATE cmg_core_site set themeId=@theme where id=@site;
+
+--
+-- Theme Templates
+--
+
+INSERT INTO `cmg_core_template` (`createdBy`,`modifiedBy`,`name`,`slug`,`type`,`renderer`,`fileRender`,`description`,`layout`,`layoutGroup`,`viewPath`,`createdAt`,`modifiedAt`,`content`) VALUES
+	(1,1,'Form','form','form','default',1,'It can be used to display public forms.','form/simple',0,'views/templates/form/simple','2016-01-01 17:04:54','2016-01-01 17:06:22',NULL);
+
 
 SET FOREIGN_KEY_CHECKS=1;

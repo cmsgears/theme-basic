@@ -15,7 +15,8 @@ $menuItemsMobile = [
 	];
 
 $settingsMenuItems = [
-	    [ 'label' => 'Profile', 'url' => [ '/profile' ] ],
+	    [ 'label' => 'Profile', 'url' => [ '/user/profile' ] ],
+	    [ 'label' => 'Settings', 'url' => [ '/user/settings' ] ],
 	    [ 'label' => 'Logout', 'url' => [ '/logout' ] ]
 	];
 ?>

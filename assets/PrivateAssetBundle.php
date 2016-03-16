@@ -4,6 +4,7 @@ namespace themes\basic\assets;
 // Yii Imports
 use \Yii;
 use yii\web\View;
+use yii\helpers\Url;
 
 class PrivateAssetBundle extends AssetBundle {
 
@@ -18,9 +19,11 @@ class PrivateAssetBundle extends AssetBundle {
 
 	// Constructor and Initialisation ------------------------------
 
-	public function __construct()  {
+	public function init()  {
 
-		parent::__construct();
+		parent::init();
+
+		$this->depends[]	= 'cmsgears\core\common\assets\Handlebars';
 	}
 
 	// Additional Assets Registration ------------------------------
@@ -29,7 +32,9 @@ class PrivateAssetBundle extends AssetBundle {
 
 		parent::registerAssetFiles( $view );
 
-    	$siteUrl = "var fileUploadUrl 	= '" . Yii::$app->homeUrl . "apix/file/file-handler';";
+		$rootUrl = Url::toRoute( '/', true );
+
+    	$siteUrl = "var fileUploadUrl	= '" .$rootUrl . "apix/file/file-handler';";
 
 		$view->registerJs( $siteUrl, View::POS_END );
 	}

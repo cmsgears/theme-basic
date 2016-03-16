@@ -18,9 +18,11 @@ class PublicAssetBundle extends AssetBundle {
 
 	// Constructor and Initialisation ------------------------------
 
-	public function __construct()  {
+	public function init()  {
 
-		parent::__construct();
+		parent::init();
+
+		// Do init tasks
 	}
 }
 
