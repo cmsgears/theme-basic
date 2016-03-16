@@ -13,8 +13,8 @@ $this->title 	= $coreProperties->getSiteTitle() . " | Forgot Password";
 	'options' => [ 'id' => 'block-public', 'class' => 'block block-basic' ],
 	'bkg' => true,
 	'texture' => true, 'textureClass' => 'texture-default',
-	'header' => true, 'headerContent' => "<h2 class='align-middle'>FORGOT PASSWORD</h2>",
-	'contentWrapClass' => 'align align-center', 'content' => true
+	'header' => true, 'headerContent' => "<h2 class='align align-center'>FORGOT PASSWORD</h2>",
+	'contentWrapClass' => 'center', 'content' => true
 ]);?>
 
 	<?php if( Yii::$app->session->hasFlash( "message" ) ) { ?>

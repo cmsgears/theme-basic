@@ -2295,7 +2295,7 @@ form.form-large {
   }
 }
 
-label, input[type="text"], input[type="email"], input[type="password"], textarea, select, input[type="submit"], input[type="button"], button {
+label, input[type="text"], input[type="email"], input[type="password"], textarea, select, input[type="submit"], input[type="button"], button, .btn, .cmt-checkbox, .cmt-switch {
   border: none;
   box-shadow: none;
   outline: none;
@@ -2329,7 +2329,7 @@ label.element-xlarge, input.element-xlarge[type="text"], input.element-xlarge[ty
   width: 250px !important;
 }
 
-label, input[type="text"], input[type="email"], input[type="password"], textarea, select {
+label, input[type="text"], input[type="email"], input[type="password"], textarea, select, .cmt-checkbox, .cmt-switch {
   -moz-transition: all 250ms ease-in-out 0s;
   -ms-transition: all 250ms ease-in-out 0s;
   -o-transition: all 250ms ease-in-out 0s;
@@ -2339,22 +2339,22 @@ label, input[type="text"], input[type="email"], input[type="password"], textarea
   color: #363636;
   text-align: left;
 }
-label:hover, input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover, textarea:hover, select:hover {
+label:hover, input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover, textarea:hover, select:hover, .cmt-checkbox:hover, .cmt-switch:hover {
   background-color: #E9E9E9;
   color: #363636;
 }
-label:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
+label:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus, select:focus, .cmt-checkbox:focus, .cmt-switch:focus {
   color: #4F688E;
   -webkit-box-shadow: inset 0 0 0 1px #E1E1E1;
   -moz-box-shadow: inset 0 0 0 1px #E1E1E1;
   box-shadow: inset 0 0 0 1px #E1E1E1;
 }
-label:disabled, input[type="text"]:disabled, input[type="email"]:disabled, input[type="password"]:disabled, textarea:disabled, select:disabled {
+label:disabled, input[type="text"]:disabled, input[type="email"]:disabled, input[type="password"]:disabled, textarea:disabled, select:disabled, .cmt-checkbox:disabled, .cmt-switch:disabled {
   background-color: #CCCCCC;
   color: #909090;
 }
 
-input[type="submit"], input[type="button"], button {
+input[type="submit"], input[type="button"], button, .btn {
   -moz-transition: all 350ms ease-in-out 0s;
   -ms-transition: all 350ms ease-in-out 0s;
   -o-transition: all 350ms ease-in-out 0s;
@@ -2365,15 +2365,15 @@ input[type="submit"], input[type="button"], button {
   text-align: center;
   cursor: pointer;
 }
-input[type="submit"]:hover, input[type="button"]:hover, button:hover {
+input[type="submit"]:hover, input[type="button"]:hover, button:hover, .btn:hover {
   background-color: #FF3636;
   color: #FFFFFF;
 }
-input[type="submit"]:active, input[type="button"]:active, button:active {
+input[type="submit"]:active, input[type="button"]:active, button:active, .btn:active {
   background-color: #b51717;
   color: #FFFFFF;
 }
-input[type="submit"]:disabled, input[type="button"]:disabled, button:disabled {
+input[type="submit"]:disabled, input[type="button"]:disabled, button:disabled, .btn:disabled {
   background-color: gray;
   color: #363636;
 }
@@ -2534,6 +2534,379 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 .frm-icon-element input[type="text"], .frm-icon-element input[type="email"], .frm-icon-element input[type="password"], .frm-icon-element textarea, .frm-icon-element select {
   padding-left: 2.25em;
+}
+
+/**********************************************************************
+Description: The custom elements for CMGTools.
+Dependencies: variables, mixins, transitions, transformation
+***********************************************************************/
+.wrap-icon-picker {
+  width: 100%;
+}
+.wrap-icon-picker .icon-picker {
+  position: relative;
+  display: inline-block;
+}
+.wrap-icon-picker .icon-picker .wrap-icon {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #3C4655;
+  color: #96B0D6;
+  -moz-transition: color 250ms ease-in-out 0s, background-color 250ms ease-in-out 0s;
+  -ms-transition: color 250ms ease-in-out 0s, background-color 250ms ease-in-out 0s;
+  -o-transition: color 250ms ease-in-out 0s, background-color 250ms ease-in-out 0s;
+  -webkit-transition: color 250ms ease-in-out 0s, background-color 250ms ease-in-out 0s;
+  transition: color 250ms ease-in-out 0s, background-color 250ms ease-in-out 0s;
+}
+.wrap-icon-picker .icon-picker .wrap-icon:hover {
+  background-color: #E74343;
+  color: #FFFFFF;
+}
+.wrap-icon-picker .icon-picker .wrap-icon .picker-icon {
+  display: inline-block;
+  height: 64px;
+  line-height: 64px;
+  font-size: 48px;
+}
+.wrap-icon-picker .icon-picker .icon-sets {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 64px;
+  width: 254px;
+  padding: 5px;
+  height: 216px;
+  background-color: #cccccc;
+  z-index: 1000000;
+}
+.wrap-icon-picker .icon-picker .icon-sets .wrap-icon {
+  margin: 2px;
+}
+
+.cmt-select-wrap {
+  margin: 0.25em 0;
+  width: 100%;
+}
+.cmt-select-wrap select {
+  display: none;
+}
+.cmt-select-wrap .cmt-select {
+  position: relative;
+  background-color: #F2F2F2;
+}
+.cmt-select-wrap .cmt-select .cmt-selected {
+  cursor: pointer;
+  position: relative;
+  z-index: 100000;
+  padding-right: 1.5em;
+}
+.cmt-select-wrap .cmt-select .cmt-selected .s-text {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  text-align: left;
+  padding: 0.25em;
+  color: #363636;
+}
+.cmt-select-wrap .cmt-select .cmt-selected .s-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-block;
+  padding: 0.25em;
+}
+.cmt-select-wrap .cmt-select .cmt-selected.disabled {
+  cursor: default;
+}
+.cmt-select-wrap .cmt-select .cmt-select-list {
+  position: absolute;
+  width: 100%;
+  background-color: #F2F2F2;
+  z-index: 100001;
+  max-height: 180px;
+  overflow-y: auto;
+}
+.cmt-select-wrap .cmt-select .cmt-select-list li {
+  width: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #FFFFFF;
+}
+.cmt-select-wrap .cmt-select .cmt-select-list li:hover {
+  color: #FFFFFF;
+  background-color: #E74343;
+}
+
+.cmt-choice input[type=checkbox], .cmt-choice input[type=radio], .cmt-rating input[type=checkbox], .cmt-rating input[type=radio] {
+  cursor: pointer;
+  display: none;
+}
+.cmt-choice input[type=checkbox] + .label.pad-label::before, .cmt-choice input[type=radio] + .label.pad-label::before, .cmt-rating input[type=checkbox] + .label.pad-label::before, .cmt-rating input[type=radio] + .label.pad-label::before {
+  margin-right: 8px;
+}
+.cmt-choice input[type=radio] + .label::before, .cmt-choice input[type=checkbox] + .label::before, .cmt-rating input[type=radio] + .label::before, .cmt-rating input[type=checkbox] + .label::before {
+  font-family: "cmti-core";
+  font-weight: normal;
+  color: gray;
+  border-radius: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -5px;
+  line-height: 13px;
+}
+.cmt-choice input[type=checkbox]:checked, .cmt-choice input[type=radio]:checked, .cmt-choice input[type=checkbox]:focus, .cmt-choice input[type=radio]:focus, .cmt-rating input[type=checkbox]:checked, .cmt-rating input[type=radio]:checked, .cmt-rating input[type=checkbox]:focus, .cmt-rating input[type=radio]:focus {
+  outline: none !important;
+}
+.cmt-choice input[type=checkbox]:checked + .label::before, .cmt-choice input[type=radio]:checked + .label::before, .cmt-rating input[type=checkbox]:checked + .label::before, .cmt-rating input[type=radio]:checked + .label::before {
+  display: inline-block;
+  background-color: #F5F8FC;
+  color: #E74343;
+}
+.cmt-choice input[type=checkbox]:checked + .label, .cmt-choice input[type=radio]:checked + .label, .cmt-rating input[type=checkbox]:checked + .label, .cmt-rating input[type=radio]:checked + .label {
+  color: #b51717;
+}
+.cmt-choice input[type=checkbox]:hover + .label::before, .cmt-choice input[type=radio]:hover + .label::before, .cmt-choice input[type=checkbox] + .label:hover::before, .cmt-choice input[type=radio] + .label:hover::before, .cmt-rating input[type=checkbox]:hover + .label::before, .cmt-rating input[type=radio]:hover + .label::before, .cmt-rating input[type=checkbox] + .label:hover::before, .cmt-rating input[type=radio] + .label:hover::before {
+  color: #FF3636;
+}
+.cmt-choice input[type=checkbox]:disabled + .label::before, .cmt-choice input[type=radio]:disabled + .label::before, .cmt-rating input[type=checkbox]:disabled + .label::before, .cmt-rating input[type=radio]:disabled + .label::before {
+  background-color: #DDD !important;
+  color: #BBB;
+}
+.cmt-choice input[type=radio] + .label::before, .cmt-choice input[type=radio]:disabled + .label::before, .cmt-rating input[type=radio] + .label::before, .cmt-rating input[type=radio]:disabled + .label::before {
+  content: "\e0a2";
+}
+.cmt-choice input[type=radio]:checked + .label::before, .cmt-rating input[type=radio]:checked + .label::before {
+  content: "\e0a3";
+}
+.cmt-choice input[type=checkbox] + .label::before, .cmt-choice input[type=checkbox]:disabled + .label::before, .cmt-rating input[type=checkbox] + .label::before, .cmt-rating input[type=checkbox]:disabled + .label::before {
+  content: "\3b";
+}
+.cmt-choice input[type=checkbox]:checked + .label::before, .cmt-rating input[type=checkbox]:checked + .label::before {
+  content: "\3a";
+}
+
+.cmt-rating input[type=checkbox] + .label.label-rating::before, .cmt-rating input[type=radio] + .label.label-rating::before {
+  margin-right: 8px;
+}
+.cmt-rating input[type=radio] + .label::before, .cmt-rating input[type=radio]:disabled + .label::before {
+  content: "\e0f3";
+}
+.cmt-rating input[type=radio]:checked + .label::before {
+  content: "\e0f3";
+}
+
+.cmt-switch {
+  position: relative;
+  display: inline-block;
+}
+.cmt-switch .cmt-toggle {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+}
+.cmt-switch .cmt-toggle + label {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+.cmt-switch .cmt-toggle-round + label {
+  width: 5em !important;
+  height: 1.5em;
+  padding: 0.5em;
+  background-color: #cccccc;
+  border-radius: 0.5em;
+}
+.cmt-switch .cmt-toggle-round + label:before,
+.cmt-switch .cmt-toggle-round + label:after {
+  display: inline-block;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  bottom: 1px;
+  content: "";
+}
+.cmt-switch .cmt-toggle-round + label:before {
+  right: 1px;
+  background-color: #FFFFFF;
+  border-radius: 0.5em;
+  -moz-transition: background-color 350ms ease-in-out 0s;
+  -ms-transition: background-color 350ms ease-in-out 0s;
+  -o-transition: background-color 350ms ease-in-out 0s;
+  -webkit-transition: background-color 350ms ease-in-out 0s;
+  transition: background-color 350ms ease-in-out 0s;
+}
+.cmt-switch .cmt-toggle-round + label:after {
+  width: 1.5em;
+  background-color: #3F62A0;
+  border-radius: 0.5em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  -moz-transition: margin 350ms ease-out 0s;
+  -ms-transition: margin 350ms ease-out 0s;
+  -o-transition: margin 350ms ease-out 0s;
+  -webkit-transition: margin 350ms ease-out 0s;
+  transition: margin 350ms ease-out 0s;
+}
+.cmt-switch .cmt-toggle-round:checked + label:before {
+  background-color: #87C442;
+}
+.cmt-switch .cmt-toggle-round:checked + label:after {
+  margin-left: 3.5em;
+}
+
+.btn.btn-25 {
+  width: 25% !important;
+}
+.btn.btn-50 {
+  width: 50% !important;
+}
+.btn.btn-75 {
+  width: 75% !important;
+}
+.btn.btn-small {
+  width: 80px !important;
+}
+.btn.btn-medium {
+  width: 120px !important;
+}
+.btn.btn-large {
+  width: 180px !important;
+}
+.btn.btn-xlarge {
+  width: 250px !important;
+}
+.btn.btn-white {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+.btn.btn-white:hover {
+  background-color: #595959;
+  color: #A5A5A5;
+}
+.btn.btn-black {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+.btn.btn-black:hover {
+  background-color: #595959;
+  color: #A5A5A5;
+}
+.btn.btn-gray {
+  background-color: #7F7F7F;
+  color: #FFFFFF;
+}
+.btn.btn-gray:hover {
+  background-color: #595959;
+  color: #A5A5A5;
+}
+.btn.btn-reverse:hover {
+  background-color: #E74343 !important;
+  color: #FFFFFF !important;
+}
+
+.btn-delete {
+  position: absolute;
+  top: -0.5em;
+  right: -0.5em;
+  font-size: 1.25em;
+  color: #E74343;
+  cursor: pointer;
+  -moz-transition: color 250ms ease-in-out 0s;
+  -ms-transition: color 250ms ease-in-out 0s;
+  -o-transition: color 250ms ease-in-out 0s;
+  -webkit-transition: color 250ms ease-in-out 0s;
+  transition: color 250ms ease-in-out 0s;
+}
+.btn-delete:hover {
+  color: #363636;
+}
+
+.list-radio label {
+  width: auto;
+  clear: none;
+}
+
+.cmt-checkbox, .cmt-switch {
+  background: none;
+}
+.cmt-checkbox:hover, .cmt-switch:hover {
+  background: none;
+  color: #363636;
+}
+
+.frm-ignore-100 .cmt-checkbox, .frm-ignore-100 .cmt-switch {
+  width: auto;
+}
+
+.frm-split-40-60 .cmt-checkbox, .frm-split-40-60 .list-radio, .frm-split-40-60 .cmt-switch, .frm-split-40-60 .cmt-select-wrap {
+  width: 60%;
+  float: left;
+}
+
+.element-60 .cmt-checkbox, .element-60 .cmt-select-wrap {
+  width: 100%;
+}
+
+.frm-rounded-all .btn {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -khtml-border-radius: 5px;
+}
+
+.frm-rounded-top .btn {
+  -moz-border-radius-top-left: 5px;
+  -moz-border-radius-top-right: 5px;
+  -webkit-border-radius-top-left: 5px;
+  -webkit-border-radius-top-right: 5px;
+  border-radius: 5px 5px 0 0;
+  -khtml-border-radius-top-left: 5px;
+  -khtml-border-radius-top-right: 5px;
+}
+
+.frm-rounded-right .btn {
+  -moz-border-radius-top-right: 5px;
+  -moz-border-radius-bottom-right: 5px;
+  -webkit-border-radius-top-right: 5px;
+  -webkit-border-radius-bottom-right: 5px;
+  border-radius: 0 5px 5px 0;
+  -khtml-border-radius-top-right: 5px;
+  -khtml-border-radius-bottom-right: 5px;
+}
+
+.frm-rounded-bottom .btn {
+  -moz-border-radius-bottom-left: 5px;
+  -moz-border-radius-bottom-right: 5px;
+  -webkit-border-radius-bottom-left: 5px;
+  -webkit-border-radius-bottom-right: 5px;
+  border-radius: 0 0 5px 5px;
+  -khtml-border-radius-bottom-left: 5px;
+  -khtml-border-radius-bottom-right: 5px;
+}
+
+.frm-rounded-left .btn {
+  -moz-border-radius-top-left: 5px;
+  -moz-border-radius-bottom-left: 5px;
+  -webkit-border-radius-top-left: 5px;
+  -webkit-border-radius-bottom-left: 5px;
+  border-radius: 5px 0 0 5px;
+  -khtml-border-radius-top-left: 5px;
+  -khtml-border-radius-bottom-left: 5px;
+}
+
+/** Iconified Elements - Works in presence of CMGTools IconLib. It can be overriden to use any preferred icon font library. */
+.frm-icon-element .btn {
+  padding-left: 1.75em;
+}
+
+.frm-split-40-60 .frm-icon-element .btn {
+  float: none;
 }
 
 .nav-main {
