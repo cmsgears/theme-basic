@@ -2,29 +2,29 @@
 // Yii Imports
 use \Yii;
 use yii\widgets\ActiveForm;
-use yii\helpers\Url;
 use yii\helpers\Html;
 
 // CMG Imports
 use cmsgears\core\common\config\CoreGlobal;
-use cmsgears\core\common\models\entities\Address;
+use cmsgears\core\frontend\config\WebGlobalCore;
 
-use cmsgears\core\common\services\CountryService;
-use cmsgears\core\common\services\ProvinceService;
-use cmsgears\core\common\services\ModelAddressService;
+use cmsgears\core\common\models\resources\Address;
+
+use cmsgears\core\common\services\entities\CountryService;
+use cmsgears\core\common\services\entities\ProvinceService;
+use cmsgears\core\common\services\mappers\ModelAddressService;
 
 $coreProperties = $this->context->getCoreProperties();
 $this->title 	= 'Profile | ' . $coreProperties->getSiteTitle();
 
-$countryList	= CountryService::getIdNameList();
-$countryIds		= array_keys( $countryList );
-$provinceList	= ProvinceService::getMapByCountryId( $countryIds[ 0 ] );
+// TODO: Get country dynamically when required
+$country		= CountryService::findByCode( 'US' );
+$countryList	= [ $country->id => $country->name ];
+$provinceList	= ProvinceService::getMapByCountryId( $country->id );
 $addressList	= ModelAddressService::findByParent( $user->id, CoreGlobal::TYPE_USER );
 $address 		= new Address();
-
-$address->countryId	= $countryIds[ 0 ];
 ?>
-<div id="tabs-default">
+<div class="tabs-default">
 	<ul>
 		<li><a href="#tabs-1" class="btn btn-medium">Profile</a></li>
 	    <li><a href="#tabs-2" class="btn btn-medium">Account</a></li>
@@ -56,7 +56,9 @@ $address->countryId	= $countryIds[ 0 ];
 		</div>
 		<div class="wrap-form">
 			<form class="cmt-form frm-rounded-all frm-split-40-60" cmt-controller="user" cmt-action="profile" action="user/profile" cmt-keep>
-				<div class="spinner max-area-cover"><div class="valign-center cmti cmti-3x cmti-spinner-1 spin"></div></div>
+				<div class="spinner max-area-cover">
+					<div class="valign-center cmti cmti-3x cmti-spinner-1 spin"></div>
+				</div>
 				<div class="frm-field">
 					<label>Email</label>
 					<?php if( !$coreProperties->isChangeEmail() ) { ?>
@@ -98,8 +100,8 @@ $address->countryId	= $countryIds[ 0 ];
 					<input type="text" name="User[phone]" placeholder="Phone" value="<?= $user->phone ?>" />
 					<span  class="error" cmt-error="phone"></span>
 				</div>
-				<div class="frm-actions align align-right">
-					<input class="submit btn btn-large" type="submit" name="submit" value="SAVE">
+				<div class="frm-actions align align-center">
+					<input class="submit btn btn-medium rounded-medium" type="submit" name="submit" value="Update">
 				</div>
 				<div class="message"></div>
 			</form>
@@ -119,7 +121,9 @@ $address->countryId	= $countryIds[ 0 ];
 		</div>
 		<div class="wrap-form">
 			<form class="cmt-form frm-rounded-all frm-split-40-60" cmt-controller="user" cmt-action="account" action="user/account" cmt-keep>
-				<div class="spinner max-area-cover"><div class="valign-center cmti cmti-3x cmti-spinner-1 spin"></div></div>
+				<div class="spinner max-area-cover">
+					<div class="valign-center cmti cmti-3x cmti-spinner-1 spin"></div>
+				</div>
 				<div class="frm-field">
 					<label>Email</label>
 					<input type="text" name="ResetPassword[email]" placeholder="Email*" value="<?= $user->email ?>" readonly />
@@ -135,14 +139,13 @@ $address->countryId	= $countryIds[ 0 ];
 					<input type="password" name="ResetPassword[password_repeat]" placeholder="Confirm Password*" />
 					<span  class="error" cmt-error="password_repeat"></span>
 				</div>
-				<div class="frm-actions align align-right">
-					<input class="submit btn btn-large" type="submit" name="submit" value="SAVE">
+				<div class="frm-actions align align-center">
+					<input class="submit btn btn-medium rounded-medium" type="submit" name="submit" value="Update">
 				</div>
 				<div class="message"></div>
 			</form>
 		</div>
 	</div>
-
 	<div id="tabs-3" class="box-form box-form-regular content-80 max-content-100">
 		<span class="cmti cmti-edit btn-edit"></span>
 		<h4>Address</h4>
@@ -220,8 +223,8 @@ $address->countryId	= $countryIds[ 0 ];
 					<label>Country</label>
 					<?= Html::dropDownList( 'Address[countryId]', $address->countryId, $countryList, [ 'class' => 'element-60 cmt-select' ] ); ?>
 					<span  class="error" cmt-error="countryId"></span>
-				</div>  
-				
+				</div>
+
 				<div class="frm-field frm-province">
 					<label>State/Province</label>
 					<?= Html::dropDownList( 'Address[provinceId]', $address->provinceId, $provinceList, [ 'class' => 'element-60 cmt-select', 'id' => 'wrap-province' ] ); ?>
@@ -231,12 +234,14 @@ $address->countryId	= $countryIds[ 0 ];
 					<label>Phone</label>
 					<input type="text" name="Address[phone]" placeholder="Phone" value="<?= $address->phone ?>" />
 					<span  class="error" cmt-error="phone"></span>
-				</div> 
+				</div>
 				<div class="frm-field">
 					<label>Zip/Postal</label>
 					<input type="text" name="Address[zip]" placeholder="Zip*" value="<?= $address->zip ?>" />
 					<span  class="error" cmt-error="zip"></span>
 				</div>
+
+				<div class="filler-height filler-height-small clear"></div>
 
 				<div class="frm-actions align align-center">
 					<input class="submit btn btn-medium rounded-medium" type="submit" name="submit" value="Update">
@@ -249,5 +254,5 @@ $address->countryId	= $countryIds[ 0 ];
 
 <!-- Templates -->
 <?php include_once( dirname( __FILE__ ) . "/templates/user-profile.php" ); ?>
-<?php include_once( dirname( __FILE__ ) . "/templates/user-account.php" ); ?> 
+<?php include_once( dirname( __FILE__ ) . "/templates/user-account.php" ); ?>
 <?php include_once( dirname( __FILE__ ) . "/templates/user-address.php" ); ?>

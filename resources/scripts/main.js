@@ -87,7 +87,7 @@ function initListeners() {
 	// Default Tabs
 	if( jQuery().tabs ) {
 
-		jQuery( '#tabs-default' ).tabs();
+		jQuery( '.tabs-default' ).tabs();
 	}
 
 	// Initialise the mobile button

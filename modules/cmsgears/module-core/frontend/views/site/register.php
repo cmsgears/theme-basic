@@ -32,7 +32,6 @@ $this->title 	= $coreProperties->getSiteTitle() . " | Register";
 	    	<?= $form->field( $model, 'username' )->textInput( [ 'placeholder' => 'Username' ] )->label( false ) ?>
 	    	<?= $form->field( $model, 'firstName' )->textInput( [ 'placeholder' => 'First Name' ] )->label( false ) ?>
 	    	<?= $form->field( $model, 'lastName' )->textInput( [ 'placeholder' => 'Last Name' ] )->label( false ) ?>
-			<?= $form->field( $model, 'newsletter' )->checkbox() ?>
 			<?= $form->field( $model, 'terms' )->checkbox( [ 'label' => $terms ] ) ?>
 	
 			<input type="submit" value="Register" />

@@ -9,7 +9,7 @@ use cmsgears\core\frontend\config\WebGlobalCore;
 $coreProperties = $this->context->getCoreProperties();
 $this->title 	= 'Settings | ' . $coreProperties->getSiteTitle();
 ?>
-<div id="tabs-default"> 
+<div class="tabs-default">
 	<ul>
 	    <li><a href="#tabs-1" class="btn btn-medium">Privacy</a></li>
 	    <li><a href="#tabs-2" class="btn btn-medium">Notifications</a></li>
@@ -39,8 +39,8 @@ $this->title 	= 'Settings | ' . $coreProperties->getSiteTitle();
 						<input type="hidden" name="ModelAttribute[0][value]" value="<?php if( isset( $privacy[ 'show_address' ] ) ) echo $privacy[ 'show_address' ]->value; ?>" />
 					</span>
 				</div>
-				<div class="frm-actions align align-right">
-					<input class="submit btn btn-large" type="submit" name="submit" value="SAVE">
+				<div class="frm-actions align align-center">
+					<input class="submit btn btn-medium rounded-medium" type="submit" name="submit" value="Save">
 				</div>
 				<div class="message"></div>
 			</form>
@@ -70,8 +70,8 @@ $this->title 	= 'Settings | ' . $coreProperties->getSiteTitle();
 						<input type="hidden" name="ModelAttribute[0][value]" value="<?php if( isset( $notification[ 'receive_mail' ] ) ) echo $notification[ 'receive_mail' ]->value; ?>" />
 					</span>
 				</div>	
-				<div class="frm-actions align align-right">
-					<input class="submit btn btn-large" type="submit" name="submit" value="SAVE">
+				<div class="frm-actions align align-center">
+					<input class="submit btn btn-medium rounded-medium" type="submit" name="submit" value="Save">
 				</div>
 				<div class="message"></div>
 			</form>
@@ -101,8 +101,8 @@ $this->title 	= 'Settings | ' . $coreProperties->getSiteTitle();
 						<input type="hidden" name="ModelAttribute[0][value]" value="<?php if( isset( $reminder[ 'receive_mail' ] ) ) echo $reminder[ 'receive_mail' ]->value; ?>" />
 					</span>
 				</div>
-				<div class="frm-actions align align-right">
-					<input class="submit btn btn-large" type="submit" name="submit" value="SAVE">
+				<div class="frm-actions align align-center">
+					<input class="submit btn btn-medium rounded-medium" type="submit" name="submit" value="Save">
 				</div>
 				<div class="message"></div>
 			</form>
