@@ -1,34 +1,26 @@
 <?php
 // Yii Imports
-use \Yii;
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 
 // CMG Imports
 use cmsgears\core\common\config\CoreGlobal;
-use cmsgears\core\frontend\config\WebGlobalCore;
 
 use cmsgears\core\common\models\resources\Address;
-
-use cmsgears\core\common\services\entities\CountryService;
-use cmsgears\core\common\services\entities\ProvinceService;
-use cmsgears\core\common\services\mappers\ModelAddressService;
 
 $coreProperties = $this->context->getCoreProperties();
 $this->title 	= 'Profile | ' . $coreProperties->getSiteTitle();
 
-// TODO: Get country dynamically when required
-$country		= CountryService::findByCode( 'US' );
-$countryList	= [ $country->id => $country->name ];
-$provinceList	= ProvinceService::getMapByCountryId( $country->id );
-$addressList	= ModelAddressService::findByParent( $user->id, CoreGlobal::TYPE_USER );
+$countryList	= Yii::$app->factory->get( 'countryService' )->getIdNameMap();
+$provinceList	= Yii::$app->factory->get( 'provinceService' )->getMapByCountryId( key( $countryList ) );
+$addressList	= Yii::$app->factory->get( 'modelAddressService' )->getByParent( $user->id, CoreGlobal::TYPE_USER );
 $address 		= new Address();
 ?>
 <div class="tabs-default">
 	<ul>
-		<li><a href="#tabs-1" class="btn btn-medium">Profile</a></li>
-	    <li><a href="#tabs-2" class="btn btn-medium">Account</a></li>
-	    <li><a href="#tabs-3" class="btn btn-medium">Address</a></li>
+		<li><a href="#tabs-1" class="btn">Profile</a></li>
+	    <li><a href="#tabs-2" class="btn">Account</a></li>
+	    <li><a href="#tabs-3" class="btn">Address</a></li>
 	</ul>
 
 	<div id="tabs-1" class="box-form box-form-regular content-80 max-content-100">
@@ -94,13 +86,12 @@ $address 		= new Address();
 						<span  class="error" cmt-error="genderId"></span>
 					</div>
 				</div>
-				<div class="filler-height filler-height-small clear"></div>
 				<div class="frm-field">
 					<label>Phone</label>
 					<input type="text" name="User[phone]" placeholder="Phone" value="<?= $user->phone ?>" />
 					<span  class="error" cmt-error="phone"></span>
 				</div>
-				<div class="frm-actions align align-center">
+				<div class="frm-actions align align-center clear">
 					<input class="submit btn btn-medium rounded-medium" type="submit" name="submit" value="Update">
 				</div>
 				<div class="message"></div>
@@ -139,7 +130,7 @@ $address 		= new Address();
 					<input type="password" name="ResetPassword[password_repeat]" placeholder="Confirm Password*" />
 					<span  class="error" cmt-error="password_repeat"></span>
 				</div>
-				<div class="frm-actions align align-center">
+				<div class="frm-actions align align-center clear">
 					<input class="submit btn btn-medium rounded-medium" type="submit" name="submit" value="Update">
 				</div>
 				<div class="message"></div>
@@ -181,7 +172,7 @@ $address 		= new Address();
 					<div class="col12x5">Line 2</div><div class="col12x7"><?= $address->line2 ?></div>
 				</div>
 				<div class="info-row clearfix">
-					<div class="col12x5">City</div><div class="col12x7"><?= $address->city ?></div>
+					<div class="col12x5">City</div><div class="col12x7"><?= $address->cityName ?></div>
 				</div>
 				<div class="info-row clearfix">
 					<div class="col12x5">Country</div><div class="col12x7"><?= $address->country->name ?></div>
@@ -199,7 +190,7 @@ $address 		= new Address();
 			</div>
 		</div>
 		<div class="wrap-form">
-			<form class="cmt-form frm-rounded-all frm-split-40-60" cmt-controller="user" cmt-action="address" action="user/update-address?type=<?= Address::TYPE_PRIMARY ?>" cmt-keep>
+			<form class="cmt-form frm-rounded-all frm-split-40-60" cmt-controller="user" cmt-action="address" action="user/address?type=<?= Address::TYPE_PRIMARY ?>" cmt-keep>
 				<div class="spinner max-area-cover">
 					<div class="valign-center cmti cmti-3x cmti-spinner-1 spin"></div>
 				</div>
@@ -216,8 +207,8 @@ $address 		= new Address();
 				</div>
 				<div class="frm-field">
 					<label>City</label>
-					<input type="text" name="Address[city]" placeholder="City" value="<?= $address->city ?>" />
-					<span  class="error" cmt-error="city"></span>
+					<input type="text" name="Address[cityName]" placeholder="City" value="<?= $address->cityName ?>" />
+					<span  class="error" cmt-error="cityName"></span>
 				</div>
 				<div class="frm-field">
 					<label>Country</label>
@@ -241,9 +232,7 @@ $address 		= new Address();
 					<span  class="error" cmt-error="zip"></span>
 				</div>
 
-				<div class="filler-height filler-height-small clear"></div>
-
-				<div class="frm-actions align align-center">
+				<div class="frm-actions align align-center clear">
 					<input class="submit btn btn-medium rounded-medium" type="submit" name="submit" value="Update">
 				</div>
 				<div class="message"></div>

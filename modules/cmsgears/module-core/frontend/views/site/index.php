@@ -26,7 +26,7 @@ $this->params[ 'meta' ]	= "cmsgears, template, basic, theme";
 
 <?= Gallery::widget([
         'options' => [ 'id' => 'portfolio-main', 'class' => 'gallery-basic portfolio clearfix' ],
-        'galleryName' => 'main',
+        'name' => 'main',
         'template' => 'portfolio'
     ]); ?>
 

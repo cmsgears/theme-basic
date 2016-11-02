@@ -3,8 +3,8 @@
 
 	{{#each settings}}
 	<div class="clearfix">
-		<div class="col3">{{label}}</div>
-		<div class="col3x2">{{value}}</div>
+		<div class="col12x5">{{label}}</div>
+		<div class="col12x7">{{value}}</div>
 	</div>
 	{{/each}}
 

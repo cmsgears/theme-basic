@@ -19,5 +19,3 @@ class Theme extends \cmsgears\core\common\base\Theme {
 		Yii::setAlias( '@templates', '@themes/basic/views/templates' );
 	}
 }
-
-?>

@@ -65,5 +65,3 @@ class AssetBundle extends \yii\web\AssetBundle {
 		$view->registerJs( $siteUrl, View::POS_END );
 	}
 }
-
-?>

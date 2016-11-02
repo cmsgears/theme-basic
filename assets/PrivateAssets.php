@@ -6,7 +6,7 @@ use \Yii;
 use yii\web\View;
 use yii\helpers\Url;
 
-class PrivateAssetBundle extends AssetBundle {
+class PrivateAssets extends AssetBundle {
 
 	// Variables ---------------------------------------------------
 
@@ -39,5 +39,3 @@ class PrivateAssetBundle extends AssetBundle {
 		$view->registerJs( $siteUrl, View::POS_END );
 	}
 }
-
-?>

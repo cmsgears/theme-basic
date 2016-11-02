@@ -4,7 +4,7 @@ namespace themes\basic\assets;
 // Yii Imports
 use \Yii;
 
-class LandingAssetBundle extends AssetBundle {
+class LandingAssets extends AssetBundle {
 
 	// Variables ---------------------------------------------------
 
@@ -21,8 +21,7 @@ class LandingAssetBundle extends AssetBundle {
 
 		parent::init();
 
-		// Do init tasks
+		// Foxslider required on landing page
+		$this->depends[]	= 'foxslider\widgets\assets\FxsAssets';
 	}
 }
-
-?>

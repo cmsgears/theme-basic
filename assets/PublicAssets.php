@@ -5,7 +5,7 @@ namespace themes\basic\assets;
 use \Yii;
 use yii\web\View;
 
-class PublicAssetBundle extends AssetBundle {
+class PublicAssets extends AssetBundle {
 
 	// Variables ---------------------------------------------------
 
@@ -25,5 +25,3 @@ class PublicAssetBundle extends AssetBundle {
 		// Do init tasks
 	}
 }
-
-?>
