@@ -3,10 +3,10 @@ namespace themes\basic\assets;
 
 // Yii Imports
 use \Yii;
-use yii\web\AssetBundle;
 use yii\web\View;
+use yii\helpers\Url;
 
-class PrivateAssetBundle extends AssetBundle {
+class AssetBundle extends \yii\web\AssetBundle {
 
 	// Variables ---------------------------------------------------
 
@@ -15,11 +15,6 @@ class PrivateAssetBundle extends AssetBundle {
 	// Path Configuration
 	public $sourcePath	= '@themes/basic/resources';
 
-	// Load css
-    public $css     = [
-		'styles/private.css'
-    ];
-
 	// Position to load css
     public $cssOptions = [
         'position' => View::POS_HEAD
@@ -27,9 +22,8 @@ class PrivateAssetBundle extends AssetBundle {
 
 	// Load Javascript
     public $js      = [
-        'scripts/vendor/imagesloaded.pkgd-3.2.0.min.js',
         'scripts/main.js',
-        'scripts/api-processor.js'
+        'scripts/applications.js'
     ];
 
 	// Position to load Javascript
@@ -40,15 +34,21 @@ class PrivateAssetBundle extends AssetBundle {
 	// Define dependent Asset Loaders
     public $depends = [
 		'yii\web\JqueryAsset',
-		'cmsgears\core\common\assets\CMTAssetBundle',
-		'cmsgears\widgets\aform\assets\FormAssetBundle'
+		'cmsgears\core\common\assets\JqueryUi',
+		'cmsgears\core\common\assets\CmgToolsJs',
+		'cmsgears\core\common\assets\MCustomScrollbar',
+		'cmsgears\core\common\assets\ImagesLoaded',
+		'cmsgears\widgets\aform\assets\FormAssets',
+		'cmsgears\icons\assets\IconAssets'
     ];
 
 	// Constructor and Initialisation ------------------------------
 
-	public function __construct()  {
+	public function init()  {
 
-		parent::__construct();
+		parent::init();
+
+		// Do init tasks
 	}
 
 	// Additional Assets Registration ------------------------------
@@ -57,12 +57,11 @@ class PrivateAssetBundle extends AssetBundle {
 
 		parent::registerAssetFiles( $view );
 
-    	$siteUrl = "var siteUrl 		= '" . Yii::$app->homeUrl . "';
-    				var ajaxUrl 		= '" . Yii::$app->homeUrl . "apix';
-					var fileUploadUrl 	= '" . Yii::$app->homeUrl . "apix/file/file-handler';";
+		$rootUrl = Url::toRoute( '/', true );
+
+    	$siteUrl = "var siteUrl 	= '$rootUrl';
+					var ajaxUrl 	= '" . $rootUrl ."apix/';";
 
 		$view->registerJs( $siteUrl, View::POS_END );
 	}
 }
-
-?>

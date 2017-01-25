@@ -1,7 +1,8 @@
 <?php
-use \Yii;
+// Yii Imports
 use yii\helpers\Html;
 
+// CMG Imports
 use cmsgears\widgets\nav\BasicNav;
 
 $menuItems = [
@@ -15,14 +16,15 @@ $menuItemsMobile = [
 	];
 
 $settingsMenuItems = [
-	    [ 'label' => 'Profile', 'url' => [ '/profile' ] ],
+	    [ 'label' => 'Profile', 'url' => [ '/user/profile' ] ],
+	    [ 'label' => 'Settings', 'url' => [ '/user/settings' ] ],
 	    [ 'label' => 'Logout', 'url' => [ '/logout' ] ]
 	];
 ?>
 <header id="header" class="header-main">
 	<div class="header-desktop clearfix">
 		<div class="colf12x4">
-			<?= Html::a( "<img class='logo' src='" . Yii::getAlias( '@images' ) . "/logo.png'>", [ '/home' ], null )?>
+			<?= Html::a( "<img class='logo' src='" . Yii::getAlias( '@images' ) . "/logo.png'>", [ '/home' ], null ) ?>
 		</div>
 		<div class="colf12x8">
 		<?= BasicNav::widget([
@@ -33,10 +35,10 @@ $settingsMenuItems = [
 		</div>
 	</div>
 	<div class="header-mobile clearfix">
-		<div id="btn-mobile-menu"> 
+		<div id="btn-mobile-menu">
 			<span class="cmti cmti-2x cmti-menu"></span>
 		</div>
-		<?= Html::a( "<img class='logo' src='" . Yii::getAlias( '@images' ) . "/logo.png'>", [ '/home' ], null )?>
+		<?= Html::a( "<img class='logo' src='" . Yii::getAlias( '@images' ) . "/logo.png'>", [ '/home' ], null ) ?>
 		<?= BasicNav::widget([
                 'options' => [ 'class' => 'nav-main', 'id' => 'nav-mobile' ],
                 'items' => $menuItemsMobile

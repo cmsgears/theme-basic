@@ -13,8 +13,8 @@ $this->title 	= $coreProperties->getSiteTitle() . " | Register";
 	'options' => [ 'id' => 'block-public', 'class' => 'block block-basic' ],
 	'bkg' => true,
 	'texture' => true, 'textureClass' => 'texture-default',
-	'header' => true, 'headerContent' => "<h2 class='align-middle'>REGISTER</h2>",
-	'contentWrapClass' => 'align align-center', 'content' => true
+	'header' => true, 'headerContent' => "<h2 class='align align-center'>REGISTER</h2>",
+	'contentWrapClass' => 'center', 'content' => true
 ]);?>
 
 	<?php if( Yii::$app->session->hasFlash( "message" ) ) { ?>
@@ -32,7 +32,6 @@ $this->title 	= $coreProperties->getSiteTitle() . " | Register";
 	    	<?= $form->field( $model, 'username' )->textInput( [ 'placeholder' => 'Username' ] )->label( false ) ?>
 	    	<?= $form->field( $model, 'firstName' )->textInput( [ 'placeholder' => 'First Name' ] )->label( false ) ?>
 	    	<?= $form->field( $model, 'lastName' )->textInput( [ 'placeholder' => 'Last Name' ] )->label( false ) ?>
-			<?= $form->field( $model, 'newsletter' )->checkbox() ?>
 			<?= $form->field( $model, 'terms' )->checkbox( [ 'label' => $terms ] ) ?>
 	
 			<input type="submit" value="Register" />

@@ -12,7 +12,7 @@ jQuery(document).ready( function() {
 function initPreloaders() {
 
 	// Hide global pre-loader spinner
-	jQuery( '.block' ).imagesLoaded( { background: true }, function() {
+	jQuery( '.container-main' ).imagesLoaded( { background: true }, function() {
 
 		jQuery( '#pre-loader-main' ).fadeOut( 'slow' );
 	});
@@ -20,22 +20,10 @@ function initPreloaders() {
 
 function initCmgTools() {
 
-	// perspective header
-	if( jQuery().cmtHeader ) {
-
-		jQuery( "#header-main" ).cmtHeader( { scrollDistance: 350 } );
-	}
-
-	// smooth scroll
-	if( jQuery().cmtSmoothScroll ) {
-
-		jQuery( ".smooth-scroll" ).cmtSmoothScroll();
-	}
-
-	// Initialise the Blocks
+	// Page Blocks
 	if( jQuery().cmtBlock ) {
 
-		jQuery( ".block" ).cmtBlock({
+		jQuery( '.block' ).cmtBlock({
 			fullHeight: true,
 			blocks: {
 				'block-about': { 'fullHeight': true, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
@@ -45,42 +33,96 @@ function initCmgTools() {
 		});
 	}
 
+	// Perspective Header
+	if( jQuery().cmtHeader ) {
+
+		jQuery( '#header-main' ).cmtHeader( { scrollDistance: 350 } );
+	}
+
+	// Smooth Scroll
+	if( jQuery().cmtSmoothScroll ) {
+
+		jQuery( '.smooth-scroll' ).cmtSmoothScroll();
+	}
+
 	// File Uploader
 	if( jQuery().cmtFileUploader ) {
 
 		jQuery( '.file-uploader' ).cmtFileUploader();
 	}
+
+	// Popups
+	if( jQuery().cmtPopup ) {
+
+		jQuery( '.popup' ).cmtPopup();
+	}
+
+	// Custom Select
+	if( jQuery().cmtSelect ) {
+
+		jQuery( '.cmt-select' ).cmtSelect( { iconHtml: '<span class="cmti cmti-chevron-down"></span>' } );
+	}
+
+	// Custom Checkbox
+	if( jQuery().cmtCheckbox ) {
+
+		jQuery( '.cmt-checkbox' ).cmtCheckbox();
+	}
+
+	// Form with Info
+	if( jQuery().cmtFormInfo ) {
+
+		jQuery( '.box-form' ).cmtFormInfo();
+	}
 }
 
 function initListeners() {
 
-	// Initialise the mobile button
-	jQuery( "#btn-mobile-menu, #nav-mobile li" ).click( function() {
+	// Custom Scroller
+	if( jQuery().mCustomScrollbar ) {
 
-		jQuery( "#nav-mobile" ).slideToggle( "slow" );
+		jQuery( '.cscroller' ).mCustomScrollbar( { autoHideScrollbar: true } );
+	}
+
+	// Datepicker
+	if( jQuery().datepicker ) {
+
+		jQuery( '.datepicker' ).datepicker( { dateFormat: 'yy-mm-dd' } );
+	}
+
+	// Default Tabs
+	if( jQuery().tabs ) {
+
+		jQuery( '.tabs-default' ).tabs();
+	}
+
+	// Initialise the mobile button
+	jQuery( '#btn-mobile-menu, #nav-mobile li' ).click( function() {
+
+		jQuery( '#nav-mobile' ).slideToggle( 'slow' );
 	});
 
 	// Show/ Hide login box
-	jQuery( "#btn-login, #btn-login-mobile" ).click( function() {
+	jQuery( '#btn-login, #btn-login-mobile' ).click( function() {
 
-		jQuery( "#wrap-login-register" ).toggle( "slow" );
+		jQuery( '#wrap-login-register' ).toggle( 'slow' );
 	});
 
 	// Show/ Hide settings box
-	jQuery( "#btn-settings, #btn-settings-mobile" ).click( function( e ) {
+	jQuery( '#btn-settings, #btn-settings-mobile' ).click( function( e ) {
 
 		e.preventDefault();
 
-		jQuery( "#box-settings" ).toggle( "slow" );
+		jQuery( '#box-settings' ).toggle( 'slow' );
 	});
 }
 
 function initAutoHeight () {
 
-	jQuery( ".header" ).css( "height", jQuery( ".items" ).height() - 8 );
+	jQuery( '.header' ).css( 'height', jQuery( '.items' ).height() - 8 );
 
 	if( window.innerWidth <= 1024  ) {
 
-		jQuery( ".header" ).css( "height", "auto" );
+		jQuery( '.header' ).css( 'height', 'auto' );
 	}
 }

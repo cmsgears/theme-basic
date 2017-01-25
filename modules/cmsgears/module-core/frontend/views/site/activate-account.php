@@ -13,8 +13,8 @@ $this->title 	= $coreProperties->getSiteTitle() . " | Activate Account";
 	'options' => [ 'id' => 'block-public', 'class' => 'block block-basic' ],
 	'bkg' => true,
 	'texture' => true, 'textureClass' => 'texture-default',
-	'header' => true, 'headerContent' => "<h2 class='align-middle'>ACCOUNT ACTIVATION</h2>",
-	'contentWrapClass' => 'align align-center', 'content' => true
+	'header' => true, 'headerContent' => "<h2 class='align align-center'>ACCOUNT ACTIVATION</h2>",
+	'contentWrapClass' => 'center', 'content' => true
 ]);?>
 
 	<?php if( Yii::$app->session->hasFlash( "message" ) ) { ?>

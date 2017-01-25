@@ -1,18 +1,15 @@
 <?php
-use \Yii;
+// Yii Imports
 use yii\helpers\Html;
+
+// CMG Imports
+use cmsgears\core\common\utilities\CodeGenUtil;
 ?>
 <meta charset="<?= $coreProperties->getCharset() ?>">
 <!-- Use minimum-scale=1.0, maximum-scale=1.0, user-scalable=no for mobile applications -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<?php if( isset( $this->params['desc'] ) ) { ?>
-	<meta name="description" content="<?=$this->params[ 'desc' ]?>">
-<?php } ?>
-<?php if( isset( $this->params['meta'] ) ) { ?>
-	<meta name="keywords" content="<?=$this->params[ 'meta' ]?>">
-<?php } ?>
-
+<?= CodeGenUtil::generateMetaTags( $this->params ) ?>
 <?= Html::csrfMetaTags() ?>
 
 <title><?= $this->title ?></title>
@@ -20,7 +17,7 @@ use yii\helpers\Html;
 <!-- IE fix for console -->
 <script type="text/javascript"> if ( !window.console ) console = { log: function() {} }; </script>
 
-<!-- Icons -->
+<!-- App Icons -->
 <link href="images/icons/favicon.ico" rel="shortcut icon">
 <link href="images/icons/apple-touch-icon.png" rel="apple-touch-icon-precomposed">
 
