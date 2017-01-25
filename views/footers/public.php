@@ -36,8 +36,7 @@ $menu2Items = [
 	</div>
 </footer>
 <footer class="footer-copyright">
-	<div class="row max-cols-100 content-80 clearfix">
-		<div class="col2">Copyright © <?= date( 'Y' ) ?> <?= $coreProperties->getSiteName() ?>. All Rights Reserved.</div>
-		<div class="col2 align align-right">Designed and developed by <a href="http://www.vulpinecode.com" target="_blank">VulpineCode Technologies</a></div>
+	<div class="content-80">
+		<div class="content-80 align align-center padding padding-default">Copyright © 2015 - <?= date( 'Y' ) ?> <?= $coreProperties->getSiteName() ?>. All Rights Reserved.</div>
 	</div>
 </footer>
