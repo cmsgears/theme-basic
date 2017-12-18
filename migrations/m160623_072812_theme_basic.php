@@ -50,10 +50,10 @@ class m160623_072812_theme_basic extends \yii\db\Migration {
 
 	private function insertTheme() {
 
-		$columns = [ 'createdBy', 'modifiedBy', 'name', 'slug', 'description', 'renderer', 'basePath', 'createdAt', 'modifiedAt', 'data' ];
+		$columns = [ 'createdBy', 'modifiedBy', 'name', 'slug', 'type', 'description', 'renderer', 'basePath', 'createdAt', 'modifiedAt', 'data' ];
 
 		$themes = [
-			[ $this->master->id, $this->master->id, 'Basic','basic', 'Basic Theme.', 'default', '@themes/basic', DateUtil::getDateTime(), DateUtil::getDateTime(), null ]
+			[ $this->master->id, $this->master->id, 'Basic','basic', CoreGlobal::TYPE_SITE, 'Basic Theme.', 'default', '@themes/basic', DateUtil::getDateTime(), DateUtil::getDateTime(), null ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_theme', $columns, $themes );
