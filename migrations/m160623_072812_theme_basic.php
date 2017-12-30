@@ -20,7 +20,7 @@ class m160623_072812_theme_basic extends \yii\db\Migration {
 	// Private Variables
 
 	private $cmgPrefix;
-	private $appPrefix;
+	private $sitePrefix;
 
 	private $site;
 
@@ -30,7 +30,7 @@ class m160623_072812_theme_basic extends \yii\db\Migration {
 
 		// Table prefix
 		$this->cmgPrefix	= Yii::$app->migration->cmgPrefix;
-		$this->appPrefix	= Yii::$app->migration->appPrefix;
+		$this->sitePrefix	= Yii::$app->migration->sitePrefix;
 
 		$this->site			= Site::findBySlug( CoreGlobal::SITE_MAIN );
 		$this->master		= User::findByUsername( Yii::$app->migration->getSiteMaster() );
