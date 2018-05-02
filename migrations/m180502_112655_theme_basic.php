@@ -1,13 +1,29 @@
 <?php
+/**
+ * This file is part of CMSGears Framework. Please view License file distributed
+ * with the source code for license details.
+ *
+ * @link https://www.cmsgears.org/
+ * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
+ */
+
 // CMG Imports
 use cmsgears\core\common\config\CoreGlobal;
+
+use cmsgears\core\common\base\Migration;
+
 use cmsgears\core\common\models\entities\Site;
 use cmsgears\core\common\models\entities\User;
 use cmsgears\core\common\models\entities\Theme;
 
 use cmsgears\core\common\utilities\DateUtil;
 
-class m160623_072812_theme_basic extends \yii\db\Migration {
+/**
+ * The basic theme migration inserts the theme data.
+ *
+ * @since 1.0.0
+ */
+class m180502_112655_theme_basic extends Migration {
 
 	// Public variables
 
@@ -32,8 +48,10 @@ class m160623_072812_theme_basic extends \yii\db\Migration {
 		$this->cmgPrefix	= Yii::$app->migration->cmgPrefix;
 		$this->sitePrefix	= Yii::$app->migration->sitePrefix;
 
-		$this->site			= Site::findBySlug( CoreGlobal::SITE_MAIN );
-		$this->master		= User::findByUsername( Yii::$app->migration->getSiteMaster() );
+		$this->site		= Site::findBySlug( CoreGlobal::SITE_MAIN );
+		$this->master	= User::findByUsername( Yii::$app->migration->getSiteMaster() );
+
+		Yii::$app->core->setSite( $this->site );
 	}
 
     public function up() {
@@ -53,7 +71,7 @@ class m160623_072812_theme_basic extends \yii\db\Migration {
 		$columns = [ 'createdBy', 'modifiedBy', 'name', 'slug', 'type', 'description', 'renderer', 'basePath', 'createdAt', 'modifiedAt', 'data' ];
 
 		$themes = [
-			[ $this->master->id, $this->master->id, 'Basic','basic', CoreGlobal::TYPE_SITE, 'Basic Theme.', 'default', '@themes/basic', DateUtil::getDateTime(), DateUtil::getDateTime(), null ]
+			[ $this->master->id, $this->master->id, 'Basic', 'basic', CoreGlobal::TYPE_SITE, 'Basic Theme.', 'default', '@themes/basic', DateUtil::getDateTime(), DateUtil::getDateTime(), null ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_theme', $columns, $themes );
@@ -70,10 +88,12 @@ class m160623_072812_theme_basic extends \yii\db\Migration {
 
 	private function insertThemeTemplates() {
 
-		$columns = [ 'createdBy', 'modifiedBy', 'name', 'slug', 'icon', 'type', 'active', 'description', 'renderer', 'fileRender', 'layout', 'layoutGroup', 'viewPath', 'createdAt', 'modifiedAt', 'content', 'data' ];
+		$theme = Theme::findBySlug( 'basic' );
+
+		$columns = [ 'siteId', 'themeId', 'createdBy', 'modifiedBy', 'name', 'slug', 'icon', 'type', 'active', 'description', 'renderer', 'fileRender', 'layout', 'layoutGroup', 'viewPath', 'createdAt', 'modifiedAt', 'content', 'data' ];
 
 		$templates = [
-			[ $this->master->id, $this->master->id, 'Form', 'form', null, 'form', true, 'It can be used to display public forms.', 'default', true, 'form/default', false, 'views/templates/form/default', DateUtil::getDateTime(), DateUtil::getDateTime(), null, null ]
+			[ $this->site->id, $theme->id, $this->master->id, $this->master->id, 'Form', 'form', null, 'form', true, 'It can be used to display public forms.', 'default', true, 'form/default', false, 'views/templates/form/default', DateUtil::getDateTime(), DateUtil::getDateTime(), null, null ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_template', $columns, $templates );
@@ -95,8 +115,9 @@ class m160623_072812_theme_basic extends \yii\db\Migration {
 
     public function down() {
 
-        echo "m161102_163135_theme_basic will be deleted with m160621_014408_core.\n";
+        echo "m180502_112655_theme_basic will be deleted with m160621_014408_core.\n";
 
         return true;
     }
+
 }

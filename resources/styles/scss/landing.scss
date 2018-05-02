@@ -1,40 +1,101 @@
-// Core -------------------------------------
+// ---------------------------------------//
+// Core Division - Required
+// ---------------------------------------//
 
 @import "cmt/core/variables";
 @import "partials/core/fonts";
 @import "partials/core/variables";
+
 @import "cmt/core/variables-ext";
-@import "partials/core/variables-ext";
+
 @import "cmt/core/mixins";
+
 @import "cmt/core/transitions";
-@import "cmt/core/animations";
 @import "cmt/core/transformations";
+@import "cmt/core/animations";
+
 @import "cmt/core/reset";
 @import "cmt/core/basic";
-@import "partials/core/basic";
+
+@import "cmt/core/coloring";
+@import "cmt/core/spacing";
+
 @import "cmt/core/typography";
+
 @import "cmt/core/containers";
-@import "partials/core/containers";
 
-// Elements ---------------------------------
+// ---------------------------------------//
+// Elements Division
+// ---------------------------------------//
 
-@import "cmt/elements/form";
-@import "partials/elements/forms";
+@import "cmt/elements/basic";
 
 @import "cmt/elements/custom";
 
-// Components -------------------------------
+@import "cmt/elements/form";
 
-@import "partials/components/menus";
-@import "partials/components/headers";
-@import "partials/components/footers";
-@import "partials/components/popouts";
+@import "cmt/elements/table";
 
-@import "cmt/components/blocks";
-@import "partials/components/blocks";
+@import "cmt/elements/breadcrumbs";
 
-@import "cmt/components/flipper";
-@import "cmt/components/galleries";
+@import "cmt/elements/mappers";
 
-@import "cmt/components/login-register";
-@import "partials/components/login-register";
+@import "cmt/elements/auto-fill";
+
+// ---------------------------------------//
+// Components Division
+// ---------------------------------------//
+
+@import "cmt/components/menus/basic";
+@import "cmt/components/menus/collapsible";
+@import "cmt/components/menus/social";
+
+@import "cmt/components/headers/basic";
+
+@import "cmt/components/footers/basic";
+
+@import "cmt/components/sidebars/basic";
+
+@import "cmt/components/popups/basic";
+@import "cmt/components/popups/popouts";
+
+@import "cmt/components/sliders/basic";
+
+@import "cmt/components/galleries/basic";
+
+@import "cmt/components/cards/basic";
+
+@import "cmt/components/boxes/basic";
+@import "cmt/components/boxes/login";
+@import "cmt/components/boxes/form";
+@import "cmt/components/boxes/file";
+
+// Notes: Widgets can be used in Blocks, Grid, Blog
+
+@import "cmt/components/widgets/basic";
+@import "cmt/components/widgets/blog/post";
+@import "cmt/components/widgets/cart/cart";
+@import "cmt/components/widgets/cart/product";
+
+// Notes: Blocks can be used to form pages
+
+@import "cmt/components/blocks/basic";
+
+@import "cmt/components/grid/pagination";
+@import "cmt/components/grid/sorting";
+@import "cmt/components/grid/filters";
+@import "cmt/components/grid/data";
+@import "cmt/components/grid/table";
+
+@import "cmt/components/blog/blog";
+@import "cmt/components/blog/post";
+
+@import "cmt/components/cart/product";
+@import "cmt/components/cart/cart";
+@import "cmt/components/cart/shop";
+
+@import "cmt/components/flippers/basic";
+
+// ---------------------------------------//
+// Extensions Division
+// ---------------------------------------//

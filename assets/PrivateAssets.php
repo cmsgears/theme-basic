@@ -1,41 +1,58 @@
 <?php
+/**
+ * This file is part of CMSGears Framework. Please view License file distributed
+ * with the source code for license details.
+ *
+ * @link https://www.cmsgears.org/
+ * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
+ */
+
 namespace themes\basic\assets;
 
-// Yii Imports
-use \Yii;
-use yii\web\View;
-use yii\helpers\Url;
-
+/**
+ * PrivateAssets registers the assets available for private pages.
+ *
+ * @since 1.0.0
+ */
 class PrivateAssets extends AssetBundle {
 
 	// Variables ---------------------------------------------------
 
-	// Public ----
+	// Globals -------------------------------
 
-	// Load css
-    public $css     = [
+	// Constants --------------
+
+	// Public -----------------
+
+	// Protected --------------
+
+	// Variables -----------------------------
+
+	// Public -----------------
+
+	// Load CSS
+    public $css = [
 		'styles/private.css'
     ];
 
+	// Protected --------------
+
+	// Private ----------------
+
+	// Traits ------------------------------------------------------
+
 	// Constructor and Initialisation ------------------------------
 
-	public function init()  {
+	// Instance methods --------------------------------------------
 
-		parent::init();
+	// Yii interfaces ------------------------
 
-		$this->depends[]	= 'cmsgears\core\common\assets\Handlebars';
-	}
+	// Yii parent classes --------------------
 
-	// Additional Assets Registration ------------------------------
+	// CMG interfaces ------------------------
 
-	public function registerAssetFiles( $view ) {
+	// CMG parent classes --------------------
 
-		parent::registerAssetFiles( $view );
+	// PrivateAssets -------------------------
 
-		$rootUrl = Url::toRoute( '/', true );
-
-    	$siteUrl = "var fileUploadUrl	= '" .$rootUrl . "apix/file/file-handler';";
-
-		$view->registerJs( $siteUrl, View::POS_END );
-	}
 }

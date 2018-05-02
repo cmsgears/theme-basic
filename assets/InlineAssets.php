@@ -9,12 +9,17 @@
 
 namespace themes\basic\assets;
 
+// Yii Imports
+use yii\helpers\Url;
+use yii\web\AssetBundle;
+use yii\web\View;
+
 /**
- * LandingAssets registers the assets available for landing page.
+ * InlineAssets registers the global variables.
  *
  * @since 1.0.0
  */
-class LandingAssets extends AssetBundle {
+class InlineAssets extends AssetBundle {
 
 	// Variables ---------------------------------------------------
 
@@ -30,10 +35,8 @@ class LandingAssets extends AssetBundle {
 
 	// Public -----------------
 
-	// Load CSS
-    public $css = [
-		'styles/landing.css'
-    ];
+	// Path Configuration
+	public $sourcePath	= '@themes/basic/resources';
 
 	// Protected --------------
 
@@ -43,23 +46,29 @@ class LandingAssets extends AssetBundle {
 
 	// Constructor and Initialisation ------------------------------
 
-	public function init()  {
-
-		parent::init();
-
-		$this->depends[] = 'foxslider\widgets\assets\FxsAssets';
-	}
-
 	// Instance methods --------------------------------------------
 
 	// Yii interfaces ------------------------
 
 	// Yii parent classes --------------------
 
+	public function registerAssetFiles( $view ) {
+
+		parent::registerAssetFiles( $view );
+
+		$rootUrl = Url::toRoute( '/', true );
+
+		$siteUrl = "var siteUrl	= '$rootUrl';
+					var ajaxUrl	= '" . $rootUrl ."apix/';
+					var fileUploadUrl	= '" . $rootUrl . "apix/file/file-handler';";
+
+		$view->registerJs( $siteUrl, View::POS_END );
+	}
+
 	// CMG interfaces ------------------------
 
 	// CMG parent classes --------------------
 
-	// LandingAssets -------------------------
+	// InlineAssets --------------------------
 
 }

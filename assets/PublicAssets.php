@@ -1,27 +1,58 @@
 <?php
+/**
+ * This file is part of CMSGears Framework. Please view License file distributed
+ * with the source code for license details.
+ *
+ * @link https://www.cmsgears.org/
+ * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
+ */
+
 namespace themes\basic\assets;
 
-// Yii Imports
-use \Yii;
-use yii\web\View;
-
+/**
+ * PublicAssets registers the assets available for public pages.
+ *
+ * @since 1.0.0
+ */
 class PublicAssets extends AssetBundle {
 
 	// Variables ---------------------------------------------------
 
-	// Public ----
+	// Globals -------------------------------
 
-	// Load css
-    public $css     = [
+	// Constants --------------
+
+	// Public -----------------
+
+	// Protected --------------
+
+	// Variables -----------------------------
+
+	// Public -----------------
+
+	// Load CSS
+    public $css = [
 		'styles/public.css'
     ];
 
+	// Protected --------------
+
+	// Private ----------------
+
+	// Traits ------------------------------------------------------
+
 	// Constructor and Initialisation ------------------------------
 
-	public function init()  {
+	// Instance methods --------------------------------------------
 
-		parent::init();
+	// Yii interfaces ------------------------
 
-		// Do init tasks
-	}
+	// Yii parent classes --------------------
+
+	// CMG interfaces ------------------------
+
+	// CMG parent classes --------------------
+
+	// PublicAssets --------------------------
+
 }

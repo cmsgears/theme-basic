@@ -19,6 +19,6 @@ use cmsgears\core\common\utilities\CodeGenUtil;
 
 <!-- App Icons -->
 <link href="images/icons/favicon.ico" rel="shortcut icon">
-<link href="images/icons/apple-touch-icon.png" rel="apple-touch-icon-precomposed">
+<link href="images/icons/apple-icon-precomposed.png" rel="apple-touch-icon-precomposed">
 
 <?php $this->head(); ?>

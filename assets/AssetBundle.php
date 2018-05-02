@@ -1,67 +1,83 @@
 <?php
+/**
+ * This file is part of CMSGears Framework. Please view License file distributed
+ * with the source code for license details.
+ *
+ * @link https://www.cmsgears.org/
+ * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
+ */
+
 namespace themes\basic\assets;
 
 // Yii Imports
-use \Yii;
+use yii\web\AssetBundle as BaseAssetBundle;
 use yii\web\View;
-use yii\helpers\Url;
 
-class AssetBundle extends \yii\web\AssetBundle {
+class AssetBundle extends BaseAssetBundle {
 
 	// Variables ---------------------------------------------------
 
-	// Public ----
+	// Globals -------------------------------
+
+	// Constants --------------
+
+	// Public -----------------
+
+	// Protected --------------
+
+	// Variables -----------------------------
+
+	// Public -----------------
 
 	// Path Configuration
 	public $sourcePath	= '@themes/basic/resources';
 
-	// Position to load css
+	// CSS Position
     public $cssOptions = [
         'position' => View::POS_HEAD
     ];
 
-	// Load Javascript
-    public $js      = [
+	// Load JS
+    public $js = [
         'scripts/main.js',
-        'scripts/applications.js'
+        'scripts/apps/public.js'
     ];
 
-	// Position to load Javascript
+	// JS Position
     public $jsOptions = [
         'position' => View::POS_END
     ];
 
-	// Define dependent Asset Loaders
+	// Dependent Assets
     public $depends = [
-		'yii\web\JqueryAsset',
+    	//'cmsgears\core\common\assets\Jquery',
 		'cmsgears\core\common\assets\JqueryUi',
 		'cmsgears\core\common\assets\CmgToolsJs',
 		'cmsgears\core\common\assets\MCustomScrollbar',
 		'cmsgears\core\common\assets\ImagesLoaded',
 		'cmsgears\widgets\aform\assets\FormAssets',
-		'cmsgears\icons\assets\IconAssets'
+		'cmsgears\icons\assets\IconAssets',
+		'cmsgears\core\common\assets\Handlebars'
     ];
+
+	// Protected --------------
+
+	// Private ----------------
+
+	// Traits ------------------------------------------------------
 
 	// Constructor and Initialisation ------------------------------
 
-	public function init()  {
+	// Instance methods --------------------------------------------
 
-		parent::init();
+	// Yii interfaces ------------------------
 
-		// Do init tasks
-	}
+	// Yii parent classes --------------------
 
-	// Additional Assets Registration ------------------------------
+	// CMG interfaces ------------------------
 
-	public function registerAssetFiles( $view ) {
+	// CMG parent classes --------------------
 
-		parent::registerAssetFiles( $view );
+	// InlineAssets --------------------------
 
-		$rootUrl = Url::toRoute( '/', true );
-
-    	$siteUrl = "var siteUrl 	= '$rootUrl';
-					var ajaxUrl 	= '" . $rootUrl ."apix/';";
-
-		$view->registerJs( $siteUrl, View::POS_END );
-	}
 }
