@@ -9,5 +9,5 @@ Description - The Basic Theme for CMSGears provide layouts and views for Core an
 Highlighted Features
 =========================================
 1. It provide layouts and implement default views for Core and Forms modules.
-2. The landing page shows the main gallery and contact form.
+2. The landing page shows application specific details.
 3. Apart from landing page, it override the system pages including login, register, reset password.

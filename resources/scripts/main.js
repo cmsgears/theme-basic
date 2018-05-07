@@ -1,4 +1,4 @@
-jQuery(document).ready( function() {
+jQuery( document ).ready( function() {
 
 	initPreloaders();
 
@@ -6,96 +6,111 @@ jQuery(document).ready( function() {
 
 	initListeners();
 
-	initAutoHeight();
+	initAutoHide();
 });
+
+// == Pre Loaders =========================
 
 function initPreloaders() {
 
-	// Hide global pre-loader spinner
 	jQuery( '.container-main' ).imagesLoaded( { background: true }, function() {
 
 		jQuery( '#pre-loader-main' ).fadeOut( 'slow' );
 	});
 }
 
+// == CMT JS ==============================
+
 function initCmgTools() {
 
 	// Page Blocks
-	if( jQuery().cmtBlock ) {
-
-		jQuery( '.block' ).cmtBlock({
-			fullHeight: true,
-			blocks: {
-				'block-about': { 'fullHeight': true, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
-				'block-contact': { 'fullHeight': true, 'heightAuto': true },
-				'block-public': { 'fullHeight': true, heightAutoMobile: true, heightAutoMobileWidth: 1600 }
-			}
-		});
-	}
+	jQuery( '.block' ).cmtBlock({
+		// Generic
+		fullHeight: true,
+		// Block Specific - Ignores generic
+		blocks: {
+			'block-public': { fullHeight: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 }
+		}
+	});
 
 	// Perspective Header
-	if( jQuery().cmtHeader ) {
-
-		jQuery( '#header-main' ).cmtHeader( { scrollDistance: 350 } );
-	}
+	jQuery( '#header-main' ).cmtHeader( { scrollDistance: 350 } );
 
 	// Smooth Scroll
-	if( jQuery().cmtSmoothScroll ) {
+	jQuery( '.smooth-scroll' ).cmtSmoothScroll();
 
-		jQuery( '.smooth-scroll' ).cmtSmoothScroll();
-	}
+	// Box Forms
+	jQuery( '.box-form' ).cmtFormInfo();
+
+	// Ratings
+	jQuery( '.cmt-rating' ).cmtRate();
+
+	// Select
+	jQuery( '.cmt-select' ).cmtSelect( { iconHtml: '<span class="fa fa-caret-down"></span>' } );
+	jQuery( '.cmt-select-c' ).cmtSelect( { iconHtml: '<span class="fa fa-caret-down"></span>', copyOptionClass: true } );
+	jQuery( '.cmt-select-s' ).cmtSelect( { iconHtml: '<span class="fa fa-caret-down"></span>', wrapperClass: 'element-small' } );
+
+	// Checkboxes
+	jQuery( '.cmt-checkbox' ).cmtCheckbox();
+
+	// Field Groups
+	jQuery( '.cmt-field-group' ).cmtFieldGroup();
 
 	// File Uploader
-	if( jQuery().cmtFileUploader ) {
-
-		jQuery( '.file-uploader' ).cmtFileUploader();
-	}
+	jQuery( '.file-uploader' ).cmtFileUploader();
 
 	// Popups
-	if( jQuery().cmtPopup ) {
+	jQuery( '.popup' ).cmtPopup();
 
-		jQuery( '.popup' ).cmtPopup();
-	}
+	// Popouts
+	jQuery( '.popout-group' ).cmtPopoutGroup();
 
-	// Custom Select
-	if( jQuery().cmtSelect ) {
+	// Auto Fillers
+	jQuery( '.auto-fill' ).cmtAutoFill();
 
-		jQuery( '.cmt-select' ).cmtSelect( { iconHtml: '<span class="cmti cmti-chevron-down"></span>' } );
-	}
+	// Vertical & Horizontal Tabs
+	jQuery( '.tabs-v, .tabs-h' ).cmtTabs();
 
-	// Custom Checkbox
-	if( jQuery().cmtCheckbox ) {
+	// Grid
+	jQuery( '.grid-data' ).cmtGrid();
 
-		jQuery( '.cmt-checkbox' ).cmtCheckbox();
-	}
-
-	// Form with Info
-	if( jQuery().cmtFormInfo ) {
-
-		jQuery( '.box-form' ).cmtFormInfo();
-	}
+	// Icon Picker
+	jQuery( '.icon-picker' ).cmtIconPicker();
+	
+	// Collapsible Sidebar
+	jQuery( '#sidebar-main' ).cmtCollapsibleMenu();
 }
 
+// == JS Listeners ========================
+
 function initListeners() {
+
+	// Datepicker
+	if( jQuery().datepicker ) {
+
+		var start = jQuery( '.datepicker' ).attr( 'start' );
+
+		if( null != start ) {
+
+			jQuery( '.datepicker' ).datepicker({
+				dateFormat: 'yy-mm-dd',
+				minDate: start
+			});
+		}
+		else {
+			
+			jQuery( '.datepicker' ).datepicker({
+				dateFormat: 'yy-mm-dd'
+			});
+		}
+	}
 
 	// Custom Scroller
 	if( jQuery().mCustomScrollbar ) {
 
 		jQuery( '.cscroller' ).mCustomScrollbar( { autoHideScrollbar: true } );
 	}
-
-	// Datepicker
-	if( jQuery().datepicker ) {
-
-		jQuery( '.datepicker' ).datepicker( { dateFormat: 'yy-mm-dd' } );
-	}
-
-	// Default Tabs
-	if( jQuery().tabs ) {
-
-		jQuery( '.tabs-default' ).tabs();
-	}
-
+	
 	// Initialise the mobile button
 	jQuery( '#btn-mobile-menu, #nav-mobile li' ).click( function() {
 
@@ -117,6 +132,28 @@ function initListeners() {
 	});
 }
 
+// == Auto Hide ===========================
+
+function initAutoHide() {
+
+	hideElement( jQuery( '.popout-trigger' ), jQuery( '.popout' ) );
+}
+
+function hideElement( targetElement, hideElement ) {
+
+	jQuery( window ).click( function( e ) {
+
+	    if ( !targetElement.is( e.target ) && targetElement.has( e.target ).length === 0 ) {
+
+			jQuery( hideElement ).slideUp();
+
+	        targetElement.removeClass( 'active' );
+	    }
+	});
+}
+
+// == Auto Height =========================
+
 function initAutoHeight () {
 
 	jQuery( '.header' ).css( 'height', jQuery( '.items' ).height() - 8 );
@@ -125,4 +162,31 @@ function initAutoHeight () {
 
 		jQuery( '.header' ).css( 'height', 'auto' );
 	}
+}
+
+// == Window Resize, Scroll ===============
+
+function initWindowResize() {
+
+	//resizeElements();
+
+	jQuery( window ).resize( function () {
+
+		//resizeElements();
+	});
+}
+
+function initWindowScroll() {
+
+	jQuery( window ).scroll(function() {
+
+		var scrolledY = jQuery( window ).scrollTop();
+
+	  	// Do scroll specific tasks
+	});
+}
+
+function resizeElements() {
+
+	// Resize elements on window resize
 }

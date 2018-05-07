@@ -29,7 +29,7 @@ $user			= Yii::$app->user->getIdentity();
 			}
 			else {
 
-				include "$themePath/views/headers/landing.php";
+				//include "$themePath/views/headers/landing.php";
 			}
 		?>
         <div class="container container-main">

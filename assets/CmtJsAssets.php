@@ -9,12 +9,16 @@
 
 namespace themes\basic\assets;
 
+// Yii Imports
+use yii\web\AssetBundle;
+use yii\web\View;
+
 /**
- * LandingAssets registers the assets available for landing page.
+ * CmtJsAssets registers the JS assets provided by CMGTools.
  *
  * @since 1.0.0
  */
-class LandingAssets extends AssetBundle {
+class CmtJsAssets extends AssetBundle {
 
 	// Variables ---------------------------------------------------
 
@@ -30,10 +34,21 @@ class LandingAssets extends AssetBundle {
 
 	// Public -----------------
 
-	// Load CSS
-    public $css = [
-		'styles/landing.css'
-    ];
+	// Path Configuration
+	public $sourcePath = '@bower/cmt-js/src/cmg';
+
+	// Load JS
+	public $js = [
+		'apps/core/grid.js',
+		'apps/core/mapper.js',
+		'apps/core/notify/base.js',
+		'apps/core/notify/notification.js',
+	];
+
+	// JS Position
+	public $jsOptions = [
+		'position' => View::POS_END
+	];
 
 	// Protected --------------
 
@@ -42,13 +57,6 @@ class LandingAssets extends AssetBundle {
 	// Traits ------------------------------------------------------
 
 	// Constructor and Initialisation ------------------------------
-
-	public function init()  {
-
-		parent::init();
-
-		//$this->depends[] = 'foxslider\widgets\assets\FxsAssets';
-	}
 
 	// Instance methods --------------------------------------------
 
@@ -60,6 +68,6 @@ class LandingAssets extends AssetBundle {
 
 	// CMG parent classes --------------------
 
-	// LandingAssets -------------------------
+	// CmtJsAssets ---------------------------
 
 }

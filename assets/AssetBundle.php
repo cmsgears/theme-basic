@@ -13,6 +13,11 @@ namespace themes\basic\assets;
 use yii\web\AssetBundle as BaseAssetBundle;
 use yii\web\View;
 
+/**
+ * AssetBundle registers the global assets.
+ *
+ * @since 1.0.0
+ */
 class AssetBundle extends BaseAssetBundle {
 
 	// Variables ---------------------------------------------------
@@ -29,55 +34,77 @@ class AssetBundle extends BaseAssetBundle {
 
 	// Public -----------------
 
-	// Path Configuration
-	public $sourcePath	= '@themes/basic/resources';
+	/**
+	 * @inheritdoc
+	 */
+	public $sourcePath = '@themes/basic/resources';
 
-	// CSS Position
-    public $cssOptions = [
-        'position' => View::POS_HEAD
-    ];
+	/**
+	 * @inheritdoc
+	 */
+	public $cssOptions = [
+		'position' => View::POS_HEAD
+	];
 
-	// Load JS
+	/**
+	 * @inheritdoc
+	 */
     public $js = [
+		// vendor
+		// templates
+        'scripts/templates/public.js',
+		// scripts
         'scripts/main.js',
+        'scripts/search.js',
+		// apix
+		'scripts/apix/public.js',
+		// apps
         'scripts/apps/public.js'
     ];
 
-	// JS Position
+	/**
+	 * @inheritdoc
+	 */
     public $jsOptions = [
         'position' => View::POS_END
     ];
 
-	// Dependent Assets
+	/**
+	 * @inheritdoc
+	 */
     public $depends = [
     	//'cmsgears\core\common\assets\Jquery',
+		'cmsgears\core\common\assets\Conditionizr',
 		'cmsgears\core\common\assets\JqueryUi',
 		'cmsgears\core\common\assets\CmgToolsJs',
-		'cmsgears\core\common\assets\MCustomScrollbar',
+		'cmsgears\core\common\assets\Handlebars',
 		'cmsgears\core\common\assets\ImagesLoaded',
+		'cmsgears\core\common\assets\MCustomScrollbar',
+		'cmsgears\core\common\assets\NoUiSlider',
+		'cmsgears\core\common\assets\ProgressBar',
+		'cmsgears\core\common\assets\Animate',
 		'cmsgears\widgets\aform\assets\FormAssets',
-		'cmsgears\icons\assets\IconAssets',
-		'cmsgears\core\common\assets\Handlebars'
+		'cmsgears\icons\assets\IconAssets'
     ];
 
-	// Protected --------------
+    // Protected --------------
 
-	// Private ----------------
+    // Private ----------------
 
-	// Traits ------------------------------------------------------
+    // Traits ------------------------------------------------------
 
-	// Constructor and Initialisation ------------------------------
+    // Constructor and Initialisation ------------------------------
 
-	// Instance methods --------------------------------------------
+    // Instance methods --------------------------------------------
 
-	// Yii interfaces ------------------------
+    // Yii interfaces ------------------------
 
-	// Yii parent classes --------------------
+    // Yii parent classes --------------------
 
-	// CMG interfaces ------------------------
+    // CMG interfaces ------------------------
 
-	// CMG parent classes --------------------
+    // CMG parent classes --------------------
 
-	// InlineAssets --------------------------
+    // AssetBundle ---------------------------
 
 }
