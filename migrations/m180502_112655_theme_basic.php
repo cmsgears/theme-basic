@@ -37,6 +37,7 @@ class m180502_112655_theme_basic extends Migration {
 
 	private $cmgPrefix;
 	private $sitePrefix;
+	private $themePrefix;
 
 	private $site;
 
@@ -47,6 +48,7 @@ class m180502_112655_theme_basic extends Migration {
 		// Table prefix
 		$this->cmgPrefix	= Yii::$app->migration->cmgPrefix;
 		$this->sitePrefix	= Yii::$app->migration->sitePrefix;
+		$this->themePrefix	= 'basic';
 
 		$this->site		= Site::findBySlug( CoreGlobal::SITE_MAIN );
 		$this->master	= User::findByUsername( Yii::$app->migration->getSiteMaster() );
@@ -88,12 +90,14 @@ class m180502_112655_theme_basic extends Migration {
 
 	private function insertThemeTemplates() {
 
+		$pre = $this->themePrefix;
+
 		$theme = Theme::findBySlug( 'basic' );
 
-		$columns = [ 'siteId', 'themeId', 'createdBy', 'modifiedBy', 'name', 'slug', 'icon', 'type', 'active', 'description', 'renderer', 'fileRender', 'layout', 'layoutGroup', 'viewPath', 'createdAt', 'modifiedAt', 'content', 'data' ];
+		$columns = [ 'siteId', 'themeId', 'createdBy', 'modifiedBy', 'name', 'slug', 'type', 'icon', 'active', 'description', 'renderer', 'fileRender', 'layout', 'layoutGroup', 'viewPath', 'createdAt', 'modifiedAt', 'content', 'data' ];
 
 		$templates = [
-			[ $this->site->id, $theme->id, $this->master->id, $this->master->id, 'Form', 'form', null, 'form', true, 'It can be used to display public forms.', 'default', true, 'form/default', false, 'views/templates/form/default', DateUtil::getDateTime(), DateUtil::getDateTime(), null, null ]
+			[ $this->site->id, $theme->id, $this->master->id, $this->master->id, 'Form', "$pre-form", CoreGlobal::TYPE_FORM, null, true, 'It can be used to display public forms.', 'default', true, 'form/default', false, 'views/templates/form/default', DateUtil::getDateTime(), DateUtil::getDateTime(), null, null ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_template', $columns, $templates );
@@ -102,10 +106,10 @@ class m180502_112655_theme_basic extends Migration {
 	private function configureTheme() {
 
 		// Theme
-		$mainTheme	= Theme::findBySlug( 'basic' );
+		$mainTheme = Theme::findBySlug( 'basic' );
 
 		// Site
-		$siteId		= $this->site->id;
+		$siteId = $this->site->id;
 
 		if( $this->activate ) {
 
