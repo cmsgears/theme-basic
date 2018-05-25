@@ -1,5 +1,5 @@
-$font-default: OpenSans-R;
-$font-heading: OpenSans-B;
+$font-default: OpenSans;
+$font-heading: OpenSans Bold;
 
 // Primary Color:
 $color-primary: #F4F6F8;
@@ -57,6 +57,11 @@ $color-btn-text-a: #FFFFFF;
 $color-btn-d: #808080; // Disabled Button
 $color-btn-text-d: #363636;
 
+// Borders
+$color-border: #EAEAEA; // Default border color
+$color-border-l: #F4F4F4; // Light border color
+$color-border-d: #D1D2D3; // Dark border color
+
 // Additional Colors
 $color-header: #231F20;
 $color-header-text: #FFFFFF;
@@ -65,7 +70,3 @@ $color-footer: #231F20;
 $color-footer-text: #FFFFFF ;
 
 $color-link: #4C7EBB; // Default color for all the links
-
-$color-border: #F4F4F4; // Default border color
-$color-border-l: #EAEAEA; // Light border color
-$color-border-d: #D1D2D3; // Dark border color

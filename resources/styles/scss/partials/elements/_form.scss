@@ -4,10 +4,10 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 }  
 
 input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
-        box-shadow: none;
-        background-color: transparent;             
-        color: $color-blue;   
-        @include shadow-inset( 0px, 0px, 1px, $color-border, 0px );
+	box-shadow: none;
+	background-color: transparent;             
+	color: $color-blue;   
+	@include shadow-inset( 0px, 0px, 1px, $color-border, 0px );
 }
 
 .frm-icon-element {

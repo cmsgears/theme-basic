@@ -7,14 +7,18 @@
  * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
  */
 
-namespace themes\basic\assets;
+namespace themes\basic\assets\vapps;
+
+// Yii Imports
+use yii\web\AssetBundle;
+use yii\web\View;
 
 /**
- * LandingAssets registers the assets available for landing page.
+ * CoreAssets registers the Velocity Apps of Core Module.
  *
  * @since 1.0.0
  */
-class LandingAssets extends AssetBundle {
+class CoreAssets extends AssetBundle {
 
 	// Variables ---------------------------------------------------
 
@@ -30,10 +34,18 @@ class LandingAssets extends AssetBundle {
 
 	// Public -----------------
 
-	// Load CSS
-    public $css = [
-		'styles/landing.css'
-    ];
+	// Path Configuration
+	public $sourcePath = '@bower/cmt-js/src/cmg';
+
+	// Load JS
+	public $js = [
+		'apps/core/mapper.js'
+	];
+
+	// JS Position
+	public $jsOptions = [
+		'position' => View::POS_END
+	];
 
 	// Protected --------------
 
@@ -42,13 +54,6 @@ class LandingAssets extends AssetBundle {
 	// Traits ------------------------------------------------------
 
 	// Constructor and Initialisation ------------------------------
-
-	public function init()  {
-
-		parent::init();
-
-		$this->depends[] = 'foxslider\widgets\assets\FxsAssets';
-	}
 
 	// Instance methods --------------------------------------------
 
@@ -60,6 +65,6 @@ class LandingAssets extends AssetBundle {
 
 	// CMG parent classes --------------------
 
-	// LandingAssets -------------------------
+	// CoreAssets ----------------------------
 
 }

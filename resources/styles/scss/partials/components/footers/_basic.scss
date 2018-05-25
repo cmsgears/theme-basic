@@ -1,0 +1,43 @@
+.footer-main {
+	padding-top: 1em;
+	
+	.menu-footer {
+		font-family: $font-heading;
+		
+		li {
+			padding-right: 0.5em;
+
+			&::after {
+		    	content: '';
+			    border-right: 2px solid $color-primary;
+			    position: absolute;
+			    height: 50%;
+			    top: 0;
+		    }
+			
+			&:last-child::after {
+				border-right: none;
+		    }
+
+			a {
+				color: $color-primary;
+				padding-right: 0.5em;
+
+				&:hover {
+					color: $color-link;
+				}
+			}
+		}
+	}
+
+	.menu-social {
+		
+		.icon {
+			margin-left: 0.5em;
+		}
+	}
+}
+
+.footer-copyright {
+	color: $color-primary;
+}

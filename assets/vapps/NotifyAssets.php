@@ -7,18 +7,18 @@
  * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
  */
 
-namespace themes\basic\assets;
+namespace themes\basic\assets\vapps;
 
 // Yii Imports
 use yii\web\AssetBundle;
 use yii\web\View;
 
 /**
- * CmtJsAssets registers the JS assets provided by CMGTools.
+ * NotifyAssets registers the Velocity Apps of Notify Module.
  *
  * @since 1.0.0
  */
-class CmtJsAssets extends AssetBundle {
+class NotifyAssets extends AssetBundle {
 
 	// Variables ---------------------------------------------------
 
@@ -39,10 +39,8 @@ class CmtJsAssets extends AssetBundle {
 
 	// Load JS
 	public $js = [
-		'apps/core/grid.js',
-		'apps/core/mapper.js',
-		'apps/core/notify/base.js',
-		'apps/core/notify/notification.js',
+		'apps/notify/base.js',
+		'apps/notify/notification.js',
 	];
 
 	// JS Position
@@ -68,6 +66,6 @@ class CmtJsAssets extends AssetBundle {
 
 	// CMG parent classes --------------------
 
-	// CmtJsAssets ---------------------------
+	// NotifyAssets --------------------------
 
 }

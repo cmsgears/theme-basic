@@ -3,12 +3,13 @@ jQuery( document ).ready( function() {
 	initSearch();
 });
 
-// Initialize Search -----------------------------------------------------------
+// == Initialize Search ===================
 
 function initSearch() {
 
 	var pageUrl	= window.location.href;
 
+	// Regular Search
 	jQuery( '#btn-search' ).click( function() {
 
 		searchBro( '#search-terms', pageUrl );
@@ -37,7 +38,7 @@ function searchBro( selector, pageUrl ) {
 	window.location	= pageUrl;
 }
 
-// Search Filters --------------------------------------------------------------
+// == Search Filters ======================
 
 function initTextFilter( selector ) {
 

@@ -27,12 +27,6 @@ class m180502_112655_theme_basic extends Migration {
 
 	// Public variables
 
-	// Make this theme as default theme.
-	public $default 	= true;
-
-	// Allow this theme to be applied for site using current site slug.
-	public $activate	= true;
-
 	// Private Variables
 
 	private $cmgPrefix;
@@ -62,6 +56,7 @@ class m180502_112655_theme_basic extends Migration {
 		$this->insertTheme();
 
 		// Templates
+		$this->insertSiteTemplates();
 		$this->insertThemeTemplates();
 
 		// Site
@@ -78,7 +73,7 @@ class m180502_112655_theme_basic extends Migration {
 
 		$this->batchInsert( $this->cmgPrefix . 'core_theme', $columns, $themes );
 
-		if( $this->default ) {
+		if( Yii::$app->controller->default ) {
 
 			// Update default
 			$this->update( $this->cmgPrefix . 'core_theme', [ 'default' => false ], [ 'default' => true ] );
@@ -88,16 +83,28 @@ class m180502_112655_theme_basic extends Migration {
 		}
 	}
 
-	private function insertThemeTemplates() {
+	private function insertSiteTemplates() {
 
-		$pre = $this->themePrefix;
+		$site = $this->site;
 
-		$theme = Theme::findBySlug( 'basic' );
-
-		$columns = [ 'siteId', 'themeId', 'createdBy', 'modifiedBy', 'name', 'slug', 'type', 'icon', 'active', 'description', 'renderer', 'fileRender', 'layout', 'layoutGroup', 'viewPath', 'createdAt', 'modifiedAt', 'content', 'data' ];
+		$columns = [ 'siteId', 'createdBy', 'modifiedBy', 'name', 'slug', 'icon', 'type', 'active', 'description', 'classPath', 'renderer', 'fileRender', 'layout', 'layoutGroup', 'viewPath', 'view', 'createdAt', 'modifiedAt', 'content', 'data' ];
 
 		$templates = [
-			[ $this->site->id, $theme->id, $this->master->id, $this->master->id, 'Form', "$pre-form", CoreGlobal::TYPE_FORM, null, true, 'It can be used to display public forms.', 'default', true, 'form/default', false, 'views/templates/form/default', DateUtil::getDateTime(), DateUtil::getDateTime(), null, null ]
+			// Default Templates - Form
+			[ $site->id, $this->master->id, $this->master->id, 'Form', "form", null, CoreGlobal::TYPE_FORM, true, 'It can be used to display public forms.', null, 'default', true, 'form/default', false, 'views/templates/form/default', null, DateUtil::getDateTime(), DateUtil::getDateTime(), null, null ]
+		];
+
+		$this->batchInsert( $this->cmgPrefix . 'core_template', $columns, $templates );
+	}
+
+	private function insertThemeTemplates() {
+
+		$theme	= Theme::findBySlug( 'blog' );
+
+		$columns = [ 'themeId', 'createdBy', 'modifiedBy', 'name', 'slug', 'icon', 'type', 'active', 'description', 'classPath', 'renderer', 'fileRender', 'layout', 'layoutGroup', 'viewPath', 'view', 'createdAt', 'modifiedAt', 'content', 'data' ];
+
+		$templates = [
+			// Theme Templates
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_template', $columns, $templates );
@@ -111,7 +118,7 @@ class m180502_112655_theme_basic extends Migration {
 		// Site
 		$siteId = $this->site->id;
 
-		if( $this->activate ) {
+		if( Yii::$app->controller->activate ) {
 
 			$this->update( $this->cmgPrefix . 'core_site', [ 'themeId' => $mainTheme->id ], "id=$siteId" );
 		}

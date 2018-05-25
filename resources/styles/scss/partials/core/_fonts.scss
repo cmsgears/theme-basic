@@ -1,19 +1,21 @@
 @font-face {
-	font-family: 'OpenSans-R';
-	src: url('opensans/OpenSans.eot');
-	src: url('opensans/OpenSans.eot?#iefix') format('embedded-opentype'),
-         url('opensans/OpenSans.woff') format('woff'),
-		 url('opensans/OpenSans.ttf') format('truetype'),
-		 url('opensans/OpenSans.svg#OpenSans') format('svg');
+    font-family: 'OpenSans';
+    src: url('../fonts/opensans/OpenSans.eot');
+    src: url('../fonts/opensans/OpenSans.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/opensans/OpenSans.woff') format('woff'),
+         url('../fonts/opensans/OpenSans.ttf') format('truetype'),
+         url('../fonts/opensans/OpenSans.svg#OpenSans') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-	font-family: 'OpenSans-B';
-	src: url('opensans/OpenSans-Bold.eot');
-	src: url('opensans/OpenSans-Bold.eot?#iefix') format('embedded-opentype'),
-		 url('opensans/OpenSans-Bold.woff') format('woff'),
-		 url('opensans/OpenSans-Bold.ttf') format('truetype'),
-		 url('opensans/OpenSans-Bold.svg#OpenSans-Bold') format('svg');
+    font-family: 'OpenSans Bold';
+    src: url('../fonts/opensans/opensans-bold.eot');
+    src: url('../fonts/opensans/opensans-bold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/opensans/opensans-bold.woff') format('woff'),
+         url('../fonts/opensans/opensans-bold.ttf') format('truetype'),
+         url('../fonts/opensans/opensans-bold.svg#opensans-bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }

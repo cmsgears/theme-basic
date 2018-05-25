@@ -26,6 +26,8 @@ class Theme extends BaseTheme {
 
 	// Globals ----------------
 
+	const SLIDER_MAIN	= 'main';
+
 	// Public -----------------
 
     public $pathMap = [

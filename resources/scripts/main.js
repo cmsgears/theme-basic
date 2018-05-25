@@ -13,8 +13,10 @@ jQuery( document ).ready( function() {
 
 function initPreloaders() {
 
+	// Hide global pre-loader spinner
 	jQuery( '.container-main' ).imagesLoaded( { background: true }, function() {
 
+		jQuery( '#pre-loader-main .spinner' ).addClass( 'animate animate-zoom-out' );
 		jQuery( '#pre-loader-main' ).fadeOut( 'slow' );
 	});
 }
@@ -23,18 +25,26 @@ function initPreloaders() {
 
 function initCmgTools() {
 
-	// Page Blocks
+	// Blocks
 	jQuery( '.block' ).cmtBlock({
 		// Generic
 		fullHeight: true,
+		heightAuto: true,
 		// Block Specific - Ignores generic
 		blocks: {
-			'block-public': { fullHeight: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 }
+			'block-banner': { fullHeight: true },
+			'block-feature-1': { fullHeight: true, heightAuto: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
+			'block-slider': { fullHeight: true },
+			'block-feature-2': { fullHeight: true, heightAuto: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
+			'block-testimonials': { qtfHeight: true },
+			'block-about': { qtfHeight: true },
+			'block-public': { fullHeight: true, heightAuto: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
+			'block-form': { qtfHeight: true, heightAuto: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 }
 		}
 	});
 
 	// Perspective Header
-	jQuery( '#header-main' ).cmtHeader( { scrollDistance: 350 } );
+	jQuery( '#header-main' ).cmtHeader( { scrollDistance: 280 } );
 
 	// Smooth Scroll
 	jQuery( '.smooth-scroll' ).cmtSmoothScroll();
@@ -68,68 +78,67 @@ function initCmgTools() {
 	// Auto Fillers
 	jQuery( '.auto-fill' ).cmtAutoFill();
 
-	// Vertical & Horizontal Tabs
-	jQuery( '.tabs-v, .tabs-h' ).cmtTabs();
+	// Tabs
+	jQuery( '.tabs' ).cmtTabs();
+
+	// Accordians
+	jQuery( '.accordian' ).cmtAccordian();
 
 	// Grid
 	jQuery( '.grid-data' ).cmtGrid();
 
 	// Icon Picker
 	jQuery( '.icon-picker' ).cmtIconPicker();
-	
-	// Collapsible Sidebar
-	jQuery( '#sidebar-main' ).cmtCollapsibleMenu();
 }
 
 // == JS Listeners ========================
 
 function initListeners() {
 
-	// Datepicker
-	if( jQuery().datepicker ) {
+	// Main Menu
+	jQuery( '#btn-menu-mobile' ).click( function() {
 
-		var start = jQuery( '.datepicker' ).attr( 'start' );
+		jQuery( '#menu-main-mobile' ).slideToggle();
+	});
+
+	jQuery( '#menu-main li' ).click( function() {
+
+		var li = jQuery( this );
+
+		if( li.find( 'a' ).hasClass( 'smooth-scroll' ) ) {
+			
+			jQuery( '#menu-main li' ).removeClass( 'active' );
+
+			li.addClass( 'active' );
+		}
+	});
+
+	// Datepicker
+	var datepickers = jQuery( '.datepicker' );
+	
+	datepickers.each( function() {
+
+		var datepicker = jQuery( this );
+
+		var start = datepicker.attr( 'start' );
 
 		if( null != start ) {
 
-			jQuery( '.datepicker' ).datepicker({
+			datepicker.datepicker({
 				dateFormat: 'yy-mm-dd',
 				minDate: start
 			});
 		}
 		else {
-			
-			jQuery( '.datepicker' ).datepicker({
+
+			datepicker.datepicker({
 				dateFormat: 'yy-mm-dd'
 			});
 		}
-	}
-
-	// Custom Scroller
-	if( jQuery().mCustomScrollbar ) {
-
-		jQuery( '.cscroller' ).mCustomScrollbar( { autoHideScrollbar: true } );
-	}
-	
-	// Initialise the mobile button
-	jQuery( '#btn-mobile-menu, #nav-mobile li' ).click( function() {
-
-		jQuery( '#nav-mobile' ).slideToggle( 'slow' );
 	});
 
-	// Show/ Hide login box
-	jQuery( '#btn-login, #btn-login-mobile' ).click( function() {
-
-		jQuery( '#wrap-login-register' ).toggle( 'slow' );
-	});
-
-	// Show/ Hide settings box
-	jQuery( '#btn-settings, #btn-settings-mobile' ).click( function( e ) {
-
-		e.preventDefault();
-
-		jQuery( '#box-settings' ).toggle( 'slow' );
-	});
+	// Scrollbar
+	jQuery( '.cscroller' ).mCustomScrollbar( { autoHideScrollbar: true } );
 }
 
 // == Auto Hide ===========================
@@ -150,18 +159,6 @@ function hideElement( targetElement, hideElement ) {
 	        targetElement.removeClass( 'active' );
 	    }
 	});
-}
-
-// == Auto Height =========================
-
-function initAutoHeight () {
-
-	jQuery( '.header' ).css( 'height', jQuery( '.items' ).height() - 8 );
-
-	if( window.innerWidth <= 1024  ) {
-
-		jQuery( '.header' ).css( 'height', 'auto' );
-	}
 }
 
 // == Window Resize, Scroll ===============

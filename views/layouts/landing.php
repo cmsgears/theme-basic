@@ -1,5 +1,7 @@
 <?php
 // CMG Imports
+use cmsgears\core\common\utilities\CodeGenUtil;
+
 use themes\basic\assets\InlineAssets;
 
 InlineAssets::register( $this );
@@ -17,10 +19,11 @@ $user			= Yii::$app->user->getIdentity();
     <head>
 		<?php include "$themePath/views/headers/main.php"; ?>
     </head>
-    <body>
+    <body id="scroll-top">
+    	<?= CodeGenUtil::generateSeoH1( $this->params ) ?>
         <?php $this->beginBody(); ?>
-		<div id="pre-loader-main" class="pre-loader spinner max-area-cover fixed">
-			<div class="valign-center cmti-5x cmti-spinner-1 spin"></div>
+		<div id="pre-loader-main" class="pre-loader valign-center align align-center">
+			<div class="spinner cmti cmti-3x cmti-spinner-1 spin"></div>
 		</div>
 		<?php
 			if( isset( $user ) ) {
@@ -29,17 +32,17 @@ $user			= Yii::$app->user->getIdentity();
 			}
 			else {
 
-				//include "$themePath/views/headers/landing.php";
+				include "$themePath/views/headers/landing.php";
 			}
 		?>
-        <div class="container container-main">
+        <div class="container container-main container-main-landing">
 	        <div class="content-wrap content-main-wrap">
 	        	<div class="content">
 	        		<?= $content ?>
 	        	</div>
 	        </div>
-	        <?php //include "$themePath/views/footers/public.php"; ?>
         </div>
+        <?php include "$themePath/views/footers/public.php"; ?>
         <?php $this->endBody(); ?>
     </body>
 </html>
