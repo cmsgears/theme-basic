@@ -43,20 +43,25 @@
 
 @import "cmt/elements/basic";
 
-@import "cmt/elements/custom";
-//@import "partials/elements/custom";
+@import "cmt/elements/icon-picker";
+@import "cmt/elements/time-picker";
+@import "cmt/elements/list";
+@import "cmt/elements/select";
+@import "cmt/elements/choice";
+@import "cmt/elements/rating";
+@import "cmt/elements/switch";
+@import "cmt/elements/button";
 
 @import "cmt/elements/form";
+//@import "cmt/elements/table";
 @import "partials/elements/form";
 
-//@import "cmt/elements/table";
-
-//@import "cmt/elements/breadcrumbs";
-
+//@import "cmt/elements/splitter";
+@import "cmt/elements/tabs";
+@import "cmt/elements/accordian";
+@import "cmt/elements/breadcrumb";
 //@import "cmt/elements/auto-fill";
-
-//@import "cmt/elements/tabs";
-//@import "cmt/elements/accordians";
+//@import "cmt/elements/uploader";
 
 // ---------------------------------------//
 // Components Division
@@ -83,10 +88,10 @@
 
 //@import "cmt/components/galleries/basic";
 
-//@import "cmt/components/cards/basic";
+@import "cmt/components/cards/basic";
 //@import "cmt/components/cards/icon";
 //@import "cmt/components/cards/banner";
-//@import "partials/components/cards/banner";
+@import "partials/components/cards/basic";
 
 @import "cmt/components/boxes/basic";
 //@import "cmt/components/boxes/login";
@@ -127,8 +132,3 @@
 
 @import "cmt/extensions/fox-slider";
 @import "partials/extensions/fox-slider";
-
-//@import "cmt/extensions/m-custom-scrollbar";
-//@import "safaricities/extensions/m-custom-scrollbar";
-
-//@import "safaricities/components/sliders";

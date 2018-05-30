@@ -1,7 +1,7 @@
 <?php
 // CMG Imports
 use cmsgears\widgets\block\BasicBlock;
-use cmsgears\widgets\aform\AjaxForm;
+use cmsgears\widgets\aform\AjaxFormWidget;
 
 use themes\basic\Theme;
 
@@ -25,7 +25,7 @@ $this->params[ 'robot' ]	= isset( $seoData ) && !empty( $seoData->robot ) ? $seo
 ?>
 
 <?= BasicBlock::widget([
-	'options' => [ 'id' => 'block-banner', 'class' => 'block' ],
+	'options' => [ 'id' => 'block-banner', 'class' => 'block', 'cmt-block' => 'block-full' ],
 	'fixedBkg' => true,
 	'texture' => true, 'textureClass' => 'texture-basic',
 	'content' => true, 'contentClass' => 'valign-center row content-90',
@@ -34,7 +34,7 @@ $this->params[ 'robot' ]	= isset( $seoData ) && !empty( $seoData->robot ) ? $seo
 ])?>
 
 <?php BasicBlock::begin([
-	'options' => [ 'id' => 'block-feature-1', 'class' => 'block block-basic row content-90' ], 'buffer' => true,
+	'options' => [ 'id' => 'block-feature-1', 'class' => 'block block-basic row content-90', 'cmt-block' => 'block-full' ], 'buffer' => true,
 	'content' => true, 'contentDataClass' => 'reader', 'boxWrapClass' => 'row max-cols-50',
 	'header' => true, 'headerTitle' => "Features",
 	'headerInfo' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
@@ -117,7 +117,7 @@ $this->params[ 'robot' ]	= isset( $seoData ) && !empty( $seoData->robot ) ? $seo
 </div>
 <?php BasicBlock::end(); ?>
 
-<?php BasicBlock::begin( [ 'options' => [ 'id' => 'block-slider', 'class' => 'block' ], 'buffer' => true ] ); ?>
+<?php BasicBlock::begin( [ 'options' => [ 'id' => 'block-slider', 'class' => 'block', 'cmt-block' => 'block-full' ], 'buffer' => true ] ); ?>
 	<?= FoxSliderMain::widget([
 		'options' => [ 'id' => 'slider-main', 'class' => 'fx-slider fx-slider-regular' ],
 		'fxOptions' => [
@@ -132,7 +132,7 @@ $this->params[ 'robot' ]	= isset( $seoData ) && !empty( $seoData->robot ) ? $seo
 <?php BasicBlock::end(); ?>
 
 <?php BasicBlock::begin([
-	'options' => [ 'id' => 'block-feature-2', 'class' => 'block block-basic row content-90' ], 'buffer' => true,
+	'options' => [ 'id' => 'block-feature-2', 'class' => 'block block-basic row content-90', 'cmt-block' => 'block-full' ], 'buffer' => true,
 	'content' => true, 'contentDataClass' => 'reader', 'boxWrapClass' => 'row max-cols-50',
 	'header' => true, 'headerTitle' => "Highlights",
 	'headerInfo' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
@@ -216,7 +216,7 @@ $this->params[ 'robot' ]	= isset( $seoData ) && !empty( $seoData->robot ) ? $seo
 <?php BasicBlock::end(); ?>
 
 <?= BasicBlock::widget([
-	'options' => [ 'id' => 'block-about', 'class' => 'block' ],
+	'options' => [ 'id' => 'block-about', 'class' => 'block', 'cmt-block' => 'block-full' ],
 	'parallaxBkg' => true,
 	'texture' => true, 'textureClass' => 'texture-basic',
 	'content' => true, 'contentClass' => 'valign-center row row-xlarge',
@@ -225,13 +225,13 @@ $this->params[ 'robot' ]	= isset( $seoData ) && !empty( $seoData->robot ) ? $seo
 ])?>
 
 <?php BasicBlock::begin([
-	'options' => [ 'id' => 'block-contact', 'class' => 'block block-basic row content-90 color color-primary-l' ], 'buffer' => true,
+	'options' => [ 'id' => 'block-contact', 'class' => 'block block-basic row content-90 color color-primary-l', 'cmt-block' => 'block-full' ], 'buffer' => true,
 	'content' => true,
 	'header' => true, 'headerTitle' => "Contact Us",
 	'headerInfo' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
 ]);?>
 
-<?= AjaxForm::widget([
+<?= AjaxFormWidget::widget([
 	'slug' => 'contact-us', 'label' => true,
 	'templateDir' => '@themeTemplates/widget', 'template' => 'aform'
 ])?>

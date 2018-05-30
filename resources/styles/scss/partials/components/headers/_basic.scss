@@ -1,121 +1,51 @@
 .header-basic {
-	height: 79px;
-	@include transit-all( $transit-eio, $transit-time-medium );
+	@include transit-width-height( $transit-eio, $transit-time-small );
 
 	.header-logo {
-		left: 5%;
-		padding-left: 0px;
-
+		
 		.logo {
-			width: 338px;
-		}
-
-		.logo-small {
-			display: none;
-		}
-	}
-
-	#menu-main {
-		height: 80px;
-		line-height: 80px;
-		margin: 0 5%;
-		padding: 0px;
-
-		li {
-			margin-left: -7px;
-
-			&.active {
-				border-bottom: 4px solid $color-btn-h;
-				padding-top: 4px;
-				line-height: 72px;
-			}
-
-			a {
-				@include transit-all( $transit-linear, $transit-time-small );
-		        text-align: center;
-		        padding: 0 2em;
-				color: $color-white;
-
-		        &:hover {
-		    		color: $color-link;
-		        }
+			
+			img {
+				@include transit-all( $transit-eio, $transit-time-small );
 			}
 		}
 	}
 
-	&.header-small {
-		height: 50px;
-
-		.logo {
-			display: none;
-		}
-
-		.logo-small {
-			display: block;
-			width: 48px;
-		}
+	@include responsive-min( screen-tablet-large ) {
 
 		#menu-main {
-			height: 50px;
-			line-height: 50px;
+			padding: 0;
+			height: 80px;
+			line-height: 80px;
 
 			li {
-
-				&.active {
-					padding-top: 4px;
-					line-height: 42px;
-				}
-			}
-		}
-	}
-
-	@include responsive-max( screen-tablet-large ) {
-		height: 50px;
-
-		.header-logo {
-			left: 0;
-
-			.logo {
-				display: none;
-			}
-
-			.logo-small {
-				display: block;
-				width: 48px;
-				padding-left: 5px;
-			}
-		}
-		
-		#btn-menu-mobile {
-			display: block;
-			font-size: 26px;
-			@include transit-all( $transit-linear, $transit-time-small );
-
-			&:hover {
-				color: $color-link;
-				background-color: $color-primary;
-			}
-		}
-		
-		#menu-main-mobile {
-			margin-top: 50px;
-			background-color: $color-header;
-
-			li {
-				box-shadow: 0 -4px 2px -5px $color-tertiary;
-
-				&.active {
-					border-left: 4px solid $color-btn-h;
-					background-color: $color-primary;
-				}
+				margin-left: -4px;
+				@include transit-all( $transit-eio, $transit-time-small );
 
 				a {
-					@include transit-all( $transit-linear, $transit-time-small );
-					padding: 1em 0;
+					padding: 0 1em;
+					color: $color-header-text;
+				}
+				
+				&:hover, &.active {
+					height: 80px;
+					color: $color-header-text;
+					border-bottom: 4px solid $color-link;
+				}
+			}
+		}
+		
+		&.header-small {
+			
+			#menu-main {
+				padding: 0;
+				height: 50px;
+				line-height: 50px;
 
-					&:hover {
-						color: $color-link;
-						background-color: $color-primary;
+				li {
+
+					&:hover, &.active {
+						height: 50px;
 					}
 				}
 			}
