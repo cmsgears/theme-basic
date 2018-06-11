@@ -6,6 +6,8 @@ jQuery( document ).ready( function() {
 
 	initListeners();
 
+	initDatePickers();
+
 	initAutoHide();
 });
 
@@ -90,6 +92,13 @@ function initCmgTools() {
 
 	// Icon Picker
 	jQuery( '.icon-picker' ).cmtIconPicker();
+	
+    // Sliders
+    jQuery( '.cmt-slider' ).cmtSlider( {
+        "lControlContent" : "<i class=\"cmti cmti-chevron-left icon\"></i>",
+        "rControlContent" : "<i class=\"cmti cmti-chevron-right icon\"></i>",
+        "circular" : false
+    });
 }
 
 // == JS Listeners ========================
@@ -114,6 +123,12 @@ function initListeners() {
 		}
 	});
 
+	// Scrollbar
+	jQuery( '.cscroller' ).mCustomScrollbar( { autoHideScrollbar: true } );
+}
+
+function initDatePickers() {
+	
 	// Datepicker
 	var datepickers = jQuery( '.datepicker' );
 	
@@ -137,9 +152,6 @@ function initListeners() {
 			});
 		}
 	});
-
-	// Scrollbar
-	jQuery( '.cscroller' ).mCustomScrollbar( { autoHideScrollbar: true } );
 }
 
 // == Auto Hide ===========================

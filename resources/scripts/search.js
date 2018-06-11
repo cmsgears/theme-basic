@@ -7,23 +7,33 @@ jQuery( document ).ready( function() {
 
 function initSearch() {
 
-	var pageUrl	= window.location.href;
+	// Click
+	jQuery( '.btn-search' ).click( function() {
 
-	// Regular Search
-	jQuery( '#btn-search' ).click( function() {
-
-		searchBro( '#search-terms', pageUrl );
+		searchBro( jQuery( this ).closest( '.search-box' ) );
 	});
 
+	// Keypress
+	jQuery( '.search-terms' ).keypress( function( e ) {
+
+		searchBro( jQuery( this ).closest( '.search-box' ) );
+	});
+	
 	// Init Default Filters
 	initTextFilter( '.filter-text' );
 	initCheckboxFilter( '.filter-checkbox' );
 	initRangeFilter( '.filter-range' );
 }
 
-function searchBro( selector, pageUrl ) {
+function searchBro( searchBox ) {
 
-	var keywords = jQuery( selector ).val();
+	var pageUrl		= window.location.href;
+	var keywords	= searchBox.find( '.search-keywords' ).val();
+
+	if( cmt.utils.data.hasAttribute( searchBox, 'url' ) ) {
+
+		pageUrl = siteUrl + searchBox.attr( 'url' );
+	}
 
 	// Search Keywords
 	if( null != keywords && keywords.length > 0 ) {
