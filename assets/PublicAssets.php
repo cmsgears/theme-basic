@@ -10,7 +10,7 @@
 namespace themes\basic\assets;
 
 /**
- * PublicAssets registers the assets available for public pages.
+ * PublicAssets registers the assets specific to public pages.
  *
  * @since 1.0.0
  */
@@ -30,36 +30,41 @@ class PublicAssets extends AssetBundle {
 
 	// Public -----------------
 
-	// Load CSS
+	/**
+	 * @inheritdoc
+	 */
     public $css = [
 		'styles/public.css'
     ];
 
-	// Protected --------------
+    // Protected --------------
 
-	// Private ----------------
+    // Private ----------------
 
-	// Traits ------------------------------------------------------
+    // Traits ------------------------------------------------------
 
-	// Constructor and Initialisation ------------------------------
+    // Constructor and Initialisation ------------------------------
 
-	public function init()  {
+	public function init() {
 
 		parent::init();
+
+		$this->js[] = 'scripts/main.js';
+		$this->js[] = 'scripts/search.js';
 
 		$this->depends[] = 'foxslider\widgets\assets\FxsAssets';
 	}
 
-	// Instance methods --------------------------------------------
+    // Instance methods --------------------------------------------
 
-	// Yii interfaces ------------------------
+    // Yii interfaces ------------------------
 
-	// Yii parent classes --------------------
+    // Yii parent classes --------------------
 
-	// CMG interfaces ------------------------
+    // CMG interfaces ------------------------
 
-	// CMG parent classes --------------------
+    // CMG parent classes --------------------
 
-	// PublicAssets --------------------------
+    // PublicAssets --------------------------
 
 }

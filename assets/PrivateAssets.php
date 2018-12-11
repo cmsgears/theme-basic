@@ -10,7 +10,7 @@
 namespace themes\basic\assets;
 
 /**
- * PrivateAssets registers the assets available for private pages.
+ * PrivateAssets registers the assets specific to private pages.
  *
  * @since 1.0.0
  */
@@ -30,29 +30,49 @@ class PrivateAssets extends AssetBundle {
 
 	// Public -----------------
 
-	// Load CSS
+	/**
+	 * @inheritdoc
+	 */
     public $css = [
 		'styles/private.css'
     ];
 
-	// Protected --------------
+    // Protected --------------
 
-	// Private ----------------
+    // Private ----------------
 
-	// Traits ------------------------------------------------------
+    // Traits ------------------------------------------------------
 
-	// Constructor and Initialisation ------------------------------
+    // Constructor and Initialisation ------------------------------
 
-	// Instance methods --------------------------------------------
+	public function init() {
 
-	// Yii interfaces ------------------------
+		parent::init();
 
-	// Yii parent classes --------------------
+		$this->js[] = 'scripts/templates/private.js';
+		$this->js[] = 'scripts/apix/private.js';
+		$this->js[] = 'scripts/apps/private.js';
+		$this->js[] = 'scripts/apps/core/services/user.js';
+		$this->js[] = 'scripts/apps/core/controllers/main.js';
+		$this->js[] = 'scripts/apps/core/controllers/user.js';
+		$this->js[] = 'scripts/main.js';
+		$this->js[] = 'scripts/search.js';
 
-	// CMG interfaces ------------------------
+		$this->depends[] = 'foxslider\widgets\assets\FxsAssets';
+		$this->depends[] = 'themes\basic\assets\vapps\CoreAssets';
+		$this->depends[] = 'themes\basic\assets\vapps\NotifyAssets';
+	}
 
-	// CMG parent classes --------------------
+    // Instance methods --------------------------------------------
 
-	// PrivateAssets -------------------------
+    // Yii interfaces ------------------------
+
+    // Yii parent classes --------------------
+
+    // CMG interfaces ------------------------
+
+    // CMG parent classes --------------------
+
+    // PrivateAssets -------------------------
 
 }

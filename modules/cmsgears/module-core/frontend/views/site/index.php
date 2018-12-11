@@ -232,7 +232,7 @@ $this->params[ 'robot' ]	= isset( $seoData ) && !empty( $seoData->robot ) ? $seo
 ]);?>
 
 <?= AjaxFormWidget::widget([
-	'slug' => 'contact-us', 'label' => true,
+	'slug' => 'contact-us', 'labels' => true,
 	'templateDir' => '@themeTemplates/widget', 'template' => 'aform'
 ])?>
 

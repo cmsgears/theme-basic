@@ -10,7 +10,6 @@
 namespace themes\basic\assets\vapps;
 
 // Yii Imports
-use yii\web\AssetBundle;
 use yii\web\View;
 
 /**
@@ -18,7 +17,7 @@ use yii\web\View;
  *
  * @since 1.0.0
  */
-class BaseAssets extends AssetBundle {
+class BaseAssets extends \yii\web\AssetBundle {
 
 	// Variables ---------------------------------------------------
 
@@ -35,13 +34,17 @@ class BaseAssets extends AssetBundle {
 	// Public -----------------
 
 	// Path Configuration
-	public $sourcePath = '@bower/cmt-velocity-apps/src/apps';
+	public $sourcePath = '@bower/cmt-velocity-apps/src';
 
 	// Load JS
 	public $js = [
-		'core/grid.js',
-		'core/comment.js',
-		'core/location.js'
+		'apps/core/base.js',
+		'apps/core/grid.js',
+		'apps/core/controllers/site.js',
+		'apps/core/controllers/province.js',
+		'apps/core/controllers/region.js',
+		'apps/core/controllers/city.js',
+		'apps/core/controllers/comment.js'
 	];
 
 	// JS Position

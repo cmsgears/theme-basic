@@ -10,7 +10,6 @@
 namespace themes\basic\assets\vapps;
 
 // Yii Imports
-use yii\web\AssetBundle;
 use yii\web\View;
 
 /**
@@ -18,7 +17,7 @@ use yii\web\View;
  *
  * @since 1.0.0
  */
-class NotifyAssets extends AssetBundle {
+class NotifyAssets extends \yii\web\AssetBundle {
 
 	// Variables ---------------------------------------------------
 
@@ -35,12 +34,12 @@ class NotifyAssets extends AssetBundle {
 	// Public -----------------
 
 	// Path Configuration
-	public $sourcePath = '@bower/cmt-velocity-apps/src/apps';
+	public $sourcePath = '@bower/cmt-velocity-apps/src';
 
 	// Load JS
 	public $js = [
-		'notify/base.js',
-		'notify/notification.js',
+		'apps/notify/base.js',
+		'apps/notify/controllers/notification.js'
 	];
 
 	// JS Position

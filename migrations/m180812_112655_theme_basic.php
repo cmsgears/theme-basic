@@ -12,9 +12,11 @@ use cmsgears\core\common\config\CoreGlobal;
 
 use cmsgears\core\common\base\Migration;
 
+use cmsgears\core\common\models\entities\ObjectData;
 use cmsgears\core\common\models\entities\Site;
 use cmsgears\core\common\models\entities\User;
 use cmsgears\core\common\models\entities\Theme;
+use cmsgears\core\common\models\entities\Template;
 
 use cmsgears\core\common\utilities\DateUtil;
 
@@ -23,7 +25,7 @@ use cmsgears\core\common\utilities\DateUtil;
  *
  * @since 1.0.0
  */
-class m180502_112655_theme_basic extends Migration {
+class m180812_112655_theme_basic extends Migration {
 
 	// Public variables
 
@@ -56,7 +58,6 @@ class m180502_112655_theme_basic extends Migration {
 		$this->insertTheme();
 
 		// Templates
-		$this->insertSiteTemplates();
 		$this->insertThemeTemplates();
 
 		// Site
@@ -68,7 +69,7 @@ class m180502_112655_theme_basic extends Migration {
 		$columns = [ 'createdBy', 'modifiedBy', 'name', 'slug', 'type', 'description', 'renderer', 'basePath', 'createdAt', 'modifiedAt', 'data' ];
 
 		$themes = [
-			[ $this->master->id, $this->master->id, 'Basic', 'basic', CoreGlobal::TYPE_SITE, 'Basic Theme.', 'default', '@themes/basic', DateUtil::getDateTime(), DateUtil::getDateTime(), null ]
+			[ $this->master->id, $this->master->id, 'Basic', 'basic', CoreGlobal::TYPE_SITE, 'Blog Theme.', 'default', '@themes/blog', DateUtil::getDateTime(), DateUtil::getDateTime(), null ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_theme', $columns, $themes );
@@ -79,32 +80,19 @@ class m180502_112655_theme_basic extends Migration {
 			$this->update( $this->cmgPrefix . 'core_theme', [ 'default' => false ], [ 'default' => true ] );
 
 			// Make current as default
-			$this->update( $this->cmgPrefix . 'core_theme', [ 'default' => true ], "slug='basic'" );
+			$this->update( $this->cmgPrefix . 'core_theme', [ 'default' => true ], "slug='blog'" );
 		}
-	}
-
-	private function insertSiteTemplates() {
-
-		$site = $this->site;
-
-		$columns = [ 'siteId', 'createdBy', 'modifiedBy', 'name', 'slug', 'icon', 'type', 'active', 'description', 'classPath', 'renderer', 'fileRender', 'layout', 'layoutGroup', 'viewPath', 'view', 'createdAt', 'modifiedAt', 'content', 'data' ];
-
-		$templates = [
-			// Default Templates - Form
-			[ $site->id, $this->master->id, $this->master->id, 'Form', "form", null, CoreGlobal::TYPE_FORM, true, 'It can be used to display public forms.', null, 'default', true, 'form/default', false, 'views/templates/form/default', null, DateUtil::getDateTime(), DateUtil::getDateTime(), null, null ]
-		];
-
-		$this->batchInsert( $this->cmgPrefix . 'core_template', $columns, $templates );
 	}
 
 	private function insertThemeTemplates() {
 
-		$theme	= Theme::findBySlug( 'blog' );
+		$theme	= Theme::findBySlug( 'basic' );
 
-		$columns = [ 'themeId', 'createdBy', 'modifiedBy', 'name', 'slug', 'icon', 'type', 'active', 'description', 'classPath', 'renderer', 'fileRender', 'layout', 'layoutGroup', 'viewPath', 'view', 'createdAt', 'modifiedAt', 'content', 'data' ];
+		$columns = [ 'themeId', 'createdBy', 'modifiedBy', 'name', 'slug', 'icon', 'type', 'active', 'description', 'classPath', 'renderer', 'fileRender', 'layout', 'layoutGroup', 'viewPath', 'view', 'createdAt', 'modifiedAt', 'htmlOptions', 'content', 'data' ];
 
 		$templates = [
-			// Theme Templates
+			// Theme Templates - Widget
+			//[ $theme->id, $this->master->id, $this->master->id, 'Address', "address", null, CmsGlobal::TYPE_WIDGET, true, 'It can be used to display address and location.', null, 'default', true, null, false, '@themeTemplates/widget/address', null, DateUtil::getDateTime(), DateUtil::getDateTime(), null, null, null ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_template', $columns, $templates );
@@ -126,7 +114,7 @@ class m180502_112655_theme_basic extends Migration {
 
     public function down() {
 
-        echo "m180502_112655_theme_basic will be deleted with m160621_014408_core.\n";
+        echo "m180812_112655_theme_basic will be deleted with m160621_014408_core.\n";
 
         return true;
     }

@@ -10,7 +10,7 @@
 namespace themes\basic\assets;
 
 /**
- * LandingAssets registers the assets available for landing page.
+ * LandingAssets registers the assets specific to landing page.
  *
  * @since 1.0.0
  */
@@ -30,36 +30,41 @@ class LandingAssets extends AssetBundle {
 
 	// Public -----------------
 
-	// Load CSS
+	/**
+	 * @inheritdoc
+	 */
     public $css = [
 		'styles/landing.css'
     ];
 
-	// Protected --------------
+    // Protected --------------
 
-	// Private ----------------
+    // Private ----------------
 
-	// Traits ------------------------------------------------------
+    // Traits ------------------------------------------------------
 
-	// Constructor and Initialisation ------------------------------
+    // Constructor and Initialisation ------------------------------
 
-	public function init()  {
+	public function init() {
 
 		parent::init();
+
+		$this->js[] = 'scripts/main.js';
+		$this->js[] = 'scripts/search.js';
 
 		$this->depends[] = 'foxslider\widgets\assets\FxsAssets';
 	}
 
-	// Instance methods --------------------------------------------
+    // Instance methods --------------------------------------------
 
-	// Yii interfaces ------------------------
+    // Yii interfaces ------------------------
 
-	// Yii parent classes --------------------
+    // Yii parent classes --------------------
 
-	// CMG interfaces ------------------------
+    // CMG interfaces ------------------------
 
-	// CMG parent classes --------------------
+    // CMG parent classes --------------------
 
-	// LandingAssets -------------------------
+    // LandingAssets -------------------------
 
 }

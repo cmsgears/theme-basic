@@ -7,18 +7,17 @@
  * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
  */
 
-namespace themes\basic\assets;
+namespace themes\basic\assets\vapps;
 
 // Yii Imports
-use yii\helpers\Url;
 use yii\web\View;
 
 /**
- * InlineAssets registers the global variables.
+ * FormAssets registers the Velocity Apps of Form Module.
  *
  * @since 1.0.0
  */
-class InlineAssets extends \yii\web\AssetBundle {
+class FormAssets extends \yii\web\AssetBundle {
 
 	// Variables ---------------------------------------------------
 
@@ -34,6 +33,20 @@ class InlineAssets extends \yii\web\AssetBundle {
 
 	// Public -----------------
 
+	// Path Configuration
+	public $sourcePath = '@bower/cmt-velocity-apps/src';
+
+	// Load JS
+	public $js = [
+		'apps/forms/base.js',
+		'apps/forms/controllers/form.js'
+	];
+
+	// JS Position
+	public $jsOptions = [
+		'position' => View::POS_END
+	];
+
 	// Protected --------------
 
 	// Private ----------------
@@ -48,23 +61,10 @@ class InlineAssets extends \yii\web\AssetBundle {
 
 	// Yii parent classes --------------------
 
-	public function registerAssetFiles( $view ) {
-
-		parent::registerAssetFiles( $view );
-
-		$rootUrl = Url::toRoute( '/', true );
-
-		$siteUrl = "var siteUrl	= '{$rootUrl}';
-					var ajaxUrl	= '{$rootUrl}apix/';
-					var fileUploadUrl = '{$rootUrl}apix/file/file-handler';";
-
-		$view->registerJs( $siteUrl, View::POS_END );
-	}
-
 	// CMG interfaces ------------------------
 
 	// CMG parent classes --------------------
 
-	// InlineAssets --------------------------
+	// FormAssets ----------------------------
 
 }
