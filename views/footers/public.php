@@ -5,37 +5,37 @@ use yii\helpers\Url;
 // CMG Imports
 use cmsgears\widgets\nav\BasicNav;
 
-$menu1Items = [
-	    [ 'label' => 'Home', 'url' => Url::toRoute( [ '/' ], true ) ],
-	    [ 'label' => 'Contact Us', 'url' => Url::toRoute( [ '/form/contact-us' ], true ) ]
-	];
-
-$menu2Items = [
-	    [ 'label' => 'Login', 'url' => Url::toRoute( [ '/login' ], true ) ],
-	    [ 'label' => 'Register', 'url' => Url::toRoute( [ '/register' ], true ) ]
-	];
+$menuItems = [
+	[ 'label' => 'Home', 'url' => Url::toRoute( [ '/' ], true ) ],
+	[ 'label' => 'Terms & Conditions', 'url' => Url::toRoute( [ '/terms' ], true ) ],
+	[ 'label' => 'Privacy Policy', 'url' => Url::toRoute( [ '/privacy' ], true ) ],
+	[ 'label' => 'Contact', 'url' => Url::toRoute( [ '/form/contact-us' ], true ) ]
+];
 ?>
-<footer class="footer-main">
-	<div class="row max-cols-50 content-80 clearfix">
-		<div class="col12x2">
-			<h2 class="footer-title">Site</h2>
-			<?= BasicNav::widget( [ 'items' => $menu1Items ] ) ?>
+<footer class="footer footer-basic footer-main">
+	<div class="row row-xlarge max-cols-50">
+		<div class="col col12x8">
+			<?= BasicNav::widget( [ 'items' => $menuItems, 'options' => [ 'class' => 'menu-footer nav' ] ] ) ?>
 		</div>
-		<div class="col12x2">
-			<h2 class="footer-title">Users</h2>
-			<?= BasicNav::widget( [ 'items' => $menu2Items ] ) ?>
-		</div>
-		<div class="col12x8">
-			<ul class="social-icon-footer">
-				<a href="https://www.facebook.com/" target="_blank"><li><i class="cmti cmti-social-facebook"> </i> </li></a>
-				<a href="https://twitter.com/" target="_blank"><li> <i class="cmti cmti-social-twitter"> </i></li></a>
-				<a href="https://plus.google.com" target="_blank"><li> <i class="cmti cmti-social-google-plus"> </i> </li></a>
-				<a href="https://in.linkedin.com/" target="_blank"><li><i class="cmti cmti-social-linkedin"> </i> </li></a>
-			</ul>
+		<div class="col col12x4">
+			<div class="menu-social align align-right">
+				<a href="https://www.facebook.com/" target="_blank">
+					<i class="icon icon-border icon-rounded cmti cmti-1-5x cmti-social-facebook"> </i>
+				</a>
+				<a href="https://www.twitter.com/" target="_blank">
+					<i class="icon icon-border icon-rounded cmti cmti-1-5x cmti-social-twitter"> </i>
+				</a>
+				<a href="https://plus.google.com/" target="_blank">
+					<i class="icon icon-border icon-rounded cmti cmti-1-5x cmti-social-google-plus"> </i>
+				</a>
+				<a href="https://in.linkedin.com/" target="_blank">
+					<i class="icon icon-border icon-rounded cmti cmti-1-5x cmti-social-linkedin"> </i>
+				</a>
+			</div>
 		</div>
 	</div>
 </footer>
-<footer class="footer-copyright">
+<footer class="footer footer-basic footer-copyright">
 	<div class="content-80">
 		<div class="content-80 align align-center padding padding-default">Copyright © 2015 - <?= date( 'Y' ) ?> <?= $coreProperties->getSiteName() ?>. All Rights Reserved.</div>
 	</div>

@@ -1,0 +1,58 @@
+.header-basic {
+	@include transit-width-height( $transit-eio, $transit-time-small );
+
+	.header-logo {
+		
+		.logo {
+			
+			img {
+				@include transit-all( $transit-eio, $transit-time-small );
+			}
+		}
+	}
+
+	@include responsive-min( screen-tablet-large ) {
+
+		#menu-main {
+			padding: 0;
+			height: 80px;
+			line-height: 80px;
+
+			li {
+				margin-left: -4px;
+				@include transit-all( $transit-eio, $transit-time-small );
+
+				a {
+					padding: 0 1em;
+					color: $color-header-text;
+				}
+				
+				&:hover, &.active {
+					height: 80px;
+					color: $color-header-text;
+					border-bottom: 4px solid $color-link;
+				}
+			}
+		}
+		
+		&.header-small {
+			
+			#menu-main {
+				padding: 0;
+				height: 50px;
+				line-height: 50px;
+
+				li {
+
+					&:hover, &.active {
+						height: 50px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.header-landing {
+	background-color: $color-transparent-black;
+}

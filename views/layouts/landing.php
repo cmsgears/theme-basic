@@ -1,9 +1,14 @@
 <?php
-use themes\basic\assets\LandingAssets;
+// CMG Imports
+use cmsgears\core\common\utilities\CodeGenUtil;
 
-LandingAssets::register( $this );
+use themes\basic\assets\InlineAssets;
 
-// Variables available for headers, sidebars and footers included within this layout
+InlineAssets::register( $this );
+
+$this->registerAssetBundle( 'landing' );
+
+// Common variables available for headers, sidebars and footers included within this layout
 $coreProperties = $this->context->getCoreProperties();
 $themePath		= Yii::getAlias( '@themes/basic' );
 $user			= Yii::$app->user->getIdentity();
@@ -14,27 +19,30 @@ $user			= Yii::$app->user->getIdentity();
     <head>
 		<?php include "$themePath/views/headers/main.php"; ?>
     </head>
-    <body>
+    <body id="scroll-top">
+    	<?= CodeGenUtil::generateSeoH1( $this->params ) ?>
         <?php $this->beginBody(); ?>
-		<div id='pre-loader-main' class="max-area-cover fixed"><div class="valign-center cmti-5x cmti-spinner-1 spin"></div></div>
+		<div id="pre-loader-main" class="pre-loader valign-center align align-center">
+			<div class="spinner cmti cmti-3x cmti-spinner-1 spin"></div>
+		</div>
 		<?php
 			if( isset( $user ) ) {
 
-				include "$themePath/views/headers/private.php";
+				//include "$themePath/views/headers/private.php";
 			}
 			else {
 
 				include "$themePath/views/headers/landing.php";
 			}
 		?>
-        <div class="container-main">
-	        <div class="wrap-content wrap-content-main">
+        <div class="container container-main container-main-landing">
+	        <div class="content-wrap content-main-wrap">
 	        	<div class="content">
 	        		<?= $content ?>
 	        	</div>
 	        </div>
-	        <?php include "$themePath/views/footers/public.php"; ?>
         </div>
+        <?php include "$themePath/views/footers/public.php"; ?>
         <?php $this->endBody(); ?>
     </body>
 </html>

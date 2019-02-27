@@ -1,128 +1,212 @@
-jQuery(document).ready( function() {
+jQuery( document ).ready( function() {
 
 	initPreloaders();
 
 	initCmgTools();
 
 	initListeners();
+	
+	initDatePickers();
 
-	initAutoHeight();
+	initWindowResize();
+	
+	initWindowScroll();
 });
+
+// == Pre Loaders =========================
 
 function initPreloaders() {
 
 	// Hide global pre-loader spinner
 	jQuery( '.container-main' ).imagesLoaded( { background: true }, function() {
 
+		jQuery( '#pre-loader-main .spinner' ).addClass( 'animate animate-zoom-out' );
 		jQuery( '#pre-loader-main' ).fadeOut( 'slow' );
 	});
 }
 
+// == CMT JS ==============================
+
 function initCmgTools() {
 
-	// Page Blocks
-	if( jQuery().cmtBlock ) {
-
-		jQuery( '.block' ).cmtBlock({
-			fullHeight: true,
-			blocks: {
-				'block-about': { 'fullHeight': true, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
-				'block-contact': { 'fullHeight': true, 'heightAuto': true },
-				'block-public': { 'fullHeight': true, heightAutoMobile: true, heightAutoMobileWidth: 1600 }
-			}
-		});
-	}
+	// Blocks
+	jQuery( '.cmt-block' ).cmtBlock({
+		// Generic
+		halfHeight: true,
+		heightAuto: true,
+		// Block Specific - Ignores generic
+		blocks: {
+			'block-auto': { autoHeight: true, heightAuto: true },
+			'block-half': { halfHeight: true },
+			'block-qtf': { qtfHeight: true },
+			'block-full': { fullHeight: true },
+			'block-half-auto': { halfHeight: true, heightAuto: true },
+			'block-qtf-auto': { qtfHeight: true, heightAuto: true },
+			'block-full-auto': { fullHeight: true, heightAuto: true },
+			'block-half-mauto': { halfHeight: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
+			'block-qtf-mauto': { qtfHeight: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 },
+			'block-full-mauto': { fullHeight: true, heightAutoMobile: true, heightAutoMobileWidth: 1024 }
+		}
+	});
 
 	// Perspective Header
-	if( jQuery().cmtHeader ) {
-
-		jQuery( '#header-main' ).cmtHeader( { scrollDistance: 350 } );
-	}
+	jQuery( '#cmt-header-main' ).cmtHeader( { scrollDistance: 280 } );
 
 	// Smooth Scroll
-	if( jQuery().cmtSmoothScroll ) {
+	jQuery( '.cmt-smooth-scroll' ).cmtSmoothScroll();
 
-		jQuery( '.smooth-scroll' ).cmtSmoothScroll();
-	}
+	// Box Forms
+	jQuery( '.cmt-box-form' ).cmtFormInfo();
+
+	// Ratings
+	jQuery( '.cmt-rating' ).cmtRate();
+
+	jQuery( '.cmt-rating-emoticons' ).cmtRate({
+		same: [ 'cmti cmti-2x cmti-emoticons-sad', 'cmti cmti-2x cmti-emoticons-sulk', 'cmti cmti-2x cmti-emoticons-intense', 'cmti cmti-2x cmti-emoticons-hopeful', 'cmti cmti-2x cmti-emoticons-happy' ],
+		emptyColor: '#7F7F7F'
+	});
+
+	// Select
+	jQuery( '.cmt-select' ).cmtSelect( { iconHtml: '<span class="fa fa-caret-down"></span>' } );
+	jQuery( '.cmt-select-c' ).cmtSelect( { iconHtml: '<span class="fa fa-caret-down"></span>', copyOptionClass: true } );
+	jQuery( '.cmt-select-s' ).cmtSelect( { iconHtml: '<span class="fa fa-caret-down"></span>', wrapperClass: 'element-small' } );
+
+	// Checkboxes
+	jQuery( '.cmt-checkbox' ).cmtCheckbox();
+
+	// Field Groups
+	jQuery( '.cmt-field-group' ).cmtFieldGroup();
 
 	// File Uploader
-	if( jQuery().cmtFileUploader ) {
-
-		jQuery( '.file-uploader' ).cmtFileUploader();
-	}
+	jQuery( '.cmt-file-uploader' ).cmtFileUploader();
 
 	// Popups
-	if( jQuery().cmtPopup ) {
+	jQuery( '.cmt-popup' ).cmtPopup();
 
-		jQuery( '.popup' ).cmtPopup();
-	}
+	// Popouts
+	jQuery( '.cmt-popout-group' ).cmtPopoutGroup();
 
-	// Custom Select
-	if( jQuery().cmtSelect ) {
+	// Auto Fillers
+	jQuery( '.cmt-auto-fill' ).cmtAutoFill();
 
-		jQuery( '.cmt-select' ).cmtSelect( { iconHtml: '<span class="cmti cmti-chevron-down"></span>' } );
-	}
+	// Tabs
+	jQuery( '.cmt-tabs' ).cmtTabs();
 
-	// Custom Checkbox
-	if( jQuery().cmtCheckbox ) {
+	// Accordians
+	jQuery( '.cmt-accordian' ).cmtAccordian();
 
-		jQuery( '.cmt-checkbox' ).cmtCheckbox();
-	}
+	// Grid
+	jQuery( '.cmt-grid-data' ).cmtGrid();
 
-	// Form with Info
-	if( jQuery().cmtFormInfo ) {
+	// Actions
+	jQuery( '.cmt-actions' ).cmtActions();
 
-		jQuery( '.box-form' ).cmtFormInfo();
-	}
+	// Auto Hide
+	jQuery( '.cmt-auto-hide' ).cmtAutoHide();
+
+	// Icon Picker
+	jQuery( '.cmt-icon-picker, .cmt-texture-picker' ).cmtIconPicker();
+
+	// Time Picker
+	jQuery( '.cmt-timepicker' ).cmtTimePicker();
+
+	jQuery( '.cmt-slider' ).cmtSlider({
+		lControlContent: "<i class=\"fa fa-angle-left valign-center\"></i>",
+		rControlContent: "<i class=\"fa fa-angle-right valign-center\"></i>"
+	});
 }
+
+// == JS Listeners ========================
 
 function initListeners() {
 
-	// Custom Scroller
-	if( jQuery().mCustomScrollbar ) {
+	// Main Menu
+	jQuery( '#btn-menu-mobile' ).click( function() {
 
-		jQuery( '.cscroller' ).mCustomScrollbar( { autoHideScrollbar: true } );
-	}
-
-	// Datepicker
-	if( jQuery().datepicker ) {
-
-		jQuery( '.datepicker' ).datepicker( { dateFormat: 'yy-mm-dd' } );
-	}
-
-	// Default Tabs
-	if( jQuery().tabs ) {
-
-		jQuery( '.tabs-default' ).tabs();
-	}
-
-	// Initialise the mobile button
-	jQuery( '#btn-mobile-menu, #nav-mobile li' ).click( function() {
-
-		jQuery( '#nav-mobile' ).slideToggle( 'slow' );
+		jQuery( '#menu-main-mobile' ).slideToggle();
 	});
 
-	// Show/ Hide login box
-	jQuery( '#btn-login, #btn-login-mobile' ).click( function() {
+	// Custom scroller
+	jQuery( '.cscroller' ).mCustomScrollbar( { autoHideScrollbar: true } );
 
-		jQuery( '#wrap-login-register' ).toggle( 'slow' );
-	});
+	// Auto save checkbox action
+	jQuery( '.cmt-checkbox input' ).on( 'input', function() {
 
-	// Show/ Hide settings box
-	jQuery( '#btn-settings, #btn-settings-mobile' ).click( function( e ) {
-
-		e.preventDefault();
-
-		jQuery( '#box-settings' ).toggle( 'slow' );
+		jQuery( this ).parent().find( '.cmt-click' ).click();
 	});
 }
 
-function initAutoHeight () {
+function initDatePickers() {
 
-	jQuery( '.header' ).css( 'height', jQuery( '.items' ).height() - 8 );
+	// Datepicker
+	var datepickers = jQuery( '.datepicker' );
 
-	if( window.innerWidth <= 1024  ) {
+	datepickers.each( function() {
 
-		jQuery( '.header' ).css( 'height', 'auto' );
-	}
+		var datepicker = jQuery( this );
+
+		var start	= datepicker.attr( 'ldata-start' );
+		var end		= datepicker.attr( 'ldata-end' );
+
+		if( null != start && null != end ) {
+
+			datepicker.datepicker({
+				dateFormat: 'yy-mm-dd',
+				minDate: start,
+				maxDate: end
+			});
+		}
+		else if( null != start ) {
+
+			datepicker.datepicker({
+				dateFormat: 'yy-mm-dd',
+				minDate: start
+			});
+		}
+		else if( null != end ) {
+
+			datepicker.datepicker({
+				dateFormat: 'yy-mm-dd',
+				maxDate: end
+			});
+		}
+		else {
+
+			datepicker.datepicker({
+				dateFormat: 'yy-mm-dd'
+			});
+		}
+	});
+}
+
+// == Window Resize, Scroll ===============
+
+function initWindowResize() {
+
+	//resizeElements();
+
+	jQuery( window ).resize( function () {
+
+		//resizeElements();
+	});
+}
+
+function initWindowScroll() {
+
+	jQuery( window ).scroll( function() {
+
+		var scrolledY = jQuery( window ).scrollTop();
+
+		configScrollAt( scrolledY );
+	});
+}
+
+function resizeElements() {
+
+	// Resize elements on window resize
+}
+
+function configScrollAt() {
+
+	// Show hidden elements with animation effects
 }
