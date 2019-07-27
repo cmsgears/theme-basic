@@ -7,16 +7,14 @@ jQuery( document ).ready( function() {
 
 // == App Namespace =======================
 
-var news = news || {};
-
-news.core = news.core || {};
+var basic = basic || {};
 
 // == Controller Namespace ================
 
-news.core.controllers = news.core.controllers || {};
+basic.controllers = basic.controllers || {};
 
 // == Service Namespace ===================
 
-news.core.services = news.core.services || {};
+basic.services = basic.services || {};
 
 // == Additional Methods ==================

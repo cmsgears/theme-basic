@@ -1,12 +1,4 @@
 <?php
-/**
- * This file is part of CMSGears Framework. Please view License file distributed
- * with the source code for license details.
- *
- * @link https://www.cmsgears.org/
- * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
- */
-
 namespace themes\basic\assets;
 
 /**
@@ -50,17 +42,24 @@ class PrivateAssets extends AssetBundle {
 		parent::init();
 
 		$this->js[] = 'scripts/templates/private.js';
+
 		$this->js[] = 'scripts/apix/private.js';
+
 		$this->js[] = 'scripts/apps/private.js';
+
 		$this->js[] = 'scripts/apps/core/services/user.js';
 		$this->js[] = 'scripts/apps/core/controllers/main.js';
 		$this->js[] = 'scripts/apps/core/controllers/user.js';
+
 		$this->js[] = 'scripts/main.js';
 		$this->js[] = 'scripts/search.js';
+		$this->js[] = 'scripts/sliders.js';
+		$this->js[] = 'scripts/popups.js';
 
-		$this->depends[] = 'foxslider\widgets\assets\FxsAssets';
-		$this->depends[] = 'themes\basic\assets\vapps\CoreAssets';
-		$this->depends[] = 'themes\basic\assets\vapps\NotifyAssets';
+		$this->depends[] = 'cmsgears\assets\components\DateTimeAssets';
+		$this->depends[] = 'cmsgears\assets\components\FullCalendarAssets';
+
+		$this->depends[] = 'cmsgears\assets\vapps\CoreAssets';
 	}
 
     // Instance methods --------------------------------------------

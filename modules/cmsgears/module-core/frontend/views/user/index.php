@@ -1,4 +1,9 @@
 <?php
-$coreProperties 	= $this->context->getCoreProperties();
-$this->title 		= 'Home | ' . $coreProperties->getSiteTitle();
+$coreProperties	= $this->context->getCoreProperties();
+
+// Page
+$this->title = 'Home | ' . $coreProperties->getSiteTitle();
+
+// Sidebar
+$this->context->sidebar	= [ 'parent' => 'sidebar-dashboard' ];
 ?>

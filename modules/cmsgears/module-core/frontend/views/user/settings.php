@@ -1,113 +1,186 @@
 <?php
 // Yii Imports
-use yii\widgets\ActiveForm;
+use yii\helpers\Url;
 
 // CMG Imports
 use cmsgears\core\common\config\CoreGlobal;
 
+// Config
+$themeTemplates		= Yii::getAlias( '@themeTemplates' );
+$breezeTemplates	= Yii::getAlias( '@breeze/templates' );
+
+$frmSpinner = "$themeTemplates/components/spinners/form.php";
+
+$apixBase = 'user';
+
+// Page
+$this->title = 'Settings | User';
+
+// Sidebar
+$this->context->sidebar	= [ 'parent' => 'sidebar-settings' ];
+
+// Breadcrumbs
+$this->context->breadcrumbs	= [
+	'base' => [ [ 'label' => 'Home', 'url' =>  Url::toRoute( [ '/home' ], true ) ] ],
+	'settings' => [ [ 'label' => 'Settings' ] ]
+];
+
+// Config
 $coreProperties = $this->context->getCoreProperties();
-$this->title 	= 'Settings | ' . $coreProperties->getSiteTitle();
+$themeIncludes	= Yii::getAlias( '@themes/basic/views/includes' );
 ?>
-<div class="tabs-default">
-	<ul>
-	    <li><a href="#tabs-1" class="btn btn-medium">Privacy</a></li>
-	    <li><a href="#tabs-2" class="btn btn-medium">Notifications</a></li>
-	    <li><a href="#tabs-3" class="btn btn-medium">Reminders</a></li>
-	</ul>
-
-	<div id="tabs-1" class="box-form box-form-regular content-80 max-content-100">
-		<span class="cmti cmti-edit btn-edit"></span>
-		<h4>Privacy Settings</h4>
-		<div class="wrap-info">
-			<div class="info-row row clearfix">
-				<div class="col12x5">Show Address</div>
-				<div class="col12x7"><?php if( isset( $privacy[ 'show_address' ] ) ) echo $privacy[ 'show_address' ]->getFieldValue(); else echo 'No'; ?></div>
+<div class="data-crud-wrap">
+	<div class="data-crud-wrap-main">
+		<div class="cmt-tabs tabs tabs-underline">
+			<div class="tab-links-wrap">
+				<span class="tab-link" target="#tab-content-privacy">Privacy</span>
+				<span class="tab-link" target="#tab-content-notification">Notifications</span>
+				<span class="tab-link" target="#tab-content-reminder">Reminders</span>
 			</div>
-		</div>
-		<div class="wrap-form">
-			<form class="cmt-form frm-split-40-60" cmt-controller="user" cmt-action="settings" action="user/settings" cmt-keep>
-				<div class="spinner max-area-cover"><div class="valign-center cmti cmti-3x cmti-spinner-1 spin"></div></div>
-				<div class="frm-field">
-					<label>Show Address</label>
-					<input type="hidden" name="ModelMeta[0][name]" value="show_address" />
-					<input type="hidden" name="ModelMeta[0][type]" value="<?= CoreGlobal::SETTINGS_PRIVACY ?>" />
-					<input type="hidden" name="ModelMeta[0][valueType]" value="flag" />
-					<span class='cmt-switch cmt-checkbox'>
-						<input id="privacy_show_address" class="cmt-toggle cmt-toggle-round" type="checkbox" name="value" />
-						<label for='privacy_show_address'></label>
-						<input type="hidden" name="ModelMeta[0][value]" value="<?php if( isset( $privacy[ 'show_address' ] ) ) echo $privacy[ 'show_address' ]->value; ?>" />
-					</span>
+			<div class="tab-content-wrap">
+				<div id="tab-content-privacy" class="tab-content">
+					<div class="data-crud data-crud-settings data-crud-settings-privacy">
+						<!--<div class="data-crud-title">Privacy</div>-->
+						<form class="form" cmt-app="core" cmt-controller="user" cmt-action="settings" action="<?= $apixBase ?>/settings" cmt-keep>
+							<?php include $frmSpinner; ?>
+							<div class="data-crud-form">
+								<div class="row">
+									<div class="col col5x4">
+										Show Email on public profile.
+									</div>
+									<div class="col col5 frm-field align align-right">
+										<input type="hidden" name="Meta[0][name]" value="show_email" />
+										<input type="hidden" name="Meta[0][type]" value="<?= CoreGlobal::SETTINGS_PRIVACY ?>" />
+										<input type="hidden" name="Meta[0][valueType]" value="flag" />
+										<span class="cmt-switch cmt-checkbox">
+											<input id="privacy_show_email" class="cmt-toggle cmt-toggle-round" type="checkbox" name="value" />
+											<label for="privacy_show_email"></label>
+											<input type="hidden" name="Meta[0][value]" value="<?php if( isset( $privacy[ 'show_email' ] ) ) echo $privacy[ 'show_email' ]->value; ?>" />
+										</span>
+									</div>
+								</div>
+								<hr/>
+								<div class="filler-height"></div>
+								<div class="row">
+									<div class="col col5x4">
+										Show Mobile on public profile.
+									</div>
+									<div class="col col5 frm-field align align-right">
+										<input type="hidden" name="Meta[1][name]" value="show_mobile" />
+										<input type="hidden" name="Meta[1][type]" value="<?= CoreGlobal::SETTINGS_PRIVACY ?>" />
+										<input type="hidden" name="Meta[1][valueType]" value="flag" />
+										<span class="cmt-switch cmt-checkbox">
+											<input id="privacy_show_mobile" class="cmt-toggle cmt-toggle-round" type="checkbox" name="value" />
+											<label for="privacy_show_mobile"></label>
+											<input type="hidden" name="Meta[1][value]" value="<?php if( isset( $privacy[ 'show_mobile' ] ) ) echo $privacy[ 'show_mobile' ]->value; ?>" />
+										</span>
+									</div>
+								</div>
+								<hr/>
+								<div class="filler-height"></div>
+								<div class="row">
+									<div class="col col5x4">
+										Show Address on public profile.
+									</div>
+									<div class="col col5 frm-field align align-right">
+										<input type="hidden" name="Meta[2][name]" value="show_address" />
+										<input type="hidden" name="Meta[2][type]" value="<?= CoreGlobal::SETTINGS_PRIVACY ?>" />
+										<input type="hidden" name="Meta[2][valueType]" value="flag" />
+										<span class="cmt-switch cmt-checkbox">
+											<input id="privacy_show_address" class="cmt-toggle cmt-toggle-round" type="checkbox" name="value" />
+											<label for="privacy_show_address"></label>
+											<input type="hidden" name="Meta[2][value]" value="<?php if( isset( $privacy[ 'show_address' ] ) ) echo $privacy[ 'show_address' ]->value; ?>" />
+										</span>
+									</div>
+								</div>
+								<div class="filler-height"></div>
+							</div>
+							<div class="row data-crud-message">
+								<div class="col col1 message success"></div>
+								<div class="col col1 message warning"></div>
+								<div class="col col1 message error"></div>
+							</div>
+							<div class="row data-crud-actions">
+								<div class="col col1">
+									<input class="frm-element-small" type="submit" value="Update" />
+								</div>
+							</div>
+						</form>
+					</div>
 				</div>
-				<div class="frm-actions align align-center">
-					<input class="submit btn btn-medium rounded-medium" type="submit" name="submit" value="Save">
+				<div id="tab-content-notification" class="tab-content">
+					<div class="data-crud data-crud-settings data-crud-settings-notifications">
+						<!--<div class="data-crud-title">Notifications</div>-->
+						<form class="form" cmt-app="core" cmt-controller="user" cmt-action="settings" action="<?= $apixBase ?>/settings" cmt-keep>
+							<?php include $frmSpinner; ?>
+							<div class="data-crud-form">
+								<div class="row">
+									<div class="col col5x4">
+										Receive emails of notifications triggered for your personal profile.
+									</div>
+									<div class="col col5 frm-field align align-right">
+										<input type="hidden" name="Meta[0][name]" value="receive_mail" />
+										<input type="hidden" name="Meta[0][type]" value="<?= CoreGlobal::SETTINGS_NOTIFICATION ?>" />
+										<input type="hidden" name="Meta[0][valueType]" value="flag" />
+										<span class="cmt-switch cmt-checkbox">
+											<input id="notify_receive_mail" class="cmt-toggle cmt-toggle-round" type="checkbox" name="value" />
+											<label for="notify_receive_mail"></label>
+											<input type="hidden" name="Meta[0][value]" value="<?php if( isset( $notification[ 'receive_mail' ] ) ) echo $notification[ 'receive_mail' ]->value; ?>" />
+										</span>
+									</div>
+								</div>
+								<div class="filler-height"></div>
+							</div>
+							<div class="row data-crud-message">
+								<div class="col col1 message success"></div>
+								<div class="col col1 message warning"></div>
+								<div class="col col1 message error"></div>
+							</div>
+							<div class="row data-crud-actions">
+								<div class="col col1">
+									<input class="frm-element-small" type="submit" value="Update" />
+								</div>
+							</div>
+						</form>
+					</div>
 				</div>
-				<div class="message"></div>
-			</form>
-		</div>
-	</div>
-
-	<div id="tabs-2" class="box-form box-form-regular content-80 max-content-100">
-		<span class="cmti cmti-edit btn-edit"></span>
-		<h4>Notification Settings</h4>
-		<div class="wrap-info">
-			<div class="info-row row clearfix">
-				<div class="col12x5">Receive Mail</div>
-				<div class="col12x7"><?php if( isset( $notification[ 'receive_mail' ] ) ) echo $notification[ 'receive_mail' ]->getFieldValue(); else echo 'No'; ?></div>
+				<div id="tab-content-reminder" class="tab-content">
+					<div class="data-crud data-crud-settings data-crud-settings-reminders">
+						<!--<div class="data-crud-title">Reminders</div>-->
+						<form class="form" cmt-app="core" cmt-controller="user" cmt-action="settings" action="<?= $apixBase ?>/settings" cmt-keep>
+							<?php include $frmSpinner; ?>
+							<div class="data-crud-form">
+								<div class="row">
+									<div class="col col5x4">
+										Receive emails of reminders triggered for your personal profile.
+									</div>
+									<div class="col col5 frm-field align align-right">
+										<input type="hidden" name="Meta[0][name]" value="receive_mail" />
+										<input type="hidden" name="Meta[0][type]" value="<?= CoreGlobal::SETTINGS_REMINDER ?>" />
+										<input type="hidden" name="Meta[0][valueType]" value="flag" />
+										<span class="cmt-switch cmt-checkbox">
+											<input id="remind_receive_mail" class="cmt-toggle cmt-toggle-round" type="checkbox" name="value" />
+											<label for="remind_receive_mail"></label>
+											<input type="hidden" name="Meta[0][value]" value="<?php if( isset( $reminder[ 'receive_mail' ] ) ) echo $reminder[ 'receive_mail' ]->value; ?>" />
+										</span>
+									</div>
+								</div>
+								<div class="filler-height"></div>
+							</div>
+							<div class="row data-crud-message">
+								<div class="col col1 message success"></div>
+								<div class="col col1 message warning"></div>
+								<div class="col col1 message error"></div>
+							</div>
+							<div class="row data-crud-actions">
+								<div class="col col1">
+									<input class="frm-element-small" type="submit" value="Update" />
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div class="wrap-form">
-			<form class="cmt-form frm-split-40-60" cmt-controller="user" cmt-action="settings" action="user/settings" cmt-keep>
-				<div class="spinner max-area-cover"><div class="valign-center cmti cmti-3x cmti-spinner-1 spin"></div></div>
-				<div class="frm-field">
-					<label>Receive Mail</label>
-					<input type="hidden" name="ModelMeta[0][name]" value="receive_mail" />
-					<input type="hidden" name="ModelMeta[0][type]" value="<?= CoreGlobal::SETTINGS_NOTIFICATION ?>" />
-					<input type="hidden" name="ModelMeta[0][valueType]" value="flag" />
-					<span class='cmt-switch cmt-checkbox'>
-						<input id="notify_receive_mail" class="cmt-toggle cmt-toggle-round" type="checkbox" name="value" />
-						<label for='notify_receive_mail'></label>
-						<input type="hidden" name="ModelMeta[0][value]" value="<?php if( isset( $notification[ 'receive_mail' ] ) ) echo $notification[ 'receive_mail' ]->value; ?>" />
-					</span>
-				</div>
-				<div class="frm-actions align align-center">
-					<input class="submit btn btn-medium rounded-medium" type="submit" name="submit" value="Save">
-				</div>
-				<div class="message"></div>
-			</form>
-		</div>
-	</div>
-
-	<div id="tabs-3" class="box-form box-form-regular content-80 max-content-100">
-		<span class="cmti cmti-edit btn-edit"></span>
-		<h4>Reminder Settings</h4>
-		<div class="wrap-info">
-			<div class="info-row row clearfix">
-				<div class="col12x5">Receive Mail</div>
-				<div class="col12x7"><?php if( isset( $reminder[ 'receive_mail' ] ) ) echo $reminder[ 'receive_mail' ]->getFieldValue(); else echo 'No'; ?></div>
-			</div>
-		</div>
-		<div class="wrap-form">
-			<form class="cmt-form frm-split-40-60" cmt-controller="user" cmt-action="settings" action="user/settings" cmt-keep>
-				<div class="spinner max-area-cover"><div class="valign-center cmti cmti-3x cmti-spinner-1 spin"></div></div>
-				<div class="frm-field">
-					<label>Receive Mail</label>
-					<input type="hidden" name="ModelMeta[0][name]" value="receive_mail" />
-					<input type="hidden" name="ModelMeta[0][type]" value="<?= CoreGlobal::SETTINGS_REMINDER ?>" />
-					<input type="hidden" name="ModelMeta[0][valueType]" value="flag" />
-					<span class='cmt-switch cmt-checkbox'>
-						<input id="remind_receive_mail" class="cmt-toggle cmt-toggle-round" type="checkbox" name="value" />
-						<label for='remind_receive_mail'></label>
-						<input type="hidden" name="ModelMeta[0][value]" value="<?php if( isset( $reminder[ 'receive_mail' ] ) ) echo $reminder[ 'receive_mail' ]->value; ?>" />
-					</span>
-				</div>
-				<div class="frm-actions align align-center">
-					<input class="submit btn btn-medium rounded-medium" type="submit" name="submit" value="Save">
-				</div>
-				<div class="message"></div>
-			</form>
 		</div>
 	</div>
 </div>
-
-<!-- Templates -->
-<?php include_once( dirname( __FILE__ ) . "/templates/user-settings.php" ); ?>
