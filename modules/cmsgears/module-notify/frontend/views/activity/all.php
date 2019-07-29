@@ -7,12 +7,14 @@ use cmsgears\widgets\popup\Popup;
 use cmsgears\widgets\grid\DataGrid;
 
 // Config
-$coreProperties = $this->context->getCoreProperties();
+$coreProperties		= $this->context->getCoreProperties();
+$moduleTemplates	= '@themes/basic/modules/cmsgears/module-notify/frontend/views/templates';
+$breezeTemplates	= '@breeze/templates/widget/native';
 
 $apixBase = $this->context->apixBase;
 
 // Page
-$this->title = 'Activities | User';
+$this->title = 'Activities | ' . $coreProperties->getSiteTitle();
 
 // Sidebar
 //$this->context->sidebar	= [ 'parent' => 'sidebar-dashboard' ];
@@ -22,10 +24,6 @@ $this->context->breadcrumbs	= [
 	'base' => [ [ 'label' => 'Home', 'url' =>  Url::toRoute( [ '/home' ], true ) ] ],
 	'all' => [ [ 'label' => 'Activities' ] ]
 ];
-
-// View Templates
-$moduleTemplates	= '@themes/basic/modules/cmsgears/module-notify/frontend/views/templates';
-$breezeTemplates	= '@breeze/templates/widget/native';
 ?>
 <?= DataGrid::widget([
 	'dataProvider' => $dataProvider, 'add' => false, 'addUrl' => 'create', 'data' => [ ],

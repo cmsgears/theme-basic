@@ -1,6 +1,8 @@
-<div class="max-area-cover spinner">
-	<div class="valign-center cmti cmti-3x cmti-spinner-1 spin"></div>
-</div>
+<?php
+$themeTemplates = Yii::getAlias( '@themeTemplates' );
+?>
+
+<?php include "$themeTemplates/components/spinners/aform.php"; ?>
 
 <?= $fieldsHtml ?>
 

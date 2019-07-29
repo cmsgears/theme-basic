@@ -2,6 +2,7 @@
 // Yii Imports
 use yii\helpers\Url;
 
+// Config
 $title = $widget->title;
 ?>
 <div class="grid-head-wrap row">

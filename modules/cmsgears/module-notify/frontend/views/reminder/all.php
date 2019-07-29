@@ -11,7 +11,7 @@ $coreProperties = $this->context->getCoreProperties();
 $apixBase		= $this->context->apixBase;
 
 // Page
-$this->title = 'Reminders | User';
+$this->title = 'Reminders | ' . $coreProperties->getSiteName();
 
 // Sidebar
 //$this->context->sidebar	= [ 'parent' => 'sidebar-dashboard' ];

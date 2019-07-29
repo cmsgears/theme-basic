@@ -4,22 +4,22 @@ use yii\helpers\Url;
 
 // Config
 $coreProperties = $this->context->getCoreProperties();
-$this->title 	= 'Privacy Policy | ' . $coreProperties->getSiteTitle();
+$this->title 	= 'FAQs | ' . $coreProperties->getSiteTitle();
 $resourceUrl	= $coreProperties->getResourceUrl();
 
 // Breadcrumbs
 $this->context->breadcrumbs	= [
 	'base' => [ [ 'label' => 'Home', 'url' =>  Url::toRoute( [ '/home' ], true ) ] ],
-	'all' => [ [ 'label' => 'Privacy Policy' ] ]
+	'all' => [ [ 'label' => 'FAQs' ] ]
 ];
 ?>
-<div class="page page-basic page-default page-privacy" data-slug="terms" cmt-block="block-half-auto">
+<div class="page page-basic page-default page-faqs" data-slug="terms" cmt-block="block-half-auto">
 	<div class="page-content-wrap">
 		<div class="page-header-wrap page-header-banner">
 			<div class="page-bkg" style="background-image:url(<?= $resourceUrl ?>/images/banner-page.jpg);"></div>
 			<div class="texture texture-black"></div>
 			<div class="page-header page-header-scroll valign-center">
-				<div class="page-header-title">Privacy Policy</div>
+				<div class="page-header-title">FAQs</div>
 			</div>
 		</div>
 		<div class="page-content-row row">

@@ -6,15 +6,17 @@ use yii\helpers\Url;
 use cmsgears\core\common\config\CoreGlobal;
 
 // Config
+$coreProperties		= $this->context->getCoreProperties();
 $themeTemplates		= Yii::getAlias( '@themeTemplates' );
 $breezeTemplates	= Yii::getAlias( '@breeze/templates' );
+$themeIncludes		= Yii::getAlias( '@themes/basic/views/includes' );
 
 $frmSpinner = "$themeTemplates/components/spinners/form.php";
 
 $apixBase = 'user';
 
 // Page
-$this->title = 'Settings | User';
+$this->title = 'Settings | ' . $coreProperties->getSiteTitle();
 
 // Sidebar
 $this->context->sidebar	= [ 'parent' => 'sidebar-settings' ];
@@ -24,10 +26,6 @@ $this->context->breadcrumbs	= [
 	'base' => [ [ 'label' => 'Home', 'url' =>  Url::toRoute( [ '/home' ], true ) ] ],
 	'settings' => [ [ 'label' => 'Settings' ] ]
 ];
-
-// Config
-$coreProperties = $this->context->getCoreProperties();
-$themeIncludes	= Yii::getAlias( '@themes/basic/views/includes' );
 ?>
 <div class="data-crud-wrap">
 	<div class="data-crud-wrap-main">

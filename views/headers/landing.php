@@ -6,10 +6,10 @@ use yii\helpers\Html;
 use cmsgears\widgets\nav\BasicNav;
 
 $menuItems = [
-	[ 'label' => 'Home', 'url' => '#slider-main', 'urlOptions' => [ 'class' => 'cmt-smooth-scroll' ], 'options' => [ 'class' => 'active' ] ],
-	[ 'label' => 'Features', 'url' => '#block-features', 'urlOptions' => [ 'class' => 'cmt-smooth-scroll' ] ],
-	[ 'label' => 'About', 'url' => '#block-about', 'urlOptions' => [ 'class' => 'cmt-smooth-scroll' ] ],
-	[ 'label' => 'Contact', 'url' => '#block-contact', 'urlOptions' => [ 'class' => 'cmt-smooth-scroll' ] ],
+	[ 'label' => 'Home', 'url' => '#block-slider-main', 'urlOptions' => [ 'class' => 'cmt-smooth-scroll smooth-scroll' ], 'options' => [ 'class' => ' smooth-scroll-wrap active' ] ],
+	[ 'label' => 'Features', 'url' => '#block-features', 'urlOptions' => [ 'class' => 'cmt-smooth-scroll smooth-scroll' ], 'options' => [ 'class' => ' smooth-scroll-wrap' ] ],
+	[ 'label' => 'About', 'url' => '#block-about', 'urlOptions' => [ 'class' => 'cmt-smooth-scroll smooth-scroll' ], 'options' => [ 'class' => ' smooth-scroll-wrap' ] ],
+	[ 'label' => 'Contact', 'url' => '#block-contact', 'urlOptions' => [ 'class' => 'cmt-smooth-scroll smooth-scroll' ], 'options' => [ 'class' => ' smooth-scroll-wrap' ] ],
 	[ 'label' => 'Login', 'url' => '#', 'urlOptions' => [ 'id' => 'btn-login' ] ]
 ];
 ?>

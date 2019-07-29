@@ -1,18 +1,7 @@
-/**********************************************************************
-Description: It defines the styles of default data grid. It's specially designed for 
-frontend applications.
-
-Dependencies: variables, variables-ext, mixins
-
-Details: It defines the styles of default data grid as listed below:
-
-Default Data Grid - The grid class fully implemented for admin data grids.
-***********************************************************************/
-
 .grid-data-default {
-	
+
 	.avatar {
-		
+
 		img {
 			width: 48px;
 			border: 2px solid $color-border-d;
@@ -42,14 +31,14 @@ Default Data Grid - The grid class fully implemented for admin data grids.
 				}
 
 				.cmt-select-wrap {
-					
+
 					.cmt-select {
 						@include rounded( 0 );
 
 						.cmt-selected {
 							@include rounded( 0 );
 						}
-						
+
 						.cmt-selected, .cmt-select-list {
 							@include shadow-inset( 0, 0, 0, $color-secondary-l, $spread: 0px );
 						}
@@ -65,7 +54,7 @@ Default Data Grid - The grid class fully implemented for admin data grids.
 		.grid-report {
 
 			.grid-report-fields {
-				
+
 				.field-title {
 					line-height: 2.4em;
 				}

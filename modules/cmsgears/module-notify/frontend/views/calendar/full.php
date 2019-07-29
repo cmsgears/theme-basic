@@ -3,8 +3,7 @@
 use yii\helpers\Url;
 
 // Config
-$coreProperties = $this->context->getCoreProperties();
-
+$coreProperties		= $this->context->getCoreProperties();
 $themeTemplates		= Yii::getAlias( '@themeTemplates' );
 $breezeTemplates	= Yii::getAlias( '@breeze/templates' );
 
@@ -14,7 +13,7 @@ $apixBase	= 'user';
 $returnUrl	= $this->context->returnUrl;
 
 // Page
-$this->title = 'All Events | Calendar';
+$this->title = 'Calendar Events | ' . $coreProperties->getSiteName();
 
 // Sidebar
 $this->context->sidebar	= [ 'parent' => 'sidebar-calendar' ];

@@ -145,7 +145,7 @@ function initListeners() {
 	jQuery( '.cscroller' ).mCustomScrollbar( { autoHideScrollbar: true } );
 
 	// Auto save checkbox action
-	jQuery( '.cmt-checkbox input' ).on( 'input', function() {
+	jQuery( '.checkbox-autosave input' ).on( 'input', function() {
 
 		jQuery( this ).parent().find( '.cmt-click' ).click();
 	});
@@ -155,7 +155,7 @@ function initListeners() {
 
 function initDatePickers() {
 
-	// Datepicker
+	// jQuery Datepicker
 	var datepickers = jQuery( '.datepicker' );
 
 	datepickers.each( function() {

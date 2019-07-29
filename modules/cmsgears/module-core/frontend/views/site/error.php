@@ -2,6 +2,7 @@
 // Yii Imports
 use yii\helpers\Html;
 
+// Config
 $coreProperties = $this->context->getCoreProperties();
 $this->title 	= 'Error | ' . $coreProperties->getSiteTitle();
 

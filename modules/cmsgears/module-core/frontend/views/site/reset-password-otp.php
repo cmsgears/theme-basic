@@ -6,9 +6,16 @@ use yii\helpers\Url;
 use cmsgears\core\common\widgets\ActiveForm;
 use cmsgears\widgets\block\BasicBlock;
 
+// Config
 $coreProperties = $this->context->getCoreProperties();
-$this->title 	= $coreProperties->getSiteTitle() . " | Reset Password";
+$this->title 	= 'Reset Password | ' . $coreProperties->getSiteTitle();
 $resourceUrl	= $coreProperties->getResourceUrl();
+
+// Breadcrumbs
+$this->context->breadcrumbs	= [
+	'base' => [ [ 'label' => 'Home', 'url' =>  Url::toRoute( [ '/home' ], true ) ] ],
+	'all' => [ [ 'label' => 'Reset Password' ] ]
+];
 ?>
 <?php BasicBlock::begin([
 	'options' => [ 'id' => 'block-public', 'class' => 'cmt-block block block-basic', 'cmt-block' => 'block-qtf-auto' ],

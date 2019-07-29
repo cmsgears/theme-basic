@@ -2,10 +2,10 @@
 namespace themes\basic\assets;
 
 // Yii Imports
-use Yii;
 use yii\web\View;
 
 // CMG Imports
+use cmsgears\core\common\config\CoreProperties;
 use cmsgears\files\config\FileProperties;
 
 /**
@@ -47,7 +47,7 @@ class InlineAssets extends \yii\web\AssetBundle {
 
 		parent::registerAssetFiles( $view );
 
-		$coreProperties = Yii::$app->controller->getCoreProperties();
+		$coreProperties = CoreProperties::getInstance();
 		$fileProperties	= FileProperties::getInstance();
 
 		$siteUrl	= $coreProperties->getSiteUrl();

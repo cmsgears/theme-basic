@@ -1,10 +1,20 @@
 <?php
+// Yii Imports
+use yii\helpers\Url;
+
 // CMG Imports
 use cmsgears\widgets\block\BasicBlock;
 
+// Config
 $coreProperties = $this->context->getCoreProperties();
-$this->title 	= $coreProperties->getSiteTitle() . " | Confirm Account";
+$this->title 	= 'Confirm Account | ' . $coreProperties->getSiteTitle();
 $resourceUrl	= $coreProperties->getResourceUrl();
+
+// Breadcrumbs
+$this->context->breadcrumbs	= [
+	'base' => [ [ 'label' => 'Home', 'url' =>  Url::toRoute( [ '/home' ], true ) ] ],
+	'all' => [ [ 'label' => 'Confirm Account' ] ]
+];
 ?>
 <?= BasicBlock::widget([
 	'options' => [ 'id' => 'block-public', 'class' => 'cmt-block block block-basic', 'cmt-block' => 'block-qtf-auto' ],

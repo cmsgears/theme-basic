@@ -1,14 +1,23 @@
 <?php
+// Yii Imports
+use yii\helpers\Url;
+
 // CMG Imports
 use cmsgears\widgets\block\BasicBlock;
 use cmsgears\widgets\comment\submit\SubmitFeedback;
 
-
+// Config
 $coreProperties = $this->context->getCoreProperties();
-$this->title 	= $coreProperties->getSiteTitle() . " | Feedback";
+$this->title 	= 'Feedback | ' . $coreProperties->getSiteTitle();
 $resourceUrl	= $coreProperties->getResourceUrl();
 
-$model		= Yii::$app->core->site;
+$model = Yii::$app->core->site;
+
+// Breadcrumbs
+$this->context->breadcrumbs	= [
+	'base' => [ [ 'label' => 'Home', 'url' =>  Url::toRoute( [ '/home' ], true ) ] ],
+	'all' => [ [ 'label' => 'Feedback' ] ]
+];
 ?>
 <?php BasicBlock::begin([
 	'options' => [ 'id' => 'block-public', 'class' => 'cmt-block block block-basic', 'cmt-block' => 'block-qtf-auto' ],

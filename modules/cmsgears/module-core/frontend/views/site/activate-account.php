@@ -1,11 +1,21 @@
 <?php
+// Yii Imports
+use yii\helpers\Url;
+
 // CMG Imports
 use cmsgears\core\common\widgets\ActiveForm;
 use cmsgears\widgets\block\BasicBlock;
 
+// Config
 $coreProperties = $this->context->getCoreProperties();
-$this->title 	= $coreProperties->getSiteTitle() . " | Activate Account";
+$this->title 	= 'Activate Account | ' . $coreProperties->getSiteTitle();
 $resourceUrl	= $coreProperties->getResourceUrl();
+
+// Breadcrumbs
+$this->context->breadcrumbs	= [
+	'base' => [ [ 'label' => 'Home', 'url' =>  Url::toRoute( [ '/home' ], true ) ] ],
+	'all' => [ [ 'label' => 'Activate Account' ] ]
+];
 ?>
 <?php BasicBlock::begin([
 	'options' => [ 'id' => 'block-public', 'class' => 'cmt-block block block-basic', 'cmt-block' => 'block-qtf-auto' ],

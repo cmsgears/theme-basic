@@ -88,7 +88,7 @@ class m180812_112655_theme_basic extends \cmsgears\core\common\base\Migration {
 
 		$templates = [
 			// Theme Templates
-			[ $theme->id, $master->id, $master->id, 'Contact', 'contact', 'block', null, null, true, 'Default layout for contact block.', null, null, null, null, null, null, null, 'templates\models\core\settings\BlockSettings', '@templates/core/block/default/forms', 'default', true, null, false, '@themeTemplates/block/contact', null, DateUtil::getDateTime(), DateUtil::getDateTime(), '{ "class": "block-basic block-default" }', null, null ]
+			[ $theme->id, $master->id, $master->id, 'Contact', "$prefix-contact", 'block', null, null, true, 'Default layout for contact block.', null, null, null, null, null, null, null, 'templates\models\core\settings\BlockSettings', '@templates/core/block/default/forms', 'default', true, null, false, '@themeTemplates/block/contact', null, DateUtil::getDateTime(), DateUtil::getDateTime(), '{ "class": "block-basic block-default" }', null, null ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_template', $columns, $templates );

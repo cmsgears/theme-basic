@@ -2,6 +2,7 @@
 // Yii Imports
 use yii\helpers\Html;
 
+// Config
 $dataProvider	= $widget->dataProvider;
 $models			= $dataProvider->getModels();
 

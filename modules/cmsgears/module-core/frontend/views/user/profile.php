@@ -3,6 +3,7 @@
 use yii\helpers\Url;
 
 // Config
+$coreProperties		= $this->context->getCoreProperties();
 $themeTemplates		= Yii::getAlias( '@themeTemplates' );
 $breezeTemplates	= Yii::getAlias( '@breeze/templates' );
 
@@ -15,7 +16,7 @@ $frmSpinner = "$themeTemplates/components/spinners/form.php";
 $apixBase = 'user';
 
 // Page
-$this->title = 'Profile | User';
+$this->title = 'Profile | ' . $coreProperties->getSiteTitle();
 
 // Sidebar
 $this->context->sidebar	= [ 'parent' => 'sidebar-profile' ];

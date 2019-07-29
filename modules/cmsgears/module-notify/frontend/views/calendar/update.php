@@ -17,7 +17,7 @@ $coreProperties = $this->context->getCoreProperties();
 $returnUrl = $this->context->returnUrl;
 
 // Page
-$this->title = 'Update Event | Calendar';
+$this->title = 'Update Calendar Event | ' . $coreProperties->getSiteName();
 
 // Sidebar
 $this->context->sidebar	= [ 'parent' => 'sidebar-calendar' ];
