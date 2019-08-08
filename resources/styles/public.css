@@ -160,16 +160,16 @@ Blur - Blus is another mixin adding lens effect to blur underlying content and i
 Media Queries - These mixins are pre-defined media queries using the screen sizes declared in variables file.
 This section includes mixins for in-between, desktop first and mobile first approaches.
 ***********************************************************************/
-.clearfix, .row, .icon-picker-wrap, .frm-split-40-60 .form-group, .header-basic, .sidebar-control .sidebar-content-wrap .sidebar-header .sidebar-title {
+.clearfix, .row, .icon-picker-wrap, .cmt-choice, .cmt-switch-wrap, .frm-split-40-60 .form-group, .header-basic, .sidebar-control .sidebar-content-wrap .sidebar-header .sidebar-title {
   zoom: 1;
 }
-.clearfix:before, .row:before, .icon-picker-wrap:before, .frm-split-40-60 .form-group:before, .header-basic:before, .sidebar-control .sidebar-content-wrap .sidebar-header .sidebar-title:before, .clearfix:after, .row:after, .icon-picker-wrap:after, .frm-split-40-60 .form-group:after, .header-basic:after, .sidebar-control .sidebar-content-wrap .sidebar-header .sidebar-title:after {
+.clearfix:before, .row:before, .icon-picker-wrap:before, .cmt-choice:before, .cmt-switch-wrap:before, .frm-split-40-60 .form-group:before, .header-basic:before, .sidebar-control .sidebar-content-wrap .sidebar-header .sidebar-title:before, .clearfix:after, .row:after, .icon-picker-wrap:after, .cmt-choice:after, .cmt-switch-wrap:after, .frm-split-40-60 .form-group:after, .header-basic:after, .sidebar-control .sidebar-content-wrap .sidebar-header .sidebar-title:after {
   content: "\0020";
   display: block;
   height: 0;
   overflow: hidden;
 }
-.clearfix:after, .row:after, .icon-picker-wrap:after, .frm-split-40-60 .form-group:after, .header-basic:after, .sidebar-control .sidebar-content-wrap .sidebar-header .sidebar-title:after {
+.clearfix:after, .row:after, .icon-picker-wrap:after, .cmt-choice:after, .cmt-switch-wrap:after, .frm-split-40-60 .form-group:after, .header-basic:after, .sidebar-control .sidebar-content-wrap .sidebar-header .sidebar-title:after {
   clear: both;
 }
 
@@ -709,6 +709,11 @@ Notes:
   -webkit-box-shadow: 1px 1px 5px 0 rgba(255, 255, 255, 0.6);
   -moz-box-shadow: 1px 1px 5px 0 rgba(255, 255, 255, 0.6);
   box-shadow: 1px 1px 5px 0 rgba(255, 255, 255, 0.6);
+}
+.shadow.shadow-none {
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
 }
 .shadow.shadow-ignore {
   -webkit-box-shadow: 0 0 0 0 white;
@@ -1776,7 +1781,7 @@ Notes:
 }
 
 .pattern.pattern-default {
-  background-image: url("../images/pattern-default.png");
+  background-image: url("../images/basic/pattern-default.png");
 }
 
 /**********************************************************************
@@ -4586,9 +4591,9 @@ html, body {
     font-size: 14px;
   }
 }
-@media only screen and (min-width: 1025px) {
+@media only screen and (min-width: 1601px) {
   html, body {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
@@ -6499,7 +6504,7 @@ blockquote:after {
   list-style-type: decimal;
 }
 .list.style-image-default {
-  list-style-image: url("../images/list-default.jpg");
+  list-style-image: url("../images/basic/list-default.jpg");
 }
 .list.position-inside {
   list-style-position: inside;
@@ -6670,15 +6675,15 @@ Details: It defines the custom element styles as listed below:
 }
 
 /**********************************************************************
-Description: It defines the styles of custom elements available in Breeze Framework. Most of 
-these elements are also dependent on Velocity. Though the JS implementation can also be 
+Description: It defines the styles of custom elements available in Breeze Framework. Most of
+these elements are also dependent on Velocity. Though the JS implementation can also be
 done for other standard libraries.
 
 Dependencies: variables, mixins, transitions, transformation
 
 Details: It defines the custom element styles as listed below:
 
-1. Select - The custom select allows user to select an item. It override the default select ui 
+1. Select - The custom select allows user to select an item. It override the default select ui
 dependent on browsers. It depends on cmtSelect jQuery plugin available in Velocity.
 ***********************************************************************/
 .cmt-select-wrap {
@@ -6710,6 +6715,7 @@ dependent on browsers. It depends on cmtSelect jQuery plugin available in Veloci
   white-space: nowrap;
   text-align: left;
   color: #495666;
+  vertical-align: middle;
 }
 .cmt-select-wrap .cmt-select .cmt-selected .s-icon {
   position: absolute;
@@ -6812,7 +6818,7 @@ dependent on browsers. It depends on cmtSelect jQuery plugin available in Veloci
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  padding: 0.5em;
+  padding: 0.3em;
   cursor: pointer;
   padding-right: 1.8em;
   text-shadow: 0 0 0 #000;
@@ -6831,7 +6837,7 @@ dependent on browsers. It depends on cmtSelect jQuery plugin available in Veloci
   box-shadow: none;
   outline: none;
   font-size: 1em;
-  padding-top: 0.70em;
+  padding-top: 0.60em;
   padding-left: 0.20em;
   padding-right: 0.60em;
   margin: 0;
@@ -6914,6 +6920,34 @@ of JS and purely css solutions.
   content: "\3a";
 }
 
+.cmt-choice.cmt-choice-inline label {
+  display: inline-block;
+  margin-right: 1em;
+  width: auto;
+}
+.cmt-choice.cmt-choice-row-2 label {
+  float: left;
+  width: 50%;
+}
+.cmt-choice.cmt-choice-row-4 label {
+  float: left;
+  width: 25%;
+}
+@media only screen and (max-width: 1024px) {
+  .cmt-choice.cmt-choice-row-4 label {
+    width: 50%;
+  }
+}
+.cmt-choice.cmt-choice-row-5 label {
+  float: left;
+  width: 20%;
+}
+@media only screen and (max-width: 1024px) {
+  .cmt-choice.cmt-choice-row-5 label {
+    width: 50%;
+  }
+}
+
 /**********************************************************************
 Description: It defines the styles of custom elements available in CMT-UI css framework. Most of these
 			 elements are also dependent on CMT-JS library. Though the JS implementation can also be done
@@ -6966,11 +7000,17 @@ Dependencies: variables, mixins, transitions, transformation
 
 Details: It defines the custom element styles as listed below:
 
-* Switch          - It's an advanced and custom element overriding default behavoir of radio to act like a switch.
+Switch - It's an advanced and custom element overriding default behavoir of radio to act like a switch.
 ***********************************************************************/
 .cmt-switch {
   position: relative;
   display: inline-block;
+}
+.cmt-switch label, .cmt-switch .label {
+  vertical-align: middle;
+}
+.cmt-switch label {
+  margin-right: 1em;
 }
 .cmt-switch .cmt-toggle {
   position: absolute;
@@ -7026,6 +7066,37 @@ Details: It defines the custom element styles as listed below:
 }
 .cmt-switch .cmt-toggle-round:checked + label:after {
   margin-left: 3.5em;
+}
+
+.cmt-switch-wrap .cmt-switch {
+  margin-bottom: 1em;
+}
+.cmt-switch-wrap.cmt-switch-inline .cmt-switch {
+  display: inline-block;
+  margin-right: 1em;
+  width: auto;
+}
+.cmt-switch-wrap.cmt-switch-row-2 .cmt-switch {
+  float: left;
+  width: 50%;
+}
+.cmt-switch-wrap.cmt-switch-row-4 .cmt-switch {
+  float: left;
+  width: 25%;
+}
+@media only screen and (max-width: 1024px) {
+  .cmt-switch-wrap.cmt-switch-row-4 .cmt-switch {
+    width: 50%;
+  }
+}
+.cmt-switch-wrap.cmt-switch-row-5 .cmt-switch {
+  float: left;
+  width: 20%;
+}
+@media only screen and (max-width: 1024px) {
+  .cmt-switch-wrap.cmt-switch-row-5 .cmt-switch {
+    width: 50%;
+  }
 }
 
 /**********************************************************************
@@ -7758,11 +7829,15 @@ label {
   color: #363636 !important;
 }
 
-input[type="submit"], input[type="button"], button, .btn, .cmt-select-wrap {
+input[type="submit"], input[type="button"], button, .btn {
   line-height: 1.4em;
 }
 
-label, input[type="text"], input[type="email"], input[type="password"], textarea, select {
+label, input[type="text"], input[type="email"], input[type="password"], textarea {
+  line-height: 1.4em;
+}
+
+select, .cmt-select-wrap .cmt-selected {
   line-height: 1.4em;
 }
 
@@ -8026,7 +8101,10 @@ label, input[type="text"], input[type="email"], input[type="password"], textarea
     padding-left: 0;
   }
 }
-.form input[type="text"], .form input[type="email"], .form input[type="password"], .form textarea, .form select, .form .icon-picker-wrap {
+.form input[type="text"], .form input[type="email"], .form input[type="password"], .form textarea, .form select, .form .icon-picker-wrap, .form .btn, .form .btn-icon {
+  margin-bottom: 0.5rem;
+}
+.form .frm-element-25, .form .frm-element-50, .form .frm-element-75, .form .frm-element-small, .form .frm-element-medium, .form .frm-element-large, .form .frm-element-xlarge {
   margin-bottom: 0.5rem;
 }
 .form .frm-icon-element .cmti, .form .frm-icon-element .icon, .form .frm-icon-element .fa {
@@ -11697,7 +11775,7 @@ Details: It defines the styles for foxslider components as listed below:
   width: 48px;
   position: relative;
   top: 45%;
-  background-image: url("../images//icons/arrows.png");
+  background-image: url("../images/basic//icons/arrows.png");
   background-repeat: none;
   background-position: 0px 0px;
 }
@@ -11735,7 +11813,7 @@ Details: It defines the styles for foxslider components as listed below:
   margin-right: 5px;
   margin-top: 3px;
   display: inline-block;
-  background-image: url("../images/icons/bullets.png");
+  background-image: url("../images/basic/icons/bullets.png");
   background-position: -16px 0px;
 }
 .fx-slider-basic .bullets .bullet:hover {
@@ -11824,7 +11902,7 @@ Details: It defines the styles for foxslider components as listed below:
   width: 48px;
   position: relative;
   top: 45%;
-  background-image: url("../images//icons/arrows.png");
+  background-image: url("../images/basic//icons/arrows.png");
   background-repeat: none;
   background-position: 0px 0px;
 }
@@ -11862,7 +11940,7 @@ Details: It defines the styles for foxslider components as listed below:
   margin-right: 5px;
   margin-top: 3px;
   display: inline-block;
-  background-image: url("../images/icons/bullets.png");
+  background-image: url("../images/basic/icons/bullets.png");
   background-position: -16px 0px;
 }
 .fx-slider-regular .bullets .bullet:hover {
