@@ -79,7 +79,7 @@ class m180812_112655_theme_basic extends \cmsgears\core\common\base\Migration {
 
 	private function insertTemplates() {
 
-		$theme	= Theme::findBySlug( 'basic' );
+		$theme	= Theme::findBySlugType( 'basic', CoreGlobal::TYPE_SITE );
 		$prefix	= $this->themePrefix;
 
 		$master	= $this->master;
@@ -96,7 +96,7 @@ class m180812_112655_theme_basic extends \cmsgears\core\common\base\Migration {
 
 	private function insertObjects() {
 
-		$theme	= Theme::findBySlug( 'basic' );
+		$theme	= Theme::findBySlugType( 'basic', CoreGlobal::TYPE_SITE );
 		$prefix	= $this->themePrefix;
 
 		$master	= $this->master;
@@ -116,7 +116,7 @@ class m180812_112655_theme_basic extends \cmsgears\core\common\base\Migration {
 	private function configureTheme() {
 
 		// Theme
-		$mainTheme = Theme::findBySlug( 'basic' );
+		$mainTheme = Theme::findBySlugType( 'basic', CoreGlobal::TYPE_SITE );
 
 		// Site
 		$siteId = $this->site->id;
