@@ -1,12 +1,20 @@
 <?php
-use themes\basic\assets\PublicAssets;
+// CMG Imports
+use cmsgears\core\common\utilities\ContentUtil;
 
-PublicAssets::register( $this );
+use themes\basic\assets\InlineAssets;
 
-// Variables available for headers, sidebars and footers included within this layout
+ContentUtil::initModel( $this );
+
+InlineAssets::register( $this );
+
+$this->registerAssetBundle( 'public' );
+
+// Common variables available for headers, sidebars and footers included within this layout
 $coreProperties = $this->context->getCoreProperties();
 $themePath		= Yii::getAlias( '@themes/basic' );
-$user			= Yii::$app->user->getIdentity();
+$user			= Yii::$app->core->getUser();
+$resourceUrl	= $coreProperties->getResourceUrl();
 ?>
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
@@ -14,9 +22,9 @@ $user			= Yii::$app->user->getIdentity();
     <head>
 		<?php include "$themePath/views/headers/main.php"; ?>
     </head>
-    <body>
+    <body id="scroll-top">
         <?php $this->beginBody(); ?>
-		<div id='pre-loader-main' class="max-area-cover fixed"><div class="valign-center cmti-5x cmti-spinner-1 spin"></div></div>
+		<?php include "$themePath/views/templates/components/spinners/page.php"; ?>
 		<?php
 			if( isset( $user ) ) {
 
@@ -27,8 +35,8 @@ $user			= Yii::$app->user->getIdentity();
 				include "$themePath/views/headers/public.php";
 			}
 		?>
-        <div class="container-main">
-	        <div class="wrap-content wrap-content-main">
+        <div class="container container-main container-public">
+	        <div class="wrap-content wrap-content-main wrap-content-public">
 	        	<div class="content">
 	        		<?= $content ?>
 	        	</div>
@@ -38,4 +46,5 @@ $user			= Yii::$app->user->getIdentity();
         <?php $this->endBody(); ?>
     </body>
 </html>
-<?php $this->endPage(); ?>
+<?php
+$this->endPage();

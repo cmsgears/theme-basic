@@ -1,12 +1,4 @@
 <?php
-/**
- * This file is part of CMSGears Framework. Please view License file distributed
- * with the source code for license details.
- *
- * @link https://www.cmsgears.org/
- * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
- */
-
 namespace themes\basic\assets;
 
 /**
@@ -51,8 +43,8 @@ class LandingAssets extends AssetBundle {
 
 		$this->js[] = 'scripts/main.js';
 		$this->js[] = 'scripts/search.js';
-
-		$this->depends[] = 'foxslider\widgets\assets\FxsAssets';
+		$this->js[] = 'scripts/sliders.js';
+		$this->js[] = 'scripts/popups.js';
 	}
 
     // Instance methods --------------------------------------------

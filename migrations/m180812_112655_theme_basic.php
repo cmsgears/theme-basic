@@ -1,16 +1,6 @@
 <?php
-/**
- * This file is part of CMSGears Framework. Please view License file distributed
- * with the source code for license details.
- *
- * @link https://www.cmsgears.org/
- * @copyright Copyright (c) 2015 VulpineCode Technologies Pvt. Ltd.
- */
-
 // CMG Imports
 use cmsgears\core\common\config\CoreGlobal;
-
-use cmsgears\core\common\base\Migration;
 
 use cmsgears\core\common\models\entities\ObjectData;
 use cmsgears\core\common\models\entities\Site;
@@ -25,7 +15,7 @@ use cmsgears\core\common\utilities\DateUtil;
  *
  * @since 1.0.0
  */
-class m180812_112655_theme_basic extends Migration {
+class m180812_112655_theme_basic extends \cmsgears\core\common\base\Migration {
 
 	// Public variables
 
@@ -58,7 +48,10 @@ class m180812_112655_theme_basic extends Migration {
 		$this->insertTheme();
 
 		// Templates
-		$this->insertThemeTemplates();
+		$this->insertTemplates();
+
+		// Objects
+		$this->insertObjects();
 
 		// Site
 		$this->configureTheme();
@@ -69,7 +62,7 @@ class m180812_112655_theme_basic extends Migration {
 		$columns = [ 'createdBy', 'modifiedBy', 'name', 'slug', 'type', 'description', 'renderer', 'basePath', 'createdAt', 'modifiedAt', 'data' ];
 
 		$themes = [
-			[ $this->master->id, $this->master->id, 'Basic', 'basic', CoreGlobal::TYPE_SITE, 'Blog Theme.', 'default', '@themes/blog', DateUtil::getDateTime(), DateUtil::getDateTime(), null ]
+			[ $this->master->id, $this->master->id, 'Basic', 'basic', CoreGlobal::TYPE_SITE, 'Basic Theme.', 'default', '@themes/basic', DateUtil::getDateTime(), DateUtil::getDateTime(), NULL ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_theme', $columns, $themes );
@@ -80,28 +73,50 @@ class m180812_112655_theme_basic extends Migration {
 			$this->update( $this->cmgPrefix . 'core_theme', [ 'default' => false ], [ 'default' => true ] );
 
 			// Make current as default
-			$this->update( $this->cmgPrefix . 'core_theme', [ 'default' => true ], "slug='blog'" );
+			$this->update( $this->cmgPrefix . 'core_theme', [ 'default' => true ], "slug='basic'" );
 		}
 	}
 
-	private function insertThemeTemplates() {
+	private function insertTemplates() {
 
-		$theme	= Theme::findBySlug( 'basic' );
+		$theme	= Theme::findBySlugType( 'basic', CoreGlobal::TYPE_SITE );
+		$prefix	= $this->themePrefix;
 
-		$columns = [ 'themeId', 'createdBy', 'modifiedBy', 'name', 'slug', 'icon', 'type', 'active', 'description', 'classPath', 'renderer', 'fileRender', 'layout', 'layoutGroup', 'viewPath', 'view', 'createdAt', 'modifiedAt', 'htmlOptions', 'content', 'data' ];
+		$master	= $this->master;
+
+		$columns = [ 'themeId', 'createdBy', 'modifiedBy', 'name', 'slug', 'type', 'icon', 'title', 'active', 'description', 'classPath', 'dataPath', 'dataForm', 'attributesPath', 'attributesForm', 'configPath', 'configForm', 'settingsPath', 'settingsForm', 'renderer', 'fileRender', 'layout', 'layoutGroup', 'viewPath', 'view', 'createdAt', 'modifiedAt', 'htmlOptions', 'content', 'data' ];
 
 		$templates = [
-			// Theme Templates - Widget
-			//[ $theme->id, $this->master->id, $this->master->id, 'Address', "address", null, CmsGlobal::TYPE_WIDGET, true, 'It can be used to display address and location.', null, 'default', true, null, false, '@themeTemplates/widget/address', null, DateUtil::getDateTime(), DateUtil::getDateTime(), null, null, null ]
+			// Theme Templates
+			[ $theme->id, $master->id, $master->id, 'Contact', "$prefix-contact", 'block', null, null, true, 'Default layout for contact block.', null, null, null, null, null, null, null, 'templates\models\core\settings\BlockSettings', '@templates/core/block/default/forms', 'default', true, null, false, '@themeTemplates/block/contact', null, DateUtil::getDateTime(), DateUtil::getDateTime(), '{ "class": "block-basic block-default" }', null, null ]
 		];
 
 		$this->batchInsert( $this->cmgPrefix . 'core_template', $columns, $templates );
 	}
 
+	private function insertObjects() {
+
+		$theme	= Theme::findBySlugType( 'basic', CoreGlobal::TYPE_SITE );
+		$prefix	= $this->themePrefix;
+
+		$master	= $this->master;
+
+		$status	= ObjectData::STATUS_ACTIVE;
+
+		$columns = [ 'themeId', 'siteId', 'themeId', 'templateId', 'avatarId', 'bannerId', 'videoId', 'galleryId', 'createdBy', 'modifiedBy', 'name', 'slug', 'type', 'icon', 'texture', 'title', 'description', 'classPath', 'link', 'status', 'visibility', 'order', 'pinned', 'featured', 'createdAt', 'modifiedAt', 'htmlOptions', 'summary', 'content', 'data', 'gridCache', 'gridCacheValid', 'gridCachedAt' ];
+
+		$objects = [
+			// Theme Objects
+			//[ $theme->id, $site->id, NULL, $block->id, NULL, NULL, NULL, NULL, $master->id, $master->id, 'Object 1', 'object-1', CoreGlobal::TYPE_DEFAULT, 'icon', 'texture', NULL, NULL, NULL, NULL, 16000, 1500, 0, 0, 0, DateUtil::getDateTime(), DateUtil::getDateTime(), NULL, NULL, NULL, NULL, NULL, 0, NULL ]
+		];
+
+		$this->batchInsert( $this->cmgPrefix . 'core_object', $columns, $objects );
+	}
+
 	private function configureTheme() {
 
 		// Theme
-		$mainTheme = Theme::findBySlug( 'basic' );
+		$mainTheme = Theme::findBySlugType( 'basic', CoreGlobal::TYPE_SITE );
 
 		// Site
 		$siteId = $this->site->id;

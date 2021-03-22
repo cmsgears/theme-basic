@@ -12,15 +12,12 @@ namespace themes\basic;
 // Yii Imports
 use Yii;
 
-// CMG Imports
-use cmsgears\core\common\base\Theme as BaseTheme;
-
 /**
  * Theme represents an application theme.
  *
  * @since 1.0.0
  */
-class Theme extends BaseTheme {
+class Theme extends \cmsgears\core\common\base\Theme {
 
 	// Variables ---------------------------------------------------
 

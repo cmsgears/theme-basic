@@ -16,9 +16,12 @@ function initSearch() {
 	// Keypress
 	jQuery( '.search-terms' ).keypress( function( e ) {
 
-		searchBro( jQuery( this ).closest( '.search-box' ) );
+		if( e.which == 13 ) {
+
+			searchBro( jQuery( this ).closest( '.search-box' ) );
+		}
 	});
-	
+
 	// Init Default Filters
 	initTextFilter( '.filter-text' );
 	initCheckboxFilter( '.filter-checkbox' );
@@ -29,21 +32,26 @@ function searchBro( searchBox ) {
 
 	var pageUrl		= window.location.href;
 	var keywords	= searchBox.find( '.search-terms' ).val();
+	var param		= cmt.utils.data.hasAttribute( searchBox, 'data-param' ) ? searchBox.attr( 'data-param' ) : 'keywords';
 
-	if( cmt.utils.data.hasAttribute( searchBox, 'url' ) ) {
+	if( cmt.utils.data.hasAttribute( searchBox, 'data-url' ) ) {
 
-		pageUrl = siteUrl + searchBox.attr( 'url' );
+		pageUrl = siteUrl + searchBox.attr( 'data-url' );
 	}
 
 	// Search Keywords
 	if( null != keywords && keywords.length > 0 ) {
 
-		pageUrl = cmt.utils.data.updateUrlParam( pageUrl, 'keywords', keywords );
+		pageUrl = cmt.utils.data.updateUrlParam( pageUrl, param, keywords );
 	}
 	else {
 
-		pageUrl = cmt.utils.data.removeParam( pageUrl, 'keywords' );
+		pageUrl = cmt.utils.data.removeParam( pageUrl, param );
 	}
+
+	// Clear Pagination
+	pageUrl = cmt.utils.data.removeParam( pageUrl, 'page' );
+	pageUrl = cmt.utils.data.removeParam( pageUrl, 'per-page' );
 
 	window.location	= pageUrl;
 }
